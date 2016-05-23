@@ -14,5 +14,5 @@
 			<?php } ?>
 		</ul>
 	</div>			
-<div class="community-nav-below"><a href="/post-photo/"><span class="singl-post-photo"><span>Share Your Photo Now!</span></span></a></div>
+<div class="community-nav-below clearfix"><a href="/post-photo/"><span class="singl-post-photo"><span>Share Your Photo Now!</span></span></a></div>
 </div>

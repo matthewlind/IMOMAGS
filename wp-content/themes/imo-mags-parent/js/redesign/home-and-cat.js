@@ -13,7 +13,9 @@ var $document 		= $(document),
 	section_loader	= $("#section_loader"),
 	page_type		= 'home';
 	
-if ($('.category')[0]) {
+if ($('.post-type-archive-reader_photos')[0]) {
+	page_type = 'post-type-archive-reader_photos';
+} else if ($('.category')[0]) {
 	page_type = 'category';
 }
 
@@ -36,12 +38,14 @@ function loadLatestPosts(p) {
 			'cat_id'		: cat_id,
 			'post_count'	: post_count,
 			'post_not'		: post_not,
-			'post_per_page'	: post_per_page
+			'post_per_page'	: post_per_page,
+			'page_type'		: page_type
 		}
 	})
 	.done(function(response) {
 		latest_list.append(response);
 		loader_anim.addClass('dnone');
+		if (page_type == 'post-type-archive-reader_photos') {FB.XFBML.parse();return false;}
 	})
 	.fail(function() { latest_list.append( $("<p/>", {text: "Something went wrong. Try to reload the page", style: "color: red;"})); });
 }
@@ -114,7 +118,7 @@ function loadHomeBTF() {
 $(document).ready(function() {	
 				
 	l_container.on("click", "#btn_more_posts", function() {
-		loadLatestPosts(11);	
+		loadLatestPosts(10);	
 	});
 	
 });// end document.ready

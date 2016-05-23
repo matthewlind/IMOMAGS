@@ -32,12 +32,11 @@ $this_cat_name	= $this_cat->name;
 				if ( $query->have_posts() ) {
 					while ( $query->have_posts() ) {
 						$query->the_post();
-						$thumb 			= get_the_post_thumbnail($post->ID,"list-thumb");
 						$author 		= get_the_author();
 						$acf_byline 	= get_field("byline", $post->ID);
 						?>
 						<li class="c-item">
-							<a href="<?php the_permalink(); ?>"><?php echo $thumb; ?></a>
+							<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('list-thumb'); ?></a>
 							<div class="c-info">
 								<div class="c-cats"><?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(null, ','); } ?></div>
 								<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>

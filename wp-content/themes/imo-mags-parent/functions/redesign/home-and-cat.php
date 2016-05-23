@@ -26,7 +26,7 @@ function print_home_script() {
 
 
 
-// Load More Posts
+// Load More Posts, Home, Category
 //--------------------------------------------//	
 if ( is_admin()) {  
     add_action( 'wp_ajax_h_load_latest', 'h_load_latest' );
@@ -43,10 +43,15 @@ function h_load_latest() {
     $post_count		= $_POST['post_count'];
     $post_per_page	= $_POST['post_per_page'];
 	$post_not		= $_POST['post_not'];
+	$page_type		= $_POST['page_type'];
 	$post_not_array = explode(',', $post_not);
 	$p_counter		= 0;
-		
+	$post_type		= 'post';
+	
+	if ($page_type == 'post-type-archive-reader_photos') $post_type = 'reader_photos';
+			
 	$args = array (
+		'post_type'			=> $post_type,
 		'cat'         		=> $cat_id,
 		'posts_per_page'	=> $post_per_page,
 		'order'				=> 'DESC',
@@ -54,6 +59,7 @@ function h_load_latest() {
 		'post__not_in'		=> $post_not_array,
 		'offset'			=> $post_count
 	);
+	
 	// The Query
 	$query = new WP_Query( $args );
 	// The Loop
@@ -62,18 +68,21 @@ function h_load_latest() {
 			$query->the_post();	
 			$author 		= get_the_author();
 			$acf_byline 	= get_field("byline", $post->ID);
-			$thumb 			= get_the_post_thumbnail($post->ID,"list-thumb");
 			?>
 			<li class="c-item">
-				<a href="<?php the_permalink(); ?>"><?php echo $thumb; ?></a>
+				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('list-thumb'); ?></a>
 				<div class="c-info">
 					<div class="c-cats"><?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(null, ','); } ?></div>
 					<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-					<span class="c-author"><?php if (!$acf_byline) { if ($author != 'admin') echo 'by '. $author;} else {echo $acf_byline;} ?></span>
+					<?php if ($page_type == 'post-type-archive-reader_photos') { ?>
+						<div class="fb-like fb_iframe_widget" data-href="<?php echo get_permalink(); ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+					<?php } else { ?>
+						<span class="c-author"><?php if (!$acf_byline) { if ($author != 'admin') echo 'by '. $author;} else {echo $acf_byline;} ?></span>
+					<?php } ?>
 				</div>
 			</li>
 	<?php
-			if ($p_counter == 7) { echo '<li class="c-ad ad-wrap"><span class="ad-span">Advertisement</span><div class="ad-inner"></div></li>'; }
+			if ($p_counter == 1 || $p_counter == 6) { echo '<li class="c-ad ad-wrap"><span class="ad-span">Advertisement</span><div class="ad-inner"></div></li>'; }
 			$p_counter++;
 		}
 	} else { ?>
@@ -247,7 +256,10 @@ function load_home_btf() {
 			</div>
 		</div>
 	</section>
-	<?php } ?>
+	<?php } 
+		
+		if ($page_type != 'post-type-archive-reader_photos') {
+	?>
 	<section class="section-twins">
 		<div class="section-inner-wrap clearfix">
 			<div class="twins-title">
@@ -288,7 +300,10 @@ function load_home_btf() {
 			</div>
 		</div>
 	</section>
-	<?php if ($page_type == 'home') {?>
+	<?php 
+		}
+		if ($page_type == 'home') {
+	?>
 	<section class="section-exp-cats">
 		<div class="section-inner-wrap">
 			<h1>Explore <?php echo $site_name;?></h1>
