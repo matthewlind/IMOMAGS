@@ -156,8 +156,6 @@ function imo_flex_gallery( $atts ) {
 	
 	
 	$html .= '</ul><span class="span-load-gallery"><i></i></span><section class="first-img-overlay"> <span><div class="loader-inner ball-pulse-sync"><div></div><div></div><div></div></div></span> </section></div>';
-
-	$html .= '</ul></div></div>';
 	
 	return $html;
 
