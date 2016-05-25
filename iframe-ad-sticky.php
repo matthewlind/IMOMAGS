@@ -1,6 +1,7 @@
 <?php 
 $dartDomain = $_GET['ad_code'];
 $term = $_GET['term'];
+$camp = $_GET['camp'];
 ?>
 <html>
 <head>
@@ -19,7 +20,7 @@ $term = $_GET['term'];
     googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], '300_btf').setTargeting('pos', ['btf']).addService(googletag.pubads());
 
     googletag.pubads().enableSingleRequest();
-    googletag.pubads().setTargeting('sect', ['<?php echo $term; ?>']);
+    googletag.pubads().setTargeting('sect', ['<?php echo $term; ?>']).setTargeting('camp', ['<?php echo $camp; ?>']);
     googletag.pubads().collapseEmptyDivs(); 
     googletag.pubads().enableSyncRendering();
     googletag.enableServices();
