@@ -7,7 +7,7 @@
 if( is_preview() ){
 	echo '<script type="text/javascript">var _gaq = _gaq || [];</script>';
 }
-global $term;
+global $term, $camp;
 $dartDomain = get_option("dart_domain", $default = false);
 
 $id = get_the_ID();
@@ -209,7 +209,7 @@ if (w<=599)
 
 
 function imo_sidebar($type){
-	global $term;
+	global $term, $camp;
    	//Speed up mobile load time by not loading sidebar in the background
 	if(!mobile()){
 		
@@ -225,7 +225,7 @@ function imo_sidebar($type){
 	    	echo '<div id="responderfollow"></div>';
 			echo '<div class="sidebar advert">';
 				echo '<div class="widget_advert-widget">';
-					echo '<iframe id="sticky-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-sticky.php?ad_code='.$dartDomain.'&term='.$term.'"></iframe>';
+					echo '<iframe id="sticky-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-sticky.php?ad_code='.$dartDomain.'&term='.$term.'&camp='.$camp.'"></iframe>';
 				echo '</div>';
 				get_sidebar("sticky");
 			echo '</div>';
