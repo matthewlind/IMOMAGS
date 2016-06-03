@@ -5,7 +5,9 @@
 		body 			= $('body'),
 		window_height	= window.innerHeight,
 		menu 			= $('#menu_drop'),
-		menu_container	= $('.menu-container');
+		menu_container	= $('.menu-container'),
+		h_search		= $('#h_search'),
+		h_search_form	= $('#h_search_form');
 		
 	jQuery(window).resize(function() {
 		window_height	= window.innerHeight;
@@ -86,6 +88,7 @@
 	        // Scroll Down
 	        head_wrap.removeClass('nav-down').addClass('nav-up');
 			nav_icon.removeClass('open');
+			h_search_form.removeClass('hsf-open');
 	    } else {
 	        // Scroll Up
 	        if(st + $(window).height() < $(document).height()) {
@@ -104,35 +107,33 @@
 		var clicks = menu_toggle.data('clicks');
 		if (clicks) {
 			// even clicks
-/*
-			menu.animate({
-				bottom : "100%"
-			}, 800);
-*/
 			body.removeClass('menu-open');
 			menu.removeClass('menu-down');
-			
-			//menu.css("bottom", "100%");
-			
-			
 			nav_icon.removeClass('open');
 		} else {
 			// odd clicks
-/*
-			menu.animate({
-				bottom : 0
-			}, 800);
-*/
 			body.addClass('menu-open');
-			
 			menu.addClass('menu-down');
-// 			menu.css("bottom", "0");
 			nav_icon.addClass('open');
 		}
 		menu_toggle.data("clicks", !clicks);			
 	});	
-
 	// end NAVIGATION
+	
+	
+	// SEARCH
+	h_search.click(function(event){
+		event.stopPropagation();
+		h_search_form.toggleClass('hsf-open');
+	});
+	h_search_form.click(function(event){
+		event.stopPropagation();
+	});
+	$("body").click(function(){
+		h_search_form.removeClass('hsf-open');
+	});
+	
+	
 	
 	$document.scroll(function() {
 		didScroll = true;

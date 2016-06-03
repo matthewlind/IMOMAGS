@@ -27,7 +27,6 @@
 <div class="wrapper">	
 
 
-
 <header class="main-header">
 	<div id="header_wrap" class="header-wrap">
 		<nav id="menu_drop">
@@ -60,7 +59,6 @@
 					<section id="m_drop" class="menu-close"><i class="icon-close"></i><span>&nbsp;CLOSE MENU</span></section>
 				</div>
 			</div>
-			
 		</nav>
 		<div class="head-inner">
 			<div class="head-left">
@@ -71,7 +69,7 @@
 					<div id="nav-icon3"><span></span> <span></span> <span></span> <span></span></div>
 					<span class="menu-head-span">MENU</span>
 				</div>
-				<div class="head-search">
+				<div id="h_search" class="head-search">
 					<i class="icon-search"></i>
 				</div>
 			</div>
@@ -103,6 +101,7 @@
 			</div>
 		<?php } ?>
 	</div><!-- .header-wrap -->
+	<div id="h_search_form" class="h-search-form"><?php parent_theme_get_search_form(); ?></div>
 	
 	<div class="head-bottom">
 		<div class="head-social">

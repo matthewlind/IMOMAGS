@@ -7,10 +7,17 @@
 }
 .main-h {
 	text-align: center;
-	font-size: 1.3em;
+	padding: 0 15px;
+	margin: 2em 0;
+}
+.main-h > h1 {
+	margin: 0;
+	font-size: 1.9em;
 	text-transform: uppercase;
-	padding: 0 5px;
-	margin: 1.6em 0;
+}
+.main-h > p {
+	font-size: 15px;
+	color: #555;
 }
 .sections-wrap .section-latest-posts {
 	padding-bottom: 50px;
@@ -373,7 +380,6 @@
 
 @media only screen and (min-width: 374px) {/* iPhone 6 */
 
-.main-h {font-size: 1.9em;}
 .store-item-img {height: 211px;}
 .ec-list .ec-ad {background-color: #ececec;}
 #ec_ad_inner {margin: 0 auto;}
@@ -389,6 +395,10 @@
 }
 
 @media only screen and (min-width: 600px) {
+
+.main-h {padding: 0 30px;margin: 3em 0;}
+.main-h > h1 {font-size: 2em;}
+.main-h > p {font-size: 17px;}
 	
 .subs-container {width: auto;max-width: 480px;margin: 0 auto 30px;}
 .subs-container > img {float: left;margin: 0 5% 20px 0;width: 37%;}
@@ -433,7 +443,8 @@
 
 @media only screen and (min-width: 1020px) {
 
-/* .latest-area {} */
+.main-h {padding: 0;margin: 3em auto; max-width: 700px;}
+.main-h > p {font-size: 18px;}
 .l-container {padding-right: 380px;max-width: 1020px; margin: 0 auto;}
 .l-list .l-ad-wrap {position: absolute;top: 0; right: 30px; width: 320px;margin: 0;}
 .l-ad {width: 320px;background-color: #ececec;padding-bottom: 10px;}

@@ -13,7 +13,9 @@ $site_name		= trim(get_bloginfo('name'), "Magazine");
 <div id="sections_wrap" class="sections-wrap">
 	<section class="section-latest-posts">
 		<div id="l_container" class="section-inner-wrap">
-				<h1 class="main-h">Latest News & Features</h1>
+				<header class="main-h">
+					<h1>Latest News & Features</h1>
+				</header>
 				<?php 
 					if( $features ){ 
 						$features_ids = array();

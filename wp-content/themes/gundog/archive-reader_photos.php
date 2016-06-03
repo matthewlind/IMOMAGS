@@ -59,7 +59,6 @@ $args = array(
 								?>
 							</div>
 							<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-							<div class="fb-like" data-href="<?php the_permalink(); ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
 						</div>
 					</li>
 					<?php 

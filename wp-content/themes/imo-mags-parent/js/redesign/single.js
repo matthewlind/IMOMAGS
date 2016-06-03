@@ -86,8 +86,8 @@ function loadMorePosts(p, a) {
 // Load 'Even More' Section
 //-----------------------------------------//
 function evenMore() {
-	var d 	= $document.scrollTop(),
-	even_m 	= ms_loader.offset().top - window_height + 100;
+	var d 	= $document.scrollTop();
+	if (ms_loader[0]) { var even_m 	= ms_loader.offset().top - window_height + 100; }
 	
 	if (d > even_m) {
 		ms_h1.after( $("<div/>", {'id' : 'ms_inner', 'class' : 'ms-inner'}) );
@@ -139,8 +139,10 @@ $(document).ready(function() {
 				$('.show-comm-1').text('Leave a Comment');
 			}
 		}
+/*
 		setTimeout(delWord, 3000);
 		setTimeout(changeCommPhrase, 4000);
+*/
 	} // end Disqus functions
 	
 	
