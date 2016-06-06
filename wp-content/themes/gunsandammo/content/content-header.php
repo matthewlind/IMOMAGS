@@ -164,23 +164,14 @@
         </div><!-- #branding -->
 		
         <div class="content-banner-section">
-			<?php if(mobile()){ ?>
-		        	<div class="mob-mdl-banner">
-						<?php iframe_ad("320_atf"); ?>
-					</div>
-				<?php } ?>
-				<div class="mdl-banner">
-					<?php 
-					if(!mobile() && !tablet()){
-					 	iframe_ad("billboard");
-					 }
-					if(tablet()){
-						iframe_ad("leaderboard");	
-					 }
-					 
-					
-					?>
-
+			<div class="mob-mdl-banner">
+				<?php imo_ad_placement("320_atf"); ?>
+			</div>
+			<div class="mdl-banner">
+				<?php 
+				imo_ad_placement("leaderboard"); 
+				imo_ad_placement("billboard"); 
+				?>
 			</div>
         </div>
         <div id="main" class="main clearfix js-responsive-layout">
