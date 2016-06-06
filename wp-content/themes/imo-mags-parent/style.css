@@ -24,7 +24,7 @@ fieldset, form, legend, textarea, button, input, select {
     box-sizing: border-box;
     -webkit-font-smoothing: subpixel-antialiased;
 }
-
+.iframe-ad{height: 0;}
 /* HTML5 display definitions
 -----------------------------------------------------*/
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
@@ -2351,6 +2351,7 @@ a.category-name-link:hover{
 .sidebar.advert .widget_advert-widget iframe{
 	margin-left: 5px;
 }
+#iframe-ad-atf{width: 300px;}
 iframe[style]#fb-sidebar{background-color: white !important;}
 .fb_iframe_widget iframe{z-index: 9999;}
 .foot-social .fb_iframe_widget iframe{max-height: 20px;max-width: 90px;}
