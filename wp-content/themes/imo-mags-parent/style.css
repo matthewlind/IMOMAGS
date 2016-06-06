@@ -1486,6 +1486,28 @@ a.category-name-link:hover{
     width:235px;
     height:auto;
 }
+.list-link {
+	display: inline-block;
+	float: left;
+	position: relative;
+}
+.list-play-icon {
+	position: absolute;
+	bottom: 0; left: 0;
+	width: 35px;
+	height: 35px;
+	background-color: red;
+	text-align: center;
+}
+.list-play-icon > div {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 6px 0 6px 10px;
+	border-color: transparent transparent transparent #ffffff;
+	margin-top: 11px;
+}
 .align-left{float: left;margin: 0 14px 0 0;}
 .article-brief .attachment-legacy-thumb {
     float:left;
@@ -4424,6 +4446,7 @@ table.likes-leaderboard .entry-title {
     .posts-list{padding-top: 0;}
     .article-brief, .home-featured, .home-featured-right, .posts-list{border: none;border-width: 0;}
     .article-brief .attachment-list-thumb, .attachment-index-thumb, .entry-summary-dynamic img.attachment-list-thumb{width: 100%;float: none;}
+    .list-link {float: none; width: 100%;}
 	.home-featured:first-child{padding-top: 14px;}
     
     .post-slider .nl-txt {
