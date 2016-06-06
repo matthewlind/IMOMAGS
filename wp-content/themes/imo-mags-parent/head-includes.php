@@ -180,24 +180,24 @@ var h = window.innerHeight;
 	
 if (w>=1100)
 {
-	screen = "desktop";
+	//screen = "desktop";
 	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [3, 3], 'superheader').addService(googletag.pubads());
-	    //googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [[970, 250], [728, 90]], 'billboard').addService(googletag.pubads());
-	    //googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [[300, 600], [300, 250]], '300_atf').addService(googletag.pubads());
-	    //googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [728, 90], '728_btf').addService(googletag.pubads());
+	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [[970, 250], [728, 90]], 'billboard').addService(googletag.pubads());
+	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [[300, 600], [300, 250]], '300_atf').addService(googletag.pubads());
+	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [728, 90], '728_btf').addService(googletag.pubads());
 }
 if (w>=600 && w<=1099)
 {
-	screen = "tablet";
+	//screen = "tablet";
     //googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [1, 1], 'tablet2').addService(googletag.pubads());
-    //googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [728, 90], 'leaderboard').addService(googletag.pubads());
-    //googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], '300_atf').addService(googletag.pubads());
-    //googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [728, 90], '728_btf').addService(googletag.pubads());
+    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [728, 90], 'leaderboard').addService(googletag.pubads());
+    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], '300_atf').addService(googletag.pubads());
+    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [728, 90], '728_btf').addService(googletag.pubads());
 }
 if (w<=599)
 {
-	screen = "mobile";
-    //googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [[320, 100], [320, 50]], '320_atf').addService(googletag.pubads());
+	//screen = "mobile";
+    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [[320, 100], [320, 50]], '320_atf').addService(googletag.pubads());
     //googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [1, 1], 'mobile3').addService(googletag.pubads());
     googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], '300_mobile').addService(googletag.pubads());
     googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [[320, 100], [320, 50]], '320_btf').addService(googletag.pubads());
@@ -216,7 +216,6 @@ if (w<=599)
 <?php 
 //sidebar
 
-
 function imo_sidebar($type){
 	global $term, $camp;
    	//Speed up mobile load time by not loading sidebar in the background
@@ -226,13 +225,7 @@ function imo_sidebar($type){
 		<div class="sidebar-area">
 			<div class="sidebar">
 				<div class="widget_advert-widget">
-					<?php 
-					if(tablet()){
-						echo '<iframe id="iframe-ad-atf" class="iframe-ad" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" onload="resizeIframe(this)" src="/iframe-ad-atf_tablet.php?ad_code='. $dartDomain.'&term='.$term.'&camp='.$camp.'"></iframe>';
-					}else{
-						echo '<iframe id="iframe-ad-atf" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" onload="resizeIframe(this)" src="/iframe-ad-atf.php?ad_code='. $dartDomain.'&term='.$term.'&camp='.$camp.'"></iframe>';
-					}
-					 ?>
+					<?php imo_ad_placement("300_atf"); ?>		
 				</div>
 			</div>
 		    <?php get_sidebar($type);
@@ -255,27 +248,6 @@ function imo_ad_placement($size){ ?>
 			googletag.cmd.push(function() { googletag.display('<?php echo $size; ?>'); });
 		</script>
 	</div>
-<?php } 
 
-//iframe ad placement
-function iframe_ad($type){
-	global $term, $camp;
-	$dartDomain = get_option("dart_domain", $default = false); 
-	echo '<iframe id="iframe-ad-'.$type.'" class="iframe-ad" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" onload="resizeIframe(this)" src="/iframe-ad-'.$type.'.php?ad_code='. $dartDomain.'&term='.$term.'&camp='.$camp.'"></iframe>'; 
-	
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<?php } ?>
 
