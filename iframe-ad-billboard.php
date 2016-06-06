@@ -16,23 +16,21 @@ $camp = $_GET['camp'];
 </script>
 
 <script type='text/javascript'>
-  googletag.cmd.push(function() {
-
-    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], '300_btf').setTargeting('pos', ['btf']).addService(googletag.pubads());
-
-    googletag.pubads().enableSingleRequest();
-    googletag.pubads().setTargeting('sect', ['<?php echo $term; ?>']).setTargeting('camp', ['<?php echo $camp; ?>']);
-    googletag.pubads().collapseEmptyDivs(); 
-    googletag.pubads().enableSyncRendering();
-    googletag.enableServices();
-  });
+googletag.cmd.push(function() {
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [[970, 250], [728, 90]], 'billboard').addService(googletag.pubads());
+	googletag.pubads().enableSingleRequest();
+	googletag.pubads().setTargeting('sect', ['<?php echo $term; ?>']).setTargeting('camp', ['<?php echo $camp; ?>']);
+	googletag.pubads().collapseEmptyDivs(); 
+	googletag.pubads().enableSyncRendering();
+	googletag.enableServices();
+});
 </script>
 
 </head>
 <body>
-<div id='300_btf'>
+<div id='billboard'>
 		<script type='text/javascript'>
-			googletag.cmd.push(function() { googletag.display('300_btf'); });
+			googletag.cmd.push(function() { googletag.display('billboard'); });
 		</script>
 	</div>
 
