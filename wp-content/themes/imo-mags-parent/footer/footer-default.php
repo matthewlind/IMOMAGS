@@ -5,7 +5,7 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 			</div><!-- #main -->
 			<div class="content-banner-section footer-728">
 	        	<div class="mdl-banner">
-					 <?php iframe_ad("728_btf"); ?>
+					 <?php imo_ad_placement("728_btf"); ?>
 				</div>
 			</div>
 		</div><!-- .layout-frame -->

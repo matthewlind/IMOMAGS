@@ -216,6 +216,7 @@ if (w<=599)
 <?php 
 //sidebar
 
+
 function imo_sidebar($type){
 	global $term, $camp;
    	//Speed up mobile load time by not loading sidebar in the background
@@ -250,4 +251,3 @@ function imo_ad_placement($size){ ?>
 	</div>
 
 <?php } ?>
-
