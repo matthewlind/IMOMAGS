@@ -7,7 +7,7 @@
 if( is_preview() ){
 	echo '<script type="text/javascript">var _gaq = _gaq || [];</script>';
 }
-global $term;
+global $term, $camp;
 $dartDomain = get_option("dart_domain", $default = false);
 
 $id = get_the_ID();
@@ -131,7 +131,12 @@ else {
 $term = str_replace(" &amp; ", "-", $term);
 $term = str_replace("'", "", $term);
 ?>
-
+<script language="javascript" type="text/javascript">
+	function resizeIframe(obj) {
+		obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+		obj.style.width = obj.contentWindow.document.body.scrollWidth + 'px';
+	}
+</script>
 <script type='text/javascript'>
   (function() {
     var useSSL = 'https:' == document.location.protocol;
@@ -144,6 +149,7 @@ $term = str_replace("'", "", $term);
 <script type='text/javascript'>
 googletag.cmd.push(function() {
 
+var screen;
 var w = window.innerWidth;
 var h = window.innerHeight;
 
@@ -174,6 +180,7 @@ var h = window.innerHeight;
 	
 if (w>=1100)
 {
+	//screen = "desktop";
 	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [3, 3], 'superheader').addService(googletag.pubads());
 	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [[970, 250], [728, 90]], 'billboard').addService(googletag.pubads());
 	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [[300, 600], [300, 250]], '300_atf').addService(googletag.pubads());
@@ -181,6 +188,7 @@ if (w>=1100)
 }
 if (w>=600 && w<=1099)
 {
+	//screen = "tablet";
     //googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [1, 1], 'tablet2').addService(googletag.pubads());
     googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [728, 90], 'leaderboard').addService(googletag.pubads());
     googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], '300_atf').addService(googletag.pubads());
@@ -188,6 +196,7 @@ if (w>=600 && w<=1099)
 }
 if (w<=599)
 {
+	//screen = "mobile";
     googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [[320, 100], [320, 50]], '320_atf').addService(googletag.pubads());
     //googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [1, 1], 'mobile3').addService(googletag.pubads());
     googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], '300_mobile').addService(googletag.pubads());
@@ -200,7 +209,7 @@ if (w<=599)
     googletag.pubads().enableSyncRendering();
     googletag.enableServices();
     
-    
+	//console.log(screen);   
   });
 
 </script>
@@ -209,7 +218,7 @@ if (w<=599)
 
 
 function imo_sidebar($type){
-	global $term;
+	global $term, $camp;
    	//Speed up mobile load time by not loading sidebar in the background
 	if(!mobile()){
 		
@@ -225,7 +234,7 @@ function imo_sidebar($type){
 	    	echo '<div id="responderfollow"></div>';
 			echo '<div class="sidebar advert">';
 				echo '<div class="widget_advert-widget">';
-					echo '<iframe id="sticky-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-sticky.php?ad_code='.$dartDomain.'&term='.$term.'"></iframe>';
+					echo '<iframe id="sticky-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-sticky.php?ad_code='.$dartDomain.'&term='.$term.'&camp='.$camp.'"></iframe>';
 				echo '</div>';
 				get_sidebar("sticky");
 			echo '</div>';

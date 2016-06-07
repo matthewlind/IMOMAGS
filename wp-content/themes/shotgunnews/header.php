@@ -292,13 +292,13 @@
         </div><!-- #branding -->
 		<div class="content-banner-section">
 			<div class="mob-mdl-banner">
-				<?php imo_ad_placement("320_atf"); ?>
-			</div>
-			<div class="mdl-banner">
-				<?php 
-				imo_ad_placement("leaderboard"); 
-				imo_ad_placement("billboard"); 
-				?>
+					<?php imo_ad_placement("320_atf"); ?>
+				</div>
+				<div class="mdl-banner">
+					<?php 
+					imo_ad_placement("leaderboard"); 
+					imo_ad_placement("billboard"); 
+					?>
 			</div>
         </div>
         <div id="main" class="main clearfix js-responsive-layout">

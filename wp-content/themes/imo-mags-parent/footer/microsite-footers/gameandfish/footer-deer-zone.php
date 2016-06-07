@@ -14,7 +14,7 @@
 			</div>
 		</div><!-- end .m-logo-nav -->
 		<div class="m-copyright">
-	        <p>© 2015 Outdoor Sportsman Group. All Rights Reserved</p>
+	        <p>© <?php echo date("Y"); ?> Outdoor Sportsman Group. All Rights Reserved</p>
 	    </div>
 	</div><!-- end .m-footer-bottom -->
 </footer>

@@ -13,7 +13,7 @@
 	$buy_mag_foot_message = get_field('buy_mag_foot_message', $term_cat_id);
 	$mag_descr_desktop 	= get_field('mag_descr_desktop', $term_cat_id);
 	
-	$today = date("Ymd");  	
+	$today 	= date("Ymd"); 
 ?>
 	<footer class="s-footer clearfix">
 		<div class="s-mag clearfix">
@@ -131,7 +131,7 @@
 				</div>
 			</div><!-- end .m-logo-nav -->
 			<div class="m-copyright">
-		        <p>© 2015 Outdoor Sportsman Group. All Rights Reserved</p>
+		        <p>© <?php echo date("Y"); ?> Outdoor Sportsman Group. All Rights Reserved</p>
 		    </div>
 		</div><!-- end .m-footer-bottom -->
 	</footer>
