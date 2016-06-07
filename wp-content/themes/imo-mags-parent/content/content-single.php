@@ -21,7 +21,7 @@ $acf_byline = get_field("byline",$postID); ?>
         <?php endif; // is_single()
         if(get_the_author() != "admin" && get_the_author() != "infisherman"){ ?>
         <em class="meta-date-author">by <span class="author-item"><?php the_author_link(); ?></span>
-        &nbsp;&nbsp;|&nbsp;&nbsp;<?php } the_time('F jS, Y'); ?>
+        &nbsp;&nbsp;<?php } if (get_field('hide_date') == false) { echo '|&nbsp;&nbsp;'; the_time('F jS, Y'); } ?>
         <?php if($byline){ ?>&nbsp;&nbsp;|&nbsp;&nbsp;<span class="post-byline author-item"><?php echo $byline; ?></span><?php } ?>
         <?php if($acf_byline){ ?>&nbsp;&nbsp;|&nbsp;&nbsp;<span class="post-byline author-item"><?php echo $acf_byline; ?></span><?php } ?>
         </em>
