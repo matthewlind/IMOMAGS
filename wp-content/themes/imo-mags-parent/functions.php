@@ -41,6 +41,7 @@ include_once( get_template_directory() .'/functions/microsites/ajax-load-posts.p
 // Redesign functions
 include_once( get_template_directory() .'/functions/redesign/single.php' );
 include_once( get_template_directory() .'/functions/redesign/home-and-cat.php' );
+include_once( get_template_directory() .'/functions/redesign/search-load-more.php' );
 
 
 function sub_footer(){ ?>

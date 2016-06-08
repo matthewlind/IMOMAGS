@@ -69,9 +69,9 @@
 					<div id="nav-icon3"><span></span> <span></span> <span></span> <span></span></div>
 					<span class="menu-head-span">MENU</span>
 				</div>
-				<div id="h_search" class="head-search">
+				<label id="h_search" class="head-search" for="s">
 					<i class="icon-search"></i>
-				</div>
+				</label>
 			</div>
 			<div class="head-right">
 				<div class="head-mag-cover">

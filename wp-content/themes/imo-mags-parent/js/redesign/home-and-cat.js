@@ -91,7 +91,8 @@ function loadHomeBTF() {
 				item_margin		= 40;
 				item_width		= 140;
 			} 
-				
+			
+			
 			$('#store_slider').flexslider({
 				slideshow: false,
 				animation: "slide",

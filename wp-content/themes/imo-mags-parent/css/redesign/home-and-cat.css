@@ -15,6 +15,9 @@
 	font-size: 1.9em;
 	text-transform: uppercase;
 }
+.main-h > h1 > span {
+	color: #395b5d;
+}
 .main-h > p {
 	font-size: 15px;
 	color: #555;
