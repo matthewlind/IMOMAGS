@@ -111,22 +111,35 @@
 			</a> 
 		</div>
 	</div>
-	
 </header>
-<?php if(has_nav_menu( 'desktop_visible' )){ ?>
+
+<?php if(has_nav_menu( 'desk_vis' )){ ?>
 <div class="desktop-menu">
 	<div class="desktop-menu-inner">
 	<?php 
     	wp_nav_menu(array(
             'menu_class'=>'desk-menu',
-            'theme_location'=>'desktop_visible',
+            'theme_location'=>'desk_vis',
             'container' => false
 		));  
-    
     ?>
 	</div>
 </div>
 <?php } ?>
+<?php if(has_nav_menu( 'desk_vis_sec' )){ ?>
+<div class="desktop-secmenu">
+	<div class="desktop-secmenu-inner">
+	<?php 
+    	wp_nav_menu(array(
+            'menu_class'=>'desk-secmenu',
+            'theme_location'=>'desk_vis_sec',
+            'container' => false
+		));  
+    ?>
+	</div>
+</div>
+<?php } ?>
+
 <?php if(get_field("full_width") != true){ ?>
     <div class="content-banner-section">
     	<div class="mob-mdl-banner">

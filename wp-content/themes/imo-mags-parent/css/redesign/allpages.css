@@ -483,7 +483,8 @@ a, a:hover, a:active, label:focus, label:active, i:hover {
 	text-transform: uppercase;
 	font-size: 13px;
 }
-.desktop-menu {
+.desktop-menu,
+.desktop-secmenu {
 	display: none;
 }
 .head-right {
@@ -1205,8 +1206,9 @@ nav {top: 90px;}
 @media only screen and (min-width: 1030px) {
 	
 /* Header *******************/
-.desktop-menu {display: block;height: 45px; padding: 0 20px;text-align: center;}
-.desktop-menu-inner {
+.desktop-menu {display: block; padding: 0 20px;text-align: center;}
+.desktop-menu-inner,
+.desktop-secmenu-inner {
 	display: inline-block;
 }
 .desk-menu {
@@ -1216,7 +1218,8 @@ nav {top: 90px;}
 }
 .desk-menu > li {
 	display: inline-block;
-	margin-right: 15px;
+	margin-right: 10px;
+	position: relative;
 }
 .desk-menu > li:last-child {
 	margin-right: 0;
@@ -1225,12 +1228,91 @@ nav {top: 90px;}
 	color: #222;
 	text-transform: uppercase;
 	font-weight: 900;
-	padding: 5px;
+	padding: 10px;
 	line-height: 45px;
 }
 .desk-menu > li > a:hover {
 	color: #FF6600;
 }
+.desk-menu > li.current-menu-item > a{
+	color: #395b5d;
+}
+.desk-menu > li:hover .sub-menu {
+	display: block;
+}
+.desk-menu .sub-menu {
+	display: none;
+	position: absolute;
+	list-style: none;
+	background-color: #f9f9f9;
+	border: 1px solid #ddd;
+	border-top: none;
+	top: 46px;
+	margin: 0;
+	padding: 0;
+	min-width: 220px;
+	max-width: 300px;
+	text-align: left;
+	box-shadow: 3px 3px 6px rgba(0,0,0,.2);
+	z-index: 2000;
+}
+.desk-menu .sub-menu > li {
+	border-bottom: 1px solid #ddd;
+}
+.desk-menu .sub-menu > li:last-child {
+	border: none;
+}
+.desk-menu .sub-menu > li > a {
+	padding: 10px 20px;
+	display: inline-block;
+	width: 100%;
+	font-size: 13px;
+	color: #222;
+	-webkit-transition:color 0s;
+	-moz-transition:color 0s;
+	transition:color 0s;
+}
+.desk-menu .sub-menu > li > a:hover {
+	background-color: #fff;
+	color: #FF6600;
+	-webkit-transition:color 0s;
+	-moz-transition:color 0s;
+	transition:color 0s;
+}
+
+/* Desktop visible SUB menu */
+.desktop-secmenu {
+	display: block;
+	text-align: center;
+	padding: 3px 20px;
+	background-color: #f9f9f9;
+	border-top: 1px solid #ddd;
+}
+.desk-secmenu {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.desk-secmenu > li {
+	display: inline-block;
+	margin-right: 15px;
+}
+.desk-secmenu > li:last-child {
+	margin-right: 0;
+}
+.desk-secmenu > li > a {
+	padding: 5px;
+	color: #555;
+	font-size: 12px;
+}
+.desk-secmenu > li > a:hover {
+	color: #FF6600;
+}
+.desk-secmenu > li.current-menu-item > a{
+	font-weight: 600;
+}
+
+
 
 /* SEARCH */
 .h-search-form form {width: 780px; margin: 0 auto;}
