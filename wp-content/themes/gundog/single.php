@@ -4,9 +4,12 @@
 	global $post;
 	
 	$post_id		= $post->ID;
+	$hide_date		= get_field('hide_date');
 	$author_id		= $post->post_author;
-	$author 		= get_the_author();
-	$acf_byline 	= get_field("byline", $post_id);
+	$author_url		= get_author_posts_url($author_id);
+	$author_name	= (!get_field("author_name")) ? get_the_author() : get_field("author_name");
+	$author_title	= get_field("author_title");
+	
 	//$byline 		= get_post_meta($post_id, 'ecpt_byline', true);
 	
 	$tv_player_id 	= get_field("tv_player_id","options");
@@ -21,19 +24,15 @@
 <main class="main-single">
 	<article id="article" class="article">
 		<header class="article-header">
-			<div class="cat-feat-label">
+			<div class="cat-feat-wrap">
 				<?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(); } ?>
+				<?php if ($hide_date == false) { ?> <div class="the-date"><?php the_time('F jS, Y'); ?></div> <?php } ?>
 			</div>
 			<h1><?php the_title(); ?></h1>
-			<div class="byline">
-				<span>
-<?php 				if (!$acf_byline) { 
-						if ($author != 'admin') echo 'by&nbsp;' . $author . '&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;';
-					} else {
-						echo $acf_byline . '&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;';
-					} 
-					the_time('F jS, Y'); 
-?>				</span>
+			<div class="author-wrap clearfix">
+				<div class="author-img"><?php echo get_avatar($author_id, 120);?></div>
+				<h4><?php echo $author_name;?></h4>
+				<span class="author-title"><?php if($author_title) { echo $author_title; ?><i>&nbsp;&nbsp;•&nbsp;&nbsp;</i><br><?php }?><a href="<?php echo $author_url;?>">More From <?php echo $author_name;?></a></span>
 			</div>
 			<div class="social-single">
 				<ul>
@@ -46,106 +45,107 @@
 		<div class="article-body">
 			
 <?php		
-	
-			$sponsored_el	= get_field('sponsored_el', $post_id); 	if (!$sponsored_el) $sponsored_el = 0;
-			$video_el		= get_field('video_el', $post_id); 		if (!$video_el) $video_el = 0;
-			$inline_ad_1	= get_field('inline_ad_1', $post_id); 	if (!$inline_ad_1) $inline_ad_1 = 0;
-			$inline_ad_2	= get_field('inline_ad_2', $post_id); 	if (!$inline_ad_2) $inline_ad_2 = 0;
-			$inline_ad_3	= get_field('inline_ad_3', $post_id); 	if (!$inline_ad_3) $inline_ad_3 = 0;
-			$p_counter 		= 0;
-			$content 		= apply_filters('the_content', $post->post_content);
-			$contents 		= explode("</p>", $content);
-			$p_number		= count($contents);
-			$ep				= array();
-			$vp				= 1; // video element position
-			$ap1			= 2; // inline ad positon
-			$ap2			= 3; // inline ad positon
-			$ap3			= 4; // inline ad positon
-			$interval		= $p_number / 2;
+		// these acf fields are numbers to push n pargraphs up or n paragraphs down the inline element
+		$sponsored_el	= (!get_field('sponsored_el')) 	? 0 : get_field('sponsored_el');
+		$video_el		= (!get_field('video_el')) 		? 0 : get_field('video_el');
+		$inline_ad_1	= (!get_field('inline_ad_1')) 	? 0 : get_field('inline_ad_1');
+		$inline_ad_2	= (!get_field('inline_ad_2')) 	? 0 : get_field('inline_ad_2');
+		$inline_ad_3	= (!get_field('inline_ad_3')) 	? 0 : get_field('inline_ad_3');
+		
+		$p_counter 		= 0;
+		$content 		= apply_filters('the_content', $post->post_content);
+		$contents 		= explode("</p>", $content);
+		$p_number		= count($contents);
+		$ep				= array();
+		$vp				= 1; // video element position
+		$ap1			= 2; // inline ad positon 1
+		$ap2			= 3; // inline ad positon 2
+		$ap3			= 4; // inline ad positon 3
+		$interval		= $p_number / 2;
+		
+		if 		(empty($tv_player_id)) {$video_el = 999; $ap1 = 1; $ap2 = 2; $ap3 = 3;}
+		
+		if 		($p_number >= 25) { $interval = $p_number / 5; }
+		else if ($p_number >= 20) { $interval = $p_number / 4; } 
+		else if ($p_number >= 15) { $interval = $p_number / 3; } 
+		
+		for 	($i = $interval; $i <= $p_number; $i+=$interval) { $ep[] = floor($i); }
+		
+		print_r($ep);
+		
+		echo '<br>' . $p_number . '<br>' . $move_el . '<br>Video position: ' . $ep[$vp] . '<br>player id: ' . $tv_player_id;
 			
-			if 		(empty($tv_player_id)) {$video_el = 999; $ap1 = 1; $ap2 = 2; $ap3 = 3;}
-			
-			if 		($p_number >= 25) { $interval = $p_number / 5; }
-			else if ($p_number >= 20) { $interval = $p_number / 4; } 
-			else if ($p_number >= 15) { $interval = $p_number / 3; } 
-			
-			for 	($i = $interval; $i <= $p_number; $i+=$interval) { $ep[] = floor($i); }
-			
-			print_r($ep);
-			
-			echo '<br>' . $p_number . '<br>' . $move_el . '<br>Video position: ' . $ep[$vp] . '<br>player id: ' . $tv_player_id;
-				
-			foreach($contents as $content){
-			    echo $content.'</p>';
-			    
-			    if ($p_counter == 1) { ?>
-				    <div id="sticky-ad" class="sticky-ad">
-					    <div class="sticky-ad-inner"></div>
-				    </div>
+		foreach($contents as $content){
+		    echo $content.'</p>';
+		    
+		    if ($p_counter == 1) { ?>
+			    <div id="sticky-ad" class="sticky-ad">
+				    <div class="sticky-ad-inner"></div>
+			    </div>
 <?php			}
-			   
-			    if ($p_number > 5 && $p_counter - ($sponsored_el) == $ep[0]){ ?>
-					<div class="article-elem">
-						<div class="ae-header">
-							<div></div>
-							<h4><span>Sponsored Story</span></h4>
-						</div>
-						<div class="ae-content sp-inner clearfix">
-							<a class="ae-img" href="#"><div style="background-image: url(/wp-content/themes/imo-mags-parent/images/temp/1.jpg)"></div></a>
-							<a class="ae-title" href="#"><span>Introducing the 2016 Franchi Instinct Catalyst</span></a><br>
-							<div class="ae-sponsor"><span>Presented by <a href="#">Quebec Tourism</a></span></div> 
-						</div>
-			    	</div>
+		   
+		    if ($p_number > 5 && $p_counter - ($sponsored_el) == $ep[0]){ ?>
+				<div class="article-elem">
+					<div class="ae-header">
+						<div></div>
+						<h4><span>Sponsored Story</span></h4>
+					</div>
+					<div class="ae-content sp-inner clearfix">
+						<a class="ae-img" href="#"><div style="background-image: url(/wp-content/themes/imo-mags-parent/images/temp/1.jpg)"></div></a>
+						<a class="ae-title" href="#"><span>Introducing the 2016 Franchi Instinct Catalyst</span></a><br>
+						<div class="ae-sponsor"><span>Presented by <a href="#">Quebec Tourism</a></span></div> 
+					</div>
+		    	</div>
 <?php 			}	
 
-	
-				if ($p_number > 10 && $p_counter - ($video_el) == $ep[$vp]){ ?>
-					<div class="video-elem">
-						<div class="ve-head">
-							<h4>DON’T MISS IN-FISHERMAN TV</h4>
-							<span>Saturday’s at 10am ET on <a href="">Sportsman Channel</a></span>
-						</div>
-						<div class="ve-content">
-							<ul class="clearfix">
-								<li>
-									<a class="ve-img" href="#">
-										<div style="background-image: url(/wp-content/themes/imo-mags-parent/images/temp/1.jpg)">
-											<div class="ae-play"><div class="ae-triangle"></div></div>
-										</div>
-									</a>
-									<a href=""><h4>Lure Strategies for Ice Walleyes</h4></a>
-								</li>
-								<li>
-									<a class="ve-img" href="#">
-										<div style="background-image: url(/wp-content/themes/imo-mags-parent/images/temp/1.jpg)">
-											<div class="ae-play"><div class="ae-triangle"></div></div>
-										</div>
-									</a>
-									<a href=""><h4>Lorem Ipsum Dolor Reveals Some of The Season's</h4></a>
-								</li>
-								<li>
-									<a class="ve-img" href="#">
-										<div style="background-image: url(/wp-content/themes/imo-mags-parent/images/temp/1.jpg)">
-											<div class="ae-play"><div class="ae-triangle"></div></div>
-										</div>
-									</a>
-									<a href=""><h4>Lure Strategies for Ice Walleyes</h4></a>
-								</li>
-							</ul>
-						</div>
-						<a class="ve-link" href="#">Watch More In-Fisherman TV</a>
-			    	</div>
-<?php			}
-				if ($p_number > 10 && $p_counter - ($inline_ad_1) == $ep[$ap1] || $p_number > 15 && $p_counter - ($inline_ad_2) == $ep[$ap2] || $p_number > 20 && $p_counter - ($inline_ad_3) == $ep[$ap3]){ ?>
-					<div class="ad-single-inline">
-						<div class="as-inner"></div>
+
+			if ($p_number > 10 && $p_counter - ($video_el) == $ep[$vp]){ ?>
+				<div class="video-elem">
+					<div class="ve-head">
+						<h4>DON’T MISS IN-FISHERMAN TV</h4>
+						<span>Saturday’s at 10am ET on <a href="">Sportsman Channel</a></span>
 					</div>
+					<div class="ve-content">
+						<ul class="clearfix">
+							<li>
+								<a class="ve-img" href="#">
+									<div style="background-image: url(/wp-content/themes/imo-mags-parent/images/temp/1.jpg)">
+										<div class="ae-play"><div class="ae-triangle"></div></div>
+									</div>
+								</a>
+								<a href=""><h4>Lure Strategies for Ice Walleyes</h4></a>
+							</li>
+							<li>
+								<a class="ve-img" href="#">
+									<div style="background-image: url(/wp-content/themes/imo-mags-parent/images/temp/1.jpg)">
+										<div class="ae-play"><div class="ae-triangle"></div></div>
+									</div>
+								</a>
+								<a href=""><h4>Lorem Ipsum Dolor Reveals Some of The Season's</h4></a>
+							</li>
+							<li>
+								<a class="ve-img" href="#">
+									<div style="background-image: url(/wp-content/themes/imo-mags-parent/images/temp/1.jpg)">
+										<div class="ae-play"><div class="ae-triangle"></div></div>
+									</div>
+								</a>
+								<a href=""><h4>Lure Strategies for Ice Walleyes</h4></a>
+							</li>
+						</ul>
+					</div>
+					<a class="ve-link" href="#">Watch More In-Fisherman TV</a>
+		    	</div>
 <?php			}
-			    $p_counter++;
-			    
-			    
-			}
-			
+			if ($p_number > 10 && $p_counter - ($inline_ad_1) == $ep[$ap1] || $p_number > 15 && $p_counter - ($inline_ad_2) == $ep[$ap2] || $p_number > 20 && $p_counter - ($inline_ad_3) == $ep[$ap3]){ ?>
+				<div class="ad-single-inline">
+					<div class="as-inner"></div>
+				</div>
+<?php			}
+		    $p_counter++;
+		    
+		    
+		}
+		
 ?>		
 			<div class="article-elem">
 				<div class="ae-header">

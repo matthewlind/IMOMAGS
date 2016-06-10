@@ -420,6 +420,7 @@ function parent_theme_widgets_init()
     register_nav_menus(array(
         'top' => 'Top Menu',
         'bottom' => 'Main Menu',
+        'desktop_visible' => 'Desktop Visible Menu',
         'mobile' => 'Mobile Menu',
         'community' => 'Community Menu',
         'shows_menu' => 'Shows Menu',

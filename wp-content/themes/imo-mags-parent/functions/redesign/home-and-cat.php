@@ -326,17 +326,18 @@ function load_home_btf() {
 	</section>
 	<?php 
 		}
-		if ($page_type == 'home') {
+		if ($page_type == 'home' && have_rows('home_explore_categories', 'options')) {
 	?>
 	<section class="section-exp-cats">
 		<div class="section-inner-wrap">
 			<h1>Explore <?php echo $site_name;?></h1>
 			<ul class="ec-list">
-			<?php 			
-			$explore_cats 	= get_field('explore_cats','options' );
+			<?php 	
 			$card_count		= 0;
 			
-			foreach ($explore_cats as $c) {
+			while( have_rows('home_explore_categories', 'options')) {
+				the_row();
+				$c 			= get_sub_field('explore_category');
 				$cat_name 	= get_cat_name($c);
 				$cat_url	= get_category_link($c);
 				$card_out 	= "<li><h2><a href='$cat_url'>$cat_name</a></h2>";

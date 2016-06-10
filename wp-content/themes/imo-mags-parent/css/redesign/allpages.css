@@ -483,11 +483,9 @@ a, a:hover, a:active, label:focus, label:active, i:hover {
 	text-transform: uppercase;
 	font-size: 13px;
 }
-
-
-
-
-
+.desktop-menu {
+	display: none;
+}
 .head-right {
 	display: none;
 }
@@ -1117,7 +1115,7 @@ nav {
 .newsletter fieldset input:last-child {margin-left: 20px;font-size: 14px;padding: 0 20px;}
 
 /* Content Banner Section */
-.content-banner-section {background-color: #f0f0f0;border-bottom: 1px solid #ddd;padding: 27px 0 20px;}
+.content-banner-section {background-color: #f0f0f0;border-bottom: 1px solid #ddd;border-top: 1px solid #ddd;padding: 27px 0 20px;}
 .content-banner-section .mob-mdl-banner {display: none;}
 
 .foot-nav li {display: inline;}
@@ -1205,13 +1203,34 @@ nav {top: 90px;}
 }/* end media 1020 */
 
 @media only screen and (min-width: 1030px) {
-.main-logo {height: 37px;margin-top: 11px;}
-.main-logo img {max-width: 240px;}
-.head-social {padding-right: 22px;}
-.head-social ul li {margin-right: 13px;}
-.head-subscribe {margin-left: 22px;}
-.head-mag-cover {margin-right: 0;}
-.section-inner-wrap {max-width: 1020px; margin: 0 auto;}
+	
+/* Header *******************/
+.desktop-menu {display: block;height: 45px; padding: 0 20px;text-align: center;}
+.desktop-menu-inner {
+	display: inline-block;
+}
+.desk-menu {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.desk-menu > li {
+	display: inline-block;
+	margin-right: 15px;
+}
+.desk-menu > li:last-child {
+	margin-right: 0;
+}
+.desk-menu > li > a {
+	color: #222;
+	text-transform: uppercase;
+	font-weight: 900;
+	padding: 5px;
+	line-height: 45px;
+}
+.desk-menu > li > a:hover {
+	color: #FF6600;
+}
 
 /* SEARCH */
 .h-search-form form {width: 780px; margin: 0 auto;}
@@ -1225,9 +1244,23 @@ nav {top: 90px;}
 
 }/* end media 1030 */
 
+
+@media only screen and (min-width: 1060px) {
+	
+.main-logo {height: 37px;margin-top: 11px;}
+.main-logo img {max-width: 240px;}
+.head-social {padding-right: 22px;}
+.head-social ul li {margin-right: 13px;}
+.head-subscribe {margin-left: 22px;}
+.head-mag-cover {margin-right: 0;}
+.section-inner-wrap {max-width: 1020px; margin: 0 auto;}	
+	
+}/* end media 1060 */
+
 @media only screen and (min-width: 1250px) {
 
 /* Header *******************/
+.head-inner {max-width: 1020px;margin: 0 auto; padding: 17px 0;}
 .main-header, .content, .sponsors-disclaimer {margin: 0 auto;max-width: 1442px;}
 .menu-content {width: 1200px;}
 .menu-footer-inner {width: 1200px;}
@@ -1236,7 +1269,7 @@ nav {top: 90px;}
 
 @media only screen and (min-width: 1440px) {
 
-.head-inner {max-width: 1440px;margin: 0 auto;}
+
 	
 }/* end media 1440 */
 

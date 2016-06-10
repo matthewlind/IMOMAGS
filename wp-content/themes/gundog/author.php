@@ -17,7 +17,7 @@
 	<section class="section-latest-posts">
 		<div id="l_container" class="section-inner-wrap">
 				<header class="main-h">
-					<h1 style="text-transform: none;">Post's by <?php echo "<span>".$curauth->display_name."</span>"; ?></h1>
+					<h1 style="text-transform: none;">Articles by <?php echo "<span>".$curauth->display_name."</span>"; ?></h1>
 				</header>
 				<?php 
 					$args = array ('posts_per_page'	=> 8, 'order' => 'DESC', 'author' => $curauth->ID);
@@ -56,7 +56,7 @@
 					</div>
 				</div><!-- .btn-lg -->
 			<?php }  else { ?>
-				<h3>Sorry, this author haven't written a post yet. Check out other authors below</h3>
+				<h3>Sorry, this author hasn't written anything yet. Check out other authors below.</h3>
 				<ul>
 				<?php wp_list_authors(array('optioncount'   => true)); ?>
 				</ul>

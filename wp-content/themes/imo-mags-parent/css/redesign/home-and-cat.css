@@ -347,7 +347,8 @@
 	padding: 7px 15px;
 }
 .home .c-cats,
-.post-type-archive-reader_photos .c-cats {
+.post-type-archive-reader_photos .c-cats,
+.author .c-cats {
 	display: block;
 	margin-bottom: 3px;
 }
@@ -379,6 +380,9 @@
     font-size: 13px;
     color: #888;
     text-transform: uppercase;
+}
+.author .c-author {
+	display: none;
 }
 
 @media only screen and (min-width: 374px) {/* iPhone 6 */
