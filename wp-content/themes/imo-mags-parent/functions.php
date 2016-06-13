@@ -916,6 +916,14 @@ if(function_exists("register_field_group"))
 				'formatting' => 'html',
 				'maxlength' => '',
 			),
+			array (
+				'key' => 'field_5755d25b5d472',
+				'label' => 'Hide Date',
+				'name' => 'hide_date',
+				'type' => 'true_false',
+				'message' => '',
+				'default_value' => 0,
+			),
 		),
 		'location' => array (
 			array (
