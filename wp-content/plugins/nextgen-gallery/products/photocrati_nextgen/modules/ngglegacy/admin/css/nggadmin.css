@@ -1,7 +1,7 @@
 /*
 ** NextGEN Gallery Style for Wordpress 3.3
 */
-
+#ngg-listimages{table-layout:auto !important;}
 #iframely h2.title {
 	display: none;
 }
