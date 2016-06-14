@@ -336,7 +336,7 @@ a, a:hover, a:active, label:focus, label:active, i:hover {
 }
 .header-wrap {
 	position: fixed;
-	top: 0;
+/* 	top: 0; */
 	left: 0;
 	width: 100%;
 	background-color: #395b5d;
@@ -962,7 +962,7 @@ nav {
 
 
 /*----------------------------------------------------------*/
-/*	Footer
+/*	PRE FOOTER
 /*----------------------------------------------------------*/
 .pre-footer {
 	padding: 50px 15px 30px;
@@ -1023,28 +1023,78 @@ nav {
 .pre-footer .ad-inner {
 	margin-left: -5px;
 }
+
+/*----------------------------------------------------------*/
+/*	FOOTER
+/*----------------------------------------------------------*/
 .footer {
-	background-color: #ececec;
-	text-align: center;
-	padding: 40px 15px 60px;
-/* 	border-top: 5px solid #395b5d; */
+	background-color: #151515;
+	padding: 30px 22px 60px;
 }
-.foot-nav {
+.network {
+    padding:0 0 20px;
+    border-bottom:1px solid #333;
+}
+.network h4 {
+    font: 900 22px 'Stag', serif;
+    color:#aaa;
+    text-shadow:1px 1px 1px #000;
+    text-align:center;
+    text-transform:uppercase;
+    padding:0 0 25px;
+    margin:0 0 34px;
+    border-bottom:1px solid #333;
+    letter-spacing:1px;
+}
+.network h5 {
+    font:900 18px "Stag", serif;
+    color:#836c03;
+    text-transform:uppercase;
+    text-shadow:1px 1px 0 #000;
+    margin: 0;
+}
+.foot-columns {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.column {
+    width:47%;
+}
+.f-two-columns .column3 {padding-left:86px;}
+.f-two-columns .column4 {padding-left:75px;}
+.network-list {
 	list-style: none;
 	padding: 0;
-	margin: 0 0 15px;
+}
+.network-list li a {
+	color: #aaa;
+	font-size: 12px;
+}
+.network-list li a:hover {
+	color: #eee;
+}
+
+/* footer nav */
+.foot-nav {
+	text-align: center;
+	list-style: none;
+	padding: 0;
+	margin: 30px 0 15px;
 }
 .foot-nav li a {
-	color: #555;
-	font-size: 14px;
+	color: #999;
+	font-size: 12px;
 	font-weight: 600;
+	text-transform: uppercase;
 }
 .foot-nav li a:hover {
-	color: #395b5d;
+	color: #ddd;
 }
 .copyright {
-	font-size: 14px;
-	color: #555;
+	font-size: 12px;
+	color: #999;
+	text-align: center;
 }
 
 
@@ -1086,15 +1136,20 @@ nav {
 .sponsors-disclaimer {font-size: 7px;}
 
 .pre-footer .ad-inner {margin-left: 0}
-
+.footer {padding: 30px 35px 60px;}
 
 }/* end media 375 */  
 
 @media only screen and (min-width: 480px) {
 	
-/* Header *******************/
+/* HEADER *******************/
 .main-nav {margin: 0 0 0 21px;}
 .social-buttons ul {margin-right:21px;}
+
+/* FOOTER *******************/
+.foot-columns {justify-content: center; padding: 0 10%;}
+.network-list li a {font-size: 14px;}
+.column {margin-left: 10%; width: 40%;} */
 
 }/* end media 480 */
 
@@ -1120,7 +1175,7 @@ nav {
 .content-banner-section .mob-mdl-banner {display: none;}
 
 .foot-nav li {display: inline;}
-.foot-nav li a {border-right: 1px solid #555;padding: 0 15px;}
+.foot-nav li a {padding: 0 10px;}
 
 }/* end media 600 */
 
@@ -1136,6 +1191,55 @@ nav {
 .pre-footer ul li.f-newsletter {padding: 0 25px 30px;}
 .f-newsletter .newsletter fieldset input:first-child {line-height: 40px;}
 .f-newsletter .newsletter fieldset input:last-child {height: 45px;}
+
+
+/* FOOTER *******************/
+.footer {padding-top: 35px;}
+.network h4 {font-size: 27px;padding-bottom: 33px;}
+.network h5 {margin-bottom: 7px;}
+.foot-columns {padding: 10px 0 0;justify-content: space-between; max-width: 850px;margin: 0 auto;}
+.column {
+	width: 130px;
+	margin: 0;
+}
+.network-list li {
+    padding:0;
+    width: 130px;
+    height: 56px;
+    background-image: url(../../images/all/footer-logos-sprites.png);
+    background-size: 750px auto;
+    background-repeat: no-repeat;
+}
+.network-list .f-p-bowhunting 	{background-position: -29px -2px;}
+.network-list .f-na-whitetaile 	{background-position: -28px -63px; 		background-size: 721px;}
+.network-list .f-gun-dog 		{background-position: -29px -129px; 	background-size: 747px; height: 43px;}
+.network-list .f-wildfowl 		{background-position: -28px -182px; 	background-size: 730px;}
+.network-list .f-bowhunter 		{background-position: -28px -242px; 	background-size: 730px;}
+.network-list .f-hunting 		{background-position: -29px -309px;}
+.network-list .f-handguns 		{background-position: -217px -2px; 		background-size: 730px;}
+.network-list .f-rifleshooter 	{background-position: -213px -63px; 	background-size: 739px;}
+.network-list .f-shooting-times 	{background-position: -207px -120px; 	background-size: 720px;}
+.network-list .f-firearms-news 	{background-position: -217px -193px; 	background-size: 753px; height: 40px;}
+.network-list .f-guns-and-ammo 	{background-position: -217px -248px;}
+.network-list .f-in-fisherman 	{background-position: -403px -4px; 		background-size: 747px;}
+.network-list .f-fly-fisherman 	{background-position: -390px -61px; 	background-size: 723px;}
+.network-list .f-florida-sportsman {background-position:-404px -126px;}
+.network-list .f-bass-fan 		{background-position: -390px -179px; 	background-size: 725px;}
+.network-list .f-outdoor-channel {background-position: -537px 0; 		background-size: 650px;}
+.network-list .f-sportsman-ch 	{background-position: -591px -64px;}
+.network-list .f-wfn 			{background-position: -543px -101px; 	background-size: 657px; height: 60px;}
+.network-list .f-game-and-fish 	{background-position: -591px -186px;}
+.network-list .f-imo-store 		{background-position: -516px -212px; 	background-size: 651px;}
+
+.network-list li:hover {opacity: 0.8;}
+
+.network-list li a  {
+    font-size:0;
+    line-height:0;
+    display: block;
+    height: 100%;
+    width: 100%;
+}
 
 }/* end media 700*/
 
@@ -1219,6 +1323,7 @@ nav {top: 90px;}
 .desk-menu > li {
 	display: inline-block;
 	margin-right: 10px;
+	margin-bottom: -1px;
 	position: relative;
 }
 .desk-menu > li:last-child {
@@ -1237,47 +1342,63 @@ nav {top: 90px;}
 .desk-menu > li.current-menu-item > a{
 	color: #395b5d;
 }
-.desk-menu > li:hover .sub-menu {
-	display: block;
-}
-.desk-menu .sub-menu {
+.desk-menu > li .sub-menu {
 	display: none;
 	position: absolute;
 	list-style: none;
-	background-color: #f9f9f9;
+	background-color: #f8f8f8;
 	border: 1px solid #ddd;
 	border-top: none;
-	top: 46px;
+	top: 45px;
 	margin: 0;
 	padding: 0;
-	min-width: 220px;
-	max-width: 300px;
+	width: 220px;
 	text-align: left;
 	box-shadow: 3px 3px 6px rgba(0,0,0,.2);
 	z-index: 2000;
 }
-.desk-menu .sub-menu > li {
+.desk-menu > li:hover .sub-menu {
+	display: block;
+}
+.desk-menu > li:nth-of-type(n+6) .sub-menu {
+	right: 0;
+}
+.desk-menu > li .sub-menu > li {
 	border-bottom: 1px solid #ddd;
 }
-.desk-menu .sub-menu > li:last-child {
+.desk-menu > li .sub-menu > li:last-child {
 	border: none;
 }
-.desk-menu .sub-menu > li > a {
+.desk-menu > li .sub-menu > li > a {
 	padding: 10px 20px;
 	display: inline-block;
 	width: 100%;
 	font-size: 13px;
-	color: #222;
+	color: #333;
 	-webkit-transition:color 0s;
 	-moz-transition:color 0s;
 	transition:color 0s;
+	font-weight: 600;
 }
-.desk-menu .sub-menu > li > a:hover {
+.desk-menu > li .sub-menu > li > a:hover {
 	background-color: #fff;
 	color: #FF6600;
 	-webkit-transition:color 0s;
 	-moz-transition:color 0s;
 	transition:color 0s;
+}
+
+.desk-menu > li > .sub-menu > li > .sub-menu {
+	display: none;
+	left: 218px;
+	z-index: 2001;
+}
+.desk-menu > li:nth-of-type(n+6) > .sub-menu > li > .sub-menu {
+	right: 218px;
+	left: auto;
+}
+.desk-menu > li > .sub-menu > li:hover > .sub-menu {
+	display: block;
 }
 
 /* Desktop visible SUB menu */
