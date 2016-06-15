@@ -71,7 +71,7 @@
 		
 		for 	($i = $interval; $i <= $p_number; $i+=$interval) { $slots[] = floor($i); }
 		
-		echo '<div style="color: green;">';
+		echo '<div style="color: #4464B2;">';
 		echo 'Number of paragraphs: ' . $p_number. '<br><br>';
 		echo '$slots array: <pre>'; print_r($slots); echo '</pre>Sponsored content element is always in $slots[0]';
 		echo '<br>First ad is in the slot: '.$as1.' , after '.$slots[$as1].'th paragraph<br>';
