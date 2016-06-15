@@ -46,34 +46,37 @@
 			
 <?php		
 		// these acf fields are numbers to push n pargraphs up or n paragraphs down the inline element
-		$sponsored_el	= (!get_field('sponsored_el')) 	? 0 : get_field('sponsored_el');
-		$video_el		= (!get_field('video_el')) 		? 0 : get_field('video_el');
-		$inline_ad_1	= (!get_field('inline_ad_1')) 	? 0 : get_field('inline_ad_1');
-		$inline_ad_2	= (!get_field('inline_ad_2')) 	? 0 : get_field('inline_ad_2');
-		$inline_ad_3	= (!get_field('inline_ad_3')) 	? 0 : get_field('inline_ad_3');
+		$sponsored_el	= (get_field('sponsored_el'))	? get_field('sponsored_el') : 0 ;
+		$video_el		= (get_field('video_el')) 		? get_field('video_el') 	: 0 ;
+		$inline_ad_1	= (get_field('inline_ad_1')) 	? get_field('inline_ad_1') 	: 0 ;
+		$inline_ad_2	= (get_field('inline_ad_2')) 	? get_field('inline_ad_2') 	: 0 ;
+		$inline_ad_3	= (get_field('inline_ad_3')) 	? get_field('inline_ad_3') 	: 0 ;
 		
 		$p_counter 		= 0;
 		$content 		= apply_filters('the_content', $post->post_content);
 		$contents 		= explode("</p>", $content);
 		$p_number		= count($contents);
-		$ep				= array();
-		$vp				= 1; // video element position
-		$ap1			= 2; // inline ad positon 1
-		$ap2			= 3; // inline ad positon 2
-		$ap3			= 4; // inline ad positon 3
+		$slots			= array();
+		$vs				= 1; // video element slot (sponsored story is in slot 0)
+		$as1			= 2; // inline ad slot
+		$as2			= 3; // inline ad slot
+		$as3			= 4; // inline ad slot
 		$interval		= $p_number / 2;
 		
-		if 		(empty($tv_player_id)) {$video_el = 999; $ap1 = 1; $ap2 = 2; $ap3 = 3;}
+		if 		(empty($tv_player_id)) {$video_el = 999; $as1 = 1; $as2 = 2; $as3 = 3;}
 		
 		if 		($p_number >= 25) { $interval = $p_number / 5; }
 		else if ($p_number >= 20) { $interval = $p_number / 4; } 
 		else if ($p_number >= 15) { $interval = $p_number / 3; } 
 		
-		for 	($i = $interval; $i <= $p_number; $i+=$interval) { $ep[] = floor($i); }
+		for 	($i = $interval; $i <= $p_number; $i+=$interval) { $slots[] = floor($i); }
 		
-		print_r($ep);
-		
-		echo '<br>' . $p_number . '<br>' . $move_el . '<br>Video position: ' . $ep[$vp] . '<br>player id: ' . $tv_player_id;
+		echo '<div style="color: green;">';
+		echo 'Number of paragraphs: ' . $p_number. '<br><br>';
+		echo '$slots array: <pre>'; print_r($slots); echo '</pre>Sponsored content element is always in $slots[0]';
+		echo '<br>First ad is in the slot: '.$as1.' , after '.$slots[$as1].'th paragraph<br>';
+		echo 'Second ad is in the slot: '.$as2.' , after '.$slots[$as2].'th paragraph... and so on<br>';
+		echo '</div>';
 			
 		foreach($contents as $content){
 		    echo $content.'</p>';
@@ -84,7 +87,7 @@
 			    </div>
 <?php			}
 		   
-		    if ($p_number > 5 && $p_counter - ($sponsored_el) == $ep[0]){ ?>
+		    if ($p_number > 5 && $p_counter - ($sponsored_el) == $slots[0]){ ?>
 				<div class="article-elem">
 					<div class="ae-header">
 						<div></div>
@@ -99,7 +102,7 @@
 <?php 			}	
 
 
-			if ($p_number > 10 && $p_counter - ($video_el) == $ep[$vp]){ ?>
+			if ($p_number > 10 && $p_counter - ($video_el) == $slots[$vs]){ ?>
 				<div class="video-elem">
 					<div class="ve-head">
 						<h4>DON’T MISS IN-FISHERMAN TV</h4>
@@ -136,7 +139,7 @@
 					<a class="ve-link" href="#">Watch More In-Fisherman TV</a>
 		    	</div>
 <?php			}
-			if ($p_number > 10 && $p_counter - ($inline_ad_1) == $ep[$ap1] || $p_number > 15 && $p_counter - ($inline_ad_2) == $ep[$ap2] || $p_number > 20 && $p_counter - ($inline_ad_3) == $ep[$ap3]){ ?>
+			if ($p_number > 10 && $p_counter - ($inline_ad_1) == $slots[$as1] || $p_number > 15 && $p_counter - ($inline_ad_2) == $slots[$as2] || $p_number > 20 && $p_counter - ($inline_ad_3) == $slots[$as3]){ ?>
 				<div class="ad-single-inline">
 					<div class="as-inner"></div>
 				</div>
@@ -145,7 +148,6 @@
 		    
 		    
 		}
-		
 ?>		
 			<div class="article-elem">
 				<div class="ae-header">
