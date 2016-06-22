@@ -1,0 +1,67 @@
+/* ==========================================================================
+   6.0 Home Page
+   ========================================================================== */
+.m-regn .m-ne {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/northeast.jpg") no-repeat center center / 100%;}
+.m-regn .m-se {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/southeast.jpg") no-repeat center center / 100%;}
+.m-regn .m-mw {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/midwest.jpg") no-repeat center center / 100%;}
+.m-regn .m-sw {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/southwest.jpg") no-repeat center center / 100%;}
+.m-regn .m-nw {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/northwest.jpg") no-repeat center center / 100%;}
+
+
+
+/* ==========================================================================
+   7.0 Region Page
+   ========================================================================== */
+.category-ne .m-content-wrap {
+	background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/northeast.jpg");
+}
+.category-se .m-content-wrap {
+	background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/southeast.jpg");
+}
+.category-mw .m-content-wrap {
+	background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/midwest.jpg");
+}
+.category-sw .m-content-wrap {
+	background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/southwest.jpg");
+}
+.category-nw .m-content-wrap {
+	background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/northwest.jpg");
+}
+@media only screen and (min-width: 480px) {
+	
+.m-truck-container:last-child .m-truck	{
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/truck-ram.png") no-repeat left bottom / 1550px;
+}
+	
+}/* end of media */	
+	
+
+@media only screen and (min-width: 920px) {
+	
+.m-triangle {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") -25px -133px no-repeat;background-size: 150px;}
+.m-direction span {font: 700 14px/85px "Lato", sans-serif;}
+.m-regn .m-ne {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/desktop/northeast.jpg") no-repeat 25% center / 100%;}
+.m-regn .m-se {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/desktop/southeast.jpg") no-repeat 51% center / 100%;}
+.m-regn .m-mw {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/desktop/midwest.jpg") no-repeat center / 100%;}
+.m-regn .m-sw {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/desktop/southwest.jpg") no-repeat 55% center / 100%;}
+.m-regn .m-nw {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/desktop/northwest.jpg") no-repeat 70% center / 100%;}	
+	
+.category-ne .m-content-wrap {background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions-back/northeast.jpg");}
+.category-se .m-content-wrap {background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions-back/southeast.jpg");}
+.category-mw .m-content-wrap {background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions-back/midwest.jpg");}
+.category-sw .m-content-wrap {background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions-back/southwest.jpg");}
+.category-nw .m-content-wrap {background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions-back/northwest.jpg");}
+
+}/* end of media */
+
+
+
+@media only screen and (min-width: 1025px) {
+
+.m-truck-container {width: 100%;}
+.m-truck {text-align: center;}
+.m-truck-title {top:4px;left:0; right: 0; margin: 0 auto;}
+.m-truck-title h3 {display: inline-block;font-family: "Lato", sans-serif;}
+.m-truck > p {margin: 45px auto 13px;}
+
+}/* end of media */

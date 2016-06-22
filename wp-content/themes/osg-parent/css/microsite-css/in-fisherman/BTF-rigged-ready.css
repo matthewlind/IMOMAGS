@@ -1,0 +1,391 @@
+/* ==========================================================================
+	4.0 Buttons
+========================================================================== */
+
+.blue-round-btn {
+	display: inline-block;
+	text-align: center;
+	padding: 0 25px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	color: #19a0cf;
+	font: 400 14px/30px 'Lato', Helvetica, Arial, sans-serif;
+	border: 2px solid #19a0cf;
+	height: 36px;	
+	border-radius: 18px;
+	-webkit-transition:all 0.4s;
+	-moz-transition:all 0.4s;
+	transition:all 0.4s;
+	position: relative;
+	z-index: 100;
+}
+.blue-round-btn:hover {
+	color: #eeeeee;
+	border-radius: 22px 22px 7px 7px;
+	-webkit-transition:all 0.4s;
+	-moz-transition:all 0.4s;
+	transition:all 0.4s;
+}
+.m-btn-horizontal {
+	height: 4px;
+	width: 100%;
+	position: absolute;
+	top:0; bottom: 0;left:0; right: 0; margin: auto;
+	background-color: #19a0cf;
+	opacity: 0;
+	-webkit-transition:all 0.4s;
+	-moz-transition:all 0.4s;
+	transition:all 0.4s;
+	z-index: 50;
+}
+.m-btn-vertical {
+	width: 12px;
+	height: 100%;
+	position: absolute;
+	top:0; bottom: 0;left:0; right: 0; margin: auto;
+	background-color: #19a0cf;
+	opacity: 0;
+	-webkit-transition:all 0.4s;
+	-moz-transition:all 0.4s;
+	transition:all 0.4s;
+	z-index: 50;
+}
+.blue-round-btn:hover .m-btn-horizontal, .blue-round-btn:hover .m-btn-vertical {
+	opacity: 1;
+	-webkit-transition:all 0.4s;
+	-moz-transition:all 0.4s;
+	transition:all 0.4s;
+}
+.m-text-under {
+	font-weight: 400;
+}
+.blue-round-btn:hover .m-text-under {
+	opacity: 0;
+}
+.m-text-over {
+	display: inline-block;
+	position: absolute;
+	top:0; bottom: 0;left:0; right: 0; margin: auto;
+	z-index: 60;
+	font-weight: 700;
+	opacity: 0;
+	text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+}
+.blue-round-btn:hover .m-text-over {
+	opacity: 1;
+}
+
+
+/* ==========================================================================
+   6.0 Home Page
+   ========================================================================== */
+
+   
+/* Banners *******************/
+
+.m-banners {
+	position: absolute;
+	width: 100%;
+	height: 540px;
+	bottom: -548px;
+}
+.m-truck-container {
+	overflow: hidden;
+	float: left;
+	width: 100%;
+	height: 266px;
+	box-shadow: 0 3px 4px black;
+	background: #313131; /* Old browsers */
+	background: -moz-linear-gradient(top,  #313131 0%, #000000 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#313131), color-stop(100%,#000000)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #313131 0%,#000000 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #313131 0%,#000000 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #313131 0%,#000000 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #313131 0%,#000000 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#313131', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+}
+.m-truck-container:first-child {
+	margin-bottom: 8px;
+}
+.m-banners-region, .m-banners-single {
+	position: relative;
+	bottom: auto;
+}
+
+.m-truck {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	text-align: center;
+}
+.m-truck-container:first-child .m-truck {
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sweeps-banner-mobile.png") no-repeat left bottom / 480px;
+}
+.m-truck-container:last-child .m-truck {
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/truck-ram-mobile.png") no-repeat left bottom / 480px;
+}
+.m-truck-title {
+	position: absolute;
+	top:6px;left:0; right: 0; margin: 0 auto;
+}
+.m-truck-title h3 {
+	color: #19a0cf;
+	font-size: 14px;
+	display: inline-block;
+	font-family: "Lato", sans-serif;
+}
+.m-truck-title > div {
+	height:32px;
+	width: 130px;
+	display: inline-block;
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") 0px -490px / 233px no-repeat;
+	margin-left: 10px;
+	vertical-align: middle;
+}
+/*
+.m-banners .m-truck-container:first-child .m-truck-title > div {
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") 0px -381px / 233px no-repeat;
+	width: 145px;
+}
+*/
+.m-truck > p {
+	font-size: 20px;
+	font-weight: 900;
+	width: 100%;
+	display: inline-block;
+	margin: 50px auto 15px;	
+}
+.m-truck > p sup {
+	font-weight: 700;
+}  
+.m-banners .m-truck-container:first-child .blue-round-btn {
+	box-shadow: 1px 3px 4px rgba(0,0,0,1);
+	text-shadow: 1px 3px 4px rgba(0,0,0,1);
+	color: #1ea9da;
+	border-color: #1ea9da;
+}
+.m-banners .m-truck-container:first-child .blue-round-btn:hover {
+	color: #eeeeee;
+} 
+
+
+/* ==========================================================================
+   8.0 Choose Location Footer
+   ========================================================================== */
+   
+.m-loc {
+	width: 90%;
+	margin: 30px auto 0;
+}
+.m-loc h2, .m-more h2 {
+	font:300 20px "Lato", sans-serif;
+	color: #aaaaaa;
+	display: block;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #555555;
+}
+.m-more h2 {
+	margin-bottom: 30px;
+}
+.m-loc-wrap {
+	margin: 0 -5%;
+}
+.m-loc-wrap > ul {
+	padding: 10px 0 0;
+	margin: 0;
+	list-style: none;
+}
+.m-loc-wrap > ul > li {
+	float: left;
+	width: 40%;
+	margin: 0 5% 20px;
+	display: block;
+	text-align: center;
+}
+.m-loc-wrap > ul > li > a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.m-loc-circle {
+	width: 100%;
+	padding-top: 100%;
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/choose-location-footer.jpg") no-repeat 0 0 / 100%;
+	-webkit-transition: all 0.6s ease;
+	transition: all 0.6s ease;
+}
+.m-loc-wrap > ul > li:nth-child(3) {
+	clear: both;
+	float: none;
+	margin: 0 auto 30px;
+}
+.m-loc-wrap > ul > li:nth-child(1) .m-loc-circle {
+	border-radius: 50% 0 50% 50%; 
+}
+.m-loc-wrap > ul > li:nth-child(2) .m-loc-circle {
+	background-position: 0 24.9%; 
+	border-radius: 50% 50% 0 50%; 
+}
+.m-loc-wrap > ul > li:nth-child(3) .m-loc-circle {
+	background-position: 0 49.9%; 
+	border-radius: 50%; 
+}
+.m-loc-wrap > ul > li:nth-child(4) .m-loc-circle {
+	background-position: 0 74.8%; 
+	border-radius: 50% 50% 50% 0; 
+}
+.m-loc-wrap > ul > li:nth-child(5) .m-loc-circle {
+	background-position: 0 100%; 
+	border-radius: 0 50% 50% 50%; 
+}
+.m-loc-wrap > ul > li > a > span {
+	color: #cccccc;
+	font-weight: 300;
+	font-size: 14px;
+	margin-top: 5px;
+	display: inline-block;
+}
+.m-loc-wrap > ul > li > a:hover .m-loc-circle {
+	-webkit-transition: all 0.6s ease;
+	transition: all 0.6s ease;
+	box-shadow: 0 0 100px rgba(1,103,151,0.7);
+}
+.m-shiny-circle {
+	box-shadow: 0 0 50px rgba(1,103,151,0.7);
+}
+
+/* ==========================================================================
+   9.0 Single Article
+   ========================================================================== */
+
+.m-article blockquote {
+	position: relative;
+	margin: 30px 0;
+	padding-left: 25px;
+	font-weight: 200;
+	font-size: 26px;
+	line-height: 30px;
+	border-left: 9px solid #19a0cf;
+	font: 300 26px "Titillium Web", sans-serif;
+} 
+.m-article blockquote p {
+	font: 400 24px "Lato", sans-serif;
+	text-transform: uppercase;
+}
+.m-article blockquote::before, .m-article blockquote::after {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	font-size: 35px;
+	text-transform: none;
+	line-height: 1;
+	content: "\f05b";
+	color: white;	
+	position: absolute;
+} 
+.m-article blockquote::before {	
+	top: -20px;
+	left: -19px;	
+	-ms-transform: rotate(-90deg); /* IE 9 */
+    -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+    transform: rotate(-90deg);
+}
+.m-article blockquote::after {
+	bottom: -20px;
+	left: -15px;
+	-ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+} 
+
+/* More Articles ***********/
+.m-more {
+	max-width: 100%;
+	padding: 0 20px;
+	margin: 50px 0 0;
+}
+.m-article hr {
+	clear: both;
+	margin-bottom: 40px;
+}
+.alignright-content {
+	width: 300px;
+	margin: 30px -10px;
+}
+/* ==========================================================================
+   10.0 Footer
+   ========================================================================== */
+   
+.m-footer {
+	padding: 40px 20px 42px;
+	margin-top: 10px;
+	border-top: 1px solid #555555;
+}
+.category-rigged-ready .m-footer {
+	border-top: none;
+}
+.m-footer-bottom {
+	width: 100%;
+}
+.m-imo-logo {
+	width: 113px;
+	height: 35px;
+	margin: 0 auto 15px;
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") 0px -318px / 202px no-repeat;
+}
+.m-footer-nav ul {
+	list-style: none;
+	text-align: center;
+	padding: 0;
+	margin: 0 0 20px;
+}
+.m-footer-nav ul li a {
+	color: 	#eeeeee;
+	font-size: 12px;
+	font-weight: 400;	
+}
+.m-footer-nav ul li a:hover {
+	color: #19a0cf;
+}
+.m-copyright {
+	margin-top: 30px;
+	text-align: center;
+}
+.m-copyright p {
+	font-size: 13px;
+}
+
+/* ==========================================================================
+   12.0 Print styles
+   ========================================================================== */
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    a,
+    a:visited { text-decoration: underline;}
+    a[href]:after {content: " (" attr(href) ")";}
+    abbr[title]:after { content: " (" attr(title) ")";}
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {content: "";}
+    pre,
+    blockquote {border: 1px solid #999;page-break-inside: avoid;}
+    thead {display: table-header-group;}
+    tr,
+    img {page-break-inside: avoid;}
+    img { max-width: 100% !important;}
+
+    @page {margin: 0.5cm;}
+    p,
+    h2,
+    h3 { orphans: 3; widows: 3;}
+    h2,
+    h3 { page-break-after: avoid;}
+}
