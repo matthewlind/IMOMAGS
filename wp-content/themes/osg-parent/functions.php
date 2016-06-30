@@ -7,7 +7,6 @@ add_action('after_setup_theme', 'parent_theme_setup');
 // Widgets
 include_once('widgets/subscribe.php');
 include_once('widgets/ford-widget.php');
-
 include_once('widgets/tsc-schedule.php');
 include_once('widgets/tune-in-widget.php');
 

@@ -23,9 +23,8 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-
 <div class="wrapper">	
-
+<?php imo_ad_placement("superheader"); ?>
 
 <header class="main-header">
 	<div id="header_wrap" class="header-wrap">

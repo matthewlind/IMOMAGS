@@ -1,4 +1,10 @@
 <?php
+define("FACEBOOK_LINK", "https://www.facebook.com/GunDogMag");
+define("TWITTER_LINK", "https://www.twitter.com/@gundogmag");
+define("RSS_LINK", "http://www.gundogmag.com/feed/");
+define("SITE_LINK", "gundogmag.com");
+define("SITE_NAME", "Gun Dog Magazine");
+
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 function my_theme_enqueue_styles() {
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/css/redesign/allpages.css' );
