@@ -24,6 +24,12 @@
 	$social_share_message = get_field('social_share_message', $term_cat_id);
 	
 	$today = date("Ymd"); 
+	
+	if (have_rows('mag_info', $term_cat_id)) { 
+		while ( have_rows('mag_info', $term_cat_id) ) { the_row();
+			$mag_cover_image = get_sub_field('mag_cover_image');
+		}
+	}
 ?>
 
 
@@ -86,7 +92,7 @@
 						<h2><?php echo $buy_mag_foot_message; ?> </h2>
 					<?php } ?>
 	    			<div class="m-buy-mag-bottom clearfix"> 				
-	    				<div class="m-buy-mag-img"></div> 
+	    				<div class="m-buy-mag-img" style="background-image: url(<?php echo $mag_cover_image['url']; ?>);"></div> 
 	    				<div class="m-buy-dig">
 	    					<a href="<?php echo $online_store_url; ?>" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
 	    					<?php if ($mag_online_store == false) : ?>
