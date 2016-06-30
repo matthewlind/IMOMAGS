@@ -1,0 +1,1233 @@
+/*  ==========================================================================
+	TABLE OF CONTENTS: 
+============================================================================== 
+1.0 Icons 
+2.0 WYSIWYG and general wordpress styles
+3.0 Helper classes
+4.0 Buttons
+4.1 Defaults
+5.0 Header 
+6.0 Home Page
+7.0 Region(child category) Page 
+8.0 Choose Location Footer
+9.0 Single Article
+10.0 Footer
+11.0 Media Queries
+12.0 Print styles
+
+============================================================================== */
+
+@import url(http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic);
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900);
+@import url(http://fonts.googleapis.com/css?family=Merriweather:900);
+
+/* ==========================================================================
+	1.0 Icons  
+========================================================================== */
+@font-face {
+	font-family: 'icomoon';
+	src:url('rigged-fonts/icomoon.eot?9z698v');
+	src:url('rigged-fonts/icomoon.eot?#iefix9z698v') format('embedded-opentype'),
+		url('rigged-fonts/icomoon.woff?9z698v') format('woff'),
+		url('rigged-fonts/icomoon.ttf?9z698v') format('truetype'),
+		url('rigged-fonts/icomoon.svg?9z698v#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-triangle-down:before {
+	content: "\f05b";
+}
+
+.icon-arrow-left:before {
+	content: "\e600";
+}
+
+.icon-cross:before {
+	content: "\ea0f";
+}
+
+.icon-mail:before {
+	content: "\ea86";
+}
+
+.icon-facebook:before {
+	content: "\ea8e";
+}
+
+.icon-twitter:before {
+	content: "\ea93";
+}
+
+.icon-chevron-thin-right:before {
+	content: "\e601";
+}
+
+.icon-chevron-thin-left:before {
+	content: "\e602";
+}
+
+.icon-angle-right:before {
+	content: "\f105";
+}
+/* ==========================================================================
+	2.0 WordPress Core
+========================================================================== */
+
+.alignnone {
+    margin: 5px 20px 20px 0;
+}
+.aligncenter,
+div.aligncenter {
+    display: block;
+    margin: 5px auto 5px auto;
+}
+.alignright {
+    float:right;
+    margin: 5px 0 20px 20px;
+}
+.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+a img.alignright {
+    float: right;
+    margin: 5px 0 20px 20px;
+}
+a img.alignnone {
+    margin: 5px 20px 20px 0;
+}
+a img.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+a img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+.wp-caption {
+	max-width: 100%;
+	width: 100%;
+	text-align: left;
+}
+.m-article .alignright,
+.m-article .alignleft,
+.m-article .alignnone,
+.m-article .aligncenter {
+	display: block;
+	margin: 5px auto;
+	float: none;
+	max-width: 100%;
+	height: auto;
+}
+.wp-caption img {
+    border: 0 none;
+    height: auto;
+    margin: 0;
+	max-width: 100%;
+    padding: 0;
+    width: auto;
+}
+.wp-caption p.wp-caption-text {
+	position: relative;
+	font: 400 13px/17px "Lato", sans-serif;
+    margin: 0;
+    padding: 3px 10px 10px;
+	border-bottom: 1px solid #555555;
+    width: 100%;
+}
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
+}
+
+/* ==========================================================================
+   3.0 Helper classes
+   ========================================================================== */
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+.hidden {
+    visibility: hidden;
+}
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    *zoom: 1;
+}
+
+
+
+
+
+/* ==========================================================================
+	4.1 Defaults 
+========================================================================== */
+
+html, body {
+	height: 100%;
+	background-color: #1e1e1e;
+}
+body {
+	font-family: 'Lato', sans-serif;
+	color: #eeeeee;
+	overflow: hidden;
+	overflow-y: auto;
+}
+.m-microsite {
+	width: 100%;
+}
+a:hover, a:active, label:focus, label:active, i:hover {
+	outline: none;
+	text-decoration: none;
+	-webkit-transition:color 0.1s;
+	-moz-transition:color 0.1s;
+	transition:color 0.1s;
+}
+a {
+	color: #278bae;
+	-webkit-transition:color 0.1s;
+	-moz-transition:color 0.1s;
+	transition:color 0.1s;
+}
+a:hover {
+	color: #19a0cf;	
+	-webkit-transition:color 0.1s;
+	-moz-transition:color 0.1s;
+	transition:color 0.1s;
+}
+body h1, body h2, body h3, body h4, body h5 { 
+	font-weight: 900; 
+	font-style: normal; 
+	font-family: "Merriweather", "Lato", serif;
+	color: #222222;
+}
+
+
+/* ==========================================================================
+   5.0 Header
+   ========================================================================== */
+.top-panel {
+	height: 30px;
+	width: 100%;
+	background-color: #333333;
+	text-align: center;
+	position: relative;
+}
+.top-panel-absolute {
+	position: absolute;
+	width: 100%;
+	height: 30px;
+	top: 0;
+	left: 0;
+	background-color: #333333;
+	z-index: 1000;
+}
+.top-panel-absolute a:before {
+	font-family: 'icomoon';
+	font-size: 12px;
+	margin-right: 5px;
+}
+.top-panel a {
+	color: #888888;
+	font: 700 16px/30px "Lora", serif;
+}
+.top-panel a:hover {
+	color: #19a0cf;	
+}
+
+.m-main-header {
+	height: 141px;
+	width: 100%;
+	position: relative;
+}
+.m-nav-erea {
+	margin-top: 10px;
+	position: relative;
+}
+.m-nav {
+	float: left;
+	margin-left: 15px;
+	cursor: pointer;
+}
+.m-compass-wrap {
+	float: left;
+	position: relative;
+	width: 56px;
+	height: 56px;
+	text-align: center;
+}
+.m-compass {
+	position: absolute;
+	left:0;right: 0; top:0; bottom:0; margin: auto;
+	width: 100%;
+	height: 100%;
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") 0 -339px / 189px no-repeat;
+	z-index: 100;
+}
+.m-compass-wrap span {
+	position: absolute;
+	display: inline-block;
+	left:0;right: 0; top:0; bottom:0; margin: auto;
+	font: 700 10px/56px "Lato", sans-serif;
+	text-transform: uppercase;
+	z-index: 200;
+	text-shadow: 1px 1px 1px black;
+}
+.m-choose-btn {
+	float: left;
+	margin: 16px 0 0 12px;
+	position: relative;
+	height: 30px;
+	width: 100px;
+}
+.m-choose-btn i {
+    font-size: 25px;
+    position: absolute;
+    top: -1px;
+    left: -7px;
+    color: #278bae;
+    -webkit-transition:all 0.5s ease;
+	-moz-transition:all 0.5s ease;
+	transition:all 0.5s ease;
+}
+.m-nav:hover .m-choose-btn i {
+    left: -10px;
+    -webkit-transition:all 0.5s ease;
+	-moz-transition:all 0.5s ease;
+	transition:all 0.5s ease;
+}
+.m-choose-btn span {
+	font: 700 9px/12px "Lato", sans-serif;
+	position: absolute;
+	display: block;
+	left: 15px;
+	-webkit-transition:all 0.5s ease;
+	-moz-transition:all 0.5s ease;
+	transition:all 0.5s ease;
+}
+.m-nav:hover .m-choose-btn span {
+	color: #19a0cf;
+	-webkit-transition:all 0.5s ease;
+	-moz-transition:all 0.5s ease;
+	transition:all 0.5s ease;
+}
+.m-choose-btn span:first-child {
+	top: 0;
+}
+.m-choose-btn span:last-child {
+	top: 11px;
+}
+.m-logo {
+	position: absolute;
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") 0 0 / 124px no-repeat;
+	width: 124px;
+	height: 95px;
+	top: 82px;left: 0; right: 0;
+	margin-left: auto; margin-right: auto;
+	z-index: 900;
+}
+
+/* Map *****************/
+.m-map-absolute {
+	position: absolute;
+	left: 0;
+	top: -270px;
+	width: 320px;
+	z-index: 1000;
+	z-index: 950;
+}
+.m-map-relative {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	height: 230px;
+}
+.m-map-shift-down {
+	top: -12px;
+}
+.m-map-circle {
+	width: 390px;
+	height: 390px;
+	border-radius: 195px;
+	background-color: #000000;
+	position: absolute;
+	top: -166px;
+	left: -70px;
+	z-index: 1010;
+}
+.m-map-relative > h5 {
+	position: absolute;
+	left: 20px;
+	top: -10px;
+	color: #eeeeee;
+	font: 700 13px "Lato", sans-serif;
+	z-index: 1020;
+}
+.m-map-wrap {
+	height: 230px;
+    left: 10px;
+    position: absolute;
+    top: 35px;
+    width: 281px;
+    z-index: 1030;
+}
+.m-map-wrap a {
+	display: block;
+}
+.m-map-relative > i {
+	position: absolute;
+	display: block;
+	width: 40px;
+	height: 40px;
+	right: 0;
+	top: 2px;
+	color: #eeeeee;
+	z-index: 1030;
+	padding: 10px;
+	cursor: pointer;
+}
+.m-map-relative > i:hover {
+	color: #1981b2;
+}
+.m-map-region {
+	/* 	cursor: pointer; */
+}
+.m-map-region:hover .m-map-path {
+	fill: #1981b2;	
+}
+.m-map-region:hover {
+	font-weight: 700;
+}
+.m-circle-wrap {
+	width: 100%;
+	height: 74px;
+	position: relative;
+	overflow: hidden;
+}
+.m-circle {
+	position: absolute;
+	width: 200%;
+	padding-top: 200%;
+	border-radius: 100%;
+	border: 1px solid #333333;
+	top:0;left: -100%;right: -100%; margin-left: auto; margin-right:auto;
+}
+
+/* Social buttons ******/
+.m-social-buttons {
+	float: right;
+}
+.m-social-buttons ul {
+	list-style: none;
+	margin: 15px 15px 8px 0;
+	padding: 0;
+}
+.m-social-buttons ul li {
+	display: inline;
+	margin-left: 10px;
+}
+.m-social-buttons ul li a {
+	font-size: 23px;
+	color: #a0a0a0;
+}
+.m-social-buttons ul li a:hover {
+	color: white;
+}
+
+
+/* ==========================================================================
+   6.0 Home Page
+   ========================================================================== */
+
+.m-home-wrap {
+	width: 100%;
+	position: relative;
+	margin-bottom: 280px;
+}
+.m-regn {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.m-regn li {
+	position: relative;
+	float: left;
+	width: 100%;
+	padding-top: 57%;
+	box-shadow: inset 0 4px 5px rgba(0,0,0,0.3);
+	background-color: #333333;
+}
+.m-regn li:first-child {
+	box-shadow: inset 0 -1px 1px rgba(0,0,0,0.3);
+}
+.m-regn > li > a {
+	display: block;
+	position: absolute;
+	top: 0; bottom:0; left:0; right: 0;
+}
+
+.m-direction {
+	position: absolute;
+	top: 0; bottom:0; left:0; right: 0; margin: auto;
+	width: 85px;
+	height: 85px;
+	text-align: center;
+}
+.m-triangle {
+	width: 100%;
+	height:100%;
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") -25px -133px no-repeat;
+	background-size: 150px;
+	text-align: center;
+}
+.m-ne .m-triangle {
+	transform: rotate(-90deg);
+}
+.m-mw .m-triangle {
+	transform: rotate(135deg);
+}
+.m-sw .m-triangle {
+	transform: rotate(90deg);
+}
+.m-nw .m-triangle {
+	transform: rotate(180deg);
+}
+.m-direction span {
+	font: 700 14px/85px "Lato", sans-serif;
+	text-transform: uppercase;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+	display: inline-block;
+	position: absolute;
+	top: 0; bottom:0; left:0; right: 0; margin: auto;
+	color: white;
+}
+.category-ne .m-direction, .category-se .m-direction, .category-mw .m-direction, .category-sw .m-direction, .category-nw .m-direction {
+	top: 50px; bottom:auto;
+}
+
+
+/* ==========================================================================
+   7.0 Region Page
+   ========================================================================== */
+
+/* Content *******************/
+.m-content-wrap {
+	position: relative;
+	background-position: center top;
+	background-size: 110%;
+	background-repeat: no-repeat;
+}
+
+
+.category-ne .m-triangle {
+	transform: rotate(-90deg);
+}
+.category-mw .m-triangle {
+	transform: rotate(135deg);
+}
+.category-sw .m-triangle {
+	transform: rotate(90deg);
+}
+.category-nw .m-triangle {
+	transform: rotate(180deg);
+}
+.m-content-shadow {
+	position: absolute;
+	z-index: 50;
+	width: 100%;
+	height: 200px;
+	top: 6%;
+	background: -moz-linear-gradient(top,  rgba(30,30,30,0) 2%, rgba(30,30,30,1) 55%, rgba(30,30,30,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(2%,rgba(30,30,30,0)), color-stop(55%,rgba(30,30,30,1)), color-stop(100%,rgba(30,30,30,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(30,30,30,0) 2%,rgba(30,30,30,1) 55%,rgba(30,30,30,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(30,30,30,0) 2%,rgba(30,30,30,1) 55%,rgba(30,30,30,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(30,30,30,0) 2%,rgba(30,30,30,1) 55%,rgba(30,30,30,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(30,30,30,0) 2%,rgba(30,30,30,1) 55%,rgba(30,30,30,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', endColorstr='#1e1e1e',GradientType=0 ); /* IE6-9 */
+}
+.m-content {
+	position: relative;
+	max-width: 100%;
+	padding: 160px 20px 20px 20px;	
+	z-index: 100;
+}
+.link-box {
+	display: block;
+}
+.post-box {
+	width: 100%;
+	float: left;
+	margin-bottom: 30px;
+	background-size: cover;
+	background-position: center center;
+	padding-top: 67%;
+	-webkit-transition:opacity 0.1s;
+	-moz-transition:opacity 0.1s;
+	transition:opacity 0.1s;
+}
+.post-box:hover {
+	opacity: 0.9;
+	-webkit-transition:opacity 0.1s;
+	-moz-transition:opacity 0.1s;
+	transition:opacity 0.1s;
+}
+
+
+
+
+/* ==========================================================================
+   9.0 Single Article
+   ========================================================================== */
+   
+.wpsocialite{display: none !important;}
+.m-article .m-social-wrap {margin-top: 20px;}
+.m-article .share-count.social-buttons{position: relative;bottom: auto;right: auto;text-align: left;margin: 0;list-style: none;padding: 0 0 20px 0;}
+.m-article .share-count.social-buttons li{float: left;margin-right: 10px;}
+.m-article .share-count.social-buttons li:last-child iframe {margin-top: 3px;}
+
+.m-article-wrap {
+	width: 100%;
+	background-color: white;
+	color: #222222;
+}   
+.m-article-image {
+	width: 100%;
+	padding-top: 50%;
+	background-size: cover;
+	background-position: center center;
+}
+.m-article {
+	padding: 0 20px 20px;
+	font: 400 17px/28px "Lora", sans-serif;
+} 
+.m-article .m-hlep-grow {
+	font: 400 14px/17px "Lato", sans-serif;
+	color: #555555;
+	width: 218px;
+} 
+.m-article .m-social-buttons ul li:first-child {
+	margin-left: 0;
+}
+.m-article .m-social-buttons ul li {
+	margin: 0 5px;
+}
+.m-article .m-social-buttons ul li a {
+	color: #ee7700;
+	font-size: 25px;
+	-webkit-transition:color 0.2s;
+	-moz-transition:color 0.2s;
+	transition:color 0.2s;
+}
+.m-article .m-social-buttons ul li a:hover {
+	color: #ff9000;
+	-webkit-transition:color 0.2s;
+	-moz-transition:color 0.2s;
+	transition:color 0.2s;
+}
+.m-article h1 {
+	font-size: 30px;
+	line-height: 34px;
+	margin-bottom: 5px;
+	clear: both;
+}
+.m-article h2.m-subtitle {
+	font: 300 20px/26px "Lato", sans-serif;
+	margin: 0 0 5px;
+	clear: both;
+}
+.m-article h3 {
+	font-size: 21px;
+	line-height: 27px;
+	font-weight: 300;
+	margin: 0;
+}
+.m-post-byline {
+	font: 700 11px "Lato", sans-serif;
+	display: block;
+	text-transform: uppercase;
+	margin-bottom: 8px;
+}
+.m-article .inline-ad:nth-child(1) {
+	margin-top: 19px !important;
+}
+.m-article p {
+	font: 400 17px/28px "Lora", sans-serif;
+}
+/* ==========================================================================
+   11.0 Sweepstakes
+   ========================================================================== */
+.category-sweeps .m-article-image {
+	position: relative;
+	width: 100%;
+	padding-top: 0;
+	height: 420px;
+	background: url('/wp-content/themes/infisherman/images/rigged-and-ready/sweepstakes/fishing-nosara@2.jpg') no-repeat center center / cover;
+}
+.category-sweeps .m-article-image .m-direction {
+	width: 157px;
+	height: 107px;
+	top: 30px;
+	bottom: auto;
+	text-align: center;
+	background: url('/wp-content/themes/infisherman/images/rigged-and-ready/sweepstakes/sweep-triangle.png') no-repeat center / 100%;
+}
+.category-sweeps .m-article-image .m-direction span {
+	font-size: 28px;
+	line-height: 96px;
+}
+.m-sweep-text {
+	position: absolute;
+	width: 90%;
+	top: 145px; left: 0; right: 0;
+	margin: 0 auto;
+	text-align: center;
+}
+.m-sweep-text h1 {
+	font: 900 22px "Merriweather";
+	color: white;
+	text-shadow: 1px 2px 4px rgba(0,0,0,.7);
+}
+.m-sweep-text h1 span {
+	font: 900 36px "Lato";
+	color: #1d9fcc;
+	text-shadow: 2px 3px 5px rgba(0,0,0,.8);
+	padding-top: 9px;
+	display: inline-block;
+}
+.m-sweep-text p {
+	color: white;
+	text-shadow: 1px 2px 4px rgba(0,0,0,.7);
+	line-height: 1.5em;
+}
+.category-sweeps .m-social-wrap {
+	width: 240px;
+	margin: 20px auto 0;
+}
+.category-sweeps .m-social-wrap:last-child {
+	width: 221px;
+	margin: 40px auto;
+}
+.m-sweep-left {
+	width: 100%;
+}
+.m-sweep-enter {
+	width: 280px;
+	margin: 0 auto 10px;
+}
+.category-sweeps .m-sweep-enter h1 {
+	font: 700 37px "Lato", sans-serif;
+	color: #1d9fcc;
+	text-align: center;
+	margin-top: 20px;
+}
+.m-sweep-enter > div {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 30px 140px 0 140px;
+	border-color: #eeeeee transparent transparent transparent;
+}
+.m-sweep-right {
+	width: 100%;
+	margin: 10px 0 0;
+}
+.video-container {
+	margin: 30px 0;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+}
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* ==========================================================================
+   11.0 Media Queries
+   ========================================================================== */
+   
+@media only screen and (min-width: 375px) {/* iPhone 6 */
+
+/* Header *******************/ 
+
+/* Single Article **************/
+.alignright-content {margin: 30px auto;}
+
+/* Footer *******************/  
+
+
+}/* end of media */
+
+
+@media only screen and (min-width: 480px) {/* smartphones, Android phones, landscape iPhone */
+
+/* Header *******************/
+.m-main-header {height: 76px;}
+.m-logo {top: 17px;}
+.m-circle-wrap {display: none;}
+.m-social-buttons ul {margin-top:17px;}
+
+/* Home Page *******************/
+/* .m-truck {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/truck-ram.png") no-repeat left bottom / 1480px;} */
+
+/* Banners *******************/
+/*
+.m-truck-container:first-child .m-truck {
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sweeps-banner.png") no-repeat left bottom / 1280px;
+}
+*/
+.m-truck-container .m-truck {
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/truck-ram.png") no-repeat left bottom / 1280px;
+}
+
+/* Region Page *******************/ 
+.category-ne .m-direction, .category-se .m-direction, .category-mw .m-direction, .category-sw .m-direction, .category-nw .m-direction {top: 80px;}
+.m-content {padding: 214px 20px 20px 20px;}
+.m-content-wrap {background-size: 100%;}
+.m-content-shadow {top: 7.2%;}
+
+/* Choose Location Footer *******************/ 
+.m-loc-wrap {margin: 0 -5%;}
+.m-loc-wrap > ul {padding: 20px 0 0;}
+.m-loc-wrap > ul > li {width: 23.3%;margin: 0 5% 30px;}
+
+.m-loc-wrap > ul > li:nth-child(3) {clear: none;float: left;margin: 0 5% 30px;}
+.m-loc-wrap > ul > li:nth-child(4) {margin-left: 23.3%;}
+
+/* Sweepstakes *******************/ 
+.category-sweeps .m-article-image {height: 370px;}
+.m-sweep-left {width: 400px;margin: 0 auto;}
+.m-sweep-text h1 span br {display: none;}
+
+/* Single Article *******************/ 
+/* Footer *******************/  
+
+
+}/* end of media */
+
+
+@media only screen and (min-width: 600px) {/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+
+/* Header *******************/
+
+/* Home Page *******************/
+.m-home-wrap {margin-bottom: 150px;}
+.m-direction {width: 106px;height:106px;}
+.m-triangle {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") -35px -172px no-repeat;background-size: 192px;}
+.m-direction span {font: 700 16px/106px "Lato", sans-serif;}
+
+/* Banners *******************/
+.m-banners {height: 133px;bottom: -140px;}
+.m-truck-container {height: 150px;}
+.m-banners-region, .m-banners-single {bottom: auto;}
+.m-truck {/* background-size: 1480px; */text-align: right;padding: 0 30px;}
+.m-truck-title {top: 10px;left:auto; right: 30px;}
+.m-truck > p > br {display: none;}
+.m-truck > p {margin: 52px auto 15px;	}
+
+/* Choose Location Footer *******************/
+.m-loc {margin: 60px auto 20px;width: 92%;}
+.m-loc-wrap > ul {padding: 30px 0 0;}
+.m-loc-wrap > ul > li > a > span {font-size: 16px;margin-top: 8px;}
+
+/* Region Page *******************/
+.m-content-shadow {height: 400px;top: 5%;}
+.m-content {padding: 268px 4% 0;}
+.posts-wrap {margin: 35px -1%;}
+.category-ne .m-direction, .category-se .m-direction, .category-mw .m-direction, .category-sw .m-direction, .category-nw .m-direction {
+	top: 90px; bottom:auto;
+	width: 140px;
+	height:140px;
+}
+.category-ne .m-triangle, .category-se .m-triangle, .category-mw .m-triangle, .category-sw .m-triangle, .category-nw .m-triangle  {
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") -33px -197px / 230px no-repeat;
+}
+.category-ne .m-direction span, .category-se .m-direction span, .category-mw .m-direction span, .category-sw .m-direction span, .category-nw .m-direction span {font: 700 21px/140px "Lato", sans-serif;}
+
+/* Single Article *******************/
+.m-article {padding: 0 35px 20px;} 
+.m-post-byline {margin-bottom: 36px;}
+.m-article p {line-height: 30px;}
+.alignright-content.inline-ad {margin-top: 9px;}
+.m-more {width: 92%;padding: 0;margin: 60px 4% 0;}
+.m-more-wrap {margin: 0 -1%;}
+.m-more-wrap .post-box { margin: 0 1% 3.2%; padding-top: 32.16%; width: 48%;}
+.m-article blockquote {font-size: 30px;margin: 50px 0;} 
+.m-article blockquote p {font-size: 26px;}
+.alignright-content {margin: 30px 0 30px 30px;float: right;}
+.alignright-content.m-buy-wrap {margin: 2px 0 30px 30px;float: right;}
+.m-article-bottom {clear:both; margin: 40px 0 0;}
+.m-article-bottom .m-social-wrap {float: left;width: 200px;margin-top: 70px;}
+.m-article-bottom .m-social-buttons ul li {margin: 0 8px;}
+.m-article-bottom .m-social-buttons ul li:first-child {margin-left: 0;}
+.m-article-bottom .m-social-buttons ul li a {font-size: 40px;}
+.m-article-bottom .m-hlep-grow {font: 700 20px/25px "Lato", sans-serif;color: #222222;}
+
+/* Footer *******************/ 
+.m-footer {padding: 60px 0 42px;margin: 10px auto 0;width: 92%;}
+.m-imo-logo {margin: 0 20px 0 0;display: inline-block;}
+.m-footer-nav {display: inline-block;}
+.m-footer-nav ul {text-align: left;}
+.m-footer-nav ul li {display: inline-block;}
+.m-footer-nav ul li a {padding: 5px 12px;font-size: 11px;}
+.m-footer-nav ul li a:first-child {padding-left: 0;}
+.m-copyright {margin-top: 15px;text-align: left;}
+
+/* Wordpress Defaults *******************/  
+.m-article .aligncenter {margin: 30px auto;}
+.m-article .alignnone {margin: 30px 0;float: none;}
+.m-article .alignright {float: right;margin: 8px 0 20px 30px;width: 300px;}
+.m-article .alignleft {float: left; margin: 8px 30px 20px 0;width: 300px;}
+.wp-caption p.wp-caption-text { font-size: 14px; line-height: 19px;}
+
+}/* end of media */
+
+@media only screen and (min-width: 700px) {
+
+.m-microsite {height: 100%;}
+
+/* Header *******************/
+.m-main-header {height: 93px;}
+.m-social-buttons ul {margin: 32px 0 0;position: relative;}
+.m-social-buttons ul:after {content: "SHARE";position: absolute;left: 8px;top: -17px;display: inline-block;font: 700 11px "Lato", sans-serif;}
+.m-social-buttons ul li {margin-left: 7px;}
+.m-nav-erea { margin-top: 12px; padding: 0 3%;}
+.m-nav {margin-left: 0;}
+.m-compass-wrap {width: 76px;height: 68px;}
+.m-compass {width: 68px;height: 68px;background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") no-repeat 0 -425px / 237px;}
+.m-compass-wrap span {line-height: 68px;font-size: 13px;}
+.m-choose-btn {margin: 19px 0 0 10px;}
+.m-choose-btn i {font-size: 27px;top: 1px;}
+.m-choose-btn span {font: 700 11px/15px "Lato", sans-serif;left: 18px;}
+.m-choose-btn span:last-child {top: 13px;}
+.m-logo {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") no-repeat 0 0 / 168px ;width: 168px;height: 128px;top: 13px;}
+
+/* Region Page *******************/
+.m-content-shadow {top: 6.1%;}
+
+/* Content *******************/
+
+/* Single Article *******************/
+.m-article h1 {font-size: 37px;line-height: 44px;margin-bottom: 8px;}
+.m-article h2.m-subtitle {font: 300 23px/29px "Lato", sans-serif;margin: 0 0 8px;}
+.m-post-byline {font-size: 12px;}
+.m-article-bottom .m-social-wrap {width: 300px;margin-top: 40px;}
+.m-article-bottom .m-social-buttons ul li a {font-size: 50px;}
+.m-article-bottom .m-hlep-grow {width: 300px; margin-bottom: 10px;}
+.m-loc h2, .m-more h2 {font-size: 23px;}
+
+/* Sweepstakes *******************/
+
+.category-sweeps .m-article-image {
+	height: 454px;
+	background: url('/wp-content/themes/infisherman/images/rigged-and-ready/sweepstakes/fishing-nosara.jpg') no-repeat center center / cover;
+}
+.category-sweeps .m-article-image .m-direction {
+	width: 213px;
+	height: 146px;
+	top: 41px;
+	bottom: auto;
+}
+.category-sweeps .m-article-image .m-direction span {
+	font-size: 36px;
+	line-height: 131px;
+}
+.m-sweep-text {
+	max-width: 685px;
+	top: 185px;
+}
+.m-sweep-text h1 {
+	font: 900 36px "Merriweather";
+	margin-bottom: 0;
+}
+.m-sweep-text h1 span {
+	font: 900 65px "Lato";
+	padding-top: 0;
+}
+.m-sweep-text p {
+	font-size: 19px;
+	margin-top: 0.6em;
+}
+.m-sweep-right {
+	margin: 35px 0 0;
+}
+
+
+/* Footer *******************/ 
+.m-footer-nav ul li a {padding: 5px 15px;font-size: 12px;}
+
+}/* END OF MEDIA */
+
+@media only screen and (min-width: 920px) {
+
+/* Header *******************/
+.m-nav-erea { padding: 0 4%;}
+
+/* Home Page *******************/
+.m-home-wrap {margin-bottom: 130px;height: 66%;}
+.m-regn {height: 100%;}
+.m-home-wrap .m-regn > li {width: 20%;height: 100%;padding-top: 0;background-size: cover;}
+.m-regn > li > a {-webkit-transition: all 0.4s ease;transition: all 0.4s ease;}
+.m-regn > li > a:hover {box-shadow: inset 0 0 10px rgba(0,0,0,0.7);-webkit-transition: all 0.4s ease;transition: all 0.4s ease;}
+.m-regn > li > a:hover .m-direction {-webkit-transform: scale(1.2);transform: scale(1.2);-webkit-transition: all 0.3s ease;transition: all 0.3s ease;}
+.m-direction {width: 85px;height: 85px;-webkit-transition: all 0.3s ease;transition: all 0.3s ease;}
+.m-triangle {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") -25px -133px no-repeat;background-size: 150px;}
+.m-direction span {font: 700 14px/85px "Lato", sans-serif;}
+.m-regn .m-ne {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/desktop/northeast.jpg") no-repeat 25% center / 100%;}
+.m-regn .m-se {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/desktop/southeast.jpg") no-repeat 51% center / 100%;}
+.m-regn .m-mw {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/desktop/midwest.jpg") no-repeat center / 100%;}
+.m-regn .m-sw {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/desktop/southwest.jpg") no-repeat 55% center / 100%;}
+.m-regn .m-nw {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/desktop/northwest.jpg") no-repeat 70% center / 100%;}
+
+/* Banners *******************/
+.m-truck-container {position: relative;height: 133px;bottom: auto;}
+.m-banners {bottom: -133px;}
+.m-banners-region {bottom: auto;}
+/*
+.m-truck {background-size: 1640px;text-align: center;}
+.m-truck-title {top:6px;left:0; right: 0; margin: 0 auto;}
+.m-truck > p {margin: 46px auto 13px;	}
+*/
+
+/* Region Page *******************/
+.m-content-shadow {height: 600px;top: 22%;}
+.posts-wrap {margin: 35px -0.5%;}
+.p-container a:nth-of-type(5n+1) .post-box,
+.p-container a:nth-of-type(5n+2) .post-box {margin: 0 0.5% 2.5%;width: 49%;padding-top: 32.83%;}
+.p-container a:nth-of-type(5n+3) .post-box,
+.p-container a:nth-of-type(5n+4) .post-box,
+.p-container a:nth-of-type(5n+5) .post-box {margin: 0 0.5% 2.5% ;width: 32.3333333%;padding-top: 21.66333333%;}
+
+.category-ne .m-content-wrap {background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions-back/northeast.jpg");}
+.category-se .m-content-wrap {background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions-back/southeast.jpg");}
+.category-mw .m-content-wrap {background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions-back/midwest.jpg");}
+.category-sw .m-content-wrap {background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions-back/southwest.jpg");}
+.category-nw .m-content-wrap {background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions-back/northwest.jpg");}
+
+/* Choose Location Footer *******************/ 
+.m-loc-wrap {margin: 0 -3%;}
+.m-loc-wrap > ul {padding: 40px 0 0;}
+.m-loc-wrap > ul > li {width: 14%;margin: 0 3% 30px;}
+.m-loc-wrap > ul > li:nth-child(3) {margin: 0 3% 30px;}
+.m-loc-wrap > ul > li:nth-child(4) {margin-left: 3%;}
+
+/* Single Article *******************/
+.m-article {padding: 0 0 20px;margin: 0 17%;}
+.m-article-image {padding-top: 39%;}
+.m-more {width: 92%;padding: 0;margin: 80px 4% 0;}
+.m-more h2 {margin-left: -2px;}
+.m-more-wrap {margin: 0 -0.5%;}
+.m-more-wrap .post-box { margin: 0 0.5% 2.5%; padding-top: 21.6633%; width: 32.3333%;}
+/* .m-article-bottom .m-social-wrap {width: 360px;} */
+.m-article iframe.interact-embed {width: 800px;}
+
+/* Sweepstakes *******************/
+.category-sweeps .m-article {margin: 0 12%;}
+.m-sweep-blocks {
+	margin: 5px 0 70px;
+}
+.m-sweep-left {
+	float: left;
+	width: 46%;
+	margin-right: 4%;
+}
+.m-sweep-right {
+	float: left;
+	width: 46%;
+	margin: 8px 0 0;
+}
+
+/* Footer *******************/ 
+.m-copyright {margin-top: 0;float: left;}
+	
+}/* END OF MEDIA */
+
+@media only screen and (min-width: 1025px) {/* big landscape tablets, laptops, and desktops */
+
+/* Header *******************/
+.m-map-absolute {-webkit-transition: top 0.5s ease;-moz-transition: top 0.5s ease;transition: top 0.5s ease;}
+
+/* Home Page *******************/
+.m-home-wrap {height: 65%;margin-bottom: 133px;}
+
+/* Banners *******************/
+.m-banners {height: auto;bottom: auto;}
+.m-truck-container {width: 50%;}
+.m-truck-container:first-child {
+  margin-bottom: 0;
+}
+
+/* Single Articles *******************/
+.m-article {margin: 0 25%;}
+.m-article.m-article-sweeps {margin: 0 auto; width: 900px;}
+.m-article h1 {font-size: 41px;line-height: 48px;}
+.m-article h2.m-subtitle {font: 300 24px/30px "Lato", sans-serif;}
+.m-post-byline {font-size: 13px;}
+.alignright-content {margin-right:-150px;}
+.alignright-content.m-buy-wrap {margin-right: -150px;}
+
+/* Region Page *******************/
+.m-content-shadow {top: 22%;}
+.m-content {padding: 400px 4% 0;}
+.category-ne .m-direction, .category-se .m-direction, .category-mw .m-direction, .category-sw .m-direction, .category-nw .m-direction {top: 130px;width: 180px;height:180px;}
+.category-ne .m-triangle, .category-se .m-triangle, .category-mw .m-triangle, .category-sw .m-triangle, .category-nw .m-triangle  { background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") no-repeat -50px -271px / 311px;}
+
+.category-ne .m-direction span, .category-se .m-direction span, .category-mw .m-direction span, .category-sw .m-direction span, .category-nw .m-direction span {font: 700 31px/180px "Lato", sans-serif;}
+
+/* Find Location Footer *******************/ 
+.m-loc {margin-bottom: 30px;}
+
+/* Wordpress Defaults *******************/  
+.m-article .alignright {margin-right: -150px;}
+.m-article .alignleft { margin-left: -150px;}
+.alignright-content {float: right;margin-right: -150px;}
+
+/* Sweepstakes *******************/
+.category-sweeps .m-article {margin: 0 auto; width: 800px;}
+.category-sweeps .m-social-wrap:last-child {margin-bottom: 100px;}
+/*
+.category-sweeps .m-article-wrap {
+	background: url('/wp-content/themes/infisherman/images/rigged-and-ready/sweepstakes/billfish.png') #fff no-repeat center bottom / 90%;
+}
+*/
+
+/* Footer *********************/
+.m-footer {padding-top:100px;}
+
+}/* END OF MEDIA */
+
+@media only screen and (min-width: 1250px) {/* large desktops */
+
+/* Header *******************/
+.main-header, .m-content, .m-footer {margin: 0 auto;max-width: 1442px;}
+
+/* Region Page *******************/
+.m-content-shadow {top: 27%;}
+.m-loc {max-width: 1442px;}
+.m-loc-wrap > ul > li > a > span {font-size: 17px;margin-top: 9px;}
+
+/* Single Articles *******************/
+.m-article {margin: 0 auto; width: 700px;}
+.m-more {margin: 80px auto 0;max-width: 1442px;}
+
+/* Footer *******************/ 
+
+}/* END OF MEDIA */
+
+
+@media only screen and (min-width: 1450px) {/* large desktops */
+
+/* Header *******************/
+.m-nav-erea { padding: 0; margin: 12px auto 0; max-width: 1442px; position: static; }
+
+/* Home Page *******************/
+.m-direction {width: 106px;height:106px;}
+.m-triangle {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") -35px -172px no-repeat;background-size: 192px;}
+.m-direction span {font: 700 16px/106px "Lato", sans-serif;}
+
+/* Region Page *******************/
+.m-content-shadow {
+	height: 1200px;
+	top: 30%;
+	background: -moz-linear-gradient(top,  rgba(30,30,30,0) 2%, rgba(30,30,30,1) 32%, rgba(30,30,30,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(2%,rgba(30,30,30,0)), color-stop(32%,rgba(30,30,30,1)), color-stop(100%,rgba(30,30,30,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(30,30,30,0) 2%,rgba(30,30,30,1) 32%,rgba(30,30,30,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(30,30,30,0) 2%,rgba(30,30,30,1) 32%,rgba(30,30,30,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(30,30,30,0) 2%,rgba(30,30,30,1) 32%,rgba(30,30,30,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(30,30,30,0) 2%,rgba(30,30,30,1) 32%,rgba(30,30,30,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', endColorstr='#1e1e1e',GradientType=0 ); /* IE6-9 */
+}
+.m-content {padding: 470px 0 0;}
+.category-ne .m-direction, .category-se .m-direction, .category-mw .m-direction, .category-sw .m-direction, .category-nw .m-direction {top: 155px;}
+.m-banners-region, .m-banners-single {margin: 0 auto; max-width: 1442px;}
+.m-loc-wrap > ul > li > a > span {font-size: 18px;margin-top: 10px;}
+
+/* Single Articles *******************/
+
+}/* END OF MEDIA */
+
+
+
+@media only screen and (min-width: 1700px) {/* very large desktops */
+
+/* Header *******************/
+.m-nav-erea { position: relative; }
+/* Map *****************/
+.m-map-absolute {left: -125px;width: 390px;}
+.m-map-circle {left: 0;}
+.m-map-shift > h5 {left: 30px;}
+.m-map-wrap {left: 60px;}
+
+}/* END OF MEDIA */
+

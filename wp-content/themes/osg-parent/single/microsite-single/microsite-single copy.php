@@ -1,10 +1,4 @@
-<?php
-	global $microsite, $microsite_default;
-	$microsite = true;
-	$microsite_default = true;
-	
-	get_header();
-		
+<?php	
 	$image_full = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 	$image_large = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'lafge' );	
 	$postID = get_the_ID();
@@ -21,16 +15,17 @@
 	$mag_online_store = get_field('mag_online_store', $term_cat_id);
 	$digital_edition_available = get_field('digital_edition_available', $term_cat_id);
 	$online_store_url = get_field('online_store_url', $term_cat_id);
+	$sponsors_disclaimer = get_field('sponsors_disclaimer', $term_cat_id);
 	$social_share_message = get_field('social_share_message', $term_cat_id);
 	
 	$today = date("Ymd"); 
-	
-	if (have_rows('mag_info', $term_cat_id)) { 
-		while ( have_rows('mag_info', $term_cat_id) ) { the_row();
-			$mag_cover_image = get_sub_field('mag_cover_image');
-		}
-	}
 ?>
+
+<?php if( in_array( 'sponsors_disclaimer', get_field('additional_elements', $term_cat_id) ) ) { ?>
+<div class="sponsors-disclaimer">
+	<span><?php echo $sponsors_disclaimer; ?></span>
+</div>
+<?php } ?>
 
 <div class="m-article-wrap clearfix">
 	<?php if(mobile() == true) {
@@ -41,7 +36,8 @@
 		if($image_full[0]) { ?>
 			<div class="m-article-image" style="background-image: url('<?php echo $image_full[0]; ?>');">
 				<div class="m-top-ad">
-					<div><?php imo_ad_placement("microsite_ATF_300x250"); ?></div>	
+					<p>ADVERTISMENT</p>
+					<div><?php imo_ad_placement("microsite_BTF_300x250"); ?></div>	
 				</div>
 			</div>
 	<?php } } ?>
@@ -72,11 +68,66 @@
 			    if($p_counter == $mag_after_p && $hide_all_buy_mag_options == false){ ?>
 			   
 				<div class="alignright-content m-buy-wrap"> 
-		    		<?php imo_ad_placement("microsite_ATF_300x250"); ?>
+		    		<div class="m-buy-mag" style="margin-top: 45px;"> 
+			    		<?php if ($end_date_newsstand > $today  ) {	?>
+							<h2>NOW AVAILABLE ON NEWSSTANDS!</h2>
+							<?php echo do_shortcode('[osgimpubissue bipad="'.$zip_finder_bipad.'" alias="mid"]'); ?>
+						<?php } else {  ?>
+							<h2><?php echo $buy_mag_foot_message; ?> </h2>
+						<?php } ?>
+		    			<div class="m-buy-mag-bottom clearfix"> 				
+		    				<div class="m-buy-mag-img"></div> 
+		    				<div class="m-buy-dig">
+		    					<a href="<?php echo $online_store_url; ?>" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
+		    					<?php if ($mag_online_store == false) : ?>
+		    					<div class="unavailble-mag">
+									<p>The print magazine is temporarily unavailable in the online store. Instead find it in your area using your zip code, or get the digital edition.</p>
+								</div>
+								<?php endif; ?>
+		    				</div>
+		    				<div class="m-buy-dig" href="#" target="_blank">
+								<span>GET THE DIGITAL EDITION!</span>
+								<?php
+									if ($digital_edition_available == true && have_rows('digital_edition_urls', $term_cat_id)) { 
+										while ( have_rows('digital_edition_urls', $term_cat_id) ) { the_row();
+										$itunes_url = get_sub_field('itunes_url');
+										$google_play_url = get_sub_field('google_play_url');
+										$windows_store_url = get_sub_field('windows_store_url');
+								?>
+									<div class="m-dig-drop">
+										<ul>
+											<li><a href="<?php echo $itunes_url; ?>" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/itunes-logo.png"><span>iTunes</span></a></li>
+											<li><a href="<?php echo $google_play_url; ?>" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/google_play_icon.png"><span>Google Play</span></a></li>
+											<li><a href="<?php echo $windows_store_url; ?>" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/windows-store-icon.png"><span>Windows Store</span></a></li>						
+										</ul>
+									</div>
+								<?php }  // end while
+									} else { ?>
+									<div class="unavailble-mag">
+										<p>Digital edition is temporarily unavailable. Instead find it in your area using your zip code, or get the the print magazine in the online store.</p>
+									</div>
+								<?php } ?>									
+		    				</div> 
+		    			</div>
+		    		</div>
 		    	</div>
-
+<!--
+		    	<script>
+			    	jQuery(document).ready(function($) {
+				    	$(".m-buy-dig").click(function() {
+					    	$(".m-dig-drop").addClass("m-dig-dropit")
+				    	});
+				    });
+			    </script>
+-->
 				<?php }	
-
+/*
+			    if($p_counter == $ad1_after_p){
+			    	//echo '<div class="alignright-content inline-ad">';
+						//imo_ad_placement("atf_medium_rectangle_300x250"); 
+					//echo '</div>';
+				}
+*/
 			    $p_counter++;
 			}
 			
@@ -90,8 +141,8 @@
 					<?php } else {  ?>
 						<h2><?php echo $buy_mag_foot_message; ?> </h2>
 					<?php } ?>
-	    			<div class="m-buy-mag-bottom clearfix"> 
-	    			<div class="m-buy-mag-img" style="background-image: url(<?php echo $mag_cover_image['url']; ?>);"></div> 
+	    			<div class="m-buy-mag-bottom clearfix"> 				
+	    				<div class="m-buy-mag-img"></div> 
 	    				<div class="m-buy-dig">
 	    					<a href="<?php echo $online_store_url; ?>" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
 	    					<?php if ($mag_online_store == false) : ?>
@@ -181,5 +232,3 @@
 		?>
 	</div><!-- .m-more-wrap -->
 </div><!-- .m-more -->
-
-<?php get_template_part( '../imo-mags-parent/footer/footer', 'microsite' ); ?>
