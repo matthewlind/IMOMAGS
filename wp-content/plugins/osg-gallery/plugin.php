@@ -69,7 +69,6 @@ function print_gallery_script() {
 
 add_shortcode( 'imo-slideshow', 'imo_flex_gallery' );
 
-/*
 // [slideshow gallery=GALLERY_ID]
 function imo_flex_gallery( $atts ) {
 	global $add_gallery_script;
@@ -165,7 +164,6 @@ function imo_flex_gallery( $atts ) {
 
 wp_enqueue_style('flexslider-css',get_template_directory_uri().'/plugins/flexslider/flexslider.css');
 wp_enqueue_style('gallery-css',plugins_url('css/style.css', __FILE__));
-*/
 
 
 
