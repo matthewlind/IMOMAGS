@@ -1,0 +1,233 @@
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,300,200,600,700);
+@import url(http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
+
+
+/* ==========================================================================
+	2.0 Defaults 
+========================================================================== */
+
+body {
+	font-family: 'Titillium Web', sans-serif;
+}
+a {
+	color: #ee7700;
+}
+a:hover {
+	color: #ff3000;	
+}
+
+
+
+/* ==========================================================================
+	4.0 Buttons
+========================================================================== */
+
+.s-buy-btn {
+	font-family:'Titillium Web', sans-serif;
+}
+
+/* ==========================================================================
+   5.0 Home Page
+   ========================================================================== */
+   
+/* Content *******************/
+
+.featured-message span {
+	font-family: "Lora", serif;
+}
+.m-social-buttons ul li a:hover {
+	color: white;
+}
+
+
+/* ==========================================================================
+   6.0 Single Article
+   ========================================================================== */
+   
+
+.m-article p {
+	font: 400 17px/28px "Lora", sans-serif;
+}
+.m-article blockquote {
+	font-family: 'Titillium Web', sans-serif;
+	border-left: 9px solid #ee7700;
+} 
+.m-article blockquote p {
+	font: 300 26px 'Titillium Web', sans-serif;
+}
+.m-buy-mag-img {
+	background-image: url("/wp-content/themes/gunsandammo/images/shoot101/mag-cover.jpg");
+}
+.m-buy-mag-bottom .m-buy-dig {	
+	color: #ee7700;
+}
+.m-buy-mag-bottom .m-dig-drop a:hover, .m-buy-mag-bottom .m-buy-dig:nth-child(2):hover {
+	border: 1px solid #ff9900;
+	background: #ffb702; /* Old browsers */
+	background: -moz-linear-gradient(top, #ffb702 0%, #ff9900 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffb702), color-stop(100%,#ff9900)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ffb702 0%,#ff9900 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ffb702 0%,#ff9900 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ffb702 0%,#ff9900 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #ffb702 0%,#ff9900 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', endColorstr='#ff9900',GradientType=0 ); /* IE6-9 */
+	
+}
+
+
+/* ==========================================================================
+   7.0 Footer
+   ========================================================================== */
+.s-mag-descr p {
+	font-family: 'Source Sans Pro', sans-serif;
+}   
+.s-mag-btns .s-buy-btn > a {
+	color: #222222;
+}
+.buy-mag-drop {
+	top: 32px;
+	border: 3px solid #ff8b00;
+}
+.buy-mag-drop ul li a span {
+	font-family: "Source Sans Pro", sans-serif;
+}
+.footer-message h2 {
+	font-family: 'Lora', serif;
+}
+
+/* ==========================================================================
+   7.0 Zip code finder
+   ========================================================================== */
+   
+/* single article content area **************/
+.single .pubfinderzipgo {
+	color: #ee7700;
+}
+.single .pubfinderform:hover {
+	border: 1px solid #ff9900;
+	background: -moz-linear-gradient(top, #ffb702 0%, #ff9900 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffb702), color-stop(100%,#ff9900)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ffb702 0%,#ff9900 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ffb702 0%,#ff9900 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ffb702 0%,#ff9900 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #ffb702 0%,#ff9900 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', endColorstr='#ff9900',GradientType=0 ); /* IE6-9 */
+}
+   
+/* footer zip ****************/
+
+#pubfinderzipcontfoot .pubfinderform {
+	
+	background: #ff8a00; /* Old browsers */
+	background: -moz-linear-gradient(top, #ff8a00 0%, #fea802 96%, #ff8a00 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff8a00), color-stop(96%,#fea802), color-stop(100%,#ff8a00)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ff8a00 0%,#fea802 96%,#ff8a00 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ff8a00 0%,#fea802 96%,#ff8a00 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ff8a00 0%,#fea802 96%,#ff8a00 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #ff8a00 0%,#fea802 96%,#ff8a00 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff8a00', endColorstr='#ff8a00',GradientType=0 ); /* IE6-9 */
+}
+#pubfinderzipcontfoot .pubfinderform:hover {
+	background: #ff9900; /* Old browsers */
+	background: -moz-linear-gradient(top, #ff9900 0%, #ffb702 4%, #ff9900 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff9900), color-stop(4%,#ffb702), color-stop(100%,#ff9900)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ff9900 0%,#ffb702 4%,#ff9900 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ff9900 0%,#ffb702 4%,#ff9900 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ff9900 0%,#ffb702 4%,#ff9900 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #ff9900 0%,#ffb702 4%,#ff9900 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9900', endColorstr='#ff9900',GradientType=0 ); /* IE6-9 */
+}
+
+/* header zip ****************/
+
+.m-buymag-drop > ul > li:nth-child(2) a:hover {
+	color: #ee7700;
+}
+#pubfinderzipconthead .pubfinderform {
+	background: #ff8a00; /* Old browsers */
+	background: -moz-linear-gradient(top, #ff8a00 0%, #fea802 96%, #ff8a00 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff8a00), color-stop(96%,#fea802), color-stop(100%,#ff8a00)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ff8a00 0%,#fea802 96%,#ff8a00 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ff8a00 0%,#fea802 96%,#ff8a00 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ff8a00 0%,#fea802 96%,#ff8a00 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #ff8a00 0%,#fea802 96%,#ff8a00 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff8a00', endColorstr='#ff8a00',GradientType=0 ); /* IE6-9 */
+}
+#pubfinderzipconthead .pubfinderform:hover {
+	background: #ff9900; /* Old browsers */
+	background: -moz-linear-gradient(top, #ff9900 0%, #ffb702 4%, #ff9900 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff9900), color-stop(4%,#ffb702), color-stop(100%,#ff9900)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ff9900 0%,#ffb702 4%,#ff9900 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ff9900 0%,#ffb702 4%,#ff9900 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ff9900 0%,#ffb702 4%,#ff9900 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #ff9900 0%,#ffb702 4%,#ff9900 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9900', endColorstr='#ff9900',GradientType=0 ); /* IE6-9 */
+}
+.unavailble-mag p {
+	font-family: 'Titillium Web', sans-serif;
+}
+
+
+/* ==========================================================================
+   8.0 Media Queries
+   ========================================================================== */
+
+
+@media only screen and (min-width: 600px) {/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+
+/* Single Article *******************/
+.m-article-bottom .m-hlep-grow {font-family: "Titillium Web", sans-serif;}
+
+}/* end media 600px */
+
+
+@media only screen and (min-width: 700px) {
+
+/* Single Article *******************/
+.m-article-bottom .m-hlep-grow {font-family: "Titillium Web", sans-serif;}
+
+}/* end media 700px */
+
+
+@media only screen and (min-width: 920px) {
+
+/* Footer *******************/ 
+.s-mag-buy h2 {margin-bottom: -7px;}
+	
+}/* end media 920px */
+
+
+@media only screen and (min-width: 1025px) {/* big landscape tablets, laptops, and desktops */
+
+/* Footer *******************/
+.s-mag-btns .s-buy-btn:first-child {margin-right: 2%;}
+
+}/* end media 1025px */
+
+
+@media only screen and (min-width: 1250px) {/* large desktops */
+
+.footer-message {font-family: "Titillium Web", sans-serif;}
+.s-mag-buy h2 {font-size: 34px;}
+/* Zip code finder *******************/
+/* foot */
+#pubfinderzipcontfoot .pubfinderformcont label {font-size: 17.3px;}
+#pubfinderzipcontfoot .pubfinderformcont label::after {margin-left: 28px;}
+#pubfinderzipcontfoot .pubfinderform {width: 43.6%;}
+
+}/* end media 1250px */
+
+
+@media only screen and (min-width: 1450px) {/* large desktops */
+
+/* Header *******************/
+.main-header, .content, .sponsors-disclaimer, .s-footer {margin: 0 auto;max-width: 1442px;}
+
+/* Content *******************/
+.content {padding: 0;}
+/* Single Articles *******************/
+.m-more {width: auto;margin: 0 auto;max-width: 1442px;}
+
+}/* end media 1450px */
+

@@ -32,7 +32,6 @@
 	}
 ?>
 
-
 <div class="m-article-wrap clearfix">
 	<?php if(mobile() == true) {
 		if($image_large[0]) { ?>
@@ -92,7 +91,7 @@
 						<h2><?php echo $buy_mag_foot_message; ?> </h2>
 					<?php } ?>
 	    			<div class="m-buy-mag-bottom clearfix"> 				
-	    				<div class="m-buy-mag-img" style="background-image: url(<?php echo $mag_cover_image['url']; ?>);"></div> 
+	    				<div class="m-buy-mag-img" style="background-image: url(<?php echo $mag_cover_image['url']; ?>);"></div>
 	    				<div class="m-buy-dig">
 	    					<a href="<?php echo $online_store_url; ?>" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
 	    					<?php if ($mag_online_store == false) : ?>

@@ -42,7 +42,7 @@
 .image-loading{position: absolute;width: 100%;text-align: center;}
 /* .gallery-first-image{opacity: 0.5;} */
 .gallery-desc{font-size: .8em;text-align: left;padding: 24px 20px 0;}
-.slides{margin: 0 !important;}
+.gallery-images .slides{margin: 0 !important;}
 .slides li{text-align: center;}
 .gallery-images .slides, .gallery-images .slides li{padding: 0 !important;}
 .gallery-images {position: relative;}

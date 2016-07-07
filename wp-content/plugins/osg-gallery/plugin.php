@@ -122,9 +122,9 @@ function imo_flex_gallery( $atts ) {
 	$totalSlidesShow = $totalSlides;
 	
 	global $wpdb;
-	$firstDescription = stripcslashes($pictures[0]->description);
-	//$firstDescription = htmlspecialchars($firstDescription);
-	$firstImage = '<div class="flex-img-wrap"><img src="'.$pictures[0]->img_url.'" alt="'.$pictures[0]->title.'" title="'.$pictures[0]->title.'" /></div><div class="first-desc gallery-desc">'.$firstDescription.'</div>';
+	$firstPicture = str_replace("//", "/", $pictures[0]->img_url);
+	$firstDescription = htmlspecialchars(str_replace('\\', '', "<h2>".$pictures[0]->alttext."</h2>".$pictures[0]->description));
+	$firstImage = '<div class="flex-img-wrap"><img src="'.$firstPicture.'" alt="'.$pictures[0]->title.'" title="'.$pictures[0]->title.'" /></div><div class="first-desc gallery-desc">'.$firstDescription.'</div>';
 
 	$title = stripcslashes($pictures[0]->title);
 	$slug = $pictures[0]->name;
@@ -145,10 +145,9 @@ function imo_flex_gallery( $atts ) {
 			$desc = stripcslashes($picture->description);
 			
 			//$desc = str_replace(chr(146), "'", $desc);
-			$desc = htmlspecialchars($desc);
-
-			$imageURL = $picture->img_url;
-			$imageTitle = $picture->title;
+			$desc = htmlspecialchars("<h2>".$picture->title."</h2>".$desc);
+			$imageURL = str_replace("//", "/", $picture->img_url);
+			
 		}
 			
 		$html .= '<li class="flex-slide is-flex-image" url="'. $imageURL .'" style="display:none;"><div style="display:none;">'. $desc .'</div></li>';

@@ -46,7 +46,7 @@ $(window).load(function() {
 				var imageURL = $(this).attr("url");
 				var desc = $(this).find("div").text();
 				$(this).attr("slidenum",i+1);
-				$(this).prepend('<div class="image-loading">Loading Image...</div><div class="flex-img-wrap"><img src="' + imageURL + '" /></div><div class="gallery-desc">' + desc + '</div>');
+				$(this).prepend('<div class="flex-img-wrap"><img src="' + imageURL + '" /></div><div class="gallery-desc">' + desc + '</div>');
 			});
 			// Add ad after every 4th image
 			$.each( interval_array, function( index, value ) {
