@@ -4,15 +4,33 @@
 	$this_cat_slag 	= $this_cat->slug;
 	$this_cat_id	= $this_cat->term_id;
 	$term_cat_id 	= 'category_'.$this_cat_id;
+	$dartDomain 	= get_option("dart_domain", $default = false);
 	
-	$social_share_message 	= get_field('social_share_message', $term_cat_id);
+	$social_share_message = get_field('social_share_message', $term_cat_id);
 	
 	if ($this_cat_slag == 'crossbows') $this_cat_slag = 'crossbow-revolution';
 ?>
 
 <div class="content">
 	<div class="posts-wrap" id="posts_wrap">
-<?php	
+		
+<?php 
+	// HERO IMAGE
+	if( in_array( 'hero_image', get_field('additional_elements', $term_cat_id) ) ) { 
+	$hero_image = get_field('hero_image', $term_cat_id);
+	$hero_image_mobile = get_field('hero_image_mobile', $term_cat_id);
+	$hero_img_url = (mobile()) ? $hero_image_mobile['url'] : $hero_image['url'];
+	$hero_img_alt = (mobile()) ? $hero_image_mobile['alt'] : $hero_image['alt'];
+	$hero_image_link = get_field('hero_image_link', $term_cat_id);
+?>
+	<div class="hero-image">
+		<?php if (!empty($hero_image_link)) { echo '<a href="'.$hero_image_link.'">'; }?>
+			<img src="<?php echo $hero_img_url; ?>" alt="<?php echo $hero_img_alt; ?>" />
+		<?php if (!empty($hero_image_link)) { echo '</a>'; }?>
+	</div>
+<?php } 
+		
+	
 	$p_counter = 0;	
 	$args = array (
 		'category_name'         	=> $this_cat_slag,
@@ -34,7 +52,7 @@
 			}
 ?>
 			<a class="link-box reg-post" href="<?php the_permalink(); ?>">	
-				<div class="post-box" style="background-image: url('<?php echo $image[0]; ?>')"></div>
+				<div class="post-box" style="background-image: url(<?php echo $image[0]; ?>)"></div>
 			</a>
 <?php
 			if ($p_counter == 1) { 
@@ -92,3 +110,5 @@
 		<?php if ($dartDomain == "imo.gameandfish") { include(get_template_directory() . '/content/microsite-category/related-microsite.php'); } else { }?>
 	</div><!-- end .posts-wrap -->
 </div><!-- end .content -->
+
+

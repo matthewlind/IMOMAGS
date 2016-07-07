@@ -60,6 +60,16 @@
 			get_template_part('header-content/microsites/gunsandammo/header-content', 'shoot101');
 		} 
 	}	
+	
+	
+/* ------------------------------------------------------------------------
+	North American Whitetail 
+---------------------------------------------------------------------------*/
+	elseif ($dartDomain == "imo.northamericanwhitetail") { 		
+		if ( is_category('bigger-bucks') || in_category('bigger-bucks')) {
+			get_template_part('header-content/microsites/naw/header-content', 'bigger-bucks');
+		} 
+	}	
 
 
 /* ------------------------------------------------------------------------
