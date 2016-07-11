@@ -15,6 +15,13 @@
 	});	
 	
 	$document.ready(function() {
+	
+		//detect window width for responsive ads
+		var windowWidth = window.outerWidth;
+		$('.iframe-ad').attr('src', function() {
+		    return this.src + "&windowWidth=" + windowWidth;
+		});
+
 		// Simulate a hover with a touch in touch enabled browsers
 		body.bind('touchstart', function() {});
 		
@@ -147,7 +154,5 @@
 	    }
 	}, 250);
 	
-
-
 ////////////////////
 })(jQuery);

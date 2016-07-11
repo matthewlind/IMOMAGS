@@ -66,7 +66,6 @@ function rstory_func( $atts ) {
 add_shortcode( 'rstory', 'rstory_func' );
 
 
-
 // Load More Posts
 //--------------------------------------------//	
 if ( is_admin()) {  
@@ -77,18 +76,27 @@ if ( is_admin()) {
 }
 
 function ms_load_more() {
-	global $wpdb;          
+
+	global $wpdb; 
     ob_clean(); 
-    
-    $cat_id			= $_POST['cat_id'];
-    $post_count		= $_POST['post_count'];
-    $post_per_page	= $_POST['post_per_page'];
-    $ad_after_post	= $_POST['ad_after_post'];
-    $post_not		= $_POST['post_not'];
-    $post_type		= $_POST['post_type'];
-    $post_not_array = explode(',', $post_not);
-	$p_counter		= 0;
+   
+    $dartDomain     	= get_option("dart_domain", $default = false);
+    $cat_id				= $_POST['cat_id'];
+    $post_count			= $_POST['post_count'];
+    $post_per_page		= $_POST['post_per_page'];
+    $ad_after_post		= $_POST['ad_after_post'];
+    $post_not			= $_POST['post_not'];
+    $post_type			= $_POST['post_type'];
+    $current_post_id	= $_POST['current_post_id'];
+    $post_not_array 	= explode(',', $post_not);
+	$p_counter			= 0;
 	
+	$term = get_the_title($current_post_id);
+	$campaign = wp_get_post_terms($current_post_id,"campaign");
+	foreach($campaign as $c){
+		$camp = $c->name;
+	}
+
 	$args = array (
 		'cat'         		=> $cat_id,
 		'post_type'			=> $post_type,
@@ -111,7 +119,7 @@ function ms_load_more() {
 				<div class="ms-desc"><?php the_title( '<h1>', '</h1>'); ?></div>
 			</a>
 <?php		if ($p_counter == $ad_after_post) {
-				echo '<div class="ms-ad ad-wrap"><span class="ad-span">Advertisement</span><div class="ad-inner"></div></div>';
+				echo '<div class="ms-ad ad-wrap"><span class="ad-span">Advertisement</span><div class="ad-inner"><iframe class="new-iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term='.$term.'&camp='.$camp.'&ad_code='.$dartDomain.'&ad_unit=mediumRectangle&page=single"></div></div>';
 			}
 			$p_counter++;
 		}

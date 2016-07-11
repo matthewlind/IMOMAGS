@@ -8,6 +8,7 @@ if( is_preview() ){
 	echo '<script type="text/javascript">var _gaq = _gaq || [];</script>';
 }
 global $term, $camp;
+
 $dartDomain = get_option("dart_domain", $default = false);
 
 $id = get_the_ID();
@@ -97,6 +98,7 @@ $term = str_replace("'", "", $term);
 	function resizeIframe(obj) {
 		obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
 		obj.style.width = obj.contentWindow.document.body.scrollWidth + 'px';
+		obj.style.display = "inline-block";
 	}
 </script>
 <script type='text/javascript'>
@@ -109,12 +111,14 @@ $term = str_replace("'", "", $term);
 </script>
 
 <script type='text/javascript'>
-googletag.cmd.push(function() {
-
-var screen;
-var w = window.innerWidth;
-var h = window.innerHeight;
-
+	googletag.cmd.push(function() {
+	
+	var w = window.innerWidth;
+	
+	googletag.defineSlot('/4930/imo.gundog/category', [3, 3], 'CATSuperheader').addService(googletag.pubads());
+	googletag.defineSlot('/4930/imo.gundog/category', [2, 2], 'CATNativeAd').addService(googletag.pubads());
+	googletag.defineOutOfPageSlot('/4930/imo.gundog/category','interstitial').addService(googletag.pubads());
+	
 	<?php if(is_page("bracket")){ ?>
 		googletag.defineSlot('/4930/imo.gunsandammo/guns_and_ammo_madness/gam_presenting_sponsor', [240, 60], 'presenting').addService(googletag.pubads());
 	    googletag.defineSlot('/4930/imo.gunsandammo/guns_and_ammo_madness/gam_region_sponsor_2', [240, 60], 'region1').addService(googletag.pubads());
@@ -123,7 +127,7 @@ var h = window.innerHeight;
 	    googletag.defineSlot('/4930/imo.gunsandammo/guns_and_ammo_madness/gam_region_sponsor_4', [240, 60], 'region4').addService(googletag.pubads());
 	<?php } ?>
 	 
-   	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [240, 60], 'sponsor').addService(googletag.pubads());
+		googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [240, 60], 'sponsor').addService(googletag.pubads());
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [2, 2], 'native').addService(googletag.pubads());
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [564, 252], 'e_commerce_widget').addService(googletag.pubads());
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [2, 2], 'standard_native').addService(googletag.pubads());
@@ -133,76 +137,27 @@ var h = window.innerHeight;
 	
 	<?php if($microsite){ ?>
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], 'microsite_ATF_300x250').addService(googletag.pubads().setTargeting('sect', ['micro_atf']));
-    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], 'microsite_BTF_300x250').addService(googletag.pubads().setTargeting('sect', ['micro_btf']));
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], 'microsite_BTF_300x250').addService(googletag.pubads().setTargeting('sect', ['micro_btf']));
 	<?php } ?>
 	
 	<?php if(is_page( 'border-to-border' ) || is_page( 'epic-moments' )){ ?>
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], 'microsite_ATF_300x250').addService(googletag.pubads().setTargeting('sect', ['micro_atf']));
 	<?php } ?>
-	
-if (w>=1100)
-{
-	//screen = "desktop";
+		
+	if (w>=1100){
 	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [3, 3], 'superheader').addService(googletag.pubads());
-	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [[970, 250], [728, 90]], 'billboard').addService(googletag.pubads());
-	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [[300, 600], [300, 250]], '300_atf').addService(googletag.pubads());
-	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [728, 90], '728_btf').addService(googletag.pubads());
-}
-if (w>=600 && w<=1099)
-{
-	//screen = "tablet";
-    //googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [1, 1], 'tablet2').addService(googletag.pubads());
-    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [728, 90], 'leaderboard').addService(googletag.pubads());
-    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], '300_atf').addService(googletag.pubads());
-    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [728, 90], '728_btf').addService(googletag.pubads());
-}
-if (w<=599)
-{
-	//screen = "mobile";
-    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [[320, 100], [320, 50]], '320_atf').addService(googletag.pubads());
-    //googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [1, 1], 'mobile3').addService(googletag.pubads());
-    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], '300_mobile').addService(googletag.pubads());
-    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [[320, 100], [320, 50]], '320_btf').addService(googletag.pubads());
-}
-
-    googletag.pubads().enableSingleRequest();
-    googletag.pubads().setTargeting('sect', ['<?php echo $term; ?>']).setTargeting('camp', ['<?php echo $camp; ?>']);
-    googletag.pubads().collapseEmptyDivs(); 
-    googletag.pubads().enableSyncRendering();
-    googletag.enableServices();
-    
-	//console.log(screen);   
-  });
+	}
+	googletag.pubads().enableSingleRequest();
+	googletag.pubads().setTargeting('sect', ['<?php echo $term; ?>']).setTargeting('camp', ['<?php echo $camp; ?>']);
+	googletag.pubads().collapseEmptyDivs(); 
+	googletag.pubads().enableSyncRendering();
+	googletag.enableServices();
+	
+});
 
 </script>
 <?php 
 //sidebar
-
-
-function imo_sidebar($type){
-	global $term, $camp;
-   	//Speed up mobile load time by not loading sidebar in the background
-	if(!mobile()){
-		
-		$dartDomain = get_option("dart_domain", $default = false); ?>
-		<div class="sidebar-area">
-			<div class="sidebar">
-				<div class="widget_advert-widget">
-					<?php imo_ad_placement("300_atf"); ?>		
-				</div>
-			</div>
-		    <?php get_sidebar($type);
-
-	    	echo '<div id="responderfollow"></div>';
-			echo '<div class="sidebar advert">';
-				echo '<div class="widget_advert-widget">';
-					echo '<iframe id="sticky-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-sticky.php?ad_code='.$dartDomain.'&term='.$term.'&camp='.$camp.'"></iframe>';
-				echo '</div>';
-				get_sidebar("sticky");
-			echo '</div>';
-		echo '</div>';
-	}
-}
 
 //ad placement
 function imo_ad_placement($size){ ?>

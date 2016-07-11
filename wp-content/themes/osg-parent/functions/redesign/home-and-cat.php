@@ -48,7 +48,7 @@ function h_load_latest() {
 	$post_not_array = explode(',', $post_not);
 	$p_counter		= 0;
 	$post_type		= 'post';
-	
+
 	if ($page_type == 'post-type-archive-reader_photos') $post_type = 'reader_photos';
 			
 	$args = array (
@@ -61,7 +61,6 @@ function h_load_latest() {
 		'post__not_in'		=> $post_not_array,
 		'offset'			=> $post_count
 	);
-	
 	// The Query
 	$query = new WP_Query( $args );
 	// The Loop
@@ -105,8 +104,9 @@ function h_load_latest() {
 					<?php } ?>
 				</div>
 			</li>
-	<?php
-			if ($p_counter == 1 || $p_counter == 6) { echo '<li class="c-ad ad-wrap"><span class="ad-span">Advertisement</span><div class="ad-inner"><iframe id="iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-atf.php?ad_code='.$dartDomain.'"></iframe></div></li>'; }
+	<?php  $cat = get_the_category();
+		if ($p_counter == 1 || $p_counter == 6) { 
+			echo '<li class="c-ad ad-wrap"><span class="ad-span">Advertisement</span><div class="ad-inner"><iframe class="new-iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term='.$cat[0]->slug.'&ad_code='.$dartDomain.'&ad_unit=mediumRectangle&page=category"></iframe></div></li>'; }
 			$p_counter++;
 		}
 	} else { ?>
@@ -365,7 +365,7 @@ function load_home_btf() {
 				
 				echo $card_out;
 				
-				if ($card_count == 4) {echo '<li class="ec-ad ad-wrap"><span class="ad-span">Advertisement</span><div id="ec_ad_inner" class="ad-inner"><iframe id="iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-atf.php?ad_code='.$dartDomain.'"></iframe></div></li>';}
+				if ($card_count == 4) {echo '<li class="ec-ad ad-wrap"><span class="ad-span">Advertisement</span><div id="ec_ad_inner" class="ad-inner"><iframe class="new-iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term=home&ad_code='.$dartDomain.'&ad_unit=mediumRectangle&page=homepage"></iframe></div></li>';}
 				
 				$card_count++;
 			}

@@ -47,8 +47,18 @@ function loadLatestPosts(p) {
 	.done(function(response) {
 		latest_list.append(response);
 		loader_anim.addClass('dnone');
+		
+		//detect window width for responsive ads
+		var windowWidth = window.outerWidth;
+		$('.new-iframe-ad').each(function() {
+	    	var newSrc = $(this).attr('src') + "&windowWidth=" + windowWidth;
+	    	console.log(newSrc);
+		    $(this).attr('src', newSrc);
+		});
 	})
 	.fail(function() { latest_list.append( $("<p/>", {text: "Something went wrong. Try to reload the page", style: "color: red;"})); });
+		
+
 }
 	
 

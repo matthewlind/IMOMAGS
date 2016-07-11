@@ -1,173 +1,90 @@
 <?php
-$cat = get_category( get_query_var( 'cat' ) );
-$cat_slug = $cat->slug;
-$cat_name = $cat->cat_name;
-if($cat_slug == "pike-muskie"){
-	$cat_slug = "pike_amp_muskie";
-}
-if($cat_slug == "trout-salmon"){
-	$cat_slug = "trout_amp_salmon";
-}
-$featuredCatID = $cat->id;
-$dataPos = 0;
 
-$categoryID = get_query_var('cat');
+get_header('redesign'); 
 
-$queried_object = get_queried_object(); 
-$taxonomy = $queried_object->taxonomy;
-$term_id = $queried_object->term_id;  
-$features = get_field('featured_category_posts', $taxonomy . '_' . $term_id);
- 
-$fullWidthImage = get_option('full_width_image_'.$categoryID, false);
-$post_set_id = get_option('post_set_id_'.$categoryID, false);
-$playerID = get_option('playerID_'.$categoryID, false);
-$playerKey = get_option('playerKey_'.$categoryID, false);
-$network_video_title = get_option('network_video_title_'.$categoryID, false);
+$is_home_cat 	= true;
+$dartdomain 	= get_option('dart_domain', false);
+$magazine_img 	= get_option('magazine_cover_uri' );
+$deal_copy 		= get_option('deal_copy' );
+$features 		= get_field('homepage_featured_stories','options' );
+$site_name		= trim(get_bloginfo('name'), "Magazine");
 
-get_header(); ?>
-        <?php imo_sidebar(); ?>
-        <div id="primary" class="general">
-            <div id="content" role="main" class="general-frame">
-				
-                <?php if ( have_posts() ) : ?>
-					<?php
-	                    if(function_exists('z_taxonomy_image_url')){ 
-	                    	if (z_taxonomy_image_url()) {
-		                    	echo '<div class="sponsor">'.imo_ad_placement("sponsor").'</div>';
-		                    	echo '<div class="category-img"><img src="'.z_taxonomy_image_url().'" alt="'.single_cat_title( '', false ).'" title="'.single_cat_title( '', false ).'" /></div>';
-							}
-	                    }
-	                	$category_description = category_description();
-                        if ( ! empty( $category_description ) )
-                            echo apply_filters( 'category_archive_meta', '<div class="category-archive-meta taxdescription js-responsive-section">' . $category_description . '</div>' );
-                    ?>
-                    <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header clearfix js-responsive-section">
-                        <h1 class="page-title" style="<?php if(function_exists('z_taxonomy_image_url')){ if (z_taxonomy_image_url()){ echo 'text-indent:-9999px;height:0;'; } } ?>">
-						<div class="icon" style="<?php if(function_exists('z_taxonomy_image_url')){ if (z_taxonomy_image_url()){ echo 'text-indent:-9999px;height:0;'; } } ?>"></div>
-                        <?php
-                            printf('<span>' . single_cat_title( '', false ) . '</span>' );
-                            ?>
-                        </h1>
-                        <?php if(function_exists('z_taxonomy_image_url')){ 
-	                    	if (z_taxonomy_image_url() == false){ ?>
-								<div class="sponsor"><?php imo_ad_placement("sponsor"); ?></div>
-                        <?php } } ?>
+$this_cat 		= get_category( get_query_var( 'cat' ) );
+$this_cat_id	= $this_cat->term_id;
+$this_cat_name	= $this_cat->name;
+
+?>
+
+
+<div id="sections_wrap" class="sections-wrap">
+	<section class="section-latest-posts">
+		<div id="l_container" class="section-inner-wrap">
+			<header class="main-h">
+				<h1><?php echo $this_cat_name;?></h1>
+				<p><?php echo category_description( $this_cat_id ); ?></p>
+			</header>
+				<ul id="latest_list" class="c-list">
+			<?php 	
+				$p_counter = 0;		
+				$args = array(
+					'cat'	=> $this_cat_id,
+					'posts_per_page' => 5,
+					'order' => 'DESC'
+				);
+				$query = new WP_Query( $args );
+				if ( $query->have_posts() ) {
+					while ( $query->have_posts() ) {
+						$query->the_post();
+						$author 		= get_the_author();
+						$acf_byline 	= get_field("byline", $post->ID);
+						?>
+						<li class="c-item">
+							<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('list-thumb'); ?></a>
+							<div class="c-info">
+								<div class="c-cats"><?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(null, ','); } ?></div>
+								<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+								<span class="c-author"><?php if (!$acf_byline) { if ($author != 'admin') echo 'by '. $author;} else {echo $acf_byline;} ?></span>
+							</div>
+						</li>
+			<?php		if ($p_counter == 1) {
+							echo '<li class="c-ad ad-wrap"><span class="ad-span">Advertisement</span><div id="c_ad_inner" class="ad-inner"><iframe class="iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term='.$term.'&camp='.$camp.'&ad_code='.$dartdomain.'&ad_unit=mediumRectangle&page=category"></iframe></div></li>';
+						}
+						$p_counter++;
+					}
+				} else {
+					echo "no posts found";
+				}
+				wp_reset_postdata();
+			?>
+			</ul>
+			<div id="btn_more_posts" class="btn-lg"  data-post-not="" data-cat="<?php echo $this_cat_id;?>">
+				<span>Show More</span>
+				<div class="loader-anim dnone">
+					<div class="line-spin-fade-loader">
+						<div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div>
 					</div>
-
-                    <?php if( $features ){ ?>
-                    <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="featured-area clearfix js-responsive-section">
-			            <div class="clearfix">
-			                <ul>
-       		                    <?php foreach( $features as $feature ): 
-       		                    	if(get_field("promo_title",$feature->ID)){
-	       		                    	$title = get_field("promo_title",$feature->ID);
-       		                    	}else{
-	       		                    	$title = $feature->post_title;
-       		                    	}
-							    	
-							    	$url = $feature->guid;
-							    	$tracking = "_gaq.push(['_trackEvent','Special Features $cat_name','$title','$url']);";
-									$thumb = get_the_post_thumbnail($feature->ID,"list-thumb"); ?>
-							    	<li class='home-featured' featured_id="<?php echo $feature->ID ?>">
-							            <div class='feat-post'>
-							                <div class='feat-img'><a href='<?php echo $url; ?>' onclick='<?php echo $tracking ?>'><?php echo $thumb; ?></a></div>
-							                <div class='feat-text'>
-							                	<div class='clearfix'>
-							                    	<h3><a href='<?php echo $url; ?>' onclick='<?php echo $tracking; ?>'><?php echo $title ?></a></h3>
-							                	</div>
-							            </div>
-							            <div class='feat-sep'><div></div></div>
-							        </li>
-				                <?php endforeach; ?>
-				           </ul>
-				    </div>
 				</div>
-				<?php }
+			</div><!-- .btn-lg -->	
+		</div>
+	</section>
+	<section id="section_loader">
+		<div class="ball-grid-pulse clearfix">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+	</section>
+	<?php //the rest of the page is loaded from /functions/redesign/home-and-cat.php  ?>
+</div>
 
-                if( $playerID && $playerKey ){ ?>
-						<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section">
-							<div class="general-title clearfix">
-				                <h2><?php echo $network_video_title; ?></h2>
-				            </div>
 
-							<!-- Start of Brightcove Player -->
-							<div style="display:none"></div>
 
-							<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
 
-							<object id="myExperience" class="BrightcoveExperience">
-							  <param name="bgcolor" value="#FFFFFF" />
-							  <param name="width" value="480" />
-							  <param name="height" value="628" />
-							  <param name="playerID" value="<?php echo $playerID; ?>" />
-							  <param name="playerKey" value="<?php echo $playerKey; ?>" />
-							  <param name="isVid" value="true" />
-							  <param name="isUI" value="true" />
-							  <param name="dynamicStreaming" value="true" />
-							</object>
-							<script type="text/javascript">brightcove.createExperiences();</script>
-							<!-- End of Brightcove Player -->
-						</div>
-						<?php } ?>
 
-                    <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section main-content-preppend">
-						<?php $i = 1; while ( have_posts() ) : the_post(); ?>
-
-                            <?php
-                                /* Include the Post-Format-specific template for the content.
-                                 * If you want to overload this in a child theme then include a file
-                                 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-                                 */
-                                get_template_part( 'content/content', get_post_format("standard") );
-
-                                $community_category = get_category( get_query_var( 'cat' ) );
-								$community_cat = $community_category->slug;
-                            ?>
-						<?php if ( function_exists('imo_community_template') ){
-							if ( $i == 4 && $paged == 0 && ($community_cat == "master-angler" || $community_cat == "panfish" || $community_cat == "pike" || $community_cat == "muskie" || $community_cat == "trout" || $community_cat == "salmon" || $community_cat == "carp" || $community_cat == "crappie" || $community_cat == "catfish") ){ ?>
-		                       <div class="post">
-			                        <h2 style="margin-top:10px;">Explore Photos</h2>
-			                        <?php echo do_shortcode('[imo-slideshow community=true gallery='. $community_cat .']'); ?>
-				               </div>
-			                <?php } } ?>
-
-                        <?php if ( (($i - (($paged -1) * 2 ))%6) == 0 ): ?>
-
-	                        <?php if ( mobile() ){ ?>
-	                        <div class="image-banner posts-image-banner">
-	                           <?php imo_ad_placement("300_atf"); ?>
-	                        </div>
-	                        <?php } ?>
-                        <?php endif;?>
-
-                        <?php $i++; endwhile; ?>
-
-                    </div>
-
-                    <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="pager-holder js-responsive-section">
-                        <a href="#" class="btn-base">Load More</a>
-                        <div class="next-link" style="display:none;"><?php next_posts_link(); ?></div>
-                        <a href="#" class="go-top jq-go-top">go top</a>
-
-                        <img src="/wp-content/themes/imo-mags-parent/images/ajax-loader.gif" id="ajax-loader" style="display:none;"/>
-                    </div>
-                <?php else : ?>
-
-                    <div id="post-0" class="post no-results not-found">
-                        <div class="entry-header">
-                            <h1 class="entry-title"><?php _e( 'Nothing Found', 'twentyeleven' ); ?></h1>
-                        </div><!-- .entry-header -->
-
-                        <div class="entry-content">
-                            <p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'twentyeleven' ); ?></p>
-                            <?php get_search_form(); ?>
-                        </div><!-- .entry-content -->
-                    </div><!-- #post-0 -->
-
-                <?php endif; ?>
-                <?php social_footer(); ?>
-                <a href="#" class="back-top jq-go-top">back to top</a>
-
-            </div><!-- #content -->
-        </div><!-- #primary -->
-<?php get_footer(); ?>
+<?php get_footer('redesign'); ?>

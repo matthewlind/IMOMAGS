@@ -1,6 +1,14 @@
 <?php
-	
-$is_custom_img_and_url 	= get_field('is_custom_img_and_url','options');	
+global $term, $camp;
+$dartDomain = get_option("dart_domain", $default = false);	
+if(is_home()){
+		$page = "homepage";
+	}else if (is_category()){
+		$page = "category";
+	}else if(is_single()){
+		$page = "article";
+	}
+	$is_custom_img_and_url 	= get_field('is_custom_img_and_url','options');	
 
 if ($is_custom_img_and_url) {
 	$f_img		= get_field('foot_post_img','options'); 	
@@ -29,7 +37,7 @@ $site_name	= trim(get_bloginfo('name'), "Magazine");
 							<?php get_template_part("content/redesign/content", "newsletter");?>
 			        	</li>
 			        	<li class="f-feat-page"><?php echo "<h3><a href='$f_url'>$f_title</a></h3><a href='$f_url'>$f_thumb</a><a class='link-to-all' href='$f_url'>$foot_post_btn_txt</a>"; ?></li>
-			        	<li class="ad-wrap"><span class="ad-span">Advertisement</span><div class="ad-inner"><?php imo_ad_placement("300_btf"); ?></div></li>
+			        	<li class="ad-wrap"><span class="ad-span">Advertisement</span><div class="ad-inner"><iframe class="iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term=<?php echo $term; ?>&camp=<?php echo $camp; ?>&ad_code=<?php echo $dartDomain; ?>&ad_unit=mediumRectangle&page=<?php echo $page; ?>"></iframe></div></li>
 		        	</ul>
 				</div>
 			</div>
