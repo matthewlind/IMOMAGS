@@ -20,13 +20,13 @@ $campaign = wp_get_post_terms($id,"campaign");
 }
 if(is_home()){
 	$term = "home";
-	$pageName = "home";
+	$page = "homepage";
 }
 else if (is_category()) {
 	$cat = get_query_var('cat');
 	$yourcat = get_category ($cat);
 	$term = $yourcat->slug;
-	$pageName = $yourcat->slug;
+	$page = "category";
  
 }
 else if (is_single()) {
@@ -44,8 +44,8 @@ else if (is_single()) {
         	$term .= ",";
     }
 
-	$pageName = get_the_title();
-
+	$page = "article";
+	
     if ($post->post_type == "imo_caption_contest") {
         if ($term != "")
         	$term .= ",";
@@ -114,26 +114,23 @@ $term = str_replace("'", "", $term);
 	googletag.cmd.push(function() {
 	
 	var w = window.innerWidth;
+			
+	if (w>=600){
+	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [3, 3], 'superheader').addService(googletag.pubads());
+	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [648, 110], 'fordWidget').addService(googletag.pubads());
+	}
+	if (w<=599){
+		googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [320, 200], 'fordWidget').addService(googletag.pubads());
+	}
 	
-	googletag.defineSlot('/4930/imo.gundog/category', [3, 3], 'CATSuperheader').addService(googletag.pubads());
-	googletag.defineSlot('/4930/imo.gundog/category', [2, 2], 'CATNativeAd').addService(googletag.pubads());
-	googletag.defineOutOfPageSlot('/4930/imo.gundog/category','interstitial').addService(googletag.pubads());
-	
-	<?php if(is_page("bracket")){ ?>
-		googletag.defineSlot('/4930/imo.gunsandammo/guns_and_ammo_madness/gam_presenting_sponsor', [240, 60], 'presenting').addService(googletag.pubads());
-	    googletag.defineSlot('/4930/imo.gunsandammo/guns_and_ammo_madness/gam_region_sponsor_2', [240, 60], 'region1').addService(googletag.pubads());
-	    googletag.defineSlot('/4930/imo.gunsandammo/guns_and_ammo_madness/gam_region_sponsor_1', [240, 60], 'region2').addService(googletag.pubads());
-	    googletag.defineSlot('/4930/imo.gunsandammo/guns_and_ammo_madness/gam_region_sponsor_3', [240, 60], 'region3').addService(googletag.pubads());
-	    googletag.defineSlot('/4930/imo.gunsandammo/guns_and_ammo_madness/gam_region_sponsor_4', [240, 60], 'region4').addService(googletag.pubads());
-	<?php } ?>
-	 
-		googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [240, 60], 'sponsor').addService(googletag.pubads());
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [2, 2], 'nativeAd').addService(googletag.pubads());
+	googletag.defineOutOfPageSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>','interstitial').addService(googletag.pubads());	 
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [240, 60], 'sponsor').addService(googletag.pubads());
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [2, 2], 'native').addService(googletag.pubads());
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [564, 252], 'e_commerce_widget').addService(googletag.pubads());
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [2, 2], 'standard_native').addService(googletag.pubads());
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [2, 3], 'vide_native').addService(googletag.pubads());
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [2, 4], 'collection_native').addService(googletag.pubads());
-	googletag.defineOutOfPageSlot('/4930/<?php echo $dartDomain; ?>','interstitial').addService(googletag.pubads());
 	
 	<?php if($microsite){ ?>
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], 'microsite_ATF_300x250').addService(googletag.pubads().setTargeting('sect', ['micro_atf']));
@@ -144,9 +141,6 @@ $term = str_replace("'", "", $term);
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], 'microsite_ATF_300x250').addService(googletag.pubads().setTargeting('sect', ['micro_atf']));
 	<?php } ?>
 		
-	if (w>=1100){
-	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [3, 3], 'superheader').addService(googletag.pubads());
-	}
 	googletag.pubads().enableSingleRequest();
 	googletag.pubads().setTargeting('sect', ['<?php echo $term; ?>']).setTargeting('camp', ['<?php echo $camp; ?>']);
 	googletag.pubads().collapseEmptyDivs(); 

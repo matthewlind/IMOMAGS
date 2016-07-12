@@ -5,6 +5,7 @@ $camp = $_GET['camp'];
 $windowWidth = $_GET['windowWidth'];
 $adUnit = $_GET['ad_unit'];
 $page = $_GET['page'];
+$pos = $_GET['pos'];
 ?>
 <html>
 <head>
@@ -23,7 +24,7 @@ googletag.cmd.push(function() {
 
 var w = <?php echo $windowWidth; ?>
 
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], 'mediumRectangle').addService(googletag.pubads());
+googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], 'mediumRectangle').addService(googletag.pubads().setTargeting('pos', ['<?php echo $pos; ?>']));
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [[300, 250],[300, 600]], 'sticky').addService(googletag.pubads());
 
 if (w>=1100)

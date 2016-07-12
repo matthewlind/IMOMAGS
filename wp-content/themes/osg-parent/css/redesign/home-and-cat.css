@@ -408,7 +408,6 @@
 #store_slider .flex-direction-nav a.flex-prev {left: -35px;}
 #store_slider .flex-direction-nav a:hover {background-color: rgba(200, 200, 200,.3);}
 #ec_ad {background: transparent;padding: 0 0 20px;}
-
 	
 }
 
@@ -426,7 +425,7 @@
 .twins-thumbs ul li {width: 48%; margin-bottom: 0;}
 .section-exp-cats {padding: 20px 30px;}
 .ec-list li {width: 48%;}
-
+.c-info {padding: 7px 0;}
 
 .sections-wrap .section-latest-posts {
 	padding: 0 30px 60px;

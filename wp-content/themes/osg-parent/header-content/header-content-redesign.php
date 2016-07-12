@@ -133,9 +133,6 @@
 </header>
 <?php if(get_field("full_width") != true){ ?>
     <div class="content-banner-section">
-    	<div class="mob-mdl-banner">
-			<?php imo_ad_placement("320_atf"); ?>
-		</div>
 		<div class="mdl-banner">
 			<iframe class="iframe-ad" onload="resizeIframe(this)" style="display:none;" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term=<?php echo $term; ?>&camp=<?php echo $camp; ?>&ad_code=<?php echo $dartDomain; ?>&ad_unit=billboard&page=<?php echo $page; ?>"></iframe>
 		</div>

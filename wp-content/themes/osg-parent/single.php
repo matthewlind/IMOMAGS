@@ -89,8 +89,8 @@
 			    </div>
 <?php			}
 		   
-		    if ($p_number > 5 && $p_counter - ($sponsored_el) == $slots[0]){ ?>
-				<div class="article-elem">
+		   // if ($p_number > 5 && $p_counter - ($sponsored_el) == $slots[0]){ ?>
+				<!--<div class="article-elem">
 					<div class="ae-header">
 						<div></div>
 						<h4><span>Sponsored Story</span></h4>
@@ -100,8 +100,8 @@
 						<a class="ae-title" href="#"><span>Introducing the 2016 Franchi Instinct Catalyst</span></a><br>
 						<div class="ae-sponsor"><span>Presented by <a href="#">Quebec Tourism</a></span></div> 
 					</div>
-		    	</div>
-<?php 			}	
+		    	</div>-->
+<?php 			//}	
 
 
 			if ($p_number > 10 && $p_counter - ($video_el) == $slots[$vs]){ ?>
@@ -143,7 +143,7 @@
 <?php			}
 			if ($p_number > 10 && $p_counter - ($inline_ad_1) == $slots[$as1] || $p_number > 15 && $p_counter - ($inline_ad_2) == $slots[$as2] || $p_number > 20 && $p_counter - ($inline_ad_3) == $slots[$as3]){ ?>
 				<div class="ad-single-inline">
-					<div class="as-inner"><iframe class="iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term=<?php echo $term; ?>&camp=<?php echo $camp; ?>&ad_code=<?php echo $dartdomain; ?>&ad_unit=mediumRectangle&page=article"></iframe></div>
+					<div class="as-inner"><iframe class="iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term=<?php echo $term; ?>&camp=<?php echo $camp; ?>&ad_code=<?php echo $dartdomain; ?>&ad_unit=mediumRectangle&page=article&pos=inline-1"></iframe></div>
 				</div>
 <?php			}
 		    $p_counter++;
@@ -183,7 +183,7 @@
 			<div id="disqus_thread"></div>
 		</div>
 		<div class="ad-single-bottom">
-			<div class="as-inner"><iframe class="iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term=<?php echo $term; ?>&camp=<?php echo $camp; ?>&ad_code=<?php echo $dartdomain; ?>&ad_unit=mediumRectangle&page=article"></iframe></div>
+			<div class="as-inner"><iframe class="iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term=<?php echo $term; ?>&camp=<?php echo $camp; ?>&ad_code=<?php echo $dartdomain; ?>&ad_unit=mediumRectangle&page=article&pos=btf"></iframe></div>
 		</div>
 <!-- 		<div class="grey-hr"></div> -->
 		<div class="single-newsletter">
@@ -192,6 +192,7 @@
 			<?php get_template_part("content/redesign/content", "newsletter"); ?>
 		</div>
 		<div id="ad-stop"></div>
+		<?php imo_ad_placement("fordWidget"); ?>
 		<?php imo_ad_placement("e_commerce_widget"); ?> 
 	</article>
 </main>
