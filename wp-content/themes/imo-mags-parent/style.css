@@ -5205,6 +5205,8 @@ table.likes-leaderboard .entry-title {
     .header .socials, #subscribe-area{display: none;}
     .mdl-banner{padding: 0;height: 0;}
     
+    
+    
 } /* End of media */
 
 @media only screen and (max-width: 460px) {
@@ -5265,11 +5267,14 @@ table.likes-leaderboard .entry-title {
 	#ecw-flexslider .flex-direction-nav .flex-prev {left: -52%;}
 	#ecw-flexslider .flex-direction-nav .flex-next {right: -52%;}
 	/* END E-Commerce Widget */
+	
+	.alignright, .alignleft{display: block;float: none;margin: 0 0 20px;}
+	.single .entry-content ul, .single .entry-content ol{padding-left: 20px;}
 
 } /* End of media */
 
 @media only screen and (max-width: 340px) {
-	.alignright, .alignleft{display: block;float: none;margin: 0 auto;}
+	
 	.snap-drawer-right{
 		width: 266px;
 	}
