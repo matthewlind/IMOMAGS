@@ -58,6 +58,7 @@ function loadMorePosts(p, a) {
 		ms_inner		= $("#ms_inner"),
 		post_per_page	= p,
 		ad_after_post	= a;
+		current_post_id = $("body").attr("id");
 					
 	loader_anim.removeClass('dnone');
 	
@@ -66,13 +67,14 @@ function loadMorePosts(p, a) {
 		url: ajax_object.ajax_url,
 		cache: false,
 		data: {
-			'action'		: 'ms_load_more',
-			'cat_id'		: cat_id,
-			'post_count'	: post_count,
-			'post_not'		: post_not,
-			'post_per_page'	: post_per_page,
-			'ad_after_post' : ad_after_post,
-			'post_type'		: post_type
+			'action'			: 'ms_load_more',
+			'cat_id'			: cat_id,
+			'post_count'		: post_count,
+			'post_not'			: post_not,
+			'post_per_page'		: post_per_page,
+			'ad_after_post' 	: ad_after_post,
+			'current_post_id'	: current_post_id, 
+			'post_type'			: post_type
 		}
 	})
 	.done(function(response) {

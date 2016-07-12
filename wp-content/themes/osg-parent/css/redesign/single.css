@@ -104,9 +104,7 @@
 }
 .sticky-ad-inner {
 	width: 300px;
-	height: 250px;
 	margin: 0 auto;
-	background-color: #6456ac;
 }
 .wp-caption img {
     border: 0 none;
@@ -357,14 +355,10 @@ a.ae-title p {
 	height: 250px;
 	display: inline-block;
 	margin: 0 -5%;
-	background-color: #FF6600;
 }
 .ad-single-bottom {
 	margin: 30px 0;
 	text-align: center;
-}
-.ad-single-bottom .as-inner {
-	background-color: #56ac64;
 }
 .single-newsletter {
 	background-color: #ececec;
@@ -433,6 +427,7 @@ a.ae-title p {
 	float: left;
 	width: 100%;
 	margin-bottom: 30px;
+	max-height: 330px;
 }
 .ms-btn {
 	background-color: #FF6600;

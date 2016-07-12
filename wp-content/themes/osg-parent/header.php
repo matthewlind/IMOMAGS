@@ -38,7 +38,7 @@
 		    /*
 		     * Print the <title> tag based on what is being viewed.
 		     */
-		    global $page, $paged, $microsite , $microsite_default, $microsite_rigged, $redesign, $is_search;
+		    global $page, $paged, $microsite, $microsite_default, $microsite_rigged, $redesign, $is_search;
 	
 		    wp_title( '| ', true, 'right' );
 	
@@ -123,17 +123,15 @@
 	include_once get_stylesheet_directory() . "/head-includes.php";
 	?>
 
-
-<script src="<?php echo get_template_directory_uri(); ?>/js/dart.js" type="text/javascript"></script>
-
 </head>
 
 
 <!-- CONTENT ************************************************** -->
 
-<body <?php body_class(); ?>  >
+<body <?php body_class(); ?> id="<?php echo $postID; ?>" >
 
 	<?php	
+		imo_ad_placement("interstitial");
 		if ( $microsite ){ 
 // 				include('header-content/header-content-microsites.php');
  				get_template_part('header-content/header-content', 'microsites');
