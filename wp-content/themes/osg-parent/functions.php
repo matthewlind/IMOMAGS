@@ -290,6 +290,9 @@ function parent_theme_setup()
     add_image_size("community-square-retina",640,640,TRUE);
     add_image_size("video-thumb",130,90,TRUE);
     add_image_size("show-thumb",248,165,TRUE);
+    
+    //new
+    add_image_size( 'footer-thumb', 250, 210, true );
 }
 
 function parent_theme_widgets_init()
@@ -303,116 +306,7 @@ function parent_theme_widgets_init()
         'after_title' => '</h3>',
     ) );
 
-	//Community Sidebar
-	register_sidebar( array(
-	    'name' => __( 'Community Sidebar', 'imo-mags-parent' ),
-	    'id' => 'sidebar-4',
-	    'description' => __( 'The sidebar for community pages', 'twentyeleven' ),
-	    'before_widget' => '<div id="%1$s" class="widget %2$s">',
-	    'after_widget' => "</div>",
-	    'before_title' => '<h3 class="widget-title">',
-	    'after_title' => '</h3>',
-	) );
-
-	register_sidebar( array(
-        'name' => __( 'Mobile Widgets', 'imo-mags-parent' ),
-        'id' => 'sidebar-99',
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after_widget' => "</div>",
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );
-
-    register_sidebar( array(
-        'name' => __( 'Sticky Widgets', 'imo-mags-parent' ),
-        'id' => 'sidebar-98',
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after_widget' => "</div>",
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );
-
-
-    // register_widget( 'Twenty_Eleven_Ephemera_Widget' );
-
-    /*register_sidebar( array(
-        'name' => __( 'Header Sidebar', 'parent_theme' ),
-        'id' => 'sidebar-header',
-        'before_widget' => '<div id="%1$s" class="widget %2$s header-elements">',
-        'after_widget' => "</div>",
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );
-
-    register_sidebar( array(
-        'name' => __( 'Header Sidebar First', 'parent_theme' ),
-        'id' => 'sidebar-header-1',
-        'before_widget' => '<div id="%1$s" class="widget %2$s header-elements">',
-        'after_widget' => "</div>",
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );
-
-    register_sidebar( array(
-        'name' => __( 'Header Sidebar Second', 'parent_theme' ),
-        'id' => 'sidebar-header-2',
-        'before_widget' => '<div id="%1$s" class="widget %2$s header-elements">',
-        'after_widget' => "</div>",
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );
-
-
-    register_sidebar( array(
-        'name' => __( 'Article Sidebar', 'imo-mags-parent' ),
-        'id' => 'sidebar-2',
-        'description' => __( 'The sidebar for single pages', 'twentyeleven' ),
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after_widget' => "</div>",
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );
-
-    register_sidebar( array(
-        'name' => __( 'Landing Page Sidebar', 'imo-mags-parent' ),
-        'id' => 'sidebar-3',
-        'description' => __( 'The sidebar for landing pages', 'twentyeleven' ),
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after_widget' => "</div>",
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );
-
-   register_sidebar( array(
-        'name' => __( 'Footer Area Two', 'parent_theme' ),
-        'id' => 'sidebar-4',
-        'description' => __( 'An optional widget area for your site footer', 'twentyeleven' ),
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after_widget' => "</div>",
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );
-
-    register_sidebar( array(
-        'name' => __( 'Footer Area Three', 'parent_theme' ),
-        'id' => 'sidebar-5',
-        'description' => __( 'An optional widget area for your site footer', 'twentyeleven' ),
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after_widget' => "</div>",
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );
-
-    register_sidebar( array(
-        'name' => __( 'Main Menu', 'parent_theme' ),
-        'id' => 'sidebar-6',
-        'description' => __( 'An optional widget area for your site footer', 'twentyeleven' ),
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after_widget' => "</div>",
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );*/
-    register_nav_menus(array(
+	    register_nav_menus(array(
         'top' => 'Top Menu',
         'bottom' => 'Main Menu',
         'mobile' => 'Mobile Menu',

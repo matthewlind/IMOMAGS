@@ -399,7 +399,7 @@ a.ae-title p {
 }
 .ms-inner {
 	overflow: hidden;
-	min-height: 725px;
+	/*min-height: 725px;*/
 }
 .ms-box {
 	float: left;

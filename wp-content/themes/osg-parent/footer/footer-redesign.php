@@ -21,7 +21,7 @@ if ($is_custom_img_and_url) {
 	$f_p_id		= $f_post[0];
 	$f_url		= get_permalink($f_p_id);
 	$f_title	= get_the_title($f_p_id);
-	$f_thumb	= get_the_post_thumbnail($f_p_id,"list-thumb");
+	$f_thumb	= get_the_post_thumbnail($f_p_id,"footer-thumb");
 	$foot_post_btn_txt	= 'Read Now!';
 }
 	

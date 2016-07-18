@@ -37,9 +37,9 @@
 			</div>
 			<div class="social-single">
 				<ul>
-					<li><a href=""><i class="icon-facebook"></i><span>Share</span></a></li>
-					<li><a href=""><i class="icon-twitter"></i><span>Tweet</span></a></li>
-					<li><a href=""><i class="icon-envelope"></i><span>Email</span></a></li>
+					<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>&title=<?php the_title(); ?>" target="_blank"><i class="icon-facebook"></i><span>Share</span></a></li>
+					<li><a href="http://twitter.com/intent/tweet?status=<?php the_title(); ?>+<?php the_permalink(); ?>" target="_blank"><i class="icon-twitter"></i><span>Tweet</span></a></li>
+					<li><a href="mailto:?body=<?php the_permalink(); ?>"><i class="icon-envelope"></i><span>Email</span></a></li>
 				</ul>
 			</div>
 		</header>
@@ -105,7 +105,7 @@
 
 
 			if ($p_number > 10 && $p_counter - ($video_el) == $slots[$vs]){ ?>
-				<div class="video-elem">
+				<!--<div class="video-elem">
 					<div class="ve-head">
 						<h4>DON’T MISS IN-FISHERMAN TV</h4>
 						<span>Saturday’s at 10am ET on <a href="">Sportsman Channel</a></span>
@@ -139,7 +139,7 @@
 						</ul>
 					</div>
 					<a class="ve-link" href="#">Watch More In-Fisherman TV</a>
-		    	</div>
+		    	</div>-->
 <?php			}
 			if ($p_number > 10 && $p_counter - ($inline_ad_1) == $slots[$as1] || $p_number > 15 && $p_counter - ($inline_ad_2) == $slots[$as2] || $p_number > 20 && $p_counter - ($inline_ad_3) == $slots[$as3]){ ?>
 				<div class="ad-single-inline">
@@ -151,7 +151,7 @@
 		    
 		}
 ?>		
-			<div class="article-elem">
+			<!--<div class="article-elem">
 				<div class="ae-header">
 					<div></div>
 					<h4><span>Read This Next</span></h4>
@@ -168,12 +168,12 @@
 					</a>
 				</div>
 	    	</div>
-		</div>
+		</div>-->
 		<div class="social-single">
 			<ul>
-				<li><a href=""><i class="icon-facebook"></i><span>Share</span></a></li>
-				<li><a href=""><i class="icon-twitter"></i><span>Tweet</span></a></li>
-				<li><a href=""><i class="icon-envelope"></i><span>Email</span></a></li>
+				<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>&title=<?php the_title(); ?>" target="_blank"><i class="icon-facebook"></i><span>Share</span></a></li>
+				<li><a href="http://twitter.com/intent/tweet?status=<?php the_title(); ?>+<?php the_permalink(); ?>" target="_blank"><i class="icon-twitter"></i><span>Tweet</span></a></li>
+				<li><a href="mailto:?body=<?php the_permalink(); ?>"><i class="icon-envelope"></i><span>Email</span></a></li>
 			</ul>
 		</div>
 		<div class="a-comments">

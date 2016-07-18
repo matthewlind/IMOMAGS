@@ -128,7 +128,7 @@
 
 <!-- CONTENT ************************************************** -->
 
-<body <?php body_class(); ?> id="<?php echo $postID; ?>" >
+<body <?php body_class(); ?> id="<?php echo $postID; ?>" domain="<?php echo $dartDomain; ?>" >
 
 	<?php	
 		imo_ad_placement("interstitial");

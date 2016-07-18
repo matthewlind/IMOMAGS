@@ -83,20 +83,20 @@
 			</div>
 			<div class="head-right">
 				<div class="head-mag-cover">
-					<a href="<?php echo $online_store_url; ?>" target="_blank">
+					<a href="<?php echo SUBS_LINK; ?>" target="_blank">
 						<img src="<?php echo $magazine_img; ?>" alt="Subscribe">
 					</a> 
 				</div>
 				<div class="head-subscribe" id="head-subscribe">
-					<span>&nbsp;SUBSCRIBE</span><i class="icon-caret-down"></i>
-					<?php include(get_template_directory() . "/content/microsite-template-parts/buy-mag-dropdown.php"); ?>
+					<span>&nbsp;SUBSCRIBE</span><!--<i class="icon-caret-down"></i>-->
+					<?php //include(get_template_directory() . "/content/microsite-template-parts/buy-mag-dropdown.php"); ?>
 				</div>
 				<div class="head-social">
 					<ul>
-						<li><a href="http://www.facebook.com/sharer/sharer.php?u=$url_for_social&title=$face_twit_title" class="icon-facebook" target="_blank"></a></li>
-						<li><a href="http://twitter.com/intent/tweet?status=$face_twit_title+$url_for_social" class="icon-twitter" target="_blank"></a></li>
-						<li><a href="http://www.facebook.com/sharer/sharer.php?u=$url_for_social&title=$face_twit_title" class="icon-youtube-play" target="_blank"></a></li>
-						<li><a href="mailto:?subject=$email_subject&body=$email_message $url_for_social" class="icon-envelope" target="_blank"></a></li>
+						<?php if(defined('FACEBOOK_LINK')){ ?><li><a href="<?php echo FACEBOOK_LINK; ?>" class="icon-facebook" target="_blank"></a></li><?php } ?>
+						<?php if(defined('TWITTER_LINK')){ ?><li><a href="<?php echo TWITTER_LINK; ?>" class="icon-twitter" target="_blank"></a></li><?php } ?>
+						<?php if(defined('YOUTUBE_LINK')){ ?><li><a href="<?php echo YOUTUBE_LINK; ?>" class="icon-youtube-play" target="_blank"></a></li><?php } ?>
+						<li><a href="https://www.everydayhealth.com/newsletter-subscriptions/signup/" class="icon-envelope" target="_blank"></a></li>
 					</ul>
 				</div>
 			</div>
@@ -114,10 +114,10 @@
 	<div class="head-bottom">
 		<div class="head-social">
 			<ul>
-				<li><a href="http://www.facebook.com/sharer/sharer.php?u=$url_for_social&title=$face_twit_title" class="icon-facebook" target="_blank"></a></li>
-				<li><a href="http://twitter.com/intent/tweet?status=$face_twit_title+$url_for_social" class="icon-twitter" target="_blank"></a></li>
-				<li><a href="http://www.facebook.com/sharer/sharer.php?u=$url_for_social&title=$face_twit_title" class="icon-youtube-play" target="_blank"></a></li>
-				<li><a href="mailto:?subject=$email_subject&body=$email_message $url_for_social" class="icon-envelope" target="_blank"></a></li>
+				<?php if(defined('FACEBOOK_LINK')){ ?><li><a href="<?php echo FACEBOOK_LINK; ?>" class="icon-facebook" target="_blank"></a></li><?php } ?>
+				<?php if(defined('TWITTER_LINK')){ ?><li><a href="<?php echo TWITTER_LINK; ?>" class="icon-twitter" target="_blank"></a></li><?php } ?>
+				<?php if(defined('YOUTUBE_LINK')){ ?><li><a href="<?php echo YOUTUBE_LINK; ?>" class="icon-youtube-play" target="_blank"></a></li><?php } ?>
+				<li><a href="https://www.everydayhealth.com/newsletter-subscriptions/signup/" class="icon-envelope" target="_blank"></a></li>			
 			</ul>
 		</div>
 		<div class="head-subscribe">
