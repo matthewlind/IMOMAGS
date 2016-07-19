@@ -46,6 +46,7 @@ if(function_exists("register_field_group"))
 		'menu_order' => 0,
 	));
 }
+
 add_action('init', 'register_gallery_script');
 add_action('wp_footer', 'print_gallery_script');
 function register_gallery_script() {

@@ -30,7 +30,7 @@ $site_name		= trim(get_bloginfo('name'), "Magazine");
 						$acf_byline 	= get_field("byline", $feature->ID);
 						$thumb 			= get_the_post_thumbnail($feature->ID,"list-thumb");
 						$tracking 		= "_gaq.push(['_trackEvent','Special Features Homepage','$title','$url']);"; ?>
-						<li>
+						<li class="f-item">
 							<a href="<?php echo $url; ?>" onclick="<?php echo $tracking; ?>"><?php echo $thumb; ?></a>
 							<div class="c-info">
 								<div class="c-cats"><?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(null, ','); } ?></div>

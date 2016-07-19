@@ -77,9 +77,9 @@
 
 	} // end else
 	
-	if (is_singular()) { ?>
+	//if (is_single()) { ?>
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' );?>/css/redesign/single.css" />
-<?php }
+<?php //}
 	
 	if (is_home() || is_category() || is_archive('reader_photos') || is_search() || is_author() || is_404()) { ?>
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' );?>/css/redesign/home-and-cat.css" />

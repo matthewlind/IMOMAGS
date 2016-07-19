@@ -349,6 +349,7 @@
 	color: #395b5d;
 	text-transform: uppercase;
 	font-size: 14px;
+	background-color: transparent;
 }
 .c-cats .category-name-link:hover {
 	color: #FF6600;
