@@ -20,10 +20,10 @@
 		</header>
 		<div class="article-body">
 			<div id="sticky-ad" class="sticky-ad">
-			    <div class="sticky-ad-inner"><iframe class="iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term=<?php echo $term; ?>&camp=<?php echo $camp; ?>&ad_code=<?php echo $dartdomain; ?>&ad_unit=mediumRectangle&page=article&pos=btf"></iframe></div>
+			    <div class="sticky-ad-inner"><iframe class="iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term=<?php echo $term; ?>&camp=<?php echo $camp; ?>&ad_code=<?php echo $dartdomain; ?>&ad_unit=mediumRectangle&page=article"></iframe></div>
 		    </div>
 			<?php while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'content/content', 'page' ); ?>
+					<?php the_content(); ?>
 				<?php endwhile; // end of the loop. ?>
 		</div>
 		<div class="social-single">

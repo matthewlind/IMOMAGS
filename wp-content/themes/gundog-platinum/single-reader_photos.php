@@ -2,11 +2,9 @@
 	get_header('redesign');
 	$post_id = $post->ID;
 	$is_single_default = true;
-
-
-/*
-$dartDomain 		= get_option("dart_domain", $default = false);
-$disqus_shortname 	= "gunsammo";
+	$dartdomain = get_option("dart_domain", $default = false);
+	
+/*$disqus_shortname 	= "gunsammo";
 $disqus_array 		= array(
 	"imo.northamericanwhitetail" => "northamericanwhitetail",
 	"imo.bowhunting"	=> "bowhuntingmag",
@@ -59,28 +57,39 @@ foreach($disqus_array as $key=>$value) { if($dartDomain == $key) { $disqus_short
 			<div class="byline"><span><?php the_time('F jS, Y'); ?></span></div>
 			<div class="social-single">
 				<ul>
-					<li><a href=""><i class="icon-facebook"></i><span>Share</span></a></li>
-					<li><a href=""><i class="icon-twitter"></i><span>Tweet</span></a></li>
-					<li><a href=""><i class="icon-envelope"></i><span>Email</span></a></li>
+					<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>&title=<?php the_title(); ?>" target="_blank"><i class="icon-facebook"></i><span>Share</span></a></li>
+					<li><a href="http://twitter.com/intent/tweet?status=<?php the_title(); ?>+<?php the_permalink(); ?>" target="_blank"><i class="icon-twitter"></i><span>Tweet</span></a></li>
+					<li><a href="mailto:?body=<?php the_permalink(); ?>"><i class="icon-envelope"></i><span>Email</span></a></li>
 				</ul>
 			</div>
 		</header>
 		<div class="article-body">
 			<div id="sticky-ad" class="sticky-ad">
-			    <div class="sticky-ad-inner"></div>
+			    <div class="sticky-ad-inner"><iframe class="iframe-ad" onload="resizeIframe(this)" width="300" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term=<?php echo $term; ?>&camp=<?php echo $camp; ?>&ad_code=<?php echo $dartdomain; ?>&ad_unit=sticky&page=article"></iframe></div>
 		    </div>
 			<div class="feat-img">
 	            <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('large'); ?></a>
 	        </div>
 	        <div class="photo-text">
-		        <?php the_content(); ?>
-	        </div>
+		         <?php //if ( have_posts() ) : get_template_part( 'content/content-single', "community" ); endif; 
+		         while ( have_posts() ) : the_post(); 
+					 	the_content(); 
+				endwhile; 
+	            
+	            if(get_post_meta($postID,"camera_corner_taken",true)){ ?>
+					<ul>
+		                <li><b>Taken At: </b><?php echo get_post_meta($postID,"camera_corner_taken",true); ?></li>
+		                <li><b>Taken On: </b><?php echo get_post_meta($postID,"camera_corner_when",true); ?></li>
+		                <li><b>With: </b><?php echo get_post_meta($postID,"camera_corner_who",true); ?></li>
+		            </ul> 
+				<?php } ?>
+		        </div>
 		</div>
 		<div class="social-single">
 			<ul>
-				<li><a href=""><i class="icon-facebook"></i><span>Share</span></a></li>
-				<li><a href=""><i class="icon-twitter"></i><span>Tweet</span></a></li>
-				<li><a href=""><i class="icon-envelope"></i><span>Email</span></a></li>
+				<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>&title=<?php the_title(); ?>" target="_blank"><i class="icon-facebook"></i><span>Share</span></a></li>
+				<li><a href="http://twitter.com/intent/tweet?status=<?php the_title(); ?>+<?php the_permalink(); ?>" target="_blank"><i class="icon-twitter"></i><span>Tweet</span></a></li>
+				<li><a href="mailto:?body=<?php the_permalink(); ?>"><i class="icon-envelope"></i><span>Email</span></a></li>			
 			</ul>
 		</div>
 		<div class="a-comments">
@@ -90,7 +99,7 @@ foreach($disqus_array as $key=>$value) { if($dartDomain == $key) { $disqus_short
 			<div id="disqus_thread"></div>
 		</div>
 		<div class="ad-single-bottom">
-			<div class="as-inner"></div>
+			<div class="as-inner"><iframe class="iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term=<?php echo $term; ?>&camp=<?php echo $camp; ?>&ad_code=<?php echo $dartdomain; ?>&ad_unit=mediumRectangle&page=article&pos=btf"></iframe></div>
 		</div>
 <!-- 		<div class="grey-hr"></div> -->
 		<div class="single-newsletter">
