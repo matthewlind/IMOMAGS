@@ -37,37 +37,7 @@
 
 <header class="main-header">
 	<div id="header_wrap" class="header-wrap">
-		<nav id="menu_drop">
-			<div class="menu-container">
-				<div class="menu-inner">
-					<section class="menu-content">
-					<?php
-                    wp_nav_menu(array(
-                        'menu_class'	=> 'menu',
-                        'theme_location'=> 'bottom',
-                        'container' 	=> '0',
-                        'walker'		=> new AddParentClass_Walker()
-                    ));   
-                    ?>
-                    <?php if(has_nav_menu( 'top' )){
-                    	wp_nav_menu(array(
-	                        'menu_class'=>'menu',
-	                        'theme_location'=>'top'
-						));  
-                    } 
-                    ?>
-					</section>
-					<section class="menu-footer">
-						<div class="menu-footer-inner">
-							<h3>Don’t forget to sign up!</h3>
-							<p>Get the Top Stories from <?php bloginfo('name'); ?> Delivered to Your Inbox Every Week</p>
-							<?php get_template_part("content/redesign/content", "newsletter"); ?>
-						</div>
-					</section>
-					<section id="m_drop" class="menu-close"><i class="icon-close"></i><span>&nbsp;CLOSE MENU</span></section>
-				</div>
-			</div>
-		</nav>
+		
 		<div class="head-inner">
 			<div class="head-left">
 				<div class="main-logo">
@@ -131,6 +101,65 @@
 		</div>
 	</div>
 </header>
+<nav id="menu_drop">
+	<div class="menu-container">
+		<div class="menu-inner">
+			<section class="menu-content">
+			<?php
+            wp_nav_menu(array(
+                'menu_class'	=> 'menu',
+                'theme_location'=> 'bottom',
+                'container' 	=> '0',
+                'walker'		=> new AddParentClass_Walker()
+            ));   
+            ?>
+            <?php if(has_nav_menu( 'top' )){
+            	wp_nav_menu(array(
+                    'menu_class'=>'menu',
+                    'theme_location'=>'top'
+				));  
+            } 
+            ?>
+			</section>
+			<section class="menu-footer">
+				<div class="menu-footer-inner">
+					<h3>Don’t forget to sign up!</h3>
+					<p>Get the Top Stories from <?php bloginfo('name'); ?> Delivered to Your Inbox Every Week</p>
+					<?php get_template_part("content/redesign/content", "newsletter"); ?>
+				</div>
+			</section>
+			<section id="m_drop" class="menu-close"><i class="icon-close"></i><span>&nbsp;CLOSE MENU</span></section>
+		</div>
+	</div>
+</nav>
+<?php if(has_nav_menu( 'desk_vis' )){ ?>
+<div class="desktop-menu">
+	<div class="desktop-menu-inner">
+	<?php 
+    	wp_nav_menu(array(
+            'menu_class'=>'desk-menu',
+            'theme_location'=>'desk_vis',
+            'container' => false
+		));  
+    ?>
+	</div>
+</div>
+<?php } ?>
+<?php if(has_nav_menu( 'desk_vis_sec' )){ ?>
+<div class="desktop-secmenu">
+	<div class="desktop-secmenu-inner">
+	<?php 
+    	wp_nav_menu(array(
+            'menu_class'=>'desk-secmenu',
+            'theme_location'=>'desk_vis_sec',
+            'container' => false
+		));  
+    ?>
+	</div>
+</div>
+<?php } ?>
+
+
 <?php if(get_field("full_width") != true){ ?>
     <div class="content-banner-section">
 		<div class="mdl-banner">

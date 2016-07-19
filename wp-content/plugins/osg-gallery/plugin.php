@@ -6,7 +6,6 @@
  * Version: 0.1
  * Author: Fox
  */
-
 // Gallery ACF Options
 if(function_exists("register_field_group"))
 {
@@ -47,28 +46,22 @@ if(function_exists("register_field_group"))
 		'menu_order' => 0,
 	));
 }
-
-
+/*
 add_action('init', 'register_gallery_script');
 add_action('wp_footer', 'print_gallery_script');
-
 function register_gallery_script() {
 	wp_register_script('flexslider-js', get_template_directory_uri().'/plugins/flexslider/jquery.flexslider.js');
 	wp_register_script('gallery-js', plugins_url('js/gallery.js', __FILE__));
 }
-
 function print_gallery_script() {
 	global $add_gallery_script;
-
 	if ( ! $add_gallery_script )
 		return;
 		
 	wp_print_scripts('flexslider-js');
 	wp_print_scripts('gallery-js');
 }
-
 add_shortcode( 'imo-slideshow', 'imo_flex_gallery' );
-
 // [slideshow gallery=GALLERY_ID]
 function imo_flex_gallery( $atts ) {
 	global $add_gallery_script;
@@ -84,11 +77,9 @@ function imo_flex_gallery( $atts ) {
 			$atts
 		)
 	);
-
 	$baseUrl = get_bloginfo('url');
 	global $wpdb;
 	$prefix = $wpdb->prefix;
-
     if (!$tag) {
 	  	$pictures = $wpdb->get_results($wpdb->prepare(
 	      "SELECT * , CONCAT('/' , path, '/' , filename) as img_url, CONCAT('/' , path, '/thumbs/thumbs_' , filename) as thumbnail, meta_data, pictures.description as photo_desc
@@ -114,7 +105,6 @@ function imo_flex_gallery( $atts ) {
       $tag
       )
     );
-
   }
   
 	$totalSlides = count($pictures);
@@ -124,7 +114,6 @@ function imo_flex_gallery( $atts ) {
 	$firstPicture = str_replace("//", "/", $pictures[0]->img_url);
 	$firstDescription = htmlspecialchars(str_replace('\\', '', "<h2>".$pictures[0]->alttext."</h2>".$pictures[0]->description));
 	$firstImage = '<div class="flex-img-wrap"><img src="'.$firstPicture.'" alt="'.$pictures[0]->title.'" title="'.$pictures[0]->title.'" /></div><div class="first-desc gallery-desc">'.$firstDescription.'</div>';
-
 	$title = stripcslashes($pictures[0]->title);
 	$slug = $pictures[0]->name;
 	$prefix = $wpdb->prefix;
@@ -155,22 +144,7 @@ function imo_flex_gallery( $atts ) {
 	$html .= '</ul><span class="span-load-gallery"><i></i></span><section class="first-img-overlay"> <span><div class="loader-inner ball-pulse-sync"><div></div><div></div><div></div></div></span> </section></div>';
 		
 	return $html;
-
 }
-
-
 wp_enqueue_style('flexslider-css',get_template_directory_uri().'/plugins/flexslider/flexslider.css');
 wp_enqueue_style('gallery-css',plugins_url('css/style.css', __FILE__));
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/
