@@ -75,6 +75,19 @@
 	}
 	
 /* ------------------------------------------------------------------------
+	North American Whitetail 
+---------------------------------------------------------------------------*/
+	elseif ($dartDomain == "imo.northamericanwhitetail") { 		
+		if ( is_category('bigger-bucks') || in_category('bigger-bucks')) {
+			get_template_part('footer/microsite-footers/naw/footer', "bigger-bucks");
+		} 
+		else {
+			get_template_part('footer/microsite-footers/naw/footer', $catslug);
+		}
+	}
+	
+	
+/* ------------------------------------------------------------------------
 	Else 
 ---------------------------------------------------------------------------*/	
 	 else { 
