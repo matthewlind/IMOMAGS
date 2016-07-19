@@ -4799,6 +4799,11 @@ table.likes-leaderboard .entry-title {
 } /* End of media */
 
 @media only screen and (max-width: 610px) {
+	#fordWidget{
+		    text-align: center;
+			width: 320px;
+			margin: 0 auto 20px;
+	}
 	.community-nav-below{height: auto;overflow: auto;}
 	.community-nav-below .singl-post-photo{width: 90% !important;}
 	.mobile{display: block;}

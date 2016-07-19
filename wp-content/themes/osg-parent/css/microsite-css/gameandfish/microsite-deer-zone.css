@@ -1,0 +1,297 @@
+/* ==========================================================================
+	Defaults 
+========================================================================== */
+
+a {
+	color: #f47521;
+}
+a:hover {
+	color: #f47521;	
+}
+.top-panel a:hover {
+	color: #f47521;	
+}
+.m-compass {
+	background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") 0 -339px / 189px no-repeat;
+}
+.m-choose-btn i {
+    color: #f47521;
+}
+.m-logo {
+	background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") 0 0 / 192px no-repeat;
+	width: 192px;
+	height: 102px;
+	top: 76px;left: 0; right: 0;
+}
+
+/* ==========================================================================
+   6.0 Home Page
+   ========================================================================== */
+   
+.m-regn .m-ne {background: url("/wp-content/themes/gameandfish/images/deer-zone/regions/mobile/northeast.jpg") no-repeat center center / 100%;}
+.m-regn .m-se {background: url("/wp-content/themes/gameandfish/images/deer-zone/regions/mobile/southeast.jpg") no-repeat center center / 100%;}
+.m-regn .m-mw {background: url("/wp-content/themes/gameandfish/images/deer-zone/regions/mobile/midwest.jpg") no-repeat center center / 100%;}
+.m-regn .m-sw {background: url("/wp-content/themes/gameandfish/images/deer-zone/regions/mobile/southwest.jpg") no-repeat center center / 100%;}
+.m-regn .m-nw {background: url("/wp-content/themes/gameandfish/images/deer-zone/regions/mobile/northwest.jpg") no-repeat center center / 100%;}   
+
+.m-triangle {
+	background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") -25px -133px no-repeat;
+	background-size: 150px;
+}
+
+.m-map-region:hover .m-map-path {
+	fill: #d65d0d;	
+}
+.m-nav:hover .m-choose-btn span {
+	color: #f47521;
+}
+.m-map-relative > i:hover {
+	color: #f47521;
+}
+
+/* ==========================================================================
+   7.0 Region Page
+   ========================================================================== */
+   
+.category-ne .m-content-wrap {
+	background-image: url("/wp-content/themes/gameandfish/images/deer-zone/regions/mobile/northeast.jpg");
+}
+.category-se .m-content-wrap {
+	background-image: url("/wp-content/themes/gameandfish/images/deer-zone/regions/mobile/southeast.jpg");
+}
+.category-mw .m-content-wrap {
+	background-image: url("/wp-content/themes/gameandfish/images/deer-zone/regions/mobile/midwest.jpg");
+}
+.category-sw .m-content-wrap {
+	background-image: url("/wp-content/themes/gameandfish/images/deer-zone/regions/mobile/southwest.jpg");
+}
+.category-nw .m-content-wrap {
+	background-image: url("/wp-content/themes/gameandfish/images/deer-zone/regions/mobile/northwest.jpg");
+}
+
+
+/* ==========================================================================
+   11.0 Sweepstakes
+   ========================================================================== */
+   
+   
+.category-dz-sweeps .m-article-image {
+	position: relative;
+    width: 100%;
+    padding-top: 0;
+    height: 452px;
+	background: url("/wp-content/themes/gameandfish/images/deer-zone/sweepstakes/nebraska@2.jpg") no-repeat center center / cover;
+}
+.sweeps-text {
+	position: absolute;
+	width: 100%;
+	padding: 0 20px;
+	left: 0; right: 0; top: 30px;
+	margin: 0 auto;
+	text-align: center;
+	z-index: 300;
+}
+.sweeps-text h1 {
+	font: 700 20px "Lato", sans-serif;
+	color: white;
+	text-shadow: 1px 1px 5px rgba(0,0,0,.7);
+	margin-bottom: 5px;
+}
+.sweeps-text-img {
+	width: 260px;
+	height: 110px;
+	margin: 0 auto;
+	background: url("/wp-content/themes/gameandfish/images/deer-zone/sweepstakes/nebraska-hunt@2.png") no-repeat top left / 100%;
+}
+.photo-collage {
+	position: absolute;
+	width: 320px;
+	height: 200px;
+	padding: 0 20px;
+	left: 0; right: 0; top: 192px;
+	margin: 0 auto;
+}
+.photo-collage > div {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.collage-1 {
+	position: absolute;
+	width: 155px;
+	top: 0; left: 0;
+	z-index: 200;
+}
+.collage-2 {
+	position: absolute;
+	width: 155px;
+	top: 20px; right: 0;
+	z-index: 100;
+}
+.sweeps-dark-bar {
+	position: absolute;
+	width: 100%;
+	height: 112px;
+	background-color: rgba(0,0,0,.4);
+	bottom: 0;
+	padding: 10px 20px;
+}
+.sweeps-dark-bar p {
+	color: white;
+	text-align: center;
+	margin: 0;
+}
+.sweeps-dark-bar span {
+	color: #f47521;
+	font-size: 20px;
+}
+.category-dz-sweeps .m-social-wrap {
+    width: 240px;
+    margin: 20px auto 0;
+}
+
+.category-dz-sweeps .m-sweep-enter h1 {
+    font: 700 37px "Lato", sans-serif;
+    color: #f47521;
+    text-align: center;
+    margin-top: 20px;
+}
+.m-sweep-right > ul {
+	margin-top: 5px;
+} 
+.m-sweeps-firs-p {
+	margin-bottom: 0;
+}
+.m-sweeps-firs-p a {
+	font-weight: 700;
+	font-size: 17px;
+	text-decoration: underline;
+}
+
+
+
+@media only screen and (min-width: 480px) {/* smartphones, Android phones, landscape iPhone */
+
+/* Header *******************/
+.m-logo {top: 11px;}
+
+/* Banners *******************/
+/*
+.m-truck-container:first-child .m-truck {
+	background: url("/wp-content/themes/gameandfish/images/deer-zone/sweeps-banner.png") no-repeat left bottom / 1280px;
+}
+*/
+.m-truck-container .m-truck {
+	background: url("/wp-content/themes/gameandfish/images/deer-zone/truck-ram.png") no-repeat left bottom / 1550px;
+}
+
+}/* end of media */
+
+
+
+@media only screen and (min-width: 600px) {/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+
+/* Home Page *******************/
+.m-triangle {background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") -35px -172px no-repeat;  background-size: 192px;}   
+
+/* Region Page *******************/
+.category-ne .m-triangle, .category-se .m-triangle, .category-mw .m-triangle, .category-sw .m-triangle, .category-nw .m-triangle  {
+	background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") -33px -197px / 230px no-repeat;
+}
+
+/* Sweepstakes *******************/
+.m-sweeps-firs-p a {font-size: 19px;}
+
+}/* end of media */
+
+
+@media only screen and (min-width: 700px) {
+
+.m-logo {background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") no-repeat 0 0 / 250px ;width: 250px;height: 132px;top: 8px;}
+
+/* Sweepstakes *******************/
+.category-dz-sweeps .m-article-image {
+	height: 454px;
+	background: url("/wp-content/themes/gameandfish/images/deer-zone/sweepstakes/nebraska.jpg") no-repeat center center / cover;
+}
+.sweeps-text {width: 59%;padding: 0;left: 10%; right: auto; top: 72px;margin: 0;text-align: left;}
+.sweeps-text h1 {font-size: 28px;}
+.sweeps-text-img {width: 100%;height: auto;padding-top: 35%;margin: 0;
+	background: url("/wp-content/themes/gameandfish/images/deer-zone/sweepstakes/nebraska-hunt.png") no-repeat top left / 100%;
+}
+.photo-collage {width: 30%;height: auto;padding: 0;left: auto; right: 10%; top: 78px;margin: 0;}
+.collage-1 {width: 83%;top: 121px;}
+.collage-2 {width: 83%;top: 0;}
+.sweeps-dark-bar {height: 95px;bottom: 89px;padding: 10px 41% 20px 10%;}
+.sweeps-dark-bar p {text-align: left;}
+.sweeps-dark-bar span {font-weight: 700;}
+.m-compass {width: 68px;height: 68px;background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") no-repeat 0 -425px / 237px;}
+
+
+}/* end of media */
+
+
+@media only screen and (min-width: 920px) {
+	
+.m-triangle {background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") -25px -133px no-repeat;background-size: 150px;}
+.m-direction span {font: 700 14px/85px "Lato", sans-serif;}
+.m-regn .m-ne {background: url("/wp-content/themes/gameandfish/images/deer-zone/regions/desktop/northeast.jpg") no-repeat 25% center / 100%;}
+.m-regn .m-se {background: url("/wp-content/themes/gameandfish/images/deer-zone/regions/desktop/southeast.jpg") no-repeat 51% center / 100%;}
+.m-regn .m-mw {background: url("/wp-content/themes/gameandfish/images/deer-zone/regions/desktop/midwest.jpg") no-repeat center / 100%;}
+.m-regn .m-sw {background: url("/wp-content/themes/gameandfish/images/deer-zone/regions/desktop/southwest.jpg") no-repeat 55% center / 100%;}
+.m-regn .m-nw {background: url("/wp-content/themes/gameandfish/images/deer-zone/regions/desktop/northwest.jpg") no-repeat 70% center / 100%;}
+
+/* Region Page *******************/
+.category-ne .m-content-wrap {background-image: url("/wp-content/themes/gameandfish/images/deer-zone/regions-back/northeast.jpg");}
+.category-se .m-content-wrap {background-image: url("/wp-content/themes/gameandfish/images/deer-zone/regions-back/southeast.jpg");}
+.category-mw .m-content-wrap {background-image: url("/wp-content/themes/gameandfish/images/deer-zone/regions-back/midwest.jpg");}
+.category-sw .m-content-wrap {background-image: url("/wp-content/themes/gameandfish/images/deer-zone/regions-back/southwest.jpg");}
+.category-nw .m-content-wrap {background-image: url("/wp-content/themes/gameandfish/images/deer-zone/regions-back/northwest.jpg");}
+
+/* Sweepstakes *******************/
+.sweeps-text {width: 56%;}
+.sweeps-dark-bar {bottom: 60px;height: auto;min-height: 100px;}
+.sweeps-dark-bar p {font-size: 20px;}
+.collage-1 {top: 151px;}
+
+
+}/* end of media */
+
+
+@media only screen and (min-width: 1025px) {/* big landscape tablets, laptops, and desktops */
+
+.category-ne .m-triangle, .category-se .m-triangle, .category-mw .m-triangle, .category-sw .m-triangle, .category-nw .m-triangle  { background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") no-repeat -50px -271px / 311px;}
+
+/* Sweepstakes *******************/
+.category-dz-sweeps .m-article-image {height: 527px;}
+.sweeps-text {width: 41%;left: 20%;top: 90px;max-width: 600px;}
+.sweeps-text h1 {font-size: 34px;}
+.photo-collage {width: 23%;right: 20%;top: 101px;max-width: 350px;}
+.collage-1 {top: 171px;}
+.sweeps-dark-bar {bottom: 102px;padding: 10px 45% 10px 20%;}
+
+.m-truck-container {width: 100%;}
+.m-truck {text-align: center;}
+.m-truck-title {top:4px;left:0; right: 0; margin: 0 auto;}
+.m-truck-title h3 {display: inline-block;font-family: "Lato", sans-serif;}
+.m-truck > p {margin: 45px auto 13px;}
+
+}/* end of media */
+
+
+@media only screen and (min-width: 1450px) {/* large desktops */
+
+.m-triangle {background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") -35px -172px no-repeat;background-size: 192px;}
+
+/* Sweepstakes *******************/
+.sweeps-text {left: 25%;}
+.sweeps-text h1 {font-size: 34px;margin-left: 10px;}
+.sweeps-dark-bar {padding: 10px 45% 10px 25%;}
+
+}/* end of media */
+
+@media only screen and (min-width: 1900px) {/* large desktops */
+
+.photo-collage {right: 27%;}
+
+}/* end of media */

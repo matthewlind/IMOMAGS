@@ -21,7 +21,6 @@ function social_networks(){
 }
 
 
-
 function social_footer(){ ?>
 	<div class="foot-social clearfix">
 		<strong class="social-title">Like us on Facebook to <span>stay updated !</span></strong>
