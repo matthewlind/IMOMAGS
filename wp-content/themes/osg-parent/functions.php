@@ -497,6 +497,7 @@ function register_imo_subscribe_settings () {
     register_setting( 'imo-subs-settings-group', 'i4ky' );
     register_setting( 'imo-subs-settings-group', 'sticky_key' );
     register_setting( 'imo-subs-settings-group', 'newsletter_id' );
+    register_setting( 'imo-subs-settings-group', 'mail_url' );
     register_setting( 'imo-subs-settings-group', 'master_angler_pdf' );
     register_setting( 'imo-subs-settings-group', 'home_player_id' );
     register_setting( 'imo-subs-settings-group', 'home_player_key' );
@@ -575,6 +576,14 @@ function imo_addons_subscription_page() {
          <th scope="row">Widget Key</th>
         <td><input type="text" name="i4ky" value="<?php echo get_option('i4ky'); ?>" /></td>
         </tr>
+         <tr>
+        <th scope="row">Home Mid-level Subscribe Key</th>
+        <td><input type="text" name="home_key" value="<?php echo get_option('home_key'); ?>" /></td>
+        </tr>
+         <tr>
+        <th scope="row">Category Mid-level Subscribe Key</th>
+        <td><input type="text" name="category_key" value="<?php echo get_option('category_key'); ?>" /></td>
+        </tr>
         <tr>
         <th scope="row">Sticky Bar Subscribe Key</th>
         <td><input type="text" name="sticky_key" value="<?php echo get_option('sticky_key'); ?>" /></td>
@@ -585,6 +594,13 @@ function imo_addons_subscription_page() {
 		<tr>
         <th scope="row">ID</th>
         <td><input type="text" name="newsletter_id" value="<?php echo get_option('newsletter_id'); ?>" /></td>
+        </tr>
+        <tr valign="top">
+        <td><strong>Mail Icon URL</strong></td>
+        </tr>
+		<tr>
+        <th scope="row">URL</th>
+        <td><input type="text" name="mail_url" value="<?php echo get_option('mail_url'); ?>" /></td>
         </tr>
         <tr valign="top">
         <td><strong>Homepage Video Player</strong></td>

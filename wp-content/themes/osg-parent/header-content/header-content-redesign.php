@@ -3,11 +3,8 @@
   	$postID 		= get_the_ID();
     $dartDomain 	= get_option("dart_domain", $default = false);
     $magazine_img 	= get_option('magazine_cover_uri' );
-    if($dartDomain == "imo.gunsandammo" || $dartDomain == "imo.in-fisherman" || $dartDomain == "imo.shotgunnews" || $dartDomain == "imo.shootingtimes"){
-	    $subs_link 	= get_option('subs_link');
-    }else{
-		$subs_link 	= get_option('subs_link') . "/?pkey=";
-    }
+    $subs_link 		= get_option('subs_link') . "/?pkey=";
+	$mailURL 		= get_option('mail_url' );
 	$iMagID 		= get_option('iMagID' );
 	$deal_copy 		= get_option('deal_copy' );
 	$gift_link 		= get_option('gift_link' );
@@ -53,20 +50,22 @@
 			</div>
 			<div class="head-right">
 				<div class="head-mag-cover">
-					<a href="<?php echo SUBS_LINK; ?>" target="_blank">
+					<a href="<?php echo $subs_link . get_option("header_key"); ?>" target="_blank">
 						<img src="<?php echo $magazine_img; ?>" alt="Subscribe">
 					</a> 
 				</div>
-				<div class="head-subscribe" id="head-subscribe">
-					<span>&nbsp;SUBSCRIBE</span><!--<i class="icon-caret-down"></i>-->
-					<?php //include(get_template_directory() . "/content/microsite-template-parts/buy-mag-dropdown.php"); ?>
-				</div>
+				<a href="<?php echo $subs_link . get_option("header_key"); ?>" target="_blank">
+					<div class="head-subscribe" id="head-subscribe">
+						<span>&nbsp;SUBSCRIBE</span><!--<i class="icon-caret-down"></i>-->
+						<?php //include(get_template_directory() . "/content/microsite-template-parts/buy-mag-dropdown.php"); ?>
+					</div>
+				</a>
 				<div class="head-social">
 					<ul>
 						<?php if(defined('FACEBOOK_LINK')){ ?><li><a href="<?php echo FACEBOOK_LINK; ?>" class="icon-facebook" target="_blank"></a></li><?php } ?>
 						<?php if(defined('TWITTER_LINK')){ ?><li><a href="<?php echo TWITTER_LINK; ?>" class="icon-twitter" target="_blank"></a></li><?php } ?>
 						<?php if(defined('YOUTUBE_LINK')){ ?><li><a href="<?php echo YOUTUBE_LINK; ?>" class="icon-youtube-play" target="_blank"></a></li><?php } ?>
-						<li><a href="https://www.everydayhealth.com/newsletter-subscriptions/signup/" class="icon-envelope" target="_blank"></a></li>
+						<?php if($mailURL){ ?><li><a href="<?php echo $mailURL; ?>" class="icon-envelope" target="_blank"></a></li><?php } ?>
 					</ul>
 				</div>
 			</div>
@@ -87,12 +86,12 @@
 				<?php if(defined('FACEBOOK_LINK')){ ?><li><a href="<?php echo FACEBOOK_LINK; ?>" class="icon-facebook" target="_blank"></a></li><?php } ?>
 				<?php if(defined('TWITTER_LINK')){ ?><li><a href="<?php echo TWITTER_LINK; ?>" class="icon-twitter" target="_blank"></a></li><?php } ?>
 				<?php if(defined('YOUTUBE_LINK')){ ?><li><a href="<?php echo YOUTUBE_LINK; ?>" class="icon-youtube-play" target="_blank"></a></li><?php } ?>
-				<li><a href="https://www.everydayhealth.com/newsletter-subscriptions/signup/" class="icon-envelope" target="_blank"></a></li>			
+				<?php if($mailURL){ ?><li><a href="<?php echo $mailURL; ?>" class="icon-envelope" target="_blank"></a></li><?php } ?>		
 			</ul>
 		</div>
 		<div class="head-subscribe">
-			<span id="head-bottom-subscribe">&nbsp;SUBSCRIBE</span><i class="icon-triangle-down"></i>
-			<?php include(get_template_directory() . "/content/microsite-template-parts/buy-mag-dropdown.php"); ?>
+			<a href="<?php print $subs_link . get_option("sticky_key"); ?>" target="_blank"><span id="head-bottom-subscribe">&nbsp;SUBSCRIBE</span></a><!--<i class="icon-triangle-down"></i>-->
+			<?php //include(get_template_directory() . "/content/microsite-template-parts/buy-mag-dropdown.php"); ?>
 		</div>
 		<div class="head-mag-cover">
 			<a href="">
