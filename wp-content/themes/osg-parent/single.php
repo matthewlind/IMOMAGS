@@ -10,8 +10,11 @@
 	$author_url		= get_author_posts_url($author_id);
 	$author_name	= (!get_field("author_name")) ? get_the_author() : get_field("author_name");
 	$author_title	= get_field("author_title");
+	$byline 		= get_post_meta($post_id, 'ecpt_byline', true);
+	if(!$byline){
+		$byline 		= get_field("byline");
+	}
 	
-	//$byline 		= get_post_meta($post_id, 'ecpt_byline', true);
 	
 	$tv_player_id 	= get_field("tv_player_id","options");
 	
@@ -30,8 +33,9 @@
 				<?php if ($hide_date == false) { ?> <div class="the-date"><?php the_time('F jS, Y'); ?></div> <?php } ?>
 			</div>
 			<h1><?php the_title(); ?></h1>
+			<div class="byline"><span><?php if($byline) { echo $byline; } ?></span></div>
 			<div class="author-wrap clearfix">
-				<div class="author-img"><?php echo get_avatar($author_id, 120);?></div>
+				<!--<div class="author-img"><?php //echo get_avatar($author_id, 120);?></div>-->
 				<h4><?php echo $author_name;?></h4>
 				<span class="author-title"><?php if($author_title) { echo $author_title; ?><i>&nbsp;&nbsp;•&nbsp;&nbsp;</i><br><?php }?><a href="<?php echo $author_url;?>">More From <?php echo $author_name;?></a></span>
 			</div>

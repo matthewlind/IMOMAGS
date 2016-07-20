@@ -27,7 +27,7 @@ if ($is_custom_img_and_url) {
 }
 	
 $site_name	= trim(get_bloginfo('name'), "Magazine");
-	
+		if(!is_page()){	
 ?>			
 			<div class="pre-footer">
 				<div class="section-inner-wrap">
@@ -42,6 +42,7 @@ $site_name	= trim(get_bloginfo('name'), "Magazine");
 		        	</ul>
 				</div>
 			</div>
+		<?php } ?>
 			<footer id="footer" class="footer" role="contentinfo">
 				<div class="network">
 		            <div class="frame">
