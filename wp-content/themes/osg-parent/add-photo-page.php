@@ -20,7 +20,6 @@ get_template_part( 'nav', get_post_format() );
 
 imo_sidebar(); ?>
 	<div id="primary" class="general page-community">
-		gfjykjytjkytjyt
         <div class="general-frame">
             <div id="content" role="main">
 				<?php while ( have_posts() ) : the_post(); ?>
