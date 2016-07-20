@@ -14,7 +14,10 @@ if(document.location.protocol=='http:'){
 }
 </script>
 <script async src="http://cdn.mediavoice.com/nativeads/script/IMOutdoors/mv_gundog.js"></script>
-<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/community-common.css" />
+<?php
+if ( get_post_type() == "reader_photos" ){ ?>
+	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/community-common.css" />
+<?php } ?>
 
 
 

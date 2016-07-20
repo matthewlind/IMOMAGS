@@ -1872,6 +1872,7 @@ select.alter-sel {width:100%;}
 		border-left: 6px solid transparent;
 		border-bottom: 0 dotted;
 	}
-	.community-header li.menu-item{padding: 6px 0;}
+	.community-header li.menu-item{padding: 10px 0;}
 	.community-header ul li a{font-size: 16px;}
+	.community-header ul.sub-list{display: block;padding-bottom: 10px;}
 }
