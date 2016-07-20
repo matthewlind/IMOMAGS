@@ -108,10 +108,21 @@
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/gunsandammo/microsite-shoot101.css" />
 <?php	} else { ?>
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/microsite-default.css" />
-<?php	} ?>
+<?php	} 
 
-<?php
-	
+
+/* ------------------------------------------------------------------------
+	Guns and Ammo 
+-------------------------------------------------------------------------- */		
+	} elseif ($dartDomain == "imo.northamericanwhitetail") { 
+		
+		if ( is_category('bigger-bucks') || in_category('bigger-bucks')) {	
+	?>
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/microsite-default.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/naw/microsite-bigger-bucks.css" />
+<?php	} else { ?>
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/microsite-default.css" />
+<?php	} 	
 	
 	
 /*------------------------------------------------------------------------

@@ -453,7 +453,7 @@ if(function_exists("register_field_group"))
 				),
 				'choices' => array (
 					'sponsors_disclaimer' => 'Header Sponsors Disclaimer',
-					'second_test_element' => 'Second Test Element',
+					'hero_image' => 'Hero Image',
 					'third_test_element' => 'Third Test Element',
 				),
 				'default_value' => '',
@@ -485,6 +485,85 @@ if(function_exists("register_field_group"))
 				'maxlength' => '',
 				'rows' => 2,
 				'formatting' => 'html',
+			),
+			array (
+				'key' => 'field_577e6f2ac9057',
+				'label' => 'Hero Image',
+				'name' => 'hero_image',
+				'type' => 'image',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_55b91c9e31753',
+							'operator' => '==',
+							'value' => '1',
+						),
+						array (
+							'field' => 'field_55b91f75f3a7d',
+							'operator' => '==',
+							'value' => 'hero_image',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'save_format' => 'object',
+				'preview_size' => 'large',
+				'library' => 'all',
+			),
+			array (
+				'key' => 'field_577e6f2ak9057',
+				'label' => 'Hero Image Mobile',
+				'name' => 'hero_image_mobile',
+				'type' => 'image',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_55b91c9e31753',
+							'operator' => '==',
+							'value' => '1',
+						),
+						array (
+							'field' => 'field_55b91f75f3a7d',
+							'operator' => '==',
+							'value' => 'hero_image',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'save_format' => 'object',
+				'preview_size' => 'large',
+				'library' => 'all',
+			),
+			array (
+				'key' => 'field_577e6f7dc9058',
+				'label' => 'Hero Image Link',
+				'name' => 'hero_image_link',
+				'type' => 'text',
+				'instructions' => 'paste url',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_55b91c9e31753',
+							'operator' => '==',
+							'value' => '1',
+						),
+						array (
+							'field' => 'field_55b91f75f3a7d',
+							'operator' => '==',
+							'value' => 'hero_image',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
 			),
 		),
 		'location' => array (

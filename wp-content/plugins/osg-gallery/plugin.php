@@ -46,7 +46,7 @@ if(function_exists("register_field_group"))
 		'menu_order' => 0,
 	));
 }
-/*
+
 add_action('init', 'register_gallery_script');
 add_action('wp_footer', 'print_gallery_script');
 function register_gallery_script() {
@@ -147,4 +147,3 @@ function imo_flex_gallery( $atts ) {
 }
 wp_enqueue_style('flexslider-css',get_template_directory_uri().'/plugins/flexslider/flexslider.css');
 wp_enqueue_style('gallery-css',plugins_url('css/style.css', __FILE__));
-*/

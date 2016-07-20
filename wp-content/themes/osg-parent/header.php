@@ -78,7 +78,7 @@
 
 	} // end else
 	
-	if (is_single()) { ?>
+	if (is_single() || is_page()) { ?>
 	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' );?>/css/redesign/single.css" />	
 <?php }
 	

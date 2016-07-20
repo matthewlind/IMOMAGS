@@ -63,6 +63,7 @@
 		$as2			= 3; // inline ad slot
 		$as3			= 4; // inline ad slot
 		$interval		= $p_number / 2;
+		$ad_count 		= 0;
 		
 		if 		(empty($tv_player_id)) {$video_el = 999; $as1 = 1; $as2 = 2; $as3 = 3;}
 		
@@ -141,12 +142,14 @@
 					<a class="ve-link" href="#">Watch More In-Fisherman TV</a>
 		    	</div>-->
 <?php			}
-			if ($p_number > 10 && $p_counter - ($inline_ad_1) == $slots[$as1] || $p_number > 15 && $p_counter - ($inline_ad_2) == $slots[$as2] || $p_number > 20 && $p_counter - ($inline_ad_3) == $slots[$as3]){ ?>
+			if ($p_number > 10 && $p_counter - ($inline_ad_1) == $slots[$as1] || $p_number > 15 && $p_counter - ($inline_ad_2) == $slots[$as2] || $p_number > 20 && $p_counter - ($inline_ad_3) == $slots[$as3]){ 
+			$ad_count++; ?>
 				<div class="ad-single-inline">
-					<div class="as-inner"><iframe class="iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term=<?php echo $term; ?>&camp=<?php echo $camp; ?>&ad_code=<?php echo $dartdomain; ?>&ad_unit=mediumRectangle&page=article&pos=inline-1"></iframe></div>
+					<div class="as-inner"><iframe class="iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term=<?php echo $term; ?>&camp=<?php echo $camp; ?>&ad_code=<?php echo $dartdomain; ?>&ad_unit=mediumRectangle&page=article&pos=inline-<?php echo $ad_count; ?>"></iframe></div>
 				</div>
 <?php			}
 		    $p_counter++;
+		    
 		    
 		    
 		}

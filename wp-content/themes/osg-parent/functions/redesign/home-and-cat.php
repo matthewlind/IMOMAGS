@@ -145,6 +145,7 @@ function load_home_btf() {
 	$magazine_img 	= get_option('magazine_cover_uri' );
 	$deal_copy 		= get_option('deal_copy' );
 	$site_name		= trim(get_bloginfo('name'), "Magazine"); 
+	$subs_link 		= get_option('subs_link') . "/?pkey=";
 ?>    
     
     
@@ -155,7 +156,7 @@ function load_home_btf() {
 				<img src="<?php echo $magazine_img; ?>" alt="Gun Dog Magazine Cover">
 				<div class="subs-info">
 					<p><?php echo $deal_copy; ?></p>
-					<a class="btn-lg" href="<?php echo $online_store_url; ?>">Subscribe Now!</a>
+					<a class="btn-lg" href="<?php echo $subs_link . get_option("i4ky"); ?>" target="_blank">Subscribe Now!</a>
 				</div>
 			</div>
 			<div class="store-container">
