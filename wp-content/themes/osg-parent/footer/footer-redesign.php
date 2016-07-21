@@ -1,9 +1,10 @@
 <?php
 global $term, $camp;
 $dartDomain = get_option("dart_domain", $default = false);	
+
 if(is_home()){
 		$page = "homepage";
-	}else if (is_category()){
+	}else if ( is_category() || get_post_type() == "reader_photos" ){
 		$page = "category";
 	}else if(is_single()){
 		$page = "article";
@@ -21,12 +22,12 @@ if ($is_custom_img_and_url) {
 	$f_p_id		= $f_post[0];
 	$f_url		= get_permalink($f_p_id);
 	$f_title	= get_the_title($f_p_id);
-	$f_thumb	= get_the_post_thumbnail($f_p_id,"list-thumb");
+	$f_thumb	= get_the_post_thumbnail($f_p_id,"footer-thumb");
 	$foot_post_btn_txt	= 'Read Now!';
 }
 	
 $site_name	= trim(get_bloginfo('name'), "Magazine");
-	
+		if(!is_page()){	
 ?>			
 			<div class="pre-footer">
 				<div class="section-inner-wrap">
@@ -41,6 +42,7 @@ $site_name	= trim(get_bloginfo('name'), "Magazine");
 		        	</ul>
 				</div>
 			</div>
+		<?php } ?>
 			<footer id="footer" class="footer" role="contentinfo">
 				<div class="network">
 		            <div class="frame">
@@ -101,6 +103,11 @@ $site_name	= trim(get_bloginfo('name'), "Magazine");
 			</footer><!-- #footer -->
 		</div><!-- .wrapper -->	
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/redesign/all-pages.js"></script>
-	<?php wp_footer(); ?>
+    <?php 
+	    if(is_single()){
+	    	imo_ad_placement("teads");
+	    }
+		wp_footer(); 
+	?>
 	</body>
 </html>

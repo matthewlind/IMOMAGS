@@ -558,7 +558,7 @@ nav {
 	overflow: hidden;
 	background-color: #fff;
 	color: #333;
-	z-index: 100;
+	z-index: 2900;
 	-webkit-transition:bottom 0.8s ease;
 	-moz-transition:bottom 0.8s ease;
 	-o-transition:bottom 0.8s ease;
@@ -1273,7 +1273,8 @@ nav {
 .head-social ul li:first-child a {font-size: 19px;}
 .head-social ul li:nth-of-type(3) a {font-size: 21px;}
 .head-social ul li:last-child a {font-size: 23px;}
-.head-subscribe {position: relative;border: 3px solid #fff;border-radius: 2px;padding: 0 39px 0 10px;height: 36px;width: auto;margin-left: 20px; margin-top: 0;cursor: pointer;}
+/*.head-subscribe {position: relative;border: 3px solid #fff;border-radius: 2px;padding: 0 39px 0 10px;height: 36px;width: auto;margin-left: 20px; margin-top: 0;cursor: pointer;}*/
+.head-subscribe {position: relative;border: 3px solid #fff;border-radius: 2px;padding: 0 12px 0 10px;height: 36px;width: auto;margin-left: 20px; margin-top: 0;cursor: pointer;}
 .head-subscribe:hover {border-color: #eee;}
 .head-subscribe > span {line-height: 30px;}
 .head-subscribe:hover > span {color: #eee;}

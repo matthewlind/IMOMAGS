@@ -30,7 +30,7 @@ $site_name		= trim(get_bloginfo('name'), "Magazine");
 						$acf_byline 	= get_field("byline", $feature->ID);
 						$thumb 			= get_the_post_thumbnail($feature->ID,"list-thumb");
 						$tracking 		= "_gaq.push(['_trackEvent','Special Features Homepage','$title','$url']);"; ?>
-						<li>
+						<li class="f-item">
 							<a href="<?php echo $url; ?>" onclick="<?php echo $tracking; ?>"><?php echo $thumb; ?></a>
 							<div class="c-info">
 								<div class="c-cats"><?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(null, ','); } ?></div>
@@ -40,7 +40,7 @@ $site_name		= trim(get_bloginfo('name'), "Magazine");
 						</li>
 					<?php 
 						if ($feat_counter == 1) { ?>
-						<li class="c-ad ad-wrap"><span class="ad-span">Advertisement</span><div id="c_ad_inner" class="ad-inner"><iframe class="iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term=<?php echo $term; ?>&camp=<?php echo $camp; ?>&ad_code=<?php echo $dartdomain; ?>&ad_unit=mediumRectangle&page=homepage&pos=btf"></iframe></div></li>
+						<li class="c-ad ad-wrap"><span class="ad-span">Advertisement</span><div id="c_ad_inner" class="ad-inner"><iframe class="iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term=<?php echo $term; ?>&camp=<?php echo $camp; ?>&ad_code=<?php echo $dartdomain; ?>&ad_unit=mediumRectangle&page=homepage"></iframe></div></li>
 						<?php }
 						$feat_counter++;
 					} 

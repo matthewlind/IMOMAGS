@@ -43,7 +43,8 @@ function s_load_latest() {
     $author			= strval($_POST['author']);
 
 	$p_counter		= 0;
-	
+	$dartdomain 	= get_option('dart_domain', false);
+
 	if ($page_type == 'post-type-archive-reader_photos') $post_type = 'reader_photos';
 			
 	$args = array (
@@ -76,7 +77,7 @@ function s_load_latest() {
 				</div>
 			</li>
 	<?php
-			if ($p_counter == 1 || $p_counter == 6) { echo '<li class="c-ad ad-wrap"><span class="ad-span">Advertisement</span><div class="ad-inner"></div></li>'; }
+			if ($p_counter == 1 || $p_counter == 6) { echo '<li class="c-ad ad-wrap"><span class="ad-span">Advertisement</span><div class="ad-inner"><iframe class="new-iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term=home&ad_code='.$dartdomain.'&ad_unit=mediumRectangle&page=homepage"></iframe></div></li>'; }
 			$p_counter++;
 		}
 	} else { ?>

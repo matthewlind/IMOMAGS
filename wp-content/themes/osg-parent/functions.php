@@ -290,6 +290,9 @@ function parent_theme_setup()
     add_image_size("community-square-retina",640,640,TRUE);
     add_image_size("video-thumb",130,90,TRUE);
     add_image_size("show-thumb",248,165,TRUE);
+    
+    //new
+    add_image_size( 'footer-thumb', 250, 210, true );
 }
 
 function parent_theme_widgets_init()
@@ -303,118 +306,11 @@ function parent_theme_widgets_init()
         'after_title' => '</h3>',
     ) );
 
-	//Community Sidebar
-	register_sidebar( array(
-	    'name' => __( 'Community Sidebar', 'imo-mags-parent' ),
-	    'id' => 'sidebar-4',
-	    'description' => __( 'The sidebar for community pages', 'twentyeleven' ),
-	    'before_widget' => '<div id="%1$s" class="widget %2$s">',
-	    'after_widget' => "</div>",
-	    'before_title' => '<h3 class="widget-title">',
-	    'after_title' => '</h3>',
-	) );
-
-	register_sidebar( array(
-        'name' => __( 'Mobile Widgets', 'imo-mags-parent' ),
-        'id' => 'sidebar-99',
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after_widget' => "</div>",
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );
-
-    register_sidebar( array(
-        'name' => __( 'Sticky Widgets', 'imo-mags-parent' ),
-        'id' => 'sidebar-98',
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after_widget' => "</div>",
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );
-
-
-    // register_widget( 'Twenty_Eleven_Ephemera_Widget' );
-
-    /*register_sidebar( array(
-        'name' => __( 'Header Sidebar', 'parent_theme' ),
-        'id' => 'sidebar-header',
-        'before_widget' => '<div id="%1$s" class="widget %2$s header-elements">',
-        'after_widget' => "</div>",
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );
-
-    register_sidebar( array(
-        'name' => __( 'Header Sidebar First', 'parent_theme' ),
-        'id' => 'sidebar-header-1',
-        'before_widget' => '<div id="%1$s" class="widget %2$s header-elements">',
-        'after_widget' => "</div>",
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );
-
-    register_sidebar( array(
-        'name' => __( 'Header Sidebar Second', 'parent_theme' ),
-        'id' => 'sidebar-header-2',
-        'before_widget' => '<div id="%1$s" class="widget %2$s header-elements">',
-        'after_widget' => "</div>",
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );
-
-
-    register_sidebar( array(
-        'name' => __( 'Article Sidebar', 'imo-mags-parent' ),
-        'id' => 'sidebar-2',
-        'description' => __( 'The sidebar for single pages', 'twentyeleven' ),
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after_widget' => "</div>",
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );
-
-    register_sidebar( array(
-        'name' => __( 'Landing Page Sidebar', 'imo-mags-parent' ),
-        'id' => 'sidebar-3',
-        'description' => __( 'The sidebar for landing pages', 'twentyeleven' ),
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after_widget' => "</div>",
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );
-
-   register_sidebar( array(
-        'name' => __( 'Footer Area Two', 'parent_theme' ),
-        'id' => 'sidebar-4',
-        'description' => __( 'An optional widget area for your site footer', 'twentyeleven' ),
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after_widget' => "</div>",
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );
-
-    register_sidebar( array(
-        'name' => __( 'Footer Area Three', 'parent_theme' ),
-        'id' => 'sidebar-5',
-        'description' => __( 'An optional widget area for your site footer', 'twentyeleven' ),
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after_widget' => "</div>",
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );
-
-    register_sidebar( array(
-        'name' => __( 'Main Menu', 'parent_theme' ),
-        'id' => 'sidebar-6',
-        'description' => __( 'An optional widget area for your site footer', 'twentyeleven' ),
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after_widget' => "</div>",
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );*/
-    register_nav_menus(array(
+	register_nav_menus(array(
         'top' => 'Top Menu',
         'bottom' => 'Main Menu',
+        'desk_vis' => 'Desktop Visible Menu',
+        'desk_vis_sec' => 'Desktop Secondary Menu',
         'mobile' => 'Mobile Menu',
         'community' => 'Community Menu',
         'shows_menu' => 'Shows Menu',
@@ -601,6 +497,7 @@ function register_imo_subscribe_settings () {
     register_setting( 'imo-subs-settings-group', 'i4ky' );
     register_setting( 'imo-subs-settings-group', 'sticky_key' );
     register_setting( 'imo-subs-settings-group', 'newsletter_id' );
+    register_setting( 'imo-subs-settings-group', 'mail_url' );
     register_setting( 'imo-subs-settings-group', 'master_angler_pdf' );
     register_setting( 'imo-subs-settings-group', 'home_player_id' );
     register_setting( 'imo-subs-settings-group', 'home_player_key' );
@@ -679,6 +576,14 @@ function imo_addons_subscription_page() {
          <th scope="row">Widget Key</th>
         <td><input type="text" name="i4ky" value="<?php echo get_option('i4ky'); ?>" /></td>
         </tr>
+         <tr>
+        <th scope="row">Home Mid-level Subscribe Key</th>
+        <td><input type="text" name="home_key" value="<?php echo get_option('home_key'); ?>" /></td>
+        </tr>
+         <tr>
+        <th scope="row">Category Mid-level Subscribe Key</th>
+        <td><input type="text" name="category_key" value="<?php echo get_option('category_key'); ?>" /></td>
+        </tr>
         <tr>
         <th scope="row">Sticky Bar Subscribe Key</th>
         <td><input type="text" name="sticky_key" value="<?php echo get_option('sticky_key'); ?>" /></td>
@@ -689,6 +594,13 @@ function imo_addons_subscription_page() {
 		<tr>
         <th scope="row">ID</th>
         <td><input type="text" name="newsletter_id" value="<?php echo get_option('newsletter_id'); ?>" /></td>
+        </tr>
+        <tr valign="top">
+        <td><strong>Mail Icon URL</strong></td>
+        </tr>
+		<tr>
+        <th scope="row">URL</th>
+        <td><input type="text" name="mail_url" value="<?php echo get_option('mail_url'); ?>" /></td>
         </tr>
         <tr valign="top">
         <td><strong>Homepage Video Player</strong></td>

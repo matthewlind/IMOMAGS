@@ -3,11 +3,8 @@
   	$postID 		= get_the_ID();
     $dartDomain 	= get_option("dart_domain", $default = false);
     $magazine_img 	= get_option('magazine_cover_uri' );
-    if($dartDomain == "imo.gunsandammo" || $dartDomain == "imo.in-fisherman" || $dartDomain == "imo.shotgunnews" || $dartDomain == "imo.shootingtimes"){
-	    $subs_link 	= get_option('subs_link');
-    }else{
-		$subs_link 	= get_option('subs_link') . "/?pkey=";
-    }
+    $subs_link 		= get_option('subs_link') . "/?pkey=";
+	$mailURL 		= get_option('mail_url' );
 	$iMagID 		= get_option('iMagID' );
 	$deal_copy 		= get_option('deal_copy' );
 	$gift_link 		= get_option('gift_link' );
@@ -37,37 +34,7 @@
 
 <header class="main-header">
 	<div id="header_wrap" class="header-wrap">
-		<nav id="menu_drop">
-			<div class="menu-container">
-				<div class="menu-inner">
-					<section class="menu-content">
-					<?php
-                    wp_nav_menu(array(
-                        'menu_class'	=> 'menu',
-                        'theme_location'=> 'bottom',
-                        'container' 	=> '0',
-                        'walker'		=> new AddParentClass_Walker()
-                    ));   
-                    ?>
-                    <?php if(has_nav_menu( 'top' )){
-                    	wp_nav_menu(array(
-	                        'menu_class'=>'menu',
-	                        'theme_location'=>'top'
-						));  
-                    } 
-                    ?>
-					</section>
-					<section class="menu-footer">
-						<div class="menu-footer-inner">
-							<h3>Don’t forget to sign up!</h3>
-							<p>Get the Top Stories from <?php bloginfo('name'); ?> Delivered to Your Inbox Every Week</p>
-							<?php get_template_part("content/redesign/content", "newsletter"); ?>
-						</div>
-					</section>
-					<section id="m_drop" class="menu-close"><i class="icon-close"></i><span>&nbsp;CLOSE MENU</span></section>
-				</div>
-			</div>
-		</nav>
+		
 		<div class="head-inner">
 			<div class="head-left">
 				<div class="main-logo">
@@ -83,20 +50,22 @@
 			</div>
 			<div class="head-right">
 				<div class="head-mag-cover">
-					<a href="<?php echo $online_store_url; ?>" target="_blank">
+					<a href="<?php echo $subs_link . get_option("header_key"); ?>" target="_blank">
 						<img src="<?php echo $magazine_img; ?>" alt="Subscribe">
 					</a> 
 				</div>
-				<div class="head-subscribe" id="head-subscribe">
-					<span>&nbsp;SUBSCRIBE</span><i class="icon-caret-down"></i>
-					<?php include(get_template_directory() . "/content/microsite-template-parts/buy-mag-dropdown.php"); ?>
-				</div>
+				<a href="<?php echo $subs_link . get_option("header_key"); ?>" target="_blank">
+					<div class="head-subscribe" id="head-subscribe">
+						<span>&nbsp;SUBSCRIBE</span><!--<i class="icon-caret-down"></i>-->
+						<?php //include(get_template_directory() . "/content/microsite-template-parts/buy-mag-dropdown.php"); ?>
+					</div>
+				</a>
 				<div class="head-social">
 					<ul>
-						<li><a href="http://www.facebook.com/sharer/sharer.php?u=$url_for_social&title=$face_twit_title" class="icon-facebook" target="_blank"></a></li>
-						<li><a href="http://twitter.com/intent/tweet?status=$face_twit_title+$url_for_social" class="icon-twitter" target="_blank"></a></li>
-						<li><a href="http://www.facebook.com/sharer/sharer.php?u=$url_for_social&title=$face_twit_title" class="icon-youtube-play" target="_blank"></a></li>
-						<li><a href="mailto:?subject=$email_subject&body=$email_message $url_for_social" class="icon-envelope" target="_blank"></a></li>
+						<?php if(defined('FACEBOOK_LINK')){ ?><li><a href="<?php echo FACEBOOK_LINK; ?>" class="icon-facebook" target="_blank"></a></li><?php } ?>
+						<?php if(defined('TWITTER_LINK')){ ?><li><a href="<?php echo TWITTER_LINK; ?>" class="icon-twitter" target="_blank"></a></li><?php } ?>
+						<?php if(defined('YOUTUBE_LINK')){ ?><li><a href="<?php echo YOUTUBE_LINK; ?>" class="icon-youtube-play" target="_blank"></a></li><?php } ?>
+						<?php if($mailURL){ ?><li><a href="<?php echo $mailURL; ?>" class="icon-envelope" target="_blank"></a></li><?php } ?>
 					</ul>
 				</div>
 			</div>
@@ -114,15 +83,15 @@
 	<div class="head-bottom">
 		<div class="head-social">
 			<ul>
-				<li><a href="http://www.facebook.com/sharer/sharer.php?u=$url_for_social&title=$face_twit_title" class="icon-facebook" target="_blank"></a></li>
-				<li><a href="http://twitter.com/intent/tweet?status=$face_twit_title+$url_for_social" class="icon-twitter" target="_blank"></a></li>
-				<li><a href="http://www.facebook.com/sharer/sharer.php?u=$url_for_social&title=$face_twit_title" class="icon-youtube-play" target="_blank"></a></li>
-				<li><a href="mailto:?subject=$email_subject&body=$email_message $url_for_social" class="icon-envelope" target="_blank"></a></li>
+				<?php if(defined('FACEBOOK_LINK')){ ?><li><a href="<?php echo FACEBOOK_LINK; ?>" class="icon-facebook" target="_blank"></a></li><?php } ?>
+				<?php if(defined('TWITTER_LINK')){ ?><li><a href="<?php echo TWITTER_LINK; ?>" class="icon-twitter" target="_blank"></a></li><?php } ?>
+				<?php if(defined('YOUTUBE_LINK')){ ?><li><a href="<?php echo YOUTUBE_LINK; ?>" class="icon-youtube-play" target="_blank"></a></li><?php } ?>
+				<?php if($mailURL){ ?><li><a href="<?php echo $mailURL; ?>" class="icon-envelope" target="_blank"></a></li><?php } ?>		
 			</ul>
 		</div>
 		<div class="head-subscribe">
-			<span id="head-bottom-subscribe">&nbsp;SUBSCRIBE</span><i class="icon-triangle-down"></i>
-			<?php include(get_template_directory() . "/content/microsite-template-parts/buy-mag-dropdown.php"); ?>
+			<a href="<?php print $subs_link . get_option("sticky_key"); ?>" target="_blank"><span id="head-bottom-subscribe">&nbsp;SUBSCRIBE</span></a><!--<i class="icon-triangle-down"></i>-->
+			<?php //include(get_template_directory() . "/content/microsite-template-parts/buy-mag-dropdown.php"); ?>
 		</div>
 		<div class="head-mag-cover">
 			<a href="">
@@ -131,6 +100,65 @@
 		</div>
 	</div>
 </header>
+<nav id="menu_drop">
+	<div class="menu-container">
+		<div class="menu-inner">
+			<section class="menu-content">
+			<?php
+            wp_nav_menu(array(
+                'menu_class'	=> 'menu',
+                'theme_location'=> 'bottom',
+                'container' 	=> '0',
+                'walker'		=> new AddParentClass_Walker()
+            ));   
+            ?>
+            <?php if(has_nav_menu( 'top' )){
+            	wp_nav_menu(array(
+                    'menu_class'=>'menu',
+                    'theme_location'=>'top'
+				));  
+            } 
+            ?>
+			</section>
+			<section class="menu-footer">
+				<div class="menu-footer-inner">
+					<h3>Don’t forget to sign up!</h3>
+					<p>Get the Top Stories from <?php bloginfo('name'); ?> Delivered to Your Inbox Every Week</p>
+					<?php get_template_part("content/redesign/content", "newsletter"); ?>
+				</div>
+			</section>
+			<section id="m_drop" class="menu-close"><i class="icon-close"></i><span>&nbsp;CLOSE MENU</span></section>
+		</div>
+	</div>
+</nav>
+<?php if(has_nav_menu( 'desk_vis' )){ ?>
+<div class="desktop-menu">
+	<div class="desktop-menu-inner">
+	<?php 
+    	wp_nav_menu(array(
+            'menu_class'=>'desk-menu',
+            'theme_location'=>'desk_vis',
+            'container' => false
+		));  
+    ?>
+	</div>
+</div>
+<?php } ?>
+<?php if(has_nav_menu( 'desk_vis_sec' )){ ?>
+<div class="desktop-secmenu">
+	<div class="desktop-secmenu-inner">
+	<?php 
+    	wp_nav_menu(array(
+            'menu_class'=>'desk-secmenu',
+            'theme_location'=>'desk_vis_sec',
+            'container' => false
+		));  
+    ?>
+	</div>
+</div>
+<?php } ?>
+
+
 <?php if(get_field("full_width") != true){ ?>
     <div class="content-banner-section">
 		<div class="mdl-banner">

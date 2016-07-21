@@ -1,6 +1,6 @@
 <?php
 
-get_header('redesign'); 
+get_header(); 
 
 $is_home_cat 	= true;
 $dartdomain 	= get_option('dart_domain', false);
@@ -87,4 +87,4 @@ $this_cat_name	= $this_cat->name;
 
 
 
-<?php get_footer('redesign'); ?>
+<?php get_footer(); ?>

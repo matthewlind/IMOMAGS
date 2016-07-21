@@ -29,12 +29,61 @@
 	margin: 0.4em 0;
 	font-size: 28px;
 }
-.byline {
-	margin-bottom: 15px;
+.cat-feat-wrap a {
+	display: inline-block;
+	margin: 0 1px 5px 0;
+	height: 30px;
+	border-radius: 2px;
+	color: #fff;
+	padding: 0 10px;
+	line-height: 30px;
+	font-size: 13px;
+	font-weight: 700;
+	text-transform: uppercase;
+	background-color: #b9b9b9;
 }
-.byline span {
-	font-size: 13px; 
+.cat-feat-wrap a.primary-cat {
+	background-color: #FF6600;
+}
+.the-date {
+	font-size: 12px;
+	color: #666;
+	margin-top: 10px;
+}
+.author-wrap {
+	margin: 0 0 23px;
+}
+.author-img {
+	float: left;
+	margin: 0 10px 0 0;
+	width: 66px;
+	height: 66px;
+	border-radius: 33px;
+	background-color: #c5c5c5;
+	overflow: hidden;
+	border: 1px solid #c5c5c5;
+}
+.author-img img {
+	width: 100%;
+	height: 100%;
+}
+.author-wrap h4 {
+	margin: 0;
 	color: #555;
+}
+.author-title {
+	color: #666;
+	font-size: 12px;
+}
+.author-title i {
+	display: none;
+}
+.author-title a {
+	color: #666;
+	text-decoration: underline;
+}
+.author-title a:hover {
+	color: #395b5d;
 }
 .social-single ul {
 	list-style: none;
@@ -173,6 +222,13 @@ blockquote {
 /*---------------------------------------------- */
 /*	ARTICLE ELEMENTS
 /*---------------------------------------------- */
+.ae-img {
+    float: left;
+    display: block;
+    margin: 0 15px 10px 0;
+    width: 100px;
+    background-color: #eee;
+}
 
 .article-elem {
 	padding: 0 0 15px;
@@ -383,6 +439,62 @@ a.ae-title p {
 }
 
 
+/* Fix for haritage elements */
+.article-body .inline-post {
+	border-top: 1px solid #ccc;
+	padding: 25px 0 0;
+	border-bottom: 1px solid #ccc;
+	margin: 30px 0;
+	width: 100%;
+	min-width: 100%;
+	position: relative;
+	*zoom: 1;
+}
+.article-body .inline-post:before,
+.article-body .inline-post:after {
+    content: " ";
+    display: table;
+}
+.article-body .inline-post:after {
+    clear: both;
+}
+
+.inline-post > a > img {
+	float: left;
+    display: block;
+    margin: 0 15px 10px 0;
+    width: 100px;
+    background-color: #eee;
+}
+.article-body .inline-post .related {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: -10px;
+	margin: 0 auto;
+	display: block;
+	width: 88px;
+	background-color: #fff;
+	padding: 0 15px;
+	text-transform: uppercase;
+	color: #9B9B9B;
+	font-size: 14px;
+	font-weight: 600;
+}
+.article-body .inline-post h1 {
+	font-size: 17px;
+	color: #333;
+	font-family: "Sorce Sans Pro", sans-serif;
+	margin: 0 0 0.5em;
+}
+.article-body .inline-post p {
+	font-size: 14px;
+	color: #333;
+	font-family: "Sorce Sans Pro", sans-serif;
+	margin: 0 0 1em;
+}
+
+
 /*---------------------------------------------- */
 /*	MORE STORIES
 /*---------------------------------------------- */
@@ -399,7 +511,7 @@ a.ae-title p {
 }
 .ms-inner {
 	overflow: hidden;
-	min-height: 725px;
+	/*min-height: 725px;*/
 }
 .ms-box {
 	float: left;
@@ -468,9 +580,15 @@ a.ae-title p {
 
 
 @media only screen and (min-width: 400px) {
+.author-img {width: 60px;height: 60px;border-radius: 30px;}
+.author-wrap h4 {margin: 9px 0 0;}
+.author-title i {display: inline;}
+.author-title br {display: none;}
 	
 .ve-content h4 {font-size: 16px;}
 .ms-box { margin-bottom: 30px; }
+.cat-feat-wrap {padding: 0 130px 0 0; position: relative;}
+.the-date {position: absolute;right: 0; top: 3px;margin-top: 0;}
 
 }/* end media 400px */ 
 
@@ -480,7 +598,7 @@ a.ae-title p {
 
 .cat-feat-label a {font-size: 14px;}
 .article-header > h1 {font-size: 33px;}
-.byline {margin-bottom: 25px;}
+/*.byline {margin-bottom: 25px;}*/
 .byline span {font-size: 14px;}
 .social-single ul {display: flex;justify-content:space-between;}
 .social-single ul li {margin: 0; width: 32%;}
@@ -519,6 +637,8 @@ a.ae-title {font-size: 18px;margin-bottom: 10px;}
 .ve-content ul {margin:0 -1.5%;}
 .ve-content ul li {width: 30.3333%; margin:0 1.5%;}
 .ve-img {width: 100%;}
+/* Fix for haritage elements */
+.inline-post > a > img {margin: 0 22px 27px 0;width: 170px;}
 
 /* More Stories */
 .more-stories {padding: 40px 30px 60px;}

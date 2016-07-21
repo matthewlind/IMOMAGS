@@ -145,6 +145,7 @@ function load_home_btf() {
 	$magazine_img 	= get_option('magazine_cover_uri' );
 	$deal_copy 		= get_option('deal_copy' );
 	$site_name		= trim(get_bloginfo('name'), "Magazine"); 
+	$subs_link 		= get_option('subs_link') . "/?pkey=";
 ?>    
     
     
@@ -155,7 +156,7 @@ function load_home_btf() {
 				<img src="<?php echo $magazine_img; ?>" alt="Gun Dog Magazine Cover">
 				<div class="subs-info">
 					<p><?php echo $deal_copy; ?></p>
-					<a class="btn-lg" href="<?php echo $online_store_url; ?>">Subscribe Now!</a>
+					<a class="btn-lg" href="<?php echo $subs_link . get_option("i4ky"); ?>" target="_blank">Subscribe Now!</a>
 				</div>
 			</div>
 			<div class="store-container">
@@ -289,8 +290,8 @@ function load_home_btf() {
 		<div class="section-inner-wrap clearfix">
 			<div class="twins-title">
 				<h1>Reader Photos</h1>
-				<a class="btn-lg" href="">Upload Your Photo!</a>
-				<a class="link-to-all" href="">See All Reader Photos</a>
+				<a class="btn-lg" href="/post-photo/">Upload Your Photo!</a>
+				<a class="link-to-all" href="/photos/">See All Reader Photos</a>
 			</div>
 			<div class="twins-thumbs clearfix">
 				<ul>
@@ -333,11 +334,12 @@ function load_home_btf() {
 		<div class="section-inner-wrap">
 			<h1>Explore <?php echo $site_name;?></h1>
 			<ul class="ec-list">
-			<?php 			
-			$explore_cats 	= get_field('explore_cats','options' );
+			<?php 	
 			$card_count		= 0;
 			
-			foreach ($explore_cats as $c) {
+			while( have_rows('home_explore_categories', 'options')) {
+				the_row();
+				$c 			= get_sub_field('explore_category');
 				$cat_name 	= get_cat_name($c);
 				$cat_url	= get_category_link($c);
 				$card_out 	= "<li><h2><a href='$cat_url'>$cat_name</a></h2>";
@@ -372,7 +374,7 @@ function load_home_btf() {
 			?>
 			</ul>	
 		</div>
-	</section>	
+	</section>
 <?php	
 	}
 	

@@ -4,6 +4,8 @@ define("TWITTER_LINK", "https://www.twitter.com/@gundogmag");
 define("RSS_LINK", "http://www.gundogmag.com/feed/");
 define("SITE_LINK", "gundogmag.com");
 define("SITE_NAME", "Gun Dog Magazine");
+define("SUBS_LINK", "https://secure.palmcoastd.com/pcd/eSv?iMagId=014HS&i4Ky=IBZN");
+
 
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 function my_theme_enqueue_styles() {

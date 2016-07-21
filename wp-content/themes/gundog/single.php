@@ -3,18 +3,14 @@
 	$is_single_default = true;
 	global $post;
 	
-	$dartdomain 	= get_option('dart_domain', false);
 	$post_id		= $post->ID;
 	$hide_date		= get_field('hide_date');
 	$author_id		= $post->post_author;
 	$author_url		= get_author_posts_url($author_id);
 	$author_name	= (!get_field("author_name")) ? get_the_author() : get_field("author_name");
 	$author_title	= get_field("author_title");
-	$byline 		= get_post_meta($post_id, 'ecpt_byline', true);
-	if(!$byline){
-		$byline 		= get_field("byline");
-	}
 	
+	//$byline 		= get_post_meta($post_id, 'ecpt_byline', true);
 	
 	$tv_player_id 	= get_field("tv_player_id","options");
 	
@@ -33,17 +29,16 @@
 				<?php if ($hide_date == false) { ?> <div class="the-date"><?php the_time('F jS, Y'); ?></div> <?php } ?>
 			</div>
 			<h1><?php the_title(); ?></h1>
-			<div class="byline"><span><?php if($byline) { echo $byline; } ?></span></div>
 			<div class="author-wrap clearfix">
-				<!--<div class="author-img"><?php //echo get_avatar($author_id, 120);?></div>-->
+				<div class="author-img"><?php echo get_avatar($author_id, 120);?></div>
 				<h4><?php echo $author_name;?></h4>
 				<span class="author-title"><?php if($author_title) { echo $author_title; ?><i>&nbsp;&nbsp;•&nbsp;&nbsp;</i><br><?php }?><a href="<?php echo $author_url;?>">More From <?php echo $author_name;?></a></span>
 			</div>
 			<div class="social-single">
 				<ul>
-					<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>&title=<?php the_title(); ?>" target="_blank"><i class="icon-facebook"></i><span>Share</span></a></li>
-					<li><a href="http://twitter.com/intent/tweet?status=<?php the_title(); ?>+<?php the_permalink(); ?>" target="_blank"><i class="icon-twitter"></i><span>Tweet</span></a></li>
-					<li><a href="mailto:?body=<?php the_permalink(); ?>"><i class="icon-envelope"></i><span>Email</span></a></li>
+					<li><a href=""><i class="icon-facebook"></i><span>Share</span></a></li>
+					<li><a href=""><i class="icon-twitter"></i><span>Tweet</span></a></li>
+					<li><a href=""><i class="icon-envelope"></i><span>Email</span></a></li>
 				</ul>
 			</div>
 		</header>
@@ -67,7 +62,6 @@
 		$as2			= 3; // inline ad slot
 		$as3			= 4; // inline ad slot
 		$interval		= $p_number / 2;
-		$ad_count 		= 0;
 		
 		if 		(empty($tv_player_id)) {$video_el = 999; $as1 = 1; $as2 = 2; $as3 = 3;}
 		
@@ -77,25 +71,24 @@
 		
 		for 	($i = $interval; $i <= $p_number; $i+=$interval) { $slots[] = floor($i); }
 		
-		/*
 		echo '<div style="color: #4464B2;">';
 		echo 'Number of paragraphs: ' . $p_number. '<br><br>';
 		echo '$slots array: <pre>'; print_r($slots); echo '</pre>Sponsored content element is always in $slots[0]';
 		echo '<br>First ad is in the slot: '.$as1.' , after '.$slots[$as1].'th paragraph<br>';
 		echo 'Second ad is in the slot: '.$as2.' , after '.$slots[$as2].'th paragraph... and so on<br>';
 		echo '</div>';
-		*/
+			
 		foreach($contents as $content){
 		    echo $content.'</p>';
 		    
 		    if ($p_counter == 1) { ?>
 			    <div id="sticky-ad" class="sticky-ad">
-				    <div class="sticky-ad-inner"><iframe class="iframe-ad" onload="resizeIframe(this)" width="300" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term=<?php echo $term; ?>&camp=<?php echo $camp; ?>&ad_code=<?php echo $dartdomain; ?>&ad_unit=sticky&page=article"></iframe></div>
+				    <div class="sticky-ad-inner"></div>
 			    </div>
 <?php			}
 		   
-		   // if ($p_number > 5 && $p_counter - ($sponsored_el) == $slots[0]){ ?>
-				<!--<div class="article-elem">
+		    if ($p_number > 5 && $p_counter - ($sponsored_el) == $slots[0]){ ?>
+				<div class="article-elem">
 					<div class="ae-header">
 						<div></div>
 						<h4><span>Sponsored Story</span></h4>
@@ -105,12 +98,12 @@
 						<a class="ae-title" href="#"><span>Introducing the 2016 Franchi Instinct Catalyst</span></a><br>
 						<div class="ae-sponsor"><span>Presented by <a href="#">Quebec Tourism</a></span></div> 
 					</div>
-		    	</div>-->
-<?php 			//}	
+		    	</div>
+<?php 			}	
 
 
 			if ($p_number > 10 && $p_counter - ($video_el) == $slots[$vs]){ ?>
-				<!--<div class="video-elem">
+				<div class="video-elem">
 					<div class="ve-head">
 						<h4>DON’T MISS IN-FISHERMAN TV</h4>
 						<span>Saturday’s at 10am ET on <a href="">Sportsman Channel</a></span>
@@ -144,21 +137,19 @@
 						</ul>
 					</div>
 					<a class="ve-link" href="#">Watch More In-Fisherman TV</a>
-		    	</div>-->
+		    	</div>
 <?php			}
-			if ($p_number > 10 && $p_counter - ($inline_ad_1) == $slots[$as1] || $p_number > 15 && $p_counter - ($inline_ad_2) == $slots[$as2] || $p_number > 20 && $p_counter - ($inline_ad_3) == $slots[$as3]){ 
-			$ad_count++; ?>
+			if ($p_number > 10 && $p_counter - ($inline_ad_1) == $slots[$as1] || $p_number > 15 && $p_counter - ($inline_ad_2) == $slots[$as2] || $p_number > 20 && $p_counter - ($inline_ad_3) == $slots[$as3]){ ?>
 				<div class="ad-single-inline">
-					<div class="as-inner"><iframe class="iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term=<?php echo $term; ?>&camp=<?php echo $camp; ?>&ad_code=<?php echo $dartdomain; ?>&ad_unit=mediumRectangle&page=article&pos=inline-<?php echo $ad_count; ?>"></iframe></div>
+					<div class="as-inner"></div>
 				</div>
 <?php			}
 		    $p_counter++;
 		    
 		    
-		    
 		}
 ?>		
-			<!--<div class="article-elem">
+			<div class="article-elem">
 				<div class="ae-header">
 					<div></div>
 					<h4><span>Read This Next</span></h4>
@@ -175,12 +166,12 @@
 					</a>
 				</div>
 	    	</div>
-		</div>-->
+		</div>
 		<div class="social-single">
 			<ul>
-				<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>&title=<?php the_title(); ?>" target="_blank"><i class="icon-facebook"></i><span>Share</span></a></li>
-				<li><a href="http://twitter.com/intent/tweet?status=<?php the_title(); ?>+<?php the_permalink(); ?>" target="_blank"><i class="icon-twitter"></i><span>Tweet</span></a></li>
-				<li><a href="mailto:?body=<?php the_permalink(); ?>"><i class="icon-envelope"></i><span>Email</span></a></li>
+				<li><a href=""><i class="icon-facebook"></i><span>Share</span></a></li>
+				<li><a href=""><i class="icon-twitter"></i><span>Tweet</span></a></li>
+				<li><a href=""><i class="icon-envelope"></i><span>Email</span></a></li>
 			</ul>
 		</div>
 		<div class="a-comments">
@@ -190,7 +181,7 @@
 			<div id="disqus_thread"></div>
 		</div>
 		<div class="ad-single-bottom">
-			<div class="as-inner"><iframe class="iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term=<?php echo $term; ?>&camp=<?php echo $camp; ?>&ad_code=<?php echo $dartdomain; ?>&ad_unit=mediumRectangle&page=article&pos=btf"></iframe></div>
+			<div class="as-inner"></div>
 		</div>
 <!-- 		<div class="grey-hr"></div> -->
 		<div class="single-newsletter">
@@ -199,7 +190,6 @@
 			<?php get_template_part("content/redesign/content", "newsletter"); ?>
 		</div>
 		<div id="ad-stop"></div>
-		<?php imo_ad_placement("fordWidget"); ?>
 		<?php imo_ad_placement("e_commerce_widget"); ?> 
 	</article>
 </main>
