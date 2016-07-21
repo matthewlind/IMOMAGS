@@ -103,6 +103,11 @@ $site_name	= trim(get_bloginfo('name'), "Magazine");
 			</footer><!-- #footer -->
 		</div><!-- .wrapper -->	
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/redesign/all-pages.js"></script>
-	<?php wp_footer(); ?>
+    <?php 
+	    if(is_single()){
+	    	imo_ad_placement("teads");
+	    }
+		wp_footer(); 
+	?>
 	</body>
 </html>
