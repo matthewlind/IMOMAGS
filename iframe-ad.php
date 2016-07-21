@@ -29,7 +29,6 @@ googletag.cmd.push(function() {
 var w = <?php echo $windowWidth; ?>
 
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], 'mediumRectangle').addService(googletag.pubads().setTargeting('pos', ['<?php if($pos) { echo $pos; } ?>']));
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 600], 'sticky').addService(googletag.pubads());
 
 if (w>=1100)
 {
