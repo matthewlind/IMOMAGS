@@ -17,5 +17,5 @@ $acfID = 'category_' . $id;
 		<a href="<?php echo get_field('show_store',$acfID); ?>" class="show-btn" target="_blank">Visit Store</a>
 	</div>
 	<div class="store-sep"></div>
-	<?php the_widget("imo\IMOStoreWidget"); ?></div>
+	<?php the_widget("imo\IMOStoreWidget"); ?>
 </div>

@@ -19,9 +19,9 @@
 		//detect window width for responsive ads
 		var windowWidth = window.outerWidth;
 		$('.iframe-ad').attr('src', function() {
-			if(window.outerWidth == 0){
-				windowWidth = "1100";
-			}
+			//if(window.outerWidth == 0){
+				//windowWidth = "1100";
+			//}
 		    return this.src + "&windowWidth=" + windowWidth;
 		});
 		
