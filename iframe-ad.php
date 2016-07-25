@@ -8,7 +8,7 @@ $windowWidth = $_GET['windowWidth'];
 $adUnit = $_GET['ad_unit'];
 $page = $_GET['page'];
 if($_GET['pos']){
-$pos = $_GET['pos'];
+	$pos = $_GET['pos'];
 }
 ?>
 <html>
@@ -33,13 +33,12 @@ googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [3
 if (w>=1100)
 {
     googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [970, 250], 'billboard').addService(googletag.pubads());
-
+    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 600], 'sticky').addService(googletag.pubads());
 }
 if (w>=600 && w<=1099)
 {
     googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [728, 90], 'billboard').addService(googletag.pubads());
     googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], 'sticky').addService(googletag.pubads());
-
 }
 if (w<=599)
 {
