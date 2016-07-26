@@ -868,6 +868,35 @@ h1, h2, h3, h4, h5 {
 }
 
 
+/*** Video Portal ***/
+.post-type-archive-video .main, .post-type-archive-video .general, .post-type-archive-video .content-banner-section, .post-type-archive-video #page, .post-type-archive-video .content-banner-section.footer-728{background: black;border: none;}
+#video-portal{background: black;}
+#video-portal .video-portal-title{text-indent: -9999px;height: 0;}
+#player {
+	position: relative;
+	height: 0;
+	padding-bottom: 56.25%;
+}
+#player .BrightcoveExperience {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.thumbs-full{width: 100%;clear: both;margin-bottom: 20px;padding: 0 12px;background: #1c1c1c;}
+#video-thumbs li{display: inline-block;position: relative;margin: 12px 6px;}
+#video-thumbs li img{box-shadow: none;border: 1px solid;border-color:#1c1c1c;}
+#video-thumbs li h3{display: block;color: white;position: absolute;padding:2px;text-align: center;font-size: 0.8em;margin:0;width: 100%;bottom: 0;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.6);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}
+#video-thumbs a{height: 100px;cursor: pointer;}
+#video-portal .sidebar .fb-like{margin-right: 20px;}
+
+
 /*----------------------------------------------------------
    7.0 Footer
 ----------------------------------------------------------*/
