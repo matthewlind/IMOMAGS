@@ -6,7 +6,7 @@ add_action('wp_footer', 'print_home_script');
 
 function register_home_script() {
 	wp_register_script( 'home-default-script', get_bloginfo( 'template_directory' ) . '/js/redesign/home-and-cat.js', array( 'jquery' ), '1.0', true );
-	wp_register_script( 'home-flex-slider', get_bloginfo( 'template_directory' ) . '/js/plugins/flexslider/jquery.flexslider-min2.6.0.js', array( 'jquery' ), '1.0', true );
+	//wp_register_script( 'home-flex-slider', get_bloginfo( 'template_directory' ) . '/js/plugins/flexslider/jquery.flexslider-min2.6.0.js', array( 'jquery' ), '1.0', true );
 	wp_localize_script( 'home-default-script', 'ajax_object',
         array( 
         	'ajax_url' 	=> admin_url( 'admin-ajax.php' )
@@ -20,7 +20,7 @@ function print_home_script() {
 	if ( ! $is_home_cat )
 		return;
 	wp_print_scripts('home-default-script');
-	wp_print_scripts('home-flex-slider');
+	//wp_print_scripts('home-flex-slider');
 }
 
 
@@ -90,7 +90,7 @@ function h_load_latest() {
 									echo trim($output, $separator);
 								}
 							} else { 
-								if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(null, ','); }
+								//if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(null, ','); }
 							} 
 						?>
 					</div>
@@ -100,7 +100,7 @@ function h_load_latest() {
 					<?php if ($page_type == 'post-type-archive-reader_photos') { ?>
 
 					<?php } else { ?>
-						<span class="c-author"><?php if (!$acf_byline) { if ($author != 'admin') echo 'by '. $author;} else {echo $acf_byline;} ?></span>
+						<!--<span class="c-author"><?php //if (!$acf_byline) { if ($author != 'admin') echo 'by '. $author;} else {echo $acf_byline;} ?></span>-->
 					<?php } ?>
 				</div>
 			</li>
