@@ -145,7 +145,7 @@ function imo_flex_gallery( $atts ) {
 		
 	return $html;
 }
-if(is_single()){
-	wp_enqueue_style('flexslider-css',get_template_directory_uri().'/plugins/flexslider/flexslider.css');
-	wp_enqueue_style('gallery-css',plugins_url('css/style.css', __FILE__));
-}
+
+wp_enqueue_style('flexslider-css',get_template_directory_uri().'/plugins/flexslider/flexslider.css');
+wp_enqueue_style('gallery-css',plugins_url('css/style.css', __FILE__));
+
