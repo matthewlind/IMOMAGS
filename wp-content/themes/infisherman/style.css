@@ -1309,6 +1309,7 @@ div.login-register-block {
 	height: 49px;
 	padding-left: 16px;
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+	color: white;
 }
 .home .schedule-item {
   margin: 12px 0 0 10px;
@@ -1318,7 +1319,15 @@ div.login-register-block {
 .home .schedule-item:nth-child(n+5) {
 	display: none;
 }
-.home .remind-me{width: 100px;/* padding: 8px 0; */}
+.home .remind-me{
+	padding: 8px 0;
+    float: none;
+    width: 30%;
+    margin: 0 auto;
+    display: block;
+    clear: both;
+    height: auto;
+}
 
 /* =Responsive Breakpoints
 *******************************************************************************/
@@ -1350,15 +1359,7 @@ div.login-register-block {
 	 .home .home-featured:nth-child(odd){padding-top: 0;}
 }
 @media only screen and (max-width: 1023px) {
-	.home .remind-me {
-	  padding: 8px 0;
-	  float: none;
-	  width: 80%;
-	  margin: 0 auto;
-	  display: block;
-	  clear: both;
-	  height: auto;
-	}
+	.home .remind-me {width: 80%;}
 	
 	.home #when-to-watch img{
 		float: none;

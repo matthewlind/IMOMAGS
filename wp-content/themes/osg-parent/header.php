@@ -84,7 +84,6 @@
 	
 	if (is_home() || is_category() || is_archive('reader_photos') || is_search() || is_author() || is_404()) { ?>
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' );?>/css/redesign/home-and-cat.css" />
-		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' );?>/js/plugins/flexslider/flexslider2.6.css" />
 <?php } 
 	
 	wp_enqueue_script("jquery");

@@ -132,6 +132,7 @@
 .store-container {
 	text-align: center;
 	clear: both;
+	display: none;
 }	
 .store-container h1 {
 	margin-bottom: 0.6em;
@@ -451,7 +452,7 @@
 .l-list li.adstick-bottom-sm {position: absolute; top: auto; bottom: 0;}
 .sections-wrap .section-subscribe {padding: 60px 0;}
 #store_slider {margin-bottom: 10px;}
-.subs-container {width: 45%; float: left; padding-right: 30px;}
+.subs-container {width: 45%; float: none; padding-right: 30px;}
 .section-subscribe h1 {margin-top: 0;}
 .store-container {width: 55%; float: left; clear: none; padding-left: 20px;border-left: 1px solid #DBDBDB; position: relative;}
 .store-container h1 {text-align: left; margin-left: 32px;}

@@ -102,8 +102,22 @@ $site_name	= trim(get_bloginfo('name'), "Magazine");
 	            </div>
 			</footer><!-- #footer -->
 		</div><!-- .wrapper -->	
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/redesign/all-pages.js"></script>
+		<!-- defer script to prevent render blocking-->
+		<script type="text/javascript">
+			function downloadJSAtOnload() {
+			var element = document.createElement("script");
+			element.src = "<?php bloginfo('template_directory'); ?>/js/redesign/all-pages.js";
+			document.body.appendChild(element);
+			}
+			if (window.addEventListener)
+			window.addEventListener("load", downloadJSAtOnload, false);
+			else if (window.attachEvent)
+			window.attachEvent("onload", downloadJSAtOnload);
+			else window.onload = downloadJSAtOnload;
+		</script>
     <?php 
+    	include_once get_stylesheet_directory() . "/footer-includes.php";
+
 	    if(is_single()){
 	    	imo_ad_placement("teads");
 	    }

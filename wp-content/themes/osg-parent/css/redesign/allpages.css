@@ -1113,7 +1113,7 @@ nav {
 .community-header ul.menu {
 	padding: 0;
 }
-
+.page .community-header{display: none;}
 
 
 /*----------------------------------------------------------*/
