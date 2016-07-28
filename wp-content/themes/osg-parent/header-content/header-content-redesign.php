@@ -14,11 +14,12 @@
 	
 	if(is_home()){
 		$page = "homepage";
-	}else if (is_category()){
+	}else if (is_category() || is_author()){
 		$page = "category";
 	}else if(is_single()){
 		$page = "article";
 	}
+	
 ?>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {

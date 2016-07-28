@@ -74,6 +74,11 @@ else if (is_page()) {
     $pageName = $post->post_title;
     $term = $post->post_name;
 }
+
+else if (is_author()) {
+	$term = "author";
+}
+
 else if ( is_tax() || is_tag() || is_category() ) {
     if (is_category()) {
         $tax_title = single_cat_title('', False);
@@ -93,6 +98,7 @@ else {
 
 $term = str_replace(" &amp; ", "-", $term);
 $term = str_replace("'", "", $term);
+var_dump($term);
 ?>
 <script language="javascript" type="text/javascript">
 	function resizeIframe(obj) {

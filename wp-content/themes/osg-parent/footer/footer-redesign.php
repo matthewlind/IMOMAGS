@@ -4,7 +4,7 @@ $dartDomain = get_option("dart_domain", $default = false);
 
 if(is_home()){
 		$page = "homepage";
-	}else if ( is_category() || get_post_type() == "reader_photos" ){
+	}else if ( is_category() || is_author() || get_post_type() == "reader_photos" ){
 		$page = "category";
 	}else if(is_single()){
 		$page = "article";
