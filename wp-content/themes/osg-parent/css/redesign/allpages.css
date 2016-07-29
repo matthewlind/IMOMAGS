@@ -1262,7 +1262,7 @@ nav {
 /* SEARCH */
 .head-search {padding: 13px 0 5px 10px;}
 .h-search-form {padding: 8px 30px;top: -70px;}
-.hsf-open {top: 90px;}
+.hsf-open {top: 0;position: relative;z-index: 1;}
 .search-field input:first-child {width: 80%;}
 .search-field input:last-child {width: 19%;margin-left: 0.5%;}
 
@@ -1311,6 +1311,10 @@ nav {top: 90px;}
 @media only screen and (min-width: 1030px) {
 	
 /* Header *******************/
+#nav-icon3, .menu-head-span{display: none;}
+.nav-btn {padding: 0;border-right: none;}
+.h-search-form{position: relative;top: 0;display: none;}
+.hsf-open{display: block;}
 .desktop-menu {display: block; padding: 0 20px;text-align: center;}
 .desktop-menu-inner,
 .desktop-secmenu-inner {
