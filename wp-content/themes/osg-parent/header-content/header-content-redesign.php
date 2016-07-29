@@ -71,6 +71,7 @@
 				</div>
 			</div>
 		</div><!-- .header-inner -->	
+		<div id="h_search_form" class="h-search-form"><?php parent_theme_get_search_form(); ?></div>
 		<?php if( in_array( 'sponsors_disclaimer', get_field('additional_elements', $term_cat_id) ) ) { 
 				$sponsors_disclaimer 	= get_field('sponsors_disclaimer', $term_cat_id);
 		?>
@@ -79,7 +80,6 @@
 			</div>
 		<?php } ?>
 	</div><!-- .header-wrap -->
-	<div id="h_search_form" class="h-search-form"><?php parent_theme_get_search_form(); ?></div>
 	
 	<div class="head-bottom">
 		<div class="head-social">

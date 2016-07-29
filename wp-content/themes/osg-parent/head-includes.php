@@ -119,12 +119,15 @@ $term = str_replace("'", "", $term);
 	googletag.cmd.push(function() {
 	
 	var w = window.innerWidth;
-			
-	if (w>=600){
-	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [3, 3], 'superheader').addService(googletag.pubads());
-	    <?php if(is_single()){ ?>
+	<?php if(is_single()){ ?>
 			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [4, 4], 'teads').addService(googletag.pubads());
 	    <?php } ?>
+	    
+	if (w>=1100){
+		googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [3, 3], 'superheader').addService(googletag.pubads());
+	}
+	
+	if (w>=600){
 	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [648, 110], 'fordWidget').addService(googletag.pubads());
 	}
 	if (w<=599){
