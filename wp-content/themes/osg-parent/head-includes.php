@@ -98,7 +98,6 @@ else {
 
 $term = str_replace(" &amp; ", "-", $term);
 $term = str_replace("'", "", $term);
-var_dump($term);
 ?>
 <script language="javascript" type="text/javascript">
 	function resizeIframe(obj) {

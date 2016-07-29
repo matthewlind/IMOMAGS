@@ -26,6 +26,8 @@ add_filter('single_template', create_function(
 	return $the_template;' )
 );
 
+
+
 // ACF for microsites. Original "Microsite Category Fields" exported from Petersens's Hunting site 
 include_once('acf_fields/microsite-category-fields.php');
 include_once('acf_fields/redesign-fields.php');
