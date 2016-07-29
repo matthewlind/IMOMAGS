@@ -102,7 +102,7 @@ function loadHomeBTF() {
 				item_width		= 140;
 			} 
 			
-			
+			/*
 			$('#store_slider').flexslider({
 				slideshow: false,
 				animation: "slide",
@@ -118,6 +118,7 @@ function loadHomeBTF() {
 				animationSpeed: 400, 
 				useCSS: false
 			});
+			*/
 		})
 		.fail(function() { latest_list.append( $("<p/>", {text: "Something went wrong. Try to reload the page", style: "color: red;"})); });
 		
