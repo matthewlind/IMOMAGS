@@ -65,7 +65,8 @@
 	
 	
 	<!-- STYLES ************************************************** -->
-	
+	<link rel="stylesheet" type="text/css" media="all" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,800" />
+	<link rel="stylesheet" type="text/css" media="all" href="https://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic" />
 <?php	
 	if ( $microsite){ 
 		include('css/styles-microsites.php');
