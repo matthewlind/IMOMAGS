@@ -45,25 +45,4 @@ if(document.location.protocol=='http:'){
   else if (w.attachEvent) { w.attachEvent("onload",go); }
  }(window, document, 'script'));
 </script>
-<script type="text/javascript">
-window._ttf = window._ttf || [];
-_ttf.push({
-       pid          : 55992
-       ,lang        : "en"
-       ,slot        : ".entry-content-holder .entry-content > p, #article .article-body > p"
-       ,format      : "inread"
-       ,components  : { skip: {delay : 0}}
-       ,avoidSlot   : { slot: '.aligncenter, .wp-caption.aligncenter', dist: 20 }
-       ,css         : "margin: 0px auto 0px; max-width: 550px;"
-});
-
-(function (d) {
-        var js, s = d.getElementsByTagName('script')[0];
-        js = d.createElement('script');
-        js.async = true;
-        js.src = '//cdn.teads.tv/media/format.js';
-        s.parentNode.insertBefore(js, s);
-})(window.document);
-</script>
-
 <script async src="http://cdn.mediavoice.com/nativeads/script/IMOutdoors/GnF.js"></script>

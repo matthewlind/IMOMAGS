@@ -39,7 +39,7 @@
 </div><!-- end .m-content-wrap -->	
 
 <?php 
-	include(get_template_directory() . '/content/microsite-template-parts/deer-zone/sweeps-banner.php'); 
+	//include(get_template_directory() . '/content/microsite-template-parts/deer-zone/sweeps-banner.php'); 
 	include(get_template_directory() . '/content/microsite-template-parts/deer-zone/choose-location-bottom.php');
 	get_footer();
 ?>
