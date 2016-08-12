@@ -152,7 +152,9 @@ googletag.cmd.push(function() {
 var screen;
 var w = window.innerWidth;
 var h = window.innerHeight;
-
+	<?php if(is_single()){ ?>
+		googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [4, 4], 'teads').addService(googletag.pubads());
+    <?php } ?>
 	<?php if(is_page("bracket")){ ?>
 		googletag.defineSlot('/4930/imo.gunsandammo/guns_and_ammo_madness/gam_presenting_sponsor', [240, 60], 'presenting').addService(googletag.pubads());
 	    googletag.defineSlot('/4930/imo.gunsandammo/guns_and_ammo_madness/gam_region_sponsor_2', [240, 60], 'region1').addService(googletag.pubads());

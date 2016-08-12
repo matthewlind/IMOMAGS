@@ -105,7 +105,11 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 	<!--[if lt IE 9]><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
 
 	<?php wp_footer(); ?>
-	<?php if(get_field("scroll_tracking","options")){ ?>
+	<?php 
+	if(is_single()){
+    	imo_ad_placement("teads");
+    }
+	if(get_field("scroll_tracking","options")){ ?>
 	<script src="<?php bloginfo('template_directory'); ?>/js/jquery.scrolldepth.js"></script>
 	<script>
 		jQuery.scrollDepth();

@@ -47,7 +47,7 @@
 			</a>
 		</li>
 	</ul>	
-	<?php get_template_part('../imo-mags-parent/content/microsite-template-parts/rigged-ready/sweeps', 'banner');  ?>	
+	<?php //get_template_part('../imo-mags-parent/content/microsite-template-parts/rigged-ready/sweeps', 'banner');  ?>	
 </div><!-- .m-home-wrap -->				
 				
 <?php get_footer(); ?>

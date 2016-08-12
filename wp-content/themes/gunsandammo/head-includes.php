@@ -28,26 +28,6 @@ if(document.location.protocol=='http:'){
   <img src="http://b.scorecardresearch.com/p?c1=2&c2=8031814&cv=2.0&cj=1" />
 </noscript>
 <!-- End comScore Tag -->
-<script type="text/javascript">
-window._ttf = window._ttf || [];
-_ttf.push({
-       pid          : 56005
-       ,lang        : "en"
-       ,slot        : ".entry-content-holder .entry-content > p, #article .article-body > p"
-       ,format      : "inread"
-       ,components  : { skip: {delay : 0}}
-       ,css         : "margin: 0px auto 0px; max-width: 550px;"
-});
-
-(function (d) {
-        var js, s = d.getElementsByTagName('script')[0];
-        js = d.createElement('script');
-        js.async = true;
-        js.src = '//cdn.teads.tv/media/format.js';
-        s.parentNode.insertBefore(js, s);
-})(window.document);
-</script>
-
 <script async src="http://cdn.mediavoice.com/nativeads/script/IMOutdoors/mv_gunsammo.js"></script>
 <script type="text/javascript">
 	(function(d, s, id) {

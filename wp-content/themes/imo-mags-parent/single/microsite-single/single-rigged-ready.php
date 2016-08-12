@@ -77,9 +77,9 @@
 <?php
 	
 	if (in_category('rigged-ready')) {
-		get_template_part('content//microsite-template-parts/rigged-ready/sweeps', 'banner'); 
+		//get_template_part('content//microsite-template-parts/rigged-ready/sweeps', 'banner'); 
 	} elseif (in_category('deer-zone')) {
-		get_template_part('content//microsite-template-parts/deer-zone/sweeps', 'banner'); 
+		//get_template_part('content//microsite-template-parts/deer-zone/sweeps', 'banner'); 
 	}
 	
 	 
