@@ -1,0 +1,110 @@
+	<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+		<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+       <!--  <script src="js/vendor/modernizr-2.6.2.min.js"></script> -->
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/TweenMax.min.js"></script>
+		<script src="js/jquery.scrollmagic.min.js"></script>
+		<script src="js/jquery.scrollmagic.debug.js"></script>
+        <script src="js/main.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+		<div class="container">
+			<script>
+				var controller;
+				$(document).ready(function($) {
+					// init controller
+					controller = new ScrollMagic();
+				});
+			</script>
+			<div class="trigger-arrow"></div>
+			<div class="s1 scene">
+				<img class="usa-flag" src="images/scene-1/usa-flag.png">
+				<img class="rem-logo" src="images/scene-1/Remington-Outdoor-Logo.png">
+				<img class="years-200" src="images/scene-1/years-200.png">
+				<img class="army" src="images/scene-1/painting-army.png">
+				
+				<div class="arrow-down">
+					<div class="arrow-container">
+						<div class="arrow-rect"></div>
+						<div class="arrow-tri"></div>
+						<span class="arrow-words">SCROLL<br>DOWN</span>
+					</div>
+				</div>
+			</div><!-- .s1 end -->
+			<script>
+				$(document).ready(function($) {
+					
+					// Duration ignored / replaced by scene duration now
+					var tween = TweenMax.to('.s1', 0.5, {
+					    top: "-150%"
+					});
+					
+					// build scene
+					var scene = new ScrollScene({
+						triggerElement: "body",
+						duration: $(window).height() * 1.5,
+						offset: $(window).height() / 2
+						})
+						.setTween(tween)
+						.addTo(controller);
+					
+					// Trigger animation when trigger object leaves the page	
+					scene.triggerHook("onLeave");
+					// show indicators (requires debug extension)
+					scene.addIndicators();
+			
+				});
+			</script>
+			
+			<div class="s2 scene">
+				<img class="grey-back" src="images/all-pages/back-grey.jpg">
+			</div>
+			<div class="back-fill"></div>
+		</div>
+		
+       
+    </body>
+</html>
+
+	<script>
+				$(document).ready(function($) {
+					
+					// Duration ignored / replaced by scene duration now
+					var tween = TweenMax.to('.s1', 0.5, {
+					    top: "-150%"
+					});
+					
+					// build scene
+					var scene = new ScrollScene({
+						triggerElement: "body",
+						duration: $(window).height() * 1.5,
+						offset: $(window).height() / 2
+						})
+						.setTween(tween)
+						.addTo(controller);
+					
+					// Trigger animation when trigger object leaves the page	
+					scene.triggerHook("onLeave");
+					// show indicators (requires debug extension)
+					scene.addIndicators();
+			
+				});
+			</script>

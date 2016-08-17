@@ -1,0 +1,2956 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,400italic,600,700,900);
+@import url(normalize.min.css);
+@import url(icons.css);
+@import url(flexslider.css);
+
+/*--------------------------------------------------*/
+/*   Helper classes
+/*--------------------------------------------------*/
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+/*--------------------------------------------------*/
+/*   General
+/*--------------------------------------------------*/
+*, *:after, *::before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+html,button,input,select,textarea {
+    color: #222;
+}
+body {
+	background-color: #555555;
+	font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+	width: 100vw;
+	overflow-x: hidden;
+}
+html {
+    font-size: 1em;
+    line-height: 1.2;
+}
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+audio,canvas,img,video {
+ vertical-align: middle;
+}
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+textarea {
+    resize: vertical;
+}
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+.ScrollSceneIndicators {
+	z-index: 999999 !important;
+}
+/*
+#timeline-light {
+	position: fixed;
+	height: 90%;
+	top: 5%;
+	left: 3%;
+	min-height: 500px;
+	z-index: 900;
+}
+*/
+.read-full {
+	display: inline-block;
+	text-transform: uppercase;
+	color: #a33d53;
+	font: 700 18px 'Oswald', sans-serif;
+	text-decoration: none;
+	-webkit-transition:all 0.4s ease-in-out;
+	-moz-transition:all 0.4s ease-in-out;
+	transition:all 0.4s ease-in-out;
+}
+.read-full:after {
+	font-family: 'icomoon';
+	content: "\e905";
+	display: inline-block;
+	-webkit-transition:all 0.4s ease-in-out;
+	-moz-transition:all 0.4s ease-in-out;
+	transition:all 0.4s ease-in-out;
+}
+.read-full:hover:after {
+	margin-left: 3px;
+}
+.read-full:hover {
+	color: #bd3e4a;
+}
+.read-full.rf-dark {
+	color: #333a4f;
+}
+.read-full.rf-dark:hover {
+	color: #31406e;
+}
+
+/*--------------------------------------------------*/
+/*   ADDITIONAL INFO
+/*--------------------------------------------------*/
+.btn-info {
+	width: 54px;
+	height: 54px;
+	border-radius: 27px;
+	background-color: rgba(0,0,0,.3);
+	position: absolute;
+	cursor: pointer;
+	z-index: 900;
+}
+.icon-wrap {
+	display: block;
+	text-align: center;
+	width: 30px;
+	height: 30px;
+	border-radius: 15px;
+	margin: 12px 0 0 12px;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+50,f9f9f9+50 */
+	background: #ffffff; 
+	background: -moz-linear-gradient(-45deg,  #ffffff 50%, #eeeeee 50%);
+	background: -webkit-linear-gradient(-45deg,  #ffffff 50%,#eeeeee 50%);
+	background: linear-gradient(135deg,  #ffffff 50%,#eeeeee 50%);
+	box-shadow: 1px 1px 3px rgba(0,0,0,.5);
+	-webkit-transition:all 0.4s ease-in-out;
+	-moz-transition:all 0.4s ease-in-out;
+	transition:all 0.4s ease-in-out;
+	-webkit-animation:info-shadow 3s infinite ease-in-out;
+	animation:info-shadow 3s infinite ease-in-out;
+}
+@-webkit-keyframes info-shadow {
+    0%   {box-shadow: 1px 1px 3px rgba(0,0,0,.5);}
+    50%   {box-shadow: 1px 1px 16px 5px rgba(240,255,233,1);}
+    100%   {box-shadow: 1px 1px 3px rgba(0,0,0,.5);}
+}
+@keyframes info-shadow {
+    0%   {box-shadow: 1px 1px 3px rgba(0,0,0,.5);}
+    50%   {box-shadow: 1px 1px 16px 5px rgba(240,255,233,1);}
+    100%   {box-shadow: 1px 1px 3px rgba(0,0,0,.5);}
+}
+.icon-wrap > i {
+	line-height: 32px;
+	font-size: 23px;
+	color: #a33d53;
+	-webkit-transition:all 0.4s ease-in-out;
+	-moz-transition:all 0.4s ease-in-out;
+	transition:all 0.4s ease-in-out;
+}
+.icon-wrap > i.icon-film {
+	font-size: 21px;
+	line-height: 31px;
+}
+.icon-wrap > i.icon-camera {
+	font-size: 20px;
+	line-height: 29px;
+}
+.btn-info:hover .icon-wrap {
+	-ms-transform: scale(1.08);
+    -webkit-transform: scale(1.08);
+    transform: scale(1.08);
+}
+.btn-info:hover .icon-wrap > i {
+	color: #cf343b;
+}
+
+
+
+/*--------------------------------------------------*/
+/*   INFO MODAL
+/*--------------------------------------------------*/
+body.modal-open {
+    overflow: hidden;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	top: 0; right: 0; bottom: 0; left: 0;
+	background-color: rgba(0,0,0,.85);
+	z-index: 1000;
+	flex-direction: column;
+	justify-content: center;
+}
+.modal-center {
+	width: 640px;
+	max-height: 85vh;
+	margin: auto;
+	position: relative;
+	top: 40px;
+	opacity: 0;
+}
+.modal-inner {
+	width: 100%;
+	height: 100%;
+	max-height: 85vh;
+	overflow-y: scroll;
+	color: #fff;
+}
+.i-close {
+	position: absolute;
+	top: -42px;
+	right: -48px;
+	color: #aaa;
+	font-size: 40px;
+	cursor: pointer;
+	opacity: 0.7;
+}
+.i-close:hover {
+	color: #fff;
+}
+
+.slides img {
+	max-width: 100%;
+	max-height: 80%;
+	display: block;
+	margin: 0 auto;
+}
+.slides figcaption {
+	padding: 20px 10px;
+}
+.slider .flex-direction-nav a {
+	opacity: 1;
+	width: 60px;
+	height: 120px;
+	top: 31%;
+}
+.slider .flex-direction-nav .flex-next {
+	right: -61px;
+}
+.slider .flex-direction-nav .flex-prev {
+	left: -73px;
+	width: 73px;
+}
+.slider .flex-direction-nav a:before {
+	display: block;
+	opacity: 0.7;
+	margin-top: 30px;
+	font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 70px;
+    color: #aaa;
+}
+
+
+.slider .flex-direction-nav a:hover:before {
+	color: #fff;
+}
+
+.slider .flex-direction-nav .flex-next:before {
+	content: "\e905";
+}
+.slider .flex-direction-nav .flex-prev:before {
+	content: "\e906";
+}
+
+
+.modal-video {
+	width: 100%;
+	position: relative;
+	padding-top: 56.25%;
+}
+.modal-video iframe {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+.modal-text {
+	padding: 0 20px;
+}
+.photo-credit {
+	font-size: small;
+}
+/*--------------------------------------------------*/
+/*   TIMELINE
+/*--------------------------------------------------*/
+#timeline {
+	position: fixed;
+	height: 90%;
+	top: 5%;
+	left: 3%;
+	min-height: 500px;
+	z-index: 900;
+}
+#line {fill:none;stroke:#1E3F14;}
+.circle{
+	fill:#FFFFFF;
+	stroke:#1E3F14;
+	stroke-width:3;
+	box-shadow: 1px 1px 2px black;
+	-webkit-transition:all 0.4s ease-in-out;
+	-moz-transition:all 0.4s ease-in-out;
+	transition:all 0.4s ease-in-out;
+}
+.circle:hover {
+	cursor: pointer;
+	stroke: #c14646;
+}
+.arr{fill:#1E3F14;}
+.st8{stroke:#1E3F14;}
+.st20{
+	font-family:'Oswald';
+	font-size:18px; 
+	fill: #1e3d05;
+	-webkit-transition:all 0.4s ease-in-out;
+	-moz-transition:all 0.4s ease-in-out;
+	transition:all 0.4s ease-in-out;
+}
+
+
+/*--------------------------------------------------*/
+/*   ELEMENTS
+/*--------------------------------------------------*/
+
+.scene {
+	height: 100vh;
+	width: 100vw;
+	position: relative;
+	background-size: cover;
+}
+.scene-inner {
+	position: absolute;
+	left: 0; top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	background-size: cover;
+}
+.elements {
+	height: 100vh;
+	width: 100vw;
+	padding-left: 13vw;
+}
+.elements-inner {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	z-index: 20;
+}
+.elements-inner h1 {
+	font-family: "Oswald", sans-serif;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+.inner-back-img {
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 1;
+}
+.video-wrap {
+	width: 100%;
+	position: relative;
+	padding-top: 56.25%;
+}
+.video-wrap iframe {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+.text-reg {
+	font-size: 20px;
+	color: #1e3d05;
+}
+.color-green {
+	color: #1e3d05;
+}
+.text-white {
+	font-size: 20px;
+	color: #fff;
+}
+.full-story {
+	text-transform: uppercase;
+}
+.full-story h4 {
+	font-family: "Oswald", sans-serif;
+	font-size: 28px;
+	color: #c14646;
+	margin-bottom: 15px;
+}
+.btn-full {
+	display: inline-block;
+	height: 45px;
+	border: 4px solid #c14646;
+	line-height: 37px;
+	font-size: 18px;
+	color: #c14646;
+	border-radius: 5px;
+	padding: 0 25px;
+	text-decoration: none;
+}
+.btn-full:hover {
+	background-color: #fff;
+}
+.full-story-light h4 {
+	color: #eec193;
+}
+.full-story-light .btn-full {
+	border: 4px solid #eec193;
+	color: #eec193;
+}
+
+.text-with-shadow {
+	text-shadow: 1px 1px 2px rgba(0,0,0,.4);
+}
+.btn-full-border {
+	box-shadow: 1px 1px 2px rgba(0,0,0,.4);
+}
+.nextriger {
+	position: absolute;
+	bottom: 0;
+	left: 49%;
+	height: 10px;
+	width: 10px;
+	background-color: aqua;
+	z-index: 200;
+}
+.year {
+	font-family: "Oswald", sans-serif;
+	font-weight: 900;
+	color: #c14646;
+	font-size: 100px;
+	position: absolute;
+}
+.text-box {
+	position: absolute;
+	border: 5px solid #fff;
+	background-color: rgba(0,0,0,.5);
+	padding: 30px;
+	color: #fff;
+	line-height: 1.3;
+}
+.text-box p {
+	margin: 0;
+	font-size: 20px;
+}
+
+#next_scene {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	border-radius: 10px 10px 0 0;
+	border: 5px solid rgba(255,255,255,.9);
+	border-bottom: none;
+	cursor: pointer;
+	width: 200px;
+	height: 60px;
+	background-color: rgba(0,0,0,.4);
+	z-index: 9999;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 25px;
+	font-family: "Oswald", sans-serif;
+	text-align: center;
+	line-height: 55px;
+}
+#next_scene:hover {
+	border-color: rgba(255,255,255,1);
+	background-color: rgba(20, 42, 3, .7);
+}
+#next_scene i {
+	font-size: 24px;
+}
+
+.container {
+	background: url("../images/all/grey.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+/*--------------------------------------------------*/
+/*   START
+/*--------------------------------------------------*/
+
+#start {
+	top: 0;
+	background: url("../images/all/grey.jpg");
+	background-size: 100%;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	z-index: 900;
+	height: auto;
+}
+#start-back-image {
+	background: url("../images/all/grey.jpg");
+	background-size: cover;
+}
+.grey-back {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 0;
+}
+.usa-flag {
+	position: absolute;
+	top: -4%;
+	left: 0;
+	right: 0;
+	width: 100%;
+	z-index: 10;
+}
+.usa-flag-m {display: none;}
+.rem-logo {
+	position: absolute;
+	width: 16%;
+	left: 0; right: 0; margin-left: auto; margin-right: auto;
+	z-index: 20;
+	top: 19%;
+}
+.years-200 {
+	position: absolute;
+	color: #1e3d05;
+	left: 0; right: 0; margin: 0 auto;
+	font-family: 'Oswald', sans-serif;
+	text-align: center;
+	font-size: 36px;
+	z-index: 20;
+	top: 32%;
+}
+.army {
+	position: relative;
+	width: 100%;
+	z-index: 10;
+	overflow: hidden;
+	padding-top: 25%;
+}
+.army img {
+	position: absolute;
+}
+.army .st-army {
+	width: 100%;
+	position: static;
+}
+#st-b1 {
+	top: 58%;
+    width: 13%;
+    right: 27%;
+    z-index: 20;
+}
+#st-b2 {
+	top: 35%;
+    width: 6.5%;
+    right: 22%;
+    z-index: 18;
+}
+#st-b3 {
+	top: 46%;
+    width: 7%;
+    right: 20%;
+    z-index: 19;
+}
+#st-b4 {
+	top: 54%;
+    width: 14%;
+    right: 11%;
+    z-index: 21;
+}
+#st-b5 {
+	top: 42%;
+    width: 8%;
+    right: 2%;
+    z-index: 18;
+}
+
+#arrow-down {
+	display: none;
+}
+
+
+/*--------------------------------------------------*/
+/*   SCENE 1816
+/*--------------------------------------------------*/
+
+#s1816 {
+	background: url("../images/all/grey.jpg");
+	background-attachment: fixed;
+	overflow: hidden;
+}
+.back-fill {
+	height: 40000px;
+	width: 100%;
+	background-color: orange;
+}
+.s1816-back {
+	width: 100%;
+	background: url("../images/all/grey.jpg");
+	background-attachment: fixed;
+	background-size: cover;
+}
+.s1816-content-wrap {
+	width: 88%;
+	height: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.left-green-bar {
+	width: 25.05%;
+	height: 100%;
+	background-size: cover;
+	background-position: left bottom;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 30;
+}
+.founder-photo {
+	width: 70%;
+	margin: 15% auto 1.5%;
+	display: block;
+}
+.founder-info {
+	text-align: center;
+	width: 100%;
+}
+.founder-info span:nth-child(1) {
+	font: 700 29px "Oswald";
+	color: white;
+	text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+	display: block;
+}
+.founder-info span:nth-child(2) {
+	font: 400 22px "Oswald";
+	color: white;
+	text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+	display: block;
+}
+.founder-info span:nth-child(3) {
+	font: 700 34px "Oswald";
+	color: rgba(0,0,0,0.5);
+	display: block;
+}
+.in-the-woods {
+	background-size: cover;
+	background-position: left bottom;
+	position: absolute;
+	width: 75%;
+	height: 100%;
+	right: 0;
+	top: 0;
+	z-index: 20;
+}
+#in-the-woods-guy {
+	position: absolute;
+	height: 44%;
+	right: 21%;
+	bottom: 13%;
+	z-index: 0;
+}
+#s1816-squirrel {
+	position: absolute;
+	width: 5%;
+	right: 8%;
+	bottom: 10%;
+	z-index: 30;
+}
+#s1816-story-wrap {
+	width: 59%;
+	position: absolute;
+	top: 4%;
+	left: 13%;
+	z-index: 10;
+}
+.s1816-story-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.s1816-year {
+	position: relative;
+	font-size: 127px;
+	margin-top: -21px;
+}
+.s1816-video {
+	width: 65%;
+	outline: 5px solid #1e3d05;
+	margin-top: 30px;
+}
+.s1816-text {
+	position: absolute;
+	top: 21px;
+	left: 0;
+	padding-left: 240px;
+	width: 100%;
+}
+.info-s1816-2 {
+	top: 100px;
+}
+.info-s1816-3 {
+	bottom: 22%;
+	right: 12%;
+}
+.info-s1816-4 {
+	position: absolute;
+	right: 27%;
+	bottom: 20%;
+}
+
+/*--------------------------------------------------*/
+/*   SCENE 1828
+/*--------------------------------------------------*/
+
+#s1828 {
+	background: url(../images/all/dark.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+#text_1828 {
+	bottom: 20%;
+	width: 52%;
+}
+#year_1828 {
+	top: 10%;
+	font-size: 150px;
+}
+.info-s1828 {
+	left: 58%;
+	bottom: 30%;
+}
+
+
+/*--------------------------------------------------*/
+/*   SCENE 1845
+/*--------------------------------------------------*/
+
+#s1845 {
+	background: url(../images/all/dark.jpg) black;
+	background-attachment: fixed;
+	overflow: hidden;
+}
+.s1845-back-image {
+	background-attachment: fixed;
+	left: auto;
+	right: 0;
+	will-change:top;
+}
+#text_wrap_1845 {
+	position: relative;
+	top: 45%;
+	width: 700px;
+	margin-left: 13%;
+	opacity: 1;
+}
+#text_1845 {
+	position: static;
+}
+#year_1845 {
+	position: static;
+	float: right;
+	margin-left: 30px;
+	margin-top: -15px;
+	font-size: 130px;
+}
+#gun_1845 {
+	width: 700px;
+	left: 13%;
+	position: absolute;
+	top: 25%;
+}
+.info-s1845 {
+	right: 15%;
+	bottom: 25%;
+}
+
+
+/*--------------------------------------------------*/
+/*   SCENE 1856
+/*--------------------------------------------------*/
+
+#s1856 {
+	overflow: hidden;
+}
+#s1856 .elements {
+	padding-left: 4%;
+}
+.s1856-back-image {
+	background-attachment: fixed;
+}
+#sons {
+	width: 800px;
+	margin: 3% auto 2%;
+	position: relative;
+	z-index: 10;
+}
+.son {
+	width: 29%;
+	position: absolute;
+	top: 0;
+	display: block;
+	border-radius: 50%;
+	box-shadow: 3px 3px 7px rgba(0,0,0,.5);
+}
+#sons img:nth-of-type(2) {
+	left: 0;
+}
+#sons img:nth-of-type(3) {
+	left: 35.5%;
+}
+#sons img:nth-of-type(4) {
+	right: 0;
+}
+#sons img.sons-none {
+	opacity: 0;
+	width: 29%;
+}
+#h1_1856 {
+	font-size: 55px;
+	text-align: center;
+	position: relative;
+}
+#text_1856 {
+	position: relative;
+	width: 70%;
+	margin: 0 auto;
+}
+#year_1856 {
+	right: 40px;
+	z-index: 20;
+	opacity: .9;
+}
+
+
+/*--------------------------------------------------*/
+/*   SCENE 1858
+/*--------------------------------------------------*/
+
+#s1858 {
+	background: url(../images/all/dark.jpg) black;
+	background-attachment: fixed;
+	overflow: hidden;
+}
+#s1858_back {
+	width: 150%;
+	padding-top: 150%;
+	top: -100%;
+	left: -25%;
+	border-radius: 50%;
+	overflow: hidden;
+	position: absolute;
+	background-attachment: fixed;
+	background-size: 100%;
+}
+#text_1858 {
+	left: 0;
+	top: 37%;
+	width: 50%;
+}
+#text_1858 h1 {
+	font-size: 50px;
+	margin: 0;
+}
+#text_1858 .full-story h4 {
+	margin-top: 0.5em;
+}
+#year_1858 {
+	top: 9%;
+	left: 0;
+	font-size: 160px;
+	z-index: 20;
+	opacity: .9;
+}
+
+/*--------------------------------------------------*/
+/*   SCENE 1861
+/*--------------------------------------------------*/
+
+#s1861 {
+	background: url(../images/all/dark.jpg) black;
+	background-attachment: fixed;
+	overflow: hidden;
+}
+.s1861-back-image {
+	background-attachment: fixed;
+}
+#text_1861 {
+	left: 0;
+	top: 41%;
+	width: 780px;
+}
+#text_1861 h1 {
+	font-size: 50px;
+	margin: 0 0 10px;
+}
+#year_1861 {
+	top: 13%;
+	left: 0;
+	font-size: 160px;
+	z-index: 20;
+	opacity: .9;
+}
+#btn_1861 {
+	top: 30%;
+	left: 40%;
+}
+
+
+
+/*--------------------------------------------------*/
+/*   SCENE 1865
+/*--------------------------------------------------*/
+
+#s1865 {
+	background: url(../images/all/dark.jpg) black;
+	background-attachment: fixed;
+	overflow: hidden;
+}
+#inner_1865 {
+	background-attachment: fixed;
+}
+#text_1865 {
+	left: 45%;
+	top: 33%;
+	width: 45%;
+}
+#text_1865 h1 {
+	font-size: 38px;
+	margin: 0 0 10px;
+}
+#year_1865 {
+	top: 30%;
+	left: 0;
+	font-size: 160px;
+	z-index: 20;
+	opacity: .9;
+}
+#btn_1865 {
+	top: 25%;
+	left: 45%;
+}
+
+
+/*--------------------------------------------------*/
+/*   SCENE 1867
+/*--------------------------------------------------*/
+
+#s1867 {
+	background: url(../images/all/dark.jpg) black;
+	background-attachment: fixed;
+	overflow: hidden;
+}
+#inner_1867 {
+	background-attachment: fixed;
+	right: auto;
+	bottom: auto;
+	width: 100%;
+	height: 100%;
+}
+#year_1867 {
+	top: 5%;
+	right: 10%;
+}
+#text_1867 {
+	left: 5%;
+	bottom: 13%;
+	width: 400px;
+	position: absolute;
+	color: #fff;
+	font-size: 24px;
+}
+#text_1867 h1 {
+	font-size: 100px;
+	margin: 0;
+}
+#text_1867 p {
+	margin: 0;
+}
+
+
+#btn_1867 {
+	top: 60%;
+	right: 25%;
+}
+
+
+/*--------------------------------------------------*/
+/*   SCENE 1871
+/*--------------------------------------------------*/
+
+#s1871 {
+	background: url(../images/all/dark.jpg) black;
+	background-attachment: fixed;
+	overflow: hidden;
+}
+#back_1871 {
+	background-image: url(../images/all/grey.jpg);
+	background-attachment: fixed;
+	width: 0;
+	height: 0;
+	border-radius: 50%;
+	top: 50%;
+	left: 50%;
+	padding-top: 0;
+	overflow: hidden;
+	z-index: 21;
+}
+#year_1871 {
+	bottom: 7%;
+	right: 7%;
+}
+#text_1871 {
+	left: 0;
+	right: 10%;
+	top: 20%;
+	width: 50%;
+	margin: 0 auto;
+	position: absolute;
+	color: #fff;
+	font-size: 24px;
+}
+#text_1871 h1 {
+	font-size: 40px;
+	margin: 0 0 10px;
+}
+#text_1871 p {
+	margin: 0;
+}
+.bullet {
+	position: absolute;
+	display: block;
+}
+
+
+
+/*--------------------------------------------------*/
+/*   SCENE 1873
+/*--------------------------------------------------*/
+
+#s1873 {
+	background: url(../images/all/grey.jpg) black;
+	background-attachment: fixed;
+	overflow: hidden;
+}
+#back_1873 {
+	background-image: url(../images/all/grey.jpg);
+	background-attachment: fixed;
+	width: 0;
+	height: 0;
+	border-radius: 50%;
+	top: 50%;
+	left: 50%;
+	padding-top: 0;
+	overflow: hidden;
+	z-index: 21;
+}
+#year_1873 {
+	bottom: 7%;
+	right: 38%;
+	font-size: 130px;
+}
+#text_1873 {
+	left: 5%;
+	top: 36%;
+	width: 35%;
+	font-size: 26px;
+	position: absolute;
+}
+#text_1873 h1 {
+	font-size: 40px;
+	margin: 0 0 10px;
+}
+#text_1873 p {
+	margin: 0;
+}
+#typewriting {
+	position: absolute;
+	height: 80vh;
+	right: 15%;
+	top: 10vh;
+}
+
+
+
+/*--------------------------------------------------*/
+/*   SCENE 1875
+/*--------------------------------------------------*/
+
+#s1875 {
+	background: url(../images/all/grey.jpg) black;
+	background-attachment: fixed;
+	overflow: hidden;
+/* 	background-size: 100%; */
+}
+#inner_1875 {
+	background-attachment: fixed;
+}
+#elems_1875 {
+	position: absolute;
+	right: 4%;
+	top: 7%;
+	width: 31vw;
+}
+#year_1875 {
+	font-size: 130px;
+	position: static;
+	float: left;
+}
+#text_1875 {
+	position: static;
+}
+#text_1875 h1 {
+	font-size: 40px;
+	margin: 0;
+}
+#btn_1875 {
+	position: static;
+	overflow: hidden;
+	float: left;
+	margin: 20px
+}
+#cowboy {
+	position: absolute;
+	width: 74vh;
+    left: 23%;
+    bottom: 2%;
+    z-index: 5;
+}
+#s1875 .full-story h4 {
+	margin-top: 25px;
+}
+#s1875 .btn-full:hover {
+	background-color: transparent;
+	color: #fff;
+	border-color: #fff;
+}
+
+
+
+/*--------------------------------------------------*/
+/*   SCENE 1905
+/*--------------------------------------------------*/
+
+#s1905 {
+	background: url(../images/all/grey.jpg);
+	background-attachment: fixed;
+	overflow: hidden;
+}
+#year_1905 {
+	right: 10%;
+	bottom: 5%;
+	font-size: 120px;
+}
+#text_1905 {
+	width: 30%;
+	right: 28%;
+    top: 11%;
+	position: absolute;
+}
+#text_1905 h1 {
+	color: #1e3d05;
+}
+#btn_1905 {
+	bottom: 12%;
+	left: 38%;
+}
+#john {
+	position: absolute;
+	height: 90vh;
+    left: 10%;
+    bottom: -1%;
+}
+
+
+
+/*--------------------------------------------------*/
+/*   SCENE 1906
+/*--------------------------------------------------*/
+
+#s1906 {
+	background: url(../images/all/grey.jpg);
+	background-attachment: fixed;
+}
+#left_1906 {
+	width: 50vw;
+	height: 100vh;
+	background-position: left center;
+	background-size: 100vw;
+	background-repeat: no-repeat;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+#right_1906 {
+	width: 50vw;
+	height: 100vh;
+	background-position: right center;
+	background-size: 100vw;
+	background-repeat: no-repeat;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+#year_1906 {
+	left: 20%;
+	top: 5%;
+	opacity: 0.9;
+}
+#video_1906 {
+	width: 450px;
+	position: absolute;
+	right: 50%;
+	bottom: 14%;
+	border: 5px solid #fff;
+	border-width:5px 3px 5px 5px;
+}
+#text_1906 {
+	width: 450px;
+	height: 259px;
+	left: 50%;
+    bottom: 14%;
+    border-width:5px 5px 5px 3px;
+}
+#text_1906 h1 {
+	margin: 0 0 10px;
+	text-transform: uppercase;
+	font-size: 40px;
+}
+#btn_1906 {
+	bottom: 54%;
+	right: 18%;
+}
+#john {
+	position: absolute;
+	height: 90vh;
+    left: 10%;
+    bottom: -1%;
+}
+
+
+
+/*--------------------------------------------------*/
+/*   SCENE 1910
+/*--------------------------------------------------*/
+
+#s1910 {
+	background: url(../images/all/grey.jpg);
+	background-attachment: fixed;
+}
+#year_1910 {
+	right: 20%;
+	top: 5%;
+	opacity: 0.9;
+	z-index: 6;
+}
+#h1_1910 {
+	text-transform: uppercase;
+	font-size: 45px;
+	position: absolute;
+	top: 5%;
+	left: 5%;
+	margin: 0;
+	width: 50%;
+	color: #1e3d05;
+	z-index: 7;
+}
+#img_1910 {
+	width: 75%;
+    position: absolute;
+    display: block;
+    left: 5%;
+    top: 31%;
+    z-index: 5;
+}
+#bottom_1910 {
+	bottom: 13%;
+    position: absolute;
+    left: 5%;
+    z-index: 7;
+}
+.peder_1910 {
+	width: 150px;
+	display: inline-block;
+	margin-right: 15px;
+	vertical-align: bottom;
+}
+#text_1910 {
+	width: 300px;
+    border-width:5px 5px 5px 3px;
+    position: static;
+    display: inline-block;
+    margin-right: 15px;
+    vertical-align: bottom;
+}
+#text_1910 p {
+	margin: 0;
+}
+#btn_1910 {
+	position: static;
+	display: inline-block;
+	vertical-align: bottom;
+}
+
+
+
+/*--------------------------------------------------*/
+/*   SCENE 1914
+/*--------------------------------------------------*/
+
+#s1914 {
+	background: url(../images/all/grey.jpg);
+	background-attachment: fixed;
+}
+#year_1914 {
+	right: 3%;
+	top: 2%;
+	opacity: 0.9;
+	z-index: 6;
+}
+#top_1914 {
+	position: absolute;
+	width: 95%;
+	top: 6%;
+	left: 0;
+}
+#top_1914 img {
+	float: right;
+	width: 35%;
+	margin-left: 30px;
+}
+#top_1914 h1 {
+	display: inline;
+	color: #1e3d05;
+	font-size: 40px;
+}
+#bottom_1914 {
+	position: absolute;
+	display: block;
+	bottom: 16%;
+	width: 56%;
+	left: 0;
+	right: 10%;
+	margin: 0 auto;
+}
+
+
+/*--------------------------------------------------*/
+/*   SCENE 1917
+/*--------------------------------------------------*/
+
+#s1917 {
+	background: url(../images/all/dark.jpg);
+	background-attachment: fixed;
+	background-size: 100%;
+}
+#year_1917 {
+	left: 5%;
+	bottom: 20%;
+	font-size: 130px;
+	z-index: 5;
+}
+#btn_1917 {
+	position: static;
+}
+#text_1917 {
+	width: 80%;
+	position: relative;
+	top: 10%;
+	left: 5%;
+	z-index: 10;
+}
+#text_1917 img {
+	float: right;
+	width: 60%;
+	margin: 0 0 20px 40px;
+}
+#cover_sheets {
+	position: absolute;
+	z-index: 25;
+	left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+#cover_sheets li {
+	float: left;
+	width: 33.3333%;
+	height: 50%;
+	background-image: url(../images/all/grey.jpg);
+	background-attachment: fixed;
+	background-size: 100%;
+}
+
+#cover_sheets li:nth-child(1),
+#cover_sheets li:nth-child(4) {background-position: left top;}
+#cover_sheets li:nth-child(2),
+#cover_sheets li:nth-child(5) {background-position: center top;}
+#cover_sheets li:nth-child(3),
+#cover_sheets li:nth-child(6) {background-position: right top;}
+
+
+/*--------------------------------------------------*/
+/*   SCENE 1918
+/*--------------------------------------------------*/
+
+#s1918 {
+	background: url(../images/all/grey.jpg);
+	background-attachment: fixed;
+/* 	background-size: 100%; */
+}
+#l_1918 {
+	position: absolute;
+	width: 50vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	background: url(../images/all/dark.jpg) top left / 100%;
+	background-attachment: fixed;
+}
+#r_1918 {
+	position: absolute;
+	width: 50vw;
+	height: 100vh;
+	top: 0;
+	right: 0;
+	background: url(../images/all/dark.jpg) top right / 100%;
+	background-attachment: fixed;
+}
+#s1918 .year {
+	font-size: 130px;
+	position: static;
+}
+#left_1918 {
+	width: 35%;
+	position: absolute;
+	top: 15%;
+	left: 10%;
+}
+#left_1918 h1 {
+	margin-top: 0;
+}
+#right_1918 {
+	width: 35%;
+	position: absolute;
+	top: 15%;
+	right: 15%;
+}
+
+
+
+/*--------------------------------------------------*/
+/*   SCENE 1922
+/*--------------------------------------------------*/
+
+#s1922 {
+	background: url(../images/all/grey.jpg);
+	background-attachment: fixed;
+/* 	background-size: 100%; */
+}
+#img_1922 {
+	position: absolute;
+	right: 5%;
+	top: 0;
+	height: 100%;
+}
+#s1922 .year {
+	font-size: 120px;
+	position: static;
+	display: inline;
+}
+#s1922 .video-wrap {
+	margin-bottom: 30px;
+}
+#left_1922 {
+	width: 35%;
+	position: absolute;
+	top: 13%;
+	left: 10%;
+}
+#left_1922 h1 {
+	font-size: 40px;
+	margin-top: 0;
+	color: #1e3d05;
+}
+#btn_1922 {
+	float: right;
+	position: static;
+}
+
+
+/*--------------------------------------------------*/
+/*   SCENE 1927
+/*--------------------------------------------------*/
+
+#s1927 {
+	background: url(../images/all/grey.jpg);
+	background-attachment: fixed;
+/* 	background-size: 100%; */
+}
+#img_1927 {
+	position: absolute;
+	right: 5%;
+	top: 0;
+	height: 100%;
+}
+#s1927 .year {
+	font-size: 140px;
+	position: static;
+	display: inline;
+}
+#s1927 .video-wrap {
+	margin-bottom: 30px;
+}
+#left_1927 {
+	width: 35%;
+	position: absolute;
+	top: 13%;
+	left: 10%;
+}
+#left_1927 h1 {
+	font-size: 50px;
+	margin-top: 0;
+	color: #1e3d05;
+}
+#btn_1927 {
+	float: right;
+	position: static;
+}
+
+
+/*--------------------------------------------------*/
+/*   SCENE 1933
+/*--------------------------------------------------*/
+
+#s1933 {
+	background: url(../images/all/grey.jpg);
+	background-attachment: fixed;
+/* 	background-size: 100%; */
+}
+#inner_1933 {
+	background-attachment: fixed;
+}
+#top_1933 {
+	width: 80%;
+	position: absolute;
+	top: 14%;
+	left: 0;
+	right: 5%;
+	margin: 0 auto;
+}
+#top_1933 .year {
+	font-size: 140px;
+}
+.text_1933 {
+	padding-left: 330px;
+}
+.text_1933 h1 {
+	color: #1e3d05;
+	font-size: 60px;
+	margin: 15px 0 20px;
+}
+#img_1933 {
+	position: absolute;
+	right: 6%;
+	left: 0;
+	margin: 0 auto;
+	bottom: 21%;
+	width: 78%;
+}
+#btn_1933 {
+	bottom: 20%;
+	left: 33%;
+}
+
+
+/*--------------------------------------------------*/
+/*   SCENE 1934
+/*--------------------------------------------------*/
+
+#s1934 {
+	background-attachment: fixed;
+}
+#inner_1934 {
+	background: url(../images/all/dark.jpg);
+	background-attachment: fixed;
+}
+.right_1934 {
+	width: 50%;
+	position: absolute;
+	top: 10%;
+	right: 10%;
+}
+#text_1934 {
+	position: relative;
+	width: 100%;
+	left: 0;
+}
+.right_1934 .year {
+	font-size: 110px;
+	position: relative;
+}
+
+#text_1934 h1 {
+	font-size: 45px;
+	margin: 15px 0 20px;
+}
+#full_1934 {
+	margin-bottom: 20px;
+	position: relative;
+}
+#full_1934 a:hover {
+	background-color: transparent;
+	border-color: white;
+	color: white;
+}
+#img_1934 {
+	position: absolute;
+	left: 0;
+	top: 10%;
+	width: 35%;
+}
+
+
+
+
+/*--------------------------------------------------*/
+/*   SCENE 1940
+/*--------------------------------------------------*/
+
+#s1940 {
+	background: url(../images/all/grey.jpg);
+	background-attachment: fixed;
+/* 	background-size: 100%; */
+}
+#inner_1940 {
+	background-image: url(../images/all/dark.jpg);
+	background-attachment: fixed;
+}
+#top_1940 {
+	width: 80%;
+	position: absolute;
+	top: 1%;
+	left: 10%;
+}
+#text_1940 {
+	width: 60%;
+	margin-right: 5%;
+	float: left;
+}
+#full_1940 {
+	width: 35%;
+	float: right;
+}
+#text_1940 h1 {
+	font-size: 45px;
+}
+#full_1940 a:hover {
+	background-color: transparent;
+	border-color: white;
+	color: white;
+}
+#img_1940 {
+	position: absolute;
+	left: 10%;
+	bottom: 10%;
+	width: 60%;
+}
+#year_1940 {
+	right: 15%;
+	bottom: 2%;
+	font-size: 130px;
+}
+
+
+
+/*--------------------------------------------------*/
+/*   SCENE 1941
+/*--------------------------------------------------*/
+
+#s1941 {
+	background: url(../images/all/grey.jpg);
+	background-attachment: fixed;
+/* 	background-size: 100%; */
+}
+#top_1941 {
+	width: 65%;
+	position: absolute;
+	top: 1%;
+	left: 20%;
+}
+#text_1941 {
+	width: 60%;
+	float: right;
+}
+#full_1941 {
+	width: 35%;
+	float: left;
+	margin-right: 5%;
+}
+#text_1941 h1 {
+	font-size: 45px;
+	color: #1e3d05;
+	margin-bottom: 20px;
+}
+#img_1941 {
+	position: absolute;
+	left: -1%;
+	bottom: 0;
+	width: 60%;
+}
+#year_1941 {
+	right: 13%;
+	bottom: 2%;
+	font-size: 130px;
+}
+
+
+/*--------------------------------------------------*/
+/*   SCENE 1950
+/*--------------------------------------------------*/
+
+#s1950 {
+	background: url(../images/all/grey.jpg);
+	background-attachment: fixed;
+/* 	background-size: 100%; */
+	overflow: hidden;
+}
+#back_1950 {
+	background-image: url(../images/all/dark.jpg);
+	background-attachment: fixed;
+	width: 0;
+	height: 0;
+	border-radius: 50%;
+	top: 50%;
+	left: 50%;
+	padding-top: 0;
+	overflow: hidden;
+	z-index: 21;
+}
+#top_1950 {
+	width: 75%;
+	margin-top: 1%;
+	left: 7%;
+	position: relative;
+}
+#top_1950 h1 {
+	font-size: 45px;
+	color: #1e3d05;
+	margin-bottom: 20px;
+}
+#top_1950 img {
+	width: 85%;
+	margin-top: 10px;
+}
+
+#bottom_1950 {
+	width: 75%;
+	position: relative;
+	margin-top: 2%;
+	left: 7%;
+}
+#bottom_1950 .video-1950 {
+	width: 50%;
+	margin-right: 40px;
+	float: left;
+}
+#bottom_1950 .full-story {
+	width: 35%;
+	float: left;
+}
+#bottom_1950 .full-story h4 {
+	margin-top: 0;
+}
+#year_1950 {
+	right: 5%;
+	bottom: 4%;
+	font-size: 110px;
+}
+
+
+/*--------------------------------------------------*/
+/*   SCENE 1956
+/*--------------------------------------------------*/
+
+#s1956 {
+	background: url(../images/all/dark.jpg);
+	background-attachment: fixed;
+}
+#s1956 .elements {
+	padding-left: 23vw;
+}
+#top_1956 {
+	width: 75%;
+	margin-top: 5%;
+	position: relative;
+}
+#top_1956 h1 {
+	font-size: 45px;
+	margin-bottom: 20px;
+}
+#bottom_1956 {
+	width: 75%;
+	position: relative;
+	margin-top: 3%;
+}
+#bottom_1956 img {
+	width: 55%;
+	margin-right: 5%;
+	display: inline-block;
+	vertical-align: bottom;
+}
+#bottom_1956 .full-story {
+	width: 35%;
+	display: inline-block;
+	vertical-align: bottom;
+}
+#bottom_1956 .full-story a:hover {
+	background-color: transparent;
+	border-color: #fff;
+	color: #fff;
+}
+#year_1956 {
+	left: 60%;
+	top:0;
+	font-size: 110px;
+}
+
+
+/*--------------------------------------------------*/
+/*   SCENE 3
+/*--------------------------------------------------*/
+#s1959 {
+	background: url(../images/all/dark.jpg);
+	background-attachment: fixed;
+	z-index: 100;
+	overflow: hidden;
+}
+#s1959_inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	background-attachment: fixed; 
+	background-size: cover;
+	overflow: hidden;
+}
+#s1959_year {
+	position: relative;
+	margin: 1% auto 0;
+	width: 198px;
+}
+#s1959_info {
+	position: relative;
+	margin: 1% auto 0;
+	width: 62%;
+	height: 39%;
+	background-color: rgba(0,0,0,0.4);
+}
+#s1959_gun {
+	position: absolute;
+	left: 0;right: 0; margin-left: auto;margin-right: auto;
+	width: 85%;
+	top: 12%;
+}
+#s1959_h1 {
+	color: white;
+	font: 700 45px "Oswald", sans-serif;
+	position: absolute;
+	right: 54%;
+	bottom: 10%;
+	z-index: 120;
+}
+#bracket_box {
+	width: 32%;
+	position: absolute;
+	left: 50%;
+	bottom: 10%;
+	color: white;
+	font: 400 22px/26px "Oswald", sans-serif; 
+	text-align: justify;	
+}
+.bracket-box-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding: 25px;
+}
+#bracket_left {
+	height: 100%;
+	width: 30px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.bracket-left-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.bracket-left-inner div:nth-child(1) {
+	position: absolute;
+	width: 12px;
+	background-color: white;
+	top: 0; bottom: 0;
+}
+.bracket-left-inner div:nth-child(2) {
+	position: absolute;
+	width: 100%;
+	height: 12px;
+	background-color: white;
+	top: 0; left: 0; left: 0;
+}
+.bracket-left-inner div:nth-child(3) {
+	position: absolute;
+	width: 100%;
+	height: 12px;
+	background-color: white;
+	bottom: 0; left: 0;
+}
+#bracket_right {
+	height: 100%;
+	width: 30px;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.bracket-right-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.bracket-right-inner div:nth-child(1) {
+	position: absolute;
+	width: 12px;
+	background-color: white;
+	top: 0; bottom: 0; right: 0;
+}
+.bracket-right-inner div:nth-child(2) {
+	position: absolute;
+	width: 100%;
+	height: 12px;
+	background-color: white;
+	top: 0; right: 0;
+}
+.bracket-right-inner div:nth-child(3) {
+	position: absolute;
+	width: 100%;
+	height: 12px;
+	background-color: white;
+	bottom: 0; right: 0;
+}
+#bottom_1959 {
+	margin: 1% auto 0;
+	width: 52%;
+}
+.video-1950 {
+	height: 100%;
+	width: 40%;
+	margin-right: 10%;
+	float: left;
+}
+#bottom_1959 .full-story {
+	float: left;
+}
+
+
+/*--------------------------------------------------*/
+/*   SCENE 1959r
+/*--------------------------------------------------*/
+#s1959r {
+	position: relative;
+	background: url("../images/all/dark.jpg") black;
+	background-color: blue;
+	background-attachment: fixed; 
+}
+.record-photo {
+	position: absolute;
+	width: 34%;
+	max-width: 1000px;
+	top:10%; bottom: 0; left: 12%;
+	box-shadow: 3px 10px 25px 10px rgba(0,0,0,1);
+	z-index: 100;
+}
+.s1959r-info {
+	position: absolute;
+	width: 24%;
+	right: 8%;
+	top: 8%;
+	color: white;
+	z-index: 40;
+}
+.s1959r-info h1 {
+	font: 700 50px/1.1 "Oswald", sans-serif;
+	color: #687498;
+	margin:0 0 20px 0;
+}
+.s1959r-span {
+	color: #bb5b5b;
+	font-weight: 700;
+}
+.anim-rec {
+	position: absolute;
+	top: 7%; bottom: 0; right: 8.5%;
+	width: 41.5%;
+	height: 86%;
+/* 	outline: 1px dotted grey; */
+	z-index: 30;
+}
+.berry {
+	position: absolute;
+	width: 25.8%;
+	left: 0; bottom: -1%;
+}
+.s1959r-block-outer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 25.8%;
+}
+.s1959r-block-inner {
+	position: relative;
+}
+.s1959r-block-back {
+	width: 100%;
+	opacity: 0;
+}
+.s1959r-block {
+	width: 36%;
+	position: absolute;
+	left: 64%;
+	bottom: 40%;
+	opacity: 0;
+}
+.tom {
+	position: absolute;
+	width: 41.5%;
+	right: 0; bottom: -1%;
+}
+.test2 {
+	position: absolute;
+	width: 50px; height: 50px;
+	background-color: aqua;
+	top: 0; right: 0;
+	display: none;
+	font-size: 12px;
+}
+.s1959r-boom {
+	opacity: 0;
+}
+
+
+/*--------------------------------------------------*/
+/*   SCENE 1960
+/*--------------------------------------------------*/
+
+#s1960 {
+	background: url(../images/all/dark.jpg);
+	background-attachment: fixed;
+}
+#left_1960 {
+	width: 50%; 
+	margin-top: 10%;
+    margin-left: 5%;
+	position: relative;
+}
+#left_1960 h1 {
+	font-size: 45px;
+	margin-bottom: 20px;
+}
+#text_1960 {
+	position: relative;
+}
+#full_1960 {
+	position: relative;
+}
+#year_1960 {
+	position: relative;
+	margin-top: 4%;
+	font-size: 90px;
+}
+#img_1960 {
+	height: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+
+/*--------------------------------------------------*/
+/*   SCENE 1962
+/*--------------------------------------------------*/
+
+#s1962 {
+	background-attachment: fixed;
+}
+#text_1962 {
+	bottom: 45%;
+	left: 0;
+	width: 50%;
+	position: absolute;
+}
+#text_1962 h1 {
+	font-size: 40px;
+	margin: 0 0 0.6em;
+}
+#video_1962 {
+	width: 40%;
+	left: 50%;
+	position: absolute;
+	top: 55%;
+}
+#full_1962 {
+	bottom: 10%;
+	position: absolute;
+	left: 0;
+}
+#year_1962 {
+	right: 10%;
+	top: 5%;
+	font-size: 140px;
+}
+
+
+/*--------------------------------------------------*/
+/*   SCENE 1963
+/*--------------------------------------------------*/
+
+#s1963 {
+	background-attachment: fixed;
+}
+#text_1963 {
+	bottom: 50%;
+	left: 0;
+	width: 50%;
+	position: absolute;
+}
+#text_1963 h1 {
+	font-size: 40px;
+	margin: 0 0 0.6em;
+}
+#video_1963 {
+	width: 40%;
+	left: 50%;
+	position: absolute;
+	top: 50%;
+}
+#full_1963 {
+	bottom: 10%;
+	position: absolute;
+	left: 0;
+}
+#year_1963 {
+	right: 10%;
+	top: 5%;
+	font-size: 140px;
+}
+
+
+
+
+/*--------------------------------------------------*/
+/*   SCENE 1966
+/*--------------------------------------------------*/
+
+#s1966 {
+	background-color: #000;
+}
+#inner_1966 {
+	background-attachment: fixed;
+}
+#year_1966 {
+	position: relative;
+	margin-top: 5%;
+	left: -1%;
+	font-size: 140px;
+}
+#text_1966 {
+	width: 40%;
+	position: relative;
+}
+#text_1966 h1 {
+	font-size: 40px;
+	margin: 0 0 0.6em;
+}
+#full_1966 {
+	position: relative;
+}
+#btn_1966 {
+	right: 40%;
+	top: 50%;
+}
+
+
+/*--------------------------------------------------*/
+/*   SCENE 1970
+/*--------------------------------------------------*/
+
+#s1970 {
+	background-color: #000;
+}
+#inner_1970 {
+	background-attachment: fixed;
+}
+#year_1970 {
+	position: relative;
+	display: inline-block;
+	margin-top: 13%;
+	left: -1%;
+	font-size: 140px;
+}
+#text_1970 {
+	width: 40%;
+	position: relative;
+}
+#text_1970 h1 {
+	font-size: 40px;
+	margin: 0 0 0.6em;
+}
+#btn_1970 {
+	right: 40%;
+	top: 50%;
+}
+#img_1970 {
+	width: 50%;
+	top: 21%;
+    right: 7%;
+	position: absolute;
+}
+
+
+
+/*--------------------------------------------------*/
+/*   SCENE 1982
+/*--------------------------------------------------*/
+
+#s1982 {
+	background: url(../images/all/grey.jpg);
+	background-attachment: fixed;
+/* 	background-size: 100%; */
+	overflow: hidden;
+}
+#img_1982 {
+	position: absolute;
+	right: 5%;
+	top: 0;
+	height: 100%;
+}
+#year_1982_wrap {
+	position: absolute;
+	top: 67%;
+	left: 10%;
+}
+#year_1982_wrap .year {
+	font-size: 120px;
+	position: relative;
+	display: block;
+	float: left;
+}
+#img_knife_1982 {
+	position: absolute;
+	width: 35%;
+	left: 10%;
+	bottom: 35%;
+}
+#left_1982 {
+	width: 35%;
+	position: absolute;
+	top: 13%;
+	left: 10%;
+}
+#left_1982 h1 {
+	margin-top: 0;
+	font-size: 40px;
+	color: #1e3d05;
+}
+
+
+
+/*--------------------------------------------------*/
+/*   SCENE 1987
+/*--------------------------------------------------*/
+
+#s1987 {
+	background: url(../images/all/grey.jpg);
+	background-attachment: fixed;
+/* 	background-size: 100%; */
+	overflow: hidden;
+}
+#left_1987 {
+	position: absolute;
+	width: 40%;
+	left: 0;
+	top: 10%;
+}
+#left_1987 img {
+	position: relative;
+	width: 100%;
+	top: 1%;
+}
+#right_1987 {
+	position: absolute;
+	width: 40%;
+	right: 10%;
+	top: 5%;
+}
+#right_1987 h1 {
+	font-size: 40px;
+	color: #1e3d05;
+}
+#year_1987 {
+	bottom: 5%;
+	right: 5%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*--------------------------------------------------*/
+/*   MEDIA QUERIES
+/*--------------------------------------------------*/
+@media only screen and (min-width: 1700px) {
+
+.text-reg {font-size: 24px;}
+.text-white {font-size: 24px;}
+.full-story h4 {font-size: 32px;}
+.year {font-size: 130px;}
+.text-box {border-width: 7px;}
+.text-box p {font-size: 24px;}
+#next_scene {border-radius: 20px 20px 0 0;border-width: 7px;width: 300px;height: 100px;font-size: 40px;line-height: 93px;}
+#next_scene i {font-size: 39px;}
+
+
+.years-200 {font-size: 44px;}
+
+.founder-info span:nth-child(1) {font-size: 38px;}
+.founder-info span:nth-child(2) {font-size:30px;}
+.founder-info span:nth-child(3) {font-size:48px;}
+
+#year_1828 {top: 16%; font-size: 160px;}
+#text_1828 {bottom: 10%;}
+
+#text_wrap_1845 {width: 800px; margin-left: 17%;}
+#year_1845 {font-size: 150px;}
+#gun_1845 {width: 800px;left: 17%;}
+
+#s1959_h1 {font-size: 60px;bottom: 6%;}
+#bracket_box {bottom: 12%;font: 400 26px/30px "Oswald", sans-serif;text-align: left;}
+.s1959r-info h1 {font-size: 62px;}
+.s1959r-info p {font-size: 24px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}/* MEDIA min width 1700 */
+
+@media only screen and (min-width: 2300px) {
+
+.text-reg {font-size: 30px;}
+.text-white {font-size: 30px;}
+.full-story h4 {font-size: 36px;}
+.btn-full {height: 70px;border: 7px solid #c14646;line-height: 58px;font-size: 24px;border-radius:7px;padding: 0 35px;}
+.btn-info {width: 70px;height: 70px;border-radius: 35px;}
+.icon-wrap {width: 40px;height: 40px;border-radius: 20px;margin: 15px 0 0 15px;}
+.icon-wrap > i.icon-camera {font-size: 25px;line-height: 39px;}
+.year {font-size: 150px;}
+.text-box {border-width: 7px;}
+.text-box p {font-size: 30px;}
+
+.years-200 {font-size: 60px;}
+
+.s1816-year {font-size: 160px;}
+.s1816-text {padding-left: 300px;}
+
+#year_1828 {top: 20%;}
+
+#text_wrap_1845 {width: 1200px;}
+#year_1845 {font-size: 200px;}
+#gun_1845 {width: 1200px;}
+
+#text_1856 {width: 48%; margin-top: 5%;}
+#h1_1856 {font-size: 75px;}
+
+#text_1858 h1,
+#text_1861 h1,
+#text_1871 h1,
+#text_1865 h1,
+#text_1875 h1,
+#text_1906 h1,
+#h1_1910,
+#top_1914 h1,
+.elements-inner h1,
+#left_1922 h1,
+#left_1927 h1,
+#text_1934 h1,
+#text_1940 h1,
+#text_1940 h1,
+#text_1941 h1,
+#top_1950 h1,
+#top_1956 h1,
+.s1959r-info h1,
+#left_1960 h1,
+#text_1962 h1,
+#text_1963 h1,
+#text_1966 h1,
+#left_1982 h1,
+#right_1987 h1,
+#text_1970 h1 {font-size: 80px;}
+
+#year_1828,
+#year_1861,
+#year_1865,
+#year_1867,
+#text_1867 h1,
+#year_1871,
+#year_1873,
+#year_1875,
+#year_1905,
+#year_1906,
+#year_1910,
+#year_1914,
+#year_1917,
+#s1918 .year,
+#s1922 .year,
+#s1927 .year,
+#top_1933 .year,
+#year_1940,
+#year_1941,
+#year_1950,
+#year_1956,
+#year_1962,
+#year_1963,
+#year_1966,
+#year_1982_wrap .year,
+#year_1987,
+#year_1970 {font-size: 200px;}
+
+
+#text_1873 {font-size: 30px;}
+#text_1867 {bottom: 15%;font-size: 30px;}
+#video_1906 {width: 600px;}
+#text_1906 {width: 600px;height: 343px;}
+.peder_1910 {width: 220px;}
+.text_1933 {padding-left: 440px;}
+#year_1960 {font-size: 120px;}
+
+
+
+
+}/* MEDIA min width 2300 */
+
+
+@media screen and (max-width: 1367px) {
+	
+#top_1941 {width: 70%;}
+#bottom_1950 .video-1950 {width: 42%;}	
+	
+}
+
+
+@media screen and (max-width: 1024px) {
+
+@import url(jquery.fullPage.css);
+
+.text-box p {font-size: 18px;}
+
+#container .scene,
+.s1845-back-image,
+#s1858_back,
+.s1861-back-image,
+#inner_1865,
+#inner_1867,
+#inner_1934,
+#inner_1933,
+#s1959_inner,
+#inner_1966 {background-attachment: scroll; background-position: center center;}
+
+#next_scene {display: none;}
+#arrow-down {display: block;width: 120px;height: 80px;opacity: .8;position: absolute;left: 0; right: 0; margin: 0 auto;bottom: 20px;z-index: 20;}
+#arrow-down img {width: 100%;}
+.scene {overflow: hidden;}	
+.scene-inner {position: static;}
+#start {height: 100vh;}
+.army {padding-top: 0;position: absolute; bottom: -77px;}
+.rem-logo {top: 25%;}
+.years-200 {top: 39%;}
+#st-b1 {top: 36%;}
+#st-b2 {top: 0;}
+#st-b3 {top: 18%;}
+#st-b4 {top: 31%;}
+#st-b5 {top: 11%;}
+
+#s1816-story-wrap {width: 78%;left: 16%;}
+#in-the-woods-guy {right: 8%;bottom: 9%;}
+#s1816-squirrel {right: auto;left: 6%;bottom: 29%;}
+
+#year_1828 {top: 4%;}
+#text_1828 {width: 61%;}
+.info-s1828 {left: 78%;}
+#s1828 .s1845-back-image {display: none;}
+
+#s1845 .elements {padding-left: 7vw;}
+
+#sons {width: 70%;}
+
+#s1858 .s1861-back-image {display: none;}
+#s1858_back {border-radius: 0;background-size: cover; width: 100%; padding-top: 0;height: 100%;top: 0;left: 0;}
+#year_1858 {top: 5%;}
+#text_1858 {top: 34%;width: 70%;}
+
+#inner_1867 {background-position: center;}
+
+#text_1871 {width: 70%;}
+
+#typewriting {right: 7%;}
+#text_1873 {top: 29%;}
+#year_1873 {bottom: 10%;right: 45%;}
+
+#inner_1875 {background-position: center;background-attachment: scroll;}
+#cowboy {left: 13%;}
+#elems_1875 {width: 42vw;}
+
+#john {left: -2%;}
+#text_1905 {width: 43%;right: 9%;}
+
+#left_1906 {background-position: left top;}
+#right_1906 {background-position: right top;}
+
+#s1906 {background-image: none; background-color: #222;}
+#s1906 .text-box {padding: 20px; background-color: #222;}
+#video_1906 {width: 370px;bottom: 10%;}
+#text_1906 {width: 370px;height: 213px;bottom: 10%;}
+
+#year_1910 {right: 7%;}
+#h1_1910 {width: 57%;}
+#img_1910 {width: 88%; top: 34%;}
+
+#cover_sheets {display: none;}
+#bottom_1914 {bottom: 7%;width: 63%;}
+#text_1917 {width: 87%;top: 15%;}
+#year_1917 {bottom: 13%;}
+
+#l_1918 {display: none;}
+#r_1918 {display: none;}
+#s1918,
+#s1940 {background: url(../images/all/dark.jpg);}
+
+#img_1922 {right: 0; z-index: 5;}
+#left_1922 {left: 0;}
+
+#img_1927 {right: 0;}
+#left_1927 {left: 1%;top: 4%;}
+
+#top_1933 {width: 90%;}
+#img_1933 {bottom: 28%;}
+
+.right_1934 {width: 45%;right: 7%;}
+#img_1934 {top: 13%;width: 42%;}
+#s1934 {background-image: none !important;}
+#top_1940 {width: 90%;left: 5%;top: 5%;}
+#img_1940 {left: 6%;bottom: 16%;}
+#year_1940 {bottom: 8%;}
+
+#top_1941 {width: 90%;left: 5%;}
+#top_1950 {width: 85%;margin-top: 4%;}
+#bottom_1950 {width: 90%;margin-top: 6%;}
+
+#s1956 .elements {padding-left: 15vw;}
+#top_1956 {width: 90%;margin-top: 10%;}
+#bottom_1956 {width: 90%;}
+
+#bracket_box {font-size: 16px; text-align: left;}
+#s1959_info {width: 74%;}
+#bottom_1959 {margin-top: 4%;width: 74%;}
+#year_1966 {display: inline-block;}
+#img_1982 {right: 0;}
+#left_1982,
+#img_knife_1982,
+#year_1982_wrap {left: 0;}
+
+#left_1987 {width: 50%;}
+#right_1987 {width: 40%;right: 5%;}
+#left_1987 img {margin-top: 2%;}
+#year_1987 {bottom: 2%;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+@media screen and (max-width: 800px) {
+
+#timeline {left: 0;}
+.elements {padding-left: 18vw;}
+
+
+.usa-flag {display: none;}
+.usa-flag-m {width: 100%; top: 0;z-index: 10;position: absolute;display: block;}
+.rem-logo {width: 32%;}
+.years-200 {width: 60%; font-size: 49px; top: 40%;}
+.army {bottom: 0;}
+.army img {display: none;}
+/* .st-army {display: none;} */
+.army .st-army-m {width: 100%; position: static; display: block;}
+#st-b5 {right: 8%;}
+.s1816-content-wrap {width: 100%;}
+.left-green-bar {width: 50%; left: 0;}
+.in-the-woods {width: 50%; background-image: none !important;}
+.s1816-text {position: static; padding-left: 0;}
+
+#s1816-story-wrap {width: 87%;left: 7%;}
+.s1816-video {width: 100%;}
+#s1816-squirrel {display: none;}
+#in-the-woods-guy {bottom: 0; height: 33%;}
+.info-s1816-4 {right: 17%;bottom: 8%;}
+.founder-photo {margin-top: 30%;}
+
+#text_1828 {width: 90%;bottom: 5%;}
+.info-s1828 {bottom: 50%;}
+
+#s1845 .elements {padding-left: 14vw;}
+#gun_1845 {width: 90%;left: 0;top: 29%;}
+#text_wrap_1845 {width: 90%;margin-left: 0;}
+
+#s1856 .elements {padding-left: 13vw; padding-right: 5vw;}
+#sons {width: 100%;margin-top: 48%;}
+#h1_1856 {font-size: 47px;}
+#text_1856 {width: 100%;}
+#year_1856 {right: 0;left: 0;top: -21%;margin: 0 auto;width: 300px;font-size: 150px;}
+
+#btn_1861 {top: 24%;left: 70%;}
+#text_1861 {top: 34%;width: 92%;}
+
+#year_1865 {top: 10%;left: auto;right: 9%;}
+#text_1865 {left: auto;top: 33%;width: 80%;right: 9%;}
+
+#year_1867 {font-size: 130px;}
+
+#typewriting {height: 58vh;}
+#year_1873 {bottom: 45%;right: 45%;font-size: 150px}
+
+#text_1873 {top: auto;bottom: 10%;width: 95%;left: 0;}
+
+#cowboy {display: none;}
+#elems_1875 {width: 63%;}
+
+#john {height: 80vh; left: -14%;}
+#text_1905 {width: 46%;right: 7%;top: 2%;}
+#year_1905 {right: 60%;bottom: auto;top: 4%;}
+
+#s1906 .text-box {background-color: rgba(0,0,0,.5);}
+#text_1906 {bottom: 32%;left: 15%;}
+#video_1906 {right: auto;left: 15%;}
+
+#year_1906 {left: auto;right: 8%;top: 5%;}
+
+
+#top_1914 {top: 10%;}
+#top_1914 img {width: 49%;}
+#bottom_1914 {bottom: 13%;width: 90%;}
+
+#text_1917 img {width: 100%;}
+#text_1917 {width: 85%;top: 3%;}
+
+#left_1918 {width: 45%;top: 20%; left: 0;}
+#right_1918 {width: 45%;top: 20%;right: 5%;}
+
+#img_1922 {right: 0;z-index: 2;opacity: 0.3;height: 110%;width: 100vw;}
+#left_1922 {width: 75%; z-index: 10;}
+#left_1922 h1 {font-size: 52px;}
+
+#img_1927 {height: auto; width: 35vw;z-index: 2;top: auto; bottom: 0;}
+#left_1927 {width: 75%; z-index: 10;}
+
+#left_1927 p {font-size: 30px;}
+#btn_1927 {float: left;}
+
+#top_1933, #img_1910 {top: 40%;}
+.text_1933 {padding-left: 0;}
+#top_1933 .year {top: -200px;}
+#img_1933 {width: 90%;bottom: 22%;}
+#img_1934 {top: 18%;}
+.right_1934 {top: 15.5%;}
+
+#top_1940 {width: 90%;left: -1%;top: 9%;}
+#img_1940 {left: 0;bottom: 21%;width: 90%;}
+#year_1940 {right: 9%;bottom: 3%;font-size: 150px;}
+
+
+#img_1941 {width: 101%}
+#top_1941 {width: 97%;left: 0;top: 4%;}
+#text_1941 {width: 57%;}
+
+#top_1950 {width: 93%;margin-top: 25%; left: 0;}
+#bottom_1950 {width: 93%;margin-top: 11%; left: 0;}
+#bottom_1950 .video-1950 {width: 50%;}
+#top_1950 img {width: 100%;margin-top: 30px;}
+
+#top_1956 {margin-top: 25%;}
+#year_1956 {top: 100%;}
+#bottom_1956 {margin-top: 12%;}
+
+#s1959_year {margin: 10% auto 0;width: 74%;}
+#bracket_box {width: 43%;}
+#s1959_info {height: 30%;}
+.video-1950 {width: 70%;}
+
+.record-photo {width: 45%;top: 9%;left: 17%;}
+.anim-rec {top: auto;bottom: 1%;width: 47.5%;height: 46%;}
+
+#left_1960 {width: 66%;margin-left: 1%;}
+
+#video_1962,
+#video_1963 {width: 50%}
+#s1962 .elements,
+#s1963 .elements {padding-left: 14vw;}
+
+#img_1970 {width: 90%;position: static;}
+#text_1970 {width: 90%;}
+
+#img_1982 {width: 100vw;z-index: 1;}
+
+#left_1982 {width: 81%;;left: 0;z-index: 5;padding: 30px;background-color: rgba(0,0,0,.5);border: 5px solid #fff;}
+#left_1982 h1,
+#left_1982 p {color: #fff;}
+#img_knife_1982 {width: 55%;bottom: 8%;z-index: 5;left: auto; right: 5%;}
+#year_1982_wrap {top: auto;z-index: 5;bottom: 5%;}
+
+#left_1987 {width: 90%;position: static;margin: 5% 0 1%;}
+#left_1987 img:nth-child(n+5) {display: none;}
+#right_1987 {width: 90%; position: static;}
+
+#s1987 .video-wrap {width: 62%;padding-top: 35.25%;}
+
+
+}
+
+
+
+
+
+
+
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+
+}
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
