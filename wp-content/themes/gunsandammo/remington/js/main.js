@@ -29,12 +29,10 @@ function modal_slider(ele, sn, th) {
 }
 
 
+
 $(document).ready(function() {
 	
-	
-	
 	$(".lazy").unveil(3500);
-		
 	
 	var wh 		= $(window).innerHeight(),
 		ww 		= $(window).innerWidth(),
@@ -100,7 +98,6 @@ $(document).ready(function() {
 				}));
 			});
 		}
-					
 	});
 	// END MODALS
 
@@ -177,6 +174,95 @@ $(document).ready(function() {
 
 
 
+	// 1959 RECORD ANIMATION
+	var bEye = $(".b-eye"),
+		bArm = $(".b-arm"),
+		bArmBottom = $(".b-arm-bottom"),
+		s4Block = $(".s1959r-block"),
+		s4Boom = $(".s1959r-boom"),
+		s4BoomBack = $(".s1959r-boom-back"),
+		s4Gun = $(".s1959r-gun");
+		
+	function blockPerish() {
+		s4Block.css("display", "none");
+		$(".test2").css("background-color", "red");
+	}
+	function blockAppear() {
+		s4Block.css("display", "block");
+	}
+	
+    tlEyes = new TimelineMax({repeat: -1, repeatDelay: 2 });
+    tlEyes.to(bEye, 0.2, {display: "none"});
+    
+    tlArm = new TimelineMax({onComplete: blockPerish, onStart: blockAppear,  repeat: -1, repeatDelay: 1, yoyo:false, delay: 1 });
+    tlArm.from(bArm, 0.7, {rotation: 20, transformOrigin: "left top", ease:Back.easeInOut })
+    	.from(bArmBottom, 0.5, {rotation: 30, transformOrigin: "10% 95%", ease:Back.easeIn }, 0)
+    	.to(s4Gun, 0.1, {x:15, y:15}, 0.9)
+    	.to(s4Gun, 0.1, {x:0, y:0}, 1)
+    	.to(s4Block, 0.1, {opacity: 1}, 0)
+    	.to(s4Block, 0.5, {bottom: "100%", rotation: 70, scale: 1.1, ease:Back.easeIn}, 0)
+    	.to(s4Block, 0.7, {bottom: "180%", rotation: 170, scale: 1.4, ease:Back.easeOut}, 0.5)
+    	.to(s4Boom, 0.2, {opacity: 0.3, scale: 1.8, marginLeft: "-2%", ease:Back.easeOut}, 1.15)
+    	.to(s4Boom, 0.1, {opacity: 0, marginLeft: "-2%", ease:Expo.easeOut}, 1.35)
+    	.to(s4Block, 1.2, {bottom: "207%", left: "-200%", opacity: 0, scale: 1.2, rotation: 1000}, 1.2)
+		.pause();
+		
+	function shootAnim(e) {
+		if (e.type == "enter") {
+			tlEyes.play();
+			tlArm.play();
+		} else {
+			tlEyes.pause();
+			tlArm.restart();
+			tlArm.pause();
+		}
+	}
+	
+	
+	// 1871 ANIMATION
+	var container1871 = $("#s1871"),
+		tl;
+	
+	function getBullet() {
+		var element = $('<img class="bullet" src="/wp-content/themes/gunsandammo/remington/images/1871/bullet.png">'),
+			top_rand = Math.floor(Math.random() * (100 - 1) + 1),
+			height_rand = Math.floor(Math.random() * 100) + 10,
+			delay_rand	= Math.floor(Math.random() * 10),
+			left_rand	= Math.floor(Math.random() * 250) + 70, // random between 70-250
+			bull_speed	= 10;
+			
+			
+		if (ww < 470) {
+			height_rand = Math.floor(Math.random() * 70) + 5,
+			bull_speed	= 5;
+		}
+		
+		container1871.append(element);
+		
+		var bullet = new TweenMax.fromTo(element, bull_speed,
+		    {
+		        top: top_rand + "%",
+		        height: height_rand + "px",
+		        left: -left_rand	+ "%"	    
+		    },
+		    {
+			    top: top_rand + "%",
+		        left: '110%',
+		        height: height_rand + "px",
+		        ease: Power0.easeIn
+		    }
+		);
+		return bullet;
+	}
+	
+	//create a bunch of Bezier tweens and add them to a timeline
+	function buildTimeline() {
+		tl = new TimelineMax({repeat:300, delay: 0});
+		for (i = 0 ; i< 40; i++){
+			//start creature animation every 0.17 seconds
+			tl.add(getBullet(), i * 0.7);
+		}
+	}
 
 //-----------------------------------------------------------//
 //	
@@ -847,44 +933,7 @@ if (ww >= 1100 && isSafari == false) {
 	
 	// SCENE 1871
 	//-----------------------------------------------//
-	var container = $("#s1871"),
-		tl;
 	
-	function getBullet() {
-		var element = $('<img class="bullet" src="/wp-content/themes/gunsandammo/remington/images/1871/bullet.png">'),
-			top_rand = Math.floor(Math.random() * (100 - 1) + 1),
-			height_rand = Math.floor(Math.random() * (100 - 5) + 10),
-			delay_rand	= Math.floor(Math.random() * 10),
-			left_rand	= Math.floor(Math.random() * (200 - 25) + 25);
-			
-		container.append(element);
-		
-		var bullet = new TweenMax.fromTo(element, 9,
-		    {
-		        top: top_rand + "%",
-		        height: height_rand + "px",
-		        left: -left_rand	+ "%"	    
-		    },
-		    {
-			    top: top_rand + "%",
-		        left: '110%',
-		        height: height_rand + "px",
-		        ease: Power0.easeIn
-		        //delay: delay_rand
-		        //repeat: -1 // Aka an infinite amount of repeats 
-		    }
-		);
-		return bullet;
-	}
-	
-	//create a bunch of Bezier tweens and add them to a timeline
-	function buildTimeline() {
-		tl = new TimelineMax({repeat:300, delay: 0});
-		for (i = 0 ; i< 40; i++){
-			//start creature animation every 0.17 seconds
-			tl.add(getBullet(), i * 0.7);
-		}
-	}
 	buildTimeline();
 	tl.pause();
 	
@@ -2226,8 +2275,7 @@ if (ww >= 1100 && isSafari == false) {
 	
 	
 
-	
-	// SCENE 4 ========================================== 
+	// SCENE 1959r ========================================== 
 	new ScrollScene({
 		triggerElement: "#next1956record",
 		duration: wh * 8,
@@ -2296,48 +2344,6 @@ if (ww >= 1100 && isSafari == false) {
 	.setTween(tween4_2).addTo(controller);
 			
 											
-	var bEye = $(".b-eye"),
-		bArm = $(".b-arm"),
-		bArmBottom = $(".b-arm-bottom"),
-		s4Block = $(".s1959r-block"),
-		s4Boom = $(".s1959r-boom"),
-		s4BoomBack = $(".s1959r-boom-back"),
-		s4Gun = $(".s1959r-gun");
-		
-	function blockPerish() {
-		s4Block.css("display", "none");
-		$(".test2").css("background-color", "red");
-	}
-	function blockAppear() {
-		s4Block.css("display", "block");
-	}
-	
-    tlEyes = new TimelineMax({repeat: -1, repeatDelay: 2 });
-    tlEyes.to(bEye, 0.2, {display: "none"});
-    
-    tlArm = new TimelineMax({onComplete: blockPerish, onStart: blockAppear,  repeat: -1, repeatDelay: 1, yoyo:false, delay: 1 });
-    tlArm.from(bArm, 0.7, {rotation: 20, transformOrigin: "left top", ease:Back.easeInOut })
-    	.from(bArmBottom, 0.5, {rotation: 30, transformOrigin: "10% 95%", ease:Back.easeIn }, 0)
-    	.to(s4Gun, 0.1, {x:15, y:15}, 0.9)
-    	.to(s4Gun, 0.1, {x:0, y:0}, 1)
-    	.to(s4Block, 0.1, {opacity: 1}, 0)
-    	.to(s4Block, 0.5, {bottom: "100%", rotation: 70, scale: 1.1, ease:Back.easeIn}, 0)
-    	.to(s4Block, 0.7, {bottom: "180%", rotation: 170, scale: 1.4, ease:Back.easeOut}, 0.5)
-    	.to(s4Boom, 0.2, {opacity: 0.3, scale: 1.8, marginLeft: "-2%", ease:Back.easeOut}, 1.15)
-    	.to(s4Boom, 0.1, {opacity: 0, marginLeft: "-2%", ease:Expo.easeOut}, 1.35)
-    	.to(s4Block, 1.2, {bottom: "207%", left: "-200%", opacity: 0, scale: 1.2, rotation: 1000}, 1.2)
-		.pause();
-		
-	function shootAnim(e) {
-		if (e.type == "enter") {
-			tlEyes.play();
-			tlArm.play();
-		} else {
-			tlEyes.pause();
-			tlArm.restart();
-			tlArm.pause();
-		}
-	}
 	
 	new ScrollScene({
 		triggerElement: "#next1956record", 
@@ -2932,6 +2938,18 @@ if (ww < 1100) {
 			$("#t1867").css({fill: "#ffffff",fontSize: "17px"});
 		}
 	});
+	
+	buildTimeline();
+	tl.pause();
+	
+	new ScrollScene({
+		triggerElement: "#next1873",
+		duration: wh,
+		triggerHook: "onEnter"
+	}).addTo(contr_mob).on("enter leave", function (e) {
+		e.type == "enter" ? tl.resume() : tl.pause();
+	});
+	
 	new ScrollScene({
 		triggerElement: "#next1905",
 		duration: wh,
@@ -2971,6 +2989,16 @@ if (ww < 1100) {
 			$("#t1959").css({fill: "#ffffff",fontSize: "17px"});
 		}
 	});
+	
+	new ScrollScene({
+		triggerElement: "#next1960", 
+		duration: wh,
+		triggerHook: "onEnter"
+	})
+	.addTo(contr_mob)
+	.on("enter leave", shootAnim);
+	
+	
 	new ScrollScene({
 		triggerElement: "#next1970",
 		duration: wh,

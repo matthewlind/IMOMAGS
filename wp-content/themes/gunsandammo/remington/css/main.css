@@ -2804,7 +2804,7 @@ body.modal-open {
 #img_1927 {height: auto; width: 35vw;z-index: 2;top: auto; bottom: 0;}
 #left_1927 {width: 75%; z-index: 10;}
 
-#left_1927 p {font-size: 30px;}
+#left_1927 p {font-size: 26px;}
 #btn_1927 {float: left;}
 
 #top_1933, #img_1910 {top: 40%;}
@@ -2838,7 +2838,7 @@ body.modal-open {
 .video-1950 {width: 70%;}
 
 .record-photo {width: 45%;top: 9%;left: 17%;}
-.anim-rec {top: auto;bottom: 1%;width: 47.5%;height: 46%;}
+.anim-rec {top: auto;bottom: 0.5%;width: 53%;height: 48%;right: 19%;}
 
 #left_1960 {width: 66%;margin-left: 1%;}
 
@@ -2867,10 +2867,117 @@ body.modal-open {
 
 }
 
+@media screen and (max-width: 460px) {
+
+.full-story h4 {font-size: 20px;margin-bottom: 10px;}
+.elements {padding-left: 20vw;}
+.text-box {padding: 20px;}
+
+.rem-logo {width: 175px;top: 21%;}
+.years-200 {width: 60%;font-size: 43px;top: 38%;}
+
+#gun_1845 {top: 34%;}
+
+.left-green-bar {width: 45%;}
+
+.in-the-woods,
+#text_1905 {width: 55%;}
+
+#text_1865,
+#text_1867 {width: 90%;}
+
+#text_1858,
+#left_1922 {width: 95%;}
+
+#elems_1875 {width: 98%;}
+
+.text-reg,
+.text-white,
+.text-box p,
+#left_1927 p {font-size: 17px;}
+
+#top_1914 h1 {font-size: 27px;}
+
+#text_1858 h1,
+#text_1861 h1,
+#left_1922 h1,
+#left_1927 h1,
+.text_1933 h1 {font-size: 40px;}
+
+#year_1845 {font-size: 60px}
+
+#text_1867 h1 {font-size: 70px;}
+
+.s1816-year,
+#year_1828,
+#year_1858,
+#year_1861,
+#year_1865,
+#s1918 .year,
+#s1927 .year,
+#top_1933 .year {font-size: 100px;}
+
+#year_1856 {top: -15%;width: 180px;font-size: 90px;}
+#sons {margin-top: 37%;width: 90%;}
+#h1_1856 {font-size: 24px;}
+
+#text_1871 {width: 90%;top: 5%;} 
+#year_1871 {bottom: 1%;}
+
+#typewriting {height: 48vh;top: 3vh;}
+
+#year_1873 {bottom: 47%;}
+#text_1873 {bottom: 5%;}
+
+#john {height: 54vh;left: -23%;}
+#year_1905 {right: 69%; font-size: 92px;}
+
+#video_1906 {width: 300px;bottom: 0; left: 22%;}
+#text_1906 {width: 300px;bottom: 170px;left: 22%;}
+
+#year_1910 {top: -1%; right: 0;}
+#h1_1910 {width: 95%; font-size: 30px; left: 0;top:6%;}
+
+#img_1910 {top: 23%; left: 0; width: 95%;}
+#bottom_1910 {bottom: 2%; left: 0;}
+.peder_1910 {margin-bottom: 30px;}
+
+#bottom_1914 {bottom: 7%;}
+
+#left_1918 {width: 95%;top: 5%;}
+#right_1918 {width: 80%;top: auto;right: auto;bottom: 5%;}
+
+#img_1922 {display: none;}
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
 
 
 
