@@ -1405,16 +1405,16 @@
 	 viewBox="626.9 -843.7 109.8 817.6" style="enable-background:new 626.9 -843.7 109.8 817.6;" xml:space="preserve">
 <line id="line" x1="655.7" y1="-827.5" x2="655.7" y2="-41.8"/>
 <g id="line_menu">
-	<a href="#y1816"><circle id="c1816" class="circle" cx="655.7" cy="-827.5" r="9"/></a>
-	<a href="#y1856"><circle id="c1856" class="circle" cx="655.7" cy="-740.2" r="9"/></a>
-	<a href="#y1867"><circle id="c1867" class="circle" cx="655.7" cy="-652.9" r="9"/></a>
-	<a href="#y1875"><circle id="c1875" class="circle" cx="655.7" cy="-565.6" r="9"/></a>
-	<a href="#y1933"><circle id="c1933" class="circle" cx="655.7" cy="-478.3" r="9"/></a>
-	<a href="#y1959"><circle id="c1959" class="circle" cx="655.7" cy="-391" r="9"/></a>
-	<a href="#y1966"><circle id="c1966" class="circle" cx="655.7" cy="-303.7" r="9"/></a>
-	<a href="#y1987"><circle id="c1987" class="circle" cx="655.7" cy="-216.4" r="9"/></a>
-	<a href="#y2007"><circle id="c2007" class="circle" cx="655.7" cy="-129.1" r="9"/></a>
-	<a href="#y2016"><circle id="c2016" class="circle" cx="655.7" cy="-41.8" r="9"/></a>
+	<a data-menuanchor="y1816" href="#y1816"><circle id="c1816" class="circle" cx="655.7" cy="-827.5"/></a>
+	<a data-menuanchor="y1856" href="#y1856"><circle id="c1856" class="circle" cx="655.7" cy="-740.2" r="9"/></a>
+	<a data-menuanchor="y1867" href="#y1867"><circle id="c1867" class="circle" cx="655.7" cy="-652.9" r="9"/></a>
+	<a data-menuanchor="y1875" href="#y1875"><circle id="c1875" class="circle" cx="655.7" cy="-565.6" r="9"/></a>
+	<a data-menuanchor="y1933" href="#y1933"><circle id="c1933" class="circle" cx="655.7" cy="-478.3" r="9"/></a>
+	<a data-menuanchor="y1959" href="#y1959"><circle id="c1959" class="circle" cx="655.7" cy="-391" r="9"/></a>
+	<a data-menuanchor="y1966" href="#y1966"><circle id="c1966" class="circle" cx="655.7" cy="-303.7" r="9"/></a>
+	<a data-menuanchor="y1987" href="#y1987"><circle id="c1987" class="circle" cx="655.7" cy="-216.4" r="9"/></a>
+	<a data-menuanchor="y2010" href="#y2010"><circle id="c2010" class="circle" cx="655.7" cy="-129.1" r="9"/></a>
+	<a data-menuanchor="y2016" href="#y2016"><circle id="c2016" class="circle" cx="655.7" cy="-41.8" r="9"/></a>
 </g>
 <polygon id="time_arrow" class="arr" points="626.9,-833 637.6,-828 626.9,-823.2 "/>
 <text id="t1816" transform="matrix(1 0 0 1 676.6667 -819.9643)" class="st20">1816</text>
@@ -1425,7 +1425,7 @@
 <text id="t1959" transform="matrix(1 0 0 1 676.6667 -384.4855)" class="st20">1959</text>
 <text id="t1966" transform="matrix(1 0 0 1 676.6667 -297.1862)" class="st20">1966</text>
 <text id="t1987" transform="matrix(1 0 0 1 676.6667 -208.8686)" class="st20">1987</text>
-<text id="t2007" transform="matrix(1 0 0 1 676.6667 -122.5859)" class="st20">2007</text>
+<text id="t2010" transform="matrix(1 0 0 1 676.6667 -122.5859)" class="st20">2010</text>
 <text id="t2016" transform="matrix(1 0 0 1 676.6667 -35.2875)" class="st20">2016</text>
 <g>
 	<line class="st8" x1="652.3" y1="-805.7" x2="659" y2="-805.7"/>

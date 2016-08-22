@@ -76,7 +76,7 @@ html,button,input,select,textarea {
     color: #222;
 }
 body {
-	background-color: #555555;
+	background-color: #111;
 	font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
 	width: 100vw;
 	overflow-x: hidden;
@@ -2705,7 +2705,7 @@ body.modal-open {
 #left_1987 img {margin-top: 2%;}
 #year_1987 {bottom: 2%;}
 
-
+.circle{r: 13px;stroke-width:4;}
 
 
 
@@ -2863,14 +2863,16 @@ body.modal-open {
 #right_1987 {width: 90%; position: static;}
 
 #s1987 .video-wrap {width: 62%;padding-top: 35.25%;}
-
+.circle{r: 15px;}
 
 }
 
 @media screen and (max-width: 460px) {
 
 .full-story h4 {font-size: 20px;margin-bottom: 10px;}
-.elements {padding-left: 20vw;}
+.elements,
+#s1962 .elements,
+#s1963 .elements {padding-left: 20vw;}
 .text-box {padding: 20px;}
 
 .rem-logo {width: 175px;top: 21%;}
@@ -2884,7 +2886,8 @@ body.modal-open {
 #text_1905 {width: 55%;}
 
 #text_1865,
-#text_1867 {width: 90%;}
+#text_1867,
+#text_1966 {width: 90%;}
 
 #text_1858,
 #left_1922 {width: 95%;}
@@ -2896,7 +2899,9 @@ body.modal-open {
 .text-box p,
 #left_1927 p {font-size: 17px;}
 
-#top_1914 h1 {font-size: 27px;}
+
+#top_1914 h1,
+#right_1987 h1 {font-size: 27px;}
 
 #text_1940 h1,
 #text_1941 h1,
@@ -2921,7 +2926,8 @@ body.modal-open {
 #s1918 .year,
 #s1927 .year,
 #top_1933 .year,
-.right_1934 .year {font-size: 100px;}
+.right_1934 .year,
+#year_1966 {font-size: 100px;}
 
 #year_1856 {top: -15%;width: 180px;font-size: 90px;}
 #sons {margin-top: 37%;width: 90%;}
@@ -2953,7 +2959,9 @@ body.modal-open {
 #left_1918 {width: 95%;top: 5%;}
 #right_1918 {width: 80%;top: auto;right: auto;bottom: 5%;}
 
-#img_1922 {display: none;}
+#img_1922,
+#bracket_left,
+#bracket_right {display: none;}
 
 #img_1933 {bottom: 13%;}
 #btn_1933 {bottom: 6%;}
@@ -2976,7 +2984,7 @@ body.modal-open {
 
 #bottom_1950 .video-1950 {width: 70%;float: none;}
 #bottom_1950 .full-story {width: auto;float: none;margin-top: 20px;}
-#year_1950 {right: 2%;bottom: 3%;font-size: 61px;}
+#year_1950 {right: -1%;bottom: -1.5%;font-size: 70px;}
 
 #s1956 .elements {padding-left: 20vw;}
 #top_1956 {margin-top: 5%;}
@@ -2985,6 +2993,47 @@ body.modal-open {
 #bottom_1956 .full-story {width: auto;}
 #year_1956 {font-size: 70px;}
 
+#s1959_year {margin: 1% auto 0 19%;}
+#s1959_info {margin: 1% auto 0 19%; width: 81%;}
+#s1959_h1 {font-size: 35px; right: 60%;}
+
+#bracket_box {width: 50%; left: 45%;}
+.bracket-box-inner {padding: 0;}
+
+#bottom_1959 {margin: 4% auto 0 19%;width: 81%;}
+.video-1950 {width: 91%;}
+
+.s1959r-info {width: 74%;right: 5%;top: 4%;}
+.s1959r-info h1 {font-size: 42px;}
+.record-photo {width: 45%;top: auto;left: auto;right: 5%;bottom: 28%;}
+
+#text_1960 p,
+#s1966 .full-story h4 {text-shadow: 1px 1px 1px rgba(0,0,0,.5);}
+
+#text_1962,
+#text_1963 {bottom: 45%;width: 92%;}
+#text_1962 h1,
+#text_1963 h1 {font-size: 30px;}
+#video_1962,
+#video_1963 {width: 92%;left: 0;top: 55%;}
+#full_1962,
+#full_1963 {bottom: 3%;}
+#year_1962,
+#year_1963 {right: 0;top: -1%;font-size: 70px;}
+
+#text_1966 p {font-size: 22px;}
+
+#text_1970 h1 {font-size: 30px;}
+
+#img_1982 {width: 120vw;right: -10vw;}
+#left_1982 {width: 90%; top: 6%; padding: 20px;}
+#year_1982_wrap {bottom: 14%;}
+
+
+#img_knife_1982 {width: 73%;bottom: 4%;right: auto;}
+
+#year_1987 {right: 0;bottom: -1%;font-size: 70px;}
+#s1987 .video-wrap {width: 99%;padding-top: 55.25%;}
 
 
 
@@ -2993,6 +3042,159 @@ body.modal-open {
 }
 
 
+@media screen and (max-width: 380px) {
+
+.full-story h4 {font-size: 16px;margin-bottom: 5px;}
+.btn-full {font-size: 17px;padding: 0 15px;}
+
+#s1845 .elements {padding-left: 20vw;}
+#s1856 .elements {padding-left: 17vw;}
+
+.text-reg, .text-white, .text-box p, #left_1927 p {font-size: 16px;}
+
+#text_1873,
+#text_1905 h1,
+#h1_1856 {font-size: 21px;}
+
+#text_1962 h1 {font-size: 25px;} 
+
+#left_1918 h1,
+#s1959_h1 {font-size: 27px;}
+
+#text_1871 h1,
+#left_1922 h1,
+.text_1933 h1,
+#top_1950 h1 {font-size: 30px;}
+
+.years-200 {font-size: 37px;}
+
+#text_1934 h1 {font-size: 40px;}
+
+#year_1905,
+.year,
+#s1918 .year,
+.right_1934 .year {font-size: 70px;}
+
+#year_1875 {font-size: 100px;}
+
+#year_1873,
+#year_1940 {font-size: 120px;}
+
+.s1816-video {width: 110%;margin-left: -6%;}
+
+#year_1856 {top: -13%;width: 145px;font-size: 70px;}
+#sons {margin-top: 28%;}
+
+#text_1906 {width: 280px;bottom: 200px;left: 18%;}
+#video_1906 {width: 280px;left: 18%;}
+
+.peder_1910 {margin-bottom: 13px;width: 102px;}
+ #img_1910 {top: 38%; }
+#top_1914 img {display: none;}
+#btn_1917 {display: inline-block;}
+
+#bottom_1950 .video-1950 {width: 84%;}
+
+#year_1956 {top: 89%;}
+
+
+}
+
+
+@media screen and (max-width: 321px) {
+
+
+
+#text_1962 p {font-size: 14px;}
+
+.text-reg, .text-white, .text-box p, #left_1927 p,
+.full-story h4,
+.s1959r-info p {font-size: 15px;}
+
+
+.btn-full {font-size: 16px;}
+
+#text_1873, #text_1905 h1, #h1_1856,
+#text_1962 h1,
+#text_1963 h1,
+#text_1966 p {font-size: 20px;}
+
+#text_1941 h1,
+#top_1950 h1 {font-size: 23px;}
+
+.founder-info span:nth-child(1),
+#left_1918 h1,
+#text_1970 h1 {font-size: 25px;}
+
+#text_1858 h1,
+#text_1865 h1,
+#text_1861 h1,
+#text_1875 h1,
+#left_1927 h1,
+#text_1934 h1,
+#left_1960 h1,
+#text_1966 h1,
+.s1959r-info h1,
+#left_1982 h1 {font-size: 30px;}
+
+#year_1950,
+#year_1962,
+#year_1963 {font-size: 51px;}
+
+#year_1858 {font-size: 80px;}
+
+#year_1867,
+#year_1873,
+#s1922 .year,
+#year_1940,
+#year_1970,
+#year_1982_wrap .year {font-size: 100px;}
+
+
+
+
+
+
+.years-200 {font-size: 33px; top: 40%;}
+#year_1856 {top: 0;width: auto;right: auto; left: -10%;font-size: 30px;}
+
+#sons {margin-top: 0%;}
+#s1856 .elements {padding-right: 0;}
+#text_1858 {top: 24%;}
+
+#text_1867 {bottom: 6%;font-size: 19px;}
+#text_1871 {width: 100%;top: 0;height: 100%;}
+#john {height: 50vh;}
+#btn_1905 {bottom: 1%;}
+
+#left_1906, #right_1906 {background-image: none !important;}
+
+
+#s1906 .text-box {border: none; padding: 0; background-color: transparent; height: auto;}
+#year_1906 {right: auto;left: 20%;}
+#text_1906 {width: 247px;bottom: 250px;left: 20%;}
+#video_1906 {width: 262px;bottom: 10%;}
+#btn_1906 {bottom: 59%;right: 10%;}
+.peder_1910 {width: 88px;}
+#year_1914 {right: 0%;top: -1%;}
+#year_1917 {bottom: 0%;}
+#s1918 .year,
+.right_1934 .year {margin-top: -12px;}
+#img_1940 {bottom: 15%;}
+#top_1950 img {margin-top: 10px;}
+#year_1956 {top: 76%;font-size: 50px;left: 67%;}
+.record-photo {bottom: 23%;}
+#left_1960 {width: 85%;}
+#year_1987 {bottom: 3%;font-size: 51px;}
+
+
+
+
+
+	
+	
+}
+/*
 
 @media print,
        (-o-min-device-pixel-ratio: 5/4),
@@ -3000,6 +3202,7 @@ body.modal-open {
        (min-resolution: 120dpi) {
 
 }
+*/
 
 
 

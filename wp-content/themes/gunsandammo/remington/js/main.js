@@ -2885,11 +2885,29 @@ if (ww >= 1100 && isSafari == false) {
 
 //-----------------------------------------------------------//
 //	
-// 						ANIMATION TABLET
+// 						ANIMATION TABLTE
 //
 //-----------------------------------------------------------//
 
 if (ww < 1100) {
+	
+	
+	// TIMELINE NAVIGATION
+	//---------------------------------------------------//
+/*
+	$(".circle").click(function(e){
+		e.preventDefault();
+		var str 	= $(this).attr("id"),
+			section = str.replace("c", "s");
+		
+		console.log(section);
+		allDoc.animate({ scrollTop: $("#"+section).offset().top }, 2, "swing");
+	});
+*/
+
+	
+	
+	
 	
 	myScroll = new IScroll('#container');
 	// init controller
@@ -2904,11 +2922,11 @@ if (ww < 1100) {
 		triggerHook: "onEnter"
 	}).addTo(contr_mob).on("enter leave", function (e) {
 		if (e.type == "enter") {
-			$("#c1816").css({stroke: "#c14646",r: 13,strokeWidth: 4});
+			$("#c1816").css({stroke: "#c14646"});
 			$("#t1816").css({fill: "#c14646",fontSize: "20px"});
 		} else {
 			///alert('ds');
-			$("#c1816").css({stroke: "#ffffff",r: 9,strokeWidth: 3});
+			$("#c1816").css({stroke: "#ffffff"});
 			$("#t1816").css({fill: "#ffffff",fontSize: "17px"});
 		}
 	});
@@ -2918,10 +2936,10 @@ if (ww < 1100) {
 		triggerHook: "onEnter"
 	}).addTo(contr_mob).on("enter leave", function (e) {
 		if (e.type == "enter") {
-			$("#c1856").css({stroke: "#c14646",r: 13,strokeWidth: 4, fill: "#ffffff"});
+			$("#c1856").css({stroke: "#c14646", fill: "#ffffff"});
 			$("#t1856").css({fill: "#c14646",fontSize: "20px"});
 		} else {
-			$("#c1856").css({stroke: "#ffffff",r: 9,strokeWidth: 3, fill: "#1e3d05"});
+			$("#c1856").css({stroke: "#ffffff", fill: "#1e3d05"});
 			$("#t1856").css({fill: "#ffffff",fontSize: "17px"});
 		}
 	});
@@ -2931,10 +2949,10 @@ if (ww < 1100) {
 		triggerHook: "onEnter"
 	}).addTo(contr_mob).on("enter leave", function (e) {
 		if (e.type == "enter") {
-			$("#c1867").css({stroke: "#c14646",r: 13,strokeWidth: 4, fill: "#ffffff"});
+			$("#c1867").css({stroke: "#c14646", fill: "#ffffff"});
 			$("#t1867").css({fill: "#c14646",fontSize: "20px"});
 		} else {
-			$("#c1867").css({stroke: "#ffffff",r: 9,strokeWidth: 3, fill: "#1e3d05"});
+			$("#c1867").css({stroke: "#ffffff", fill: "#1e3d05"});
 			$("#t1867").css({fill: "#ffffff",fontSize: "17px"});
 		}
 	});
@@ -2956,10 +2974,10 @@ if (ww < 1100) {
 		triggerHook: "onEnter"
 	}).addTo(contr_mob).on("enter leave", function (e) {
 		if (e.type == "enter") {
-			$("#c1875").css({stroke: "#c14646",r: 13,strokeWidth: 4});
+			$("#c1875").css({stroke: "#c14646"});
 			$("#t1875").css({fontSize: "20px"});
 		} else {
-			$("#c1875").css({stroke: "#1e3d05",r: 9,strokeWidth: 3});
+			$("#c1875").css({stroke: "#1e3d05"});
 			$("#t1875").css({fill: "#1e3d05",fontSize: "17px"});
 		}
 	});
@@ -2969,10 +2987,10 @@ if (ww < 1100) {
 		triggerHook: "onEnter"
 	}).addTo(contr_mob).on("enter leave", function (e) {
 		if (e.type == "enter") {
-			$("#c1933").css({stroke: "#c14646",r: 13,strokeWidth: 4});
+			$("#c1933").css({stroke: "#c14646"});
 			$("#t1933").css({fill: "#c14646",fontSize: "20px"});
 		} else {
-			$("#c1933").css({stroke: "#ffffff",r: 9,strokeWidth: 3});
+			$("#c1933").css({stroke: "#ffffff"});
 			$("#t1933").css({fill: "#ffffff",fontSize: "17px"});
 		}
 	});
@@ -2982,10 +3000,10 @@ if (ww < 1100) {
 		triggerHook: "onEnter"
 	}).addTo(contr_mob).on("enter leave", function (e) {
 		if (e.type == "enter") {
-			$("#c1959").css({stroke: "#c14646", fill: "#ffffff", r: 13,strokeWidth: 4});
+			$("#c1959").css({stroke: "#c14646", fill: "#ffffff"});
 			$("#t1959").css({fill: "#c14646",fontSize: "20px"});
 		} else {
-			$("#c1959").css({stroke: "#ffffff", fill: "#1E3F14", r: 9,strokeWidth: 3});
+			$("#c1959").css({stroke: "#ffffff", fill: "#1E3F14"});
 			$("#t1959").css({fill: "#ffffff",fontSize: "17px"});
 		}
 	});
@@ -3005,10 +3023,10 @@ if (ww < 1100) {
 		triggerHook: "onEnter"
 	}).addTo(contr_mob).on("enter leave", function (e) {
 		if (e.type == "enter") {
-			$("#c1966").css({stroke: "#c14646", fill: "#ffffff", r: 13,strokeWidth: 4});
+			$("#c1966").css({stroke: "#c14646", fill: "#ffffff"});
 			$("#t1966").css({fill: "#c14646",fontSize: "20px"});
 		} else {
-			$("#c1966").css({stroke: "#ffffff", fill: "#1E3F14", r: 9,strokeWidth: 3});
+			$("#c1966").css({stroke: "#ffffff", fill: "#1E3F14"});
 			$("#t1966").css({fill: "#ffffff",fontSize: "17px"});
 		}
 	});
@@ -3018,10 +3036,10 @@ if (ww < 1100) {
 		triggerHook: "onEnter"
 	}).addTo(contr_mob).on("enter leave", function (e) {
 		if (e.type == "enter") {
-			$("#c1987").css({stroke: "#c14646",r: 13,strokeWidth: 4});
+			$("#c1987").css({stroke: "#c14646"});
 			$("#t1987").css({fill: "#c14646",fontSize: "20px"});
 		} else {
-			$("#c1987").css({stroke: "#ffffff",r: 9,strokeWidth: 3});
+			$("#c1987").css({stroke: "#ffffff"});
 			$("#t1987").css({fill: "#1e3d05",fontSize: "17px"});
 		}
 	});
@@ -3116,13 +3134,14 @@ if (ww < 1100) {
 	$("#container").fullpage({
 		scrollingSpeed: 1500,
 		sectionSelector: 'section',
+		normalScrollElementTouchThreshold: 3,
 		onLeave: function(index, nextIndex, direction){
 			var leavingSection = $(this);
 			
 			//console.log(leavingSection);
 			
 			//console.log(index);
-			//console.log(nextIndex);
+			console.log(nextIndex);
 			// console.log(leavingSection[0].nextElementSibling);
 			
 			sections.eq(nextIndex).find(".lazy").trigger("unveil");
@@ -3149,6 +3168,21 @@ if (ww < 1100) {
 		menu: '#line_menu',
 		anchors:['ystart', 'y1816', 'y1828', 'y1845', 'y1856', 'y1858', 'y1861', 'y1865', 'y1867', 'y1871', 'y1873', 'y1875', 'y1905', 'y1906', 'y1910', 'y1914', 'y1917', 'y1918','y1922', 'y1927', 'y1933', 'y1934', 'y1940', 'y1941', 'y1950', 'y1956', 'y1959', 'yr1959', 'y1960', 'y1962', 'y1963', 'y1966', 'y1970', 'y1982', 'y1987']
 	});
+	
+	
+	
+	$("#c1816").click(function(){$.fn.fullpage.moveTo('y1816');});
+	$("#c1856").click(function(){$.fn.fullpage.moveTo('y1856');});
+	$("#c1867").click(function(){$.fn.fullpage.moveTo('y1867');});
+	$("#c1875").click(function(){$.fn.fullpage.moveTo('y1875');});
+	$("#c1933").click(function(){$.fn.fullpage.moveTo('y1933');});
+	$("#c1959").click(function(){$.fn.fullpage.moveTo('y1959');});
+	$("#c1966").click(function(){$.fn.fullpage.moveTo('y1966');});
+	$("#c1987").click(function(){$.fn.fullpage.moveTo('y1987');});
+/*
+	$("#c2010").click(function(){$.fn.fullpage.moveTo(2);});
+	$("#c2016").click(function(){$.fn.fullpage.moveTo(2);});
+*/
 
 	$(".circle").click(function(){
 		var id = $(this).attr("id"),
@@ -3161,6 +3195,15 @@ if (ww < 1100) {
 		$("#"+section_id).next().find(".lazy").trigger("unveil");
 		$("#"+section_id).next().trigger("unveil");
 	});
+	
+
+
+/*
+	allDoc.on('click', '#army', function(){
+		alert('ddd');
+		$.fn.fullpage.moveTo(3);
+	});
+*/
 
 
 }// end if ww < 1100
