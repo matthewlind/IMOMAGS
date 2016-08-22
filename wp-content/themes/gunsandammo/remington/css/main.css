@@ -2898,6 +2898,11 @@ body.modal-open {
 
 #top_1914 h1 {font-size: 27px;}
 
+#text_1940 h1,
+#text_1941 h1,
+#top_1956 h1,
+#top_1956 h1 {font-size: 30px;}
+
 #text_1858 h1,
 #text_1861 h1,
 #left_1922 h1,
@@ -2915,7 +2920,8 @@ body.modal-open {
 #year_1865,
 #s1918 .year,
 #s1927 .year,
-#top_1933 .year {font-size: 100px;}
+#top_1933 .year,
+.right_1934 .year {font-size: 100px;}
 
 #year_1856 {top: -15%;width: 180px;font-size: 90px;}
 #sons {margin-top: 37%;width: 90%;}
@@ -2949,28 +2955,35 @@ body.modal-open {
 
 #img_1922 {display: none;}
 
+#img_1933 {bottom: 13%;}
+#btn_1933 {bottom: 6%;}
 
+.right_1934 {top: 2%; width: 95%; right: auto;}
+#img_1934 {top: auto;bottom: 5%;}
 
+#top_1940 {width: 95%;top: 1%;}
+#text_1940 {width: 100%;margin-right: 0;float: none;}
+#full_1940 {width: auto;float: none;}
 
+#top_1941 {top: 0;}
+#full_1941 {width: auto;float: none;}
+#text_1941 {width: 95%; float: none;}
 
+#img_1941 {width: 69%;}
+#year_1941 {right: 0%;}
 
+#top_1950 {margin-top: 0%;}
 
+#bottom_1950 .video-1950 {width: 70%;float: none;}
+#bottom_1950 .full-story {width: auto;float: none;margin-top: 20px;}
+#year_1950 {right: 2%;bottom: 3%;font-size: 61px;}
 
+#s1956 .elements {padding-left: 20vw;}
+#top_1956 {margin-top: 5%;}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#bottom_1956 img {width: 70%;display: block;}
+#bottom_1956 .full-story {width: auto;}
+#year_1956 {font-size: 70px;}
 
 
 
