@@ -1368,7 +1368,6 @@
 									<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
 								</div>
 							</div>
-							</div>
 							<div id="year_1987" class="year">1987</div>
 							<div id="btn_1987" class="btn-info" data-scene="1910" data-slide="0" title="View Photo"><span class="icon-wrap"><i class="icon-camera"></i></span></div>
 						</div>
@@ -1379,16 +1378,105 @@
 						<i class="i-close icon-cancel"></i>
 					</div>
 				</div>
-				<div id="next1999" class="nextriger"></div>
+				<div id="next1988" class="nextriger"></div>
+			</section>
+			
+			<!-- 1988
+			<!-------------------------------------------------->
+			<section id="s1988" class="scene">
+				<div class="scene-inner lazy" data-src="/wp-content/themes/gunsandammo/remington/images/1988/M24-2.jpg" data-src-m="/wp-content/themes/gunsandammo/remington/images/1988/M24-2@m.jpg">
+					<div class="elements">
+						<div class="elements-inner">
+							<div id="right_1988" class="text-box">
+								<h1>Model 11-87 Autoloading Shotguns</h1>
+								<p>The M24 designation was assigned by the U.S. Army after adoption of it as their standard sniper rifle in 1988.</p>
+								<div id="full_1988" class="full-story full-story-light">
+									<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
+									<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
+								</div>
+							</div>
+							<div id="year_1988" class="year">1988</div>
+						</div>
+					</div>
+				</div>
+				<div id="next2010" class="nextriger"></div>
 			</section>
 			
 			
+			<!-- 2010
+			<!-------------------------------------------------->
+			<section id="s2010" class="scene">
+				<div class="scene-inner" >
+					<div class="elements">
+						<div class="elements-inner">
+							<div id="text_2010">
+								<h1>Model 11-87 Autoloading Shotguns</h1>
+								<p class="text-reg">The M24 designation was assigned by the U.S. Army after adoption of it as their standard sniper rifle in 2010.</p>
+							</div>
+							<img id="img_2010" class="lazy" data-src="/wp-content/themes/gunsandammo/remington/images/2010/VersaMax.png">
+							<div id="bottom_2010">
+								<div id="year_2010" class="year">2010</div>
+								<div id="full_2010" class="full-story">
+									<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
+									<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="next2011" class="nextriger"></div>
+			</section>
 			
 			
+			<!-- 2011
+			<!-------------------------------------------------->
+			<section id="s2011" class="scene">
+				<div class="scene-inner" >
+					<div class="elements">
+						<div class="elements-inner">
+							<img id="img_2011" class="lazy" data-src="/wp-content/themes/gunsandammo/remington/images/2011/R1.png">
+							<div id="text_2011">
+								<h1>R1 Pistol Is Introduced</h1>
+								<p class="text-reg">After eight decades of not having a pistol in their lie, Remington intriduced teh bodl new 1911 R1.</p>
+								<div id="bottom_2011">
+									<div id="year_2011" class="year">2011</div>
+									<div id="full_2011" class="full-story">
+										<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
+										<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="next2013" class="nextriger"></div>
+			</section>
 			
 			
-			
-			
+			<!-- 2013
+			<!-------------------------------------------------->
+			<section id="s2013" class="scene">
+				<div class="scene-inner" >
+					<div class="elements">
+						<div class="elements-inner">
+							<img id="img_2013" class="lazy" data-src="/wp-content/themes/gunsandammo/remington/images/2013/model-783.png" data-src-m="/wp-content/themes/gunsandammo/remington/images/2013/model-783@m.png">
+							<div id="text_2013">
+								<h1>MODEL 783 Introduced</h1>
+								<p class="text-reg">Remington introduced the Model 783 bolt-action rifle; a rugged "working man’s" model.</p>
+								<div id="bottom_2013">
+									<div id="year_2013" class="year">2013</div>
+									<div id="full_2013" class="full-story">
+										<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
+										<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="next2014" class="nextriger"></div>
+			</section>
 			
 			
 			

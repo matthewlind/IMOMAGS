@@ -54,8 +54,8 @@ $(document).ready(function() {
 	});
 	modal_c.click(function(e){e.stopPropagation();});
 	
-	// Open Modal
 	
+	// Open Modal
 	scene.on('click', '.btn-info', function() {
 		var d 		= $(this), 
 			modal 	= d.closest('.scene').find('.modal'),
@@ -2781,16 +2781,17 @@ if (ww >= 1100 && isSafari == false) {
 	.setPin("#s1987").addTo(controller)
 	.on("enter leave", function (e) {
 		if (e.type == "enter") {
+			$("#next_scene").data('next','s1988').data('more', 4);
 			$("#c1987").css({stroke: "#c14646",r: 13,strokeWidth: 4});
 			$("#t1987").css({fill: "#c14646",fontSize: "20px"});
 		} else {
 			$("#c1987").css({stroke: "#ffffff",r: 9,strokeWidth: 3});
 			$("#t1987").css({fill: "#1e3d05",fontSize: "17px"});
 		}
-	});;
+	});
 	
-
-
+	
+	
 	// Entering
 	var year_1987 = TweenMax.from('#year_1987', 10, {
 		right: '-=10%',
@@ -2847,16 +2848,212 @@ if (ww >= 1100 && isSafari == false) {
 	
 	
 	
+	// SCENE 1988
+	//-----------------------------------------------//
+	new ScrollScene({
+		triggerElement: "#next1988",
+		duration: wh * 8,
+		offset: 10,
+		triggerHook: "onLeave"
+	})
+	.setPin("#s1988").addTo(controller).on("enter leave", function (e) {
+		if (e.type == "enter") {
+			$("#next_scene").data('next','s2010').data('more', 4);
+		} 
+	});
+	
+
+	// Entering
+	var right_1988 = TweenMax.from('#year_1988', 10, {
+		right: '-=10%',
+		opacity: 0,
+		ease: Power1.easeInOut
+	});
+	var year_1988 = TweenMax.from('#right_1988', 10, {
+		right: '-=10%',
+		opacity: 0,
+		ease: Power1.easeInOut
+	});
+	
+	new ScrollScene({
+		triggerElement: "#next1988",
+		duration: wh*4,
+		triggerHook: "onLeave"
+	})
+	.setTween([year_1988, right_1988]).addTo(controller);
+	
+	// Leaving
+	var lright_1988 = TweenMax.to('#year_1988', 10, {
+		right: '-=10%',
+		opacity: 0,
+		ease: Power1.easeInOut
+	});
+	var lyear_1988 = TweenMax.to('#right_1988', 10, {
+		right: '-=10%',
+		opacity: 0,
+		ease: Power1.easeInOut
+	});
+
+	new ScrollScene({
+		triggerElement: "#next1988",
+		offset: wh*5,
+		duration: wh*3,
+		triggerHook: "onLeave"
+	})
+	.setTween([lyear_1988, lright_1988]).addTo(controller);
+	
+	
+	// SCENE 2010
+	//-----------------------------------------------//
+	new ScrollScene({
+		triggerElement: "#next2010",
+		duration: wh * 8,
+		offset: 10,
+		triggerHook: "onLeave"
+	})
+	.setPin("#s2010").addTo(controller).on("enter leave", function (e) {
+		if (e.type == "enter") {
+			$("#next_scene").data('next','s2011').data('more', 4);
+		} 
+	});
+	
+
+	// Entering
+	var all_2010 = TweenMax.staggerFrom('#text_2010, #img_2010, #bottom_2010', 10, {
+		marginLeft: '+=10%',
+		opacity: 0,
+		ease: Power1.easeInOut
+	}, 2);
+	new ScrollScene({
+		triggerElement: "#next2010",
+		duration: wh*4,
+		triggerHook: "onLeave"
+	})
+	.setTween(all_2010).addTo(controller);
+	
+	// Leaving
+	var lall_2010 = TweenMax.staggerTo('#text_2010, #img_2010, #bottom_2010', 10, {
+		marginLeft: '+=10%',
+		opacity: 0,
+		ease: Power1.easeInOut
+	}, 2);
+
+	new ScrollScene({
+		triggerElement: "#next2010",
+		offset: wh*5,
+		duration: wh*3,
+		triggerHook: "onLeave"
+	})
+	.setTween(lall_2010).addTo(controller);
 	
 	
 	
+	// SCENE 2011
+	//-----------------------------------------------//
+	new ScrollScene({
+		triggerElement: "#next2011",
+		duration: wh * 8,
+		offset: 10,
+		triggerHook: "onLeave"
+	})
+	.setPin("#s2011").addTo(controller).on("enter leave", function (e) {
+		if (e.type == "enter") {
+			$("#next_scene").data('next','s2013').data('more', 4);
+		} 
+	});
+	
+
+	// Entering
+	var text_2011 = TweenMax.from('#text_2011', 10, {
+		left: '+=10%',
+		opacity: 0,
+		ease: Power1.easeInOut
+	});
+	var img_2011 = TweenMax.from('#img_2011', 10, {
+		left: '-=10%',
+		opacity: 0,
+		ease: Power1.easeInOut
+	});
+	new ScrollScene({
+		triggerElement: "#next2011",
+		duration: wh*4,
+		triggerHook: "onLeave"
+	})
+	.setTween([text_2011, img_2011]).addTo(controller);
+	
+	// Leaving
+	var ltext_2011 = TweenMax.to('#text_2011', 10, {
+		left: '+=10%',
+		opacity: 0,
+		ease: Power1.easeInOut
+	});
+	var limg_2011 = TweenMax.to('#img_2011', 10, {
+		left: '-=10%',
+		opacity: 0,
+		ease: Power1.easeInOut
+	});
+
+	new ScrollScene({
+		triggerElement: "#next2011",
+		offset: wh*5,
+		duration: wh*3,
+		triggerHook: "onLeave"
+	})
+	.setTween([ltext_2011, limg_2011]).addTo(controller);
 	
 	
+	// SCENE 2013
+	//-----------------------------------------------//
+	new ScrollScene({
+		triggerElement: "#next2013",
+		duration: wh * 8,
+		offset: 10,
+		triggerHook: "onLeave"
+	})
+	.setPin("#s2013").addTo(controller).on("enter leave", function (e) {
+		if (e.type == "enter") {
+			$("#next_scene").data('next','s2014').data('more', 4);
+		} 
+	});
 	
+
+	// Entering
+	var text_2013 = TweenMax.from('#text_2013', 10, {
+		left: '+=10%',
+		opacity: 0,
+		ease: Power1.easeInOut
+	});
+	var img_2013 = TweenMax.from('#img_2013', 10, {
+		left: '-=10%',
+		opacity: 0,
+		ease: Power1.easeInOut
+	});
+	new ScrollScene({
+		triggerElement: "#next2013",
+		duration: wh*4,
+		triggerHook: "onLeave"
+	})
+	.setTween([text_2013, img_2013]).addTo(controller);
 	
-	
-	
-	
+	// Leaving
+	var ltext_2013 = TweenMax.to('#text_2013', 10, {
+		left: '+=10%',
+		opacity: 0,
+		ease: Power1.easeInOut
+	});
+	var limg_2013 = TweenMax.to('#img_2013', 10, {
+		left: '-=10%',
+		opacity: 0,
+		ease: Power1.easeInOut
+	});
+
+	new ScrollScene({
+		triggerElement: "#next2013",
+		offset: wh*5,
+		duration: wh*3,
+		triggerHook: "onLeave"
+	})
+	.setTween([ltext_2013, limg_2013]).addTo(controller);
 	
 	
 	
