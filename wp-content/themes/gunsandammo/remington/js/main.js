@@ -169,6 +169,24 @@ $(document).ready(function() {
 			ease: Power0.easeNone
 		})
 		.setTween(ta_1970).addTo(controller);
+		
+		var ta_1988 = TweenMax.to(time_arrow, 1, {y: 698});
+		new ScrollScene({
+			triggerElement: "#next1988",
+			duration: wh*duration[7],
+			triggerHook: "onLeave",
+			ease: Power0.easeNone
+		})
+		.setTween(ta_1988).addTo(controller);
+		
+		var ta_2011 = TweenMax.to(time_arrow, 1, {y: 698});
+		new ScrollScene({
+			triggerElement: "#next2011",
+			duration: wh*duration[8],
+			triggerHook: "onLeave",
+			ease: Power0.easeNone
+		})
+		.setTween(ta_2011).addTo(controller);
 	
 	}	
 
@@ -310,7 +328,7 @@ if (ww >= 1100 && isSafari == false) {
 		allDoc.animate({ scrollTop: $("#"+scroll_el).offset().top + wh * more}, 5000, "swing");
 	});
 	
-	var arr_dur_desk = [16, 22, 18, 66, 50, 45, 21];
+	var arr_dur_desk = [16, 22, 18, 66, 50, 45, 21, 14, 28];
 	arrow_anim(controller, arr_dur_desk);	
 	
 /*
@@ -407,7 +425,7 @@ if (ww >= 1100 && isSafari == false) {
 			$("#c1816").css({stroke: "#c14646",r: 13,strokeWidth: 4});
 			$("#t1816").css({fill: "#c14646",fontSize: "20px"});
 		} else {
-			$("#c1816").css({stroke: "#ffffff",r: 9,strokeWidth: 3});
+			$("#c1816").css({stroke: "#ffffff",r: 11,strokeWidth: 3});
 			$("#t1816").css({fill: "#1e3d05",fontSize: "17px"});
 		}
 	});
@@ -653,7 +671,7 @@ if (ww >= 1100 && isSafari == false) {
 			$("#c1856").css({stroke: "#c14646",r: 13,strokeWidth: 4, fill: "#ffffff"});
 			$("#t1856").css({fill: "#c14646",fontSize: "20px"});
 		} else {
-			$("#c1856").css({stroke: "#ffffff",r: 9,strokeWidth: 3, fill: "#1e3d05"});
+			$("#c1856").css({stroke: "#ffffff",r: 11,strokeWidth: 3, fill: "#1e3d05"});
 			$("#t1856").css({fill: "#ffffff",fontSize: "17px"});
 		}
 	});
@@ -886,7 +904,7 @@ if (ww >= 1100 && isSafari == false) {
 			$("#c1867").css({stroke: "#c14646",r: 13,strokeWidth: 4, fill: "#ffffff"});
 			$("#t1867").css({fill: "#c14646",fontSize: "20px"});
 		} else {
-			$("#c1867").css({stroke: "#ffffff",r: 9,strokeWidth: 3, fill: "#1e3d05"});
+			$("#c1867").css({stroke: "#ffffff",r: 11,strokeWidth: 3, fill: "#1e3d05"});
 			$("#t1867").css({fill: "#ffffff",fontSize: "17px"});
 		}
 	});
@@ -1089,7 +1107,7 @@ if (ww >= 1100 && isSafari == false) {
 			$("#c1875").css({stroke: "#c14646",r: 13,strokeWidth: 4});
 			$("#t1875").css({fontSize: "20px"});
 		} else {
-			$("#c1875").css({stroke: "#1e3d05",r: 9,strokeWidth: 3});
+			$("#c1875").css({stroke: "#1e3d05",r: 11,strokeWidth: 3});
 			$("#t1875").css({fill: "#1e3d05",fontSize: "17px"});
 		}
 	});
@@ -1710,7 +1728,7 @@ if (ww >= 1100 && isSafari == false) {
 			$("#c1933").css({stroke: "#c14646",r: 13,strokeWidth: 4});
 			$("#t1933").css({fill: "#c14646",fontSize: "20px"});
 		} else {
-			$("#c1933").css({stroke: "#ffffff",r: 9,strokeWidth: 3});
+			$("#c1933").css({stroke: "#ffffff",r: 11,strokeWidth: 3});
 			$("#t1933").css({fill: "#ffffff",fontSize: "17px"});
 		}
 	});
@@ -2146,7 +2164,7 @@ if (ww >= 1100 && isSafari == false) {
 			$("#c1959").css({stroke: "#c14646", fill: "#ffffff", r: 13,strokeWidth: 4});
 			$("#t1959").css({fill: "#c14646",fontSize: "20px"});
 		} else {
-			$("#c1959").css({stroke: "#ffffff", fill: "#1E3F14", r: 9,strokeWidth: 3});
+			$("#c1959").css({stroke: "#ffffff", fill: "#1E3F14", r: 11,strokeWidth: 3});
 			$("#t1959").css({fill: "#ffffff",fontSize: "17px"});
 		}
 	});
@@ -2577,7 +2595,7 @@ if (ww >= 1100 && isSafari == false) {
 			$("#c1966").css({stroke: "#c14646", fill: "#ffffff", r: 13,strokeWidth: 4});
 			$("#t1966").css({fill: "#c14646",fontSize: "20px"});
 		} else {
-			$("#c1966").css({stroke: "#ffffff", fill: "#1E3F14", r: 9,strokeWidth: 3});
+			$("#c1966").css({stroke: "#ffffff", fill: "#1E3F14", r: 11,strokeWidth: 3});
 			$("#t1966").css({fill: "#ffffff",fontSize: "17px"});
 		}
 	});
@@ -2785,7 +2803,7 @@ if (ww >= 1100 && isSafari == false) {
 			$("#c1987").css({stroke: "#c14646",r: 13,strokeWidth: 4});
 			$("#t1987").css({fill: "#c14646",fontSize: "20px"});
 		} else {
-			$("#c1987").css({stroke: "#ffffff",r: 9,strokeWidth: 3});
+			$("#c1987").css({stroke: "#1e3d05",r: 11,strokeWidth: 3});
 			$("#t1987").css({fill: "#1e3d05",fontSize: "17px"});
 		}
 	});
@@ -2914,7 +2932,12 @@ if (ww >= 1100 && isSafari == false) {
 	.setPin("#s2010").addTo(controller).on("enter leave", function (e) {
 		if (e.type == "enter") {
 			$("#next_scene").data('next','s2011').data('more', 4);
-		} 
+			$("#c2010").css({stroke: "#c14646",r: 13,strokeWidth: 4});
+			$("#t2010").css({fill: "#c14646",fontSize: "20px"});
+		} else {
+			$("#c2010").css({stroke: "#1e3d05",r: 11,strokeWidth: 3});
+			$("#t2010").css({fill: "#1e3d05",fontSize: "17px"});
+		}
 	});
 	
 
@@ -3056,6 +3079,49 @@ if (ww >= 1100 && isSafari == false) {
 	.setTween([ltext_2013, limg_2013]).addTo(controller);
 	
 	
+	// SCENE 2014
+	//-----------------------------------------------//
+	new ScrollScene({
+		triggerElement: "#next2014",
+		duration: wh * 8,
+		offset: 10,
+		triggerHook: "onLeave"
+	})
+	.setPin("#s2014").addTo(controller).on("enter leave", function (e) {
+		if (e.type == "enter") {
+			$("#next_scene").data('next','s2014').data('more', 4);
+		} 
+	});
+	
+
+	// Entering
+	var text_2014 = TweenMax.from('#text_2014', 10, {
+		left: '+=10%',
+		opacity: 0,
+		ease: Power1.easeInOut
+	});
+	new ScrollScene({
+		triggerElement: "#next2014",
+		duration: wh*4,
+		triggerHook: "onLeave"
+	})
+	.setTween(text_2014).addTo(controller);
+	
+	// Leaving
+	var ltext_2014 = TweenMax.to('#text_2014', 10, {
+		left: '-=10%',
+		opacity: 0,
+		ease: Power1.easeInOut
+	});
+	new ScrollScene({
+		triggerElement: "#next2014",
+		offset: wh*5,
+		duration: wh*3,
+		triggerHook: "onLeave"
+	})
+	.setTween(ltext_2014).addTo(controller);
+	
+	
 	
 	
 	
@@ -3110,7 +3176,7 @@ if (ww < 1100) {
 	// init controller
 	contr_mob = new ScrollMagic();	
 	
-	var arr_dur_mob = [3, 3, 2, 8, 5, 4, 2];
+	var arr_dur_mob = [3, 3, 2, 8, 5, 4, 2, 1, 3];
 	arrow_anim(contr_mob, arr_dur_mob);
 	
 	new ScrollScene({
@@ -3228,7 +3294,7 @@ if (ww < 1100) {
 		}
 	});
 	new ScrollScene({
-		triggerElement: "#s1987",
+		triggerElement: "#next1988",
 		duration: wh,
 		triggerHook: "onEnter"
 	}).addTo(contr_mob).on("enter leave", function (e) {
@@ -3236,8 +3302,22 @@ if (ww < 1100) {
 			$("#c1987").css({stroke: "#c14646"});
 			$("#t1987").css({fill: "#c14646",fontSize: "20px"});
 		} else {
-			$("#c1987").css({stroke: "#ffffff"});
+			$("#c1987").css({stroke: "#1e3d05"});
 			$("#t1987").css({fill: "#1e3d05",fontSize: "17px"});
+		}
+	});
+	
+	new ScrollScene({
+		triggerElement: "#next2011",
+		duration: wh,
+		triggerHook: "onEnter"
+	}).addTo(contr_mob).on("enter leave", function (e) {
+		if (e.type == "enter") {
+			$("#c2010").css({stroke: "#c14646"});
+			$("#t2010").css({fill: "#c14646",fontSize: "20px"});
+		} else {
+			$("#c2010").css({stroke: "#1e3d05"});
+			$("#t2010").css({fill: "#1e3d05",fontSize: "17px"});
 		}
 	});
 	
@@ -3363,7 +3443,7 @@ if (ww < 1100) {
 			}
 		},
 		menu: '#line_menu',
-		anchors:['ystart', 'y1816', 'y1828', 'y1845', 'y1856', 'y1858', 'y1861', 'y1865', 'y1867', 'y1871', 'y1873', 'y1875', 'y1905', 'y1906', 'y1910', 'y1914', 'y1917', 'y1918','y1922', 'y1927', 'y1933', 'y1934', 'y1940', 'y1941', 'y1950', 'y1956', 'y1959', 'yr1959', 'y1960', 'y1962', 'y1963', 'y1966', 'y1970', 'y1982', 'y1987']
+		anchors:['ystart', 'y1816', 'y1828', 'y1845', 'y1856', 'y1858', 'y1861', 'y1865', 'y1867', 'y1871', 'y1873', 'y1875', 'y1905', 'y1906', 'y1910', 'y1914', 'y1917', 'y1918','y1922', 'y1927', 'y1933', 'y1934', 'y1940', 'y1941', 'y1950', 'y1956', 'y1959', 'yr1959', 'y1960', 'y1962', 'y1963', 'y1966', 'y1970', 'y1982', 'y1987', 'y1988', 'y2010', 'y2011', 'y2013', 'y2014']
 	});
 	
 	
@@ -3376,9 +3456,8 @@ if (ww < 1100) {
 	$("#c1959").click(function(){$.fn.fullpage.moveTo('y1959');});
 	$("#c1966").click(function(){$.fn.fullpage.moveTo('y1966');});
 	$("#c1987").click(function(){$.fn.fullpage.moveTo('y1987');});
-/*
-	$("#c2010").click(function(){$.fn.fullpage.moveTo(2);});
-	$("#c2016").click(function(){$.fn.fullpage.moveTo(2);});
+	$("#c2010").click(function(){$.fn.fullpage.moveTo('y2010');});
+/*	$("#c2016").click(function(){$.fn.fullpage.moveTo(2);});
 */
 
 	$(".circle").click(function(){

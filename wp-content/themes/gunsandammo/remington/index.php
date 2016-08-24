@@ -1369,7 +1369,6 @@
 								</div>
 							</div>
 							<div id="year_1987" class="year">1987</div>
-							<div id="btn_1987" class="btn-info" data-scene="1910" data-slide="0" title="View Photo"><span class="icon-wrap"><i class="icon-camera"></i></span></div>
 						</div>
 					</div>
 				</div>
@@ -1395,7 +1394,7 @@
 									<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
 								</div>
 							</div>
-							<div id="year_1988" class="year">1988</div>
+							<div id="year_1988" class="year text-with-shadow">1988</div>
 						</div>
 					</div>
 				</div>
@@ -1479,7 +1478,25 @@
 			</section>
 			
 			
-			
+			<!-- 2014
+			<!-------------------------------------------------->
+			<section id="s2014" class="scene">
+				<div class="scene-inner lazy" data-src="/wp-content/themes/gunsandammo/remington/images/2014/HSV.jpg" data-src-m="/wp-content/themes/gunsandammo/remington/images/2014/HSV@m.jpg">
+					<div class="elements">
+						<div class="elements-inner">
+							<img id="img_2014">
+							<div id="text_2014">
+								<div id="bottom_2014">
+									<div id="year_2014" class="year text-with-shadow">2014</div>
+									<h1 class="text-with-shadow">New manufacturing facility opens in Huntsville, AL</h1>
+									<p class="text-white text-with-shadow">Remington opened a new, state-of-the-art manufacturing facility in Huntsville, Alabama.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="next2016" class="nextriger"></div>
+			</section>
 			
 			
 			
@@ -1493,16 +1510,16 @@
 	 viewBox="626.9 -843.7 109.8 817.6" style="enable-background:new 626.9 -843.7 109.8 817.6;" xml:space="preserve">
 <line id="line" x1="655.7" y1="-827.5" x2="655.7" y2="-41.8"/>
 <g id="line_menu">
-	<a data-menuanchor="y1816" href="#y1816"><circle id="c1816" class="circle" cx="655.7" cy="-827.5"/></a>
-	<a data-menuanchor="y1856" href="#y1856"><circle id="c1856" class="circle" cx="655.7" cy="-740.2" r="9"/></a>
-	<a data-menuanchor="y1867" href="#y1867"><circle id="c1867" class="circle" cx="655.7" cy="-652.9" r="9"/></a>
-	<a data-menuanchor="y1875" href="#y1875"><circle id="c1875" class="circle" cx="655.7" cy="-565.6" r="9"/></a>
-	<a data-menuanchor="y1933" href="#y1933"><circle id="c1933" class="circle" cx="655.7" cy="-478.3" r="9"/></a>
-	<a data-menuanchor="y1959" href="#y1959"><circle id="c1959" class="circle" cx="655.7" cy="-391" r="9"/></a>
-	<a data-menuanchor="y1966" href="#y1966"><circle id="c1966" class="circle" cx="655.7" cy="-303.7" r="9"/></a>
-	<a data-menuanchor="y1987" href="#y1987"><circle id="c1987" class="circle" cx="655.7" cy="-216.4" r="9"/></a>
-	<a data-menuanchor="y2010" href="#y2010"><circle id="c2010" class="circle" cx="655.7" cy="-129.1" r="9"/></a>
-	<a data-menuanchor="y2016" href="#y2016"><circle id="c2016" class="circle" cx="655.7" cy="-41.8" r="9"/></a>
+	<a data-menuanchor="y1816" href="#y1816"><circle id="c1816" class="circle" cx="655.7" cy="-827.5" r="11"/></a>
+	<a data-menuanchor="y1856" href="#y1856"><circle id="c1856" class="circle" cx="655.7" cy="-740.2" r="11"/></a>
+	<a data-menuanchor="y1867" href="#y1867"><circle id="c1867" class="circle" cx="655.7" cy="-652.9" r="11"/></a>
+	<a data-menuanchor="y1875" href="#y1875"><circle id="c1875" class="circle" cx="655.7" cy="-565.6" r="11"/></a>
+	<a data-menuanchor="y1933" href="#y1933"><circle id="c1933" class="circle" cx="655.7" cy="-478.3" r="11"/></a>
+	<a data-menuanchor="y1959" href="#y1959"><circle id="c1959" class="circle" cx="655.7" cy="-391" r="11"/></a>
+	<a data-menuanchor="y1966" href="#y1966"><circle id="c1966" class="circle" cx="655.7" cy="-303.7" r="11"/></a>
+	<a data-menuanchor="y1987" href="#y1987"><circle id="c1987" class="circle" cx="655.7" cy="-216.4" r="11"/></a>
+	<a data-menuanchor="y2010" href="#y2010"><circle id="c2010" class="circle" cx="655.7" cy="-129.1" r="11"/></a>
+	<a data-menuanchor="y2016" href="#y2016"><circle id="c2016" class="circle" cx="655.7" cy="-41.8" r="11"/></a>
 </g>
 <polygon id="time_arrow" class="arr" points="626.9,-833 637.6,-828 626.9,-823.2 "/>
 <text id="t1816" transform="matrix(1 0 0 1 676.6667 -819.9643)" class="st20">1816</text>
