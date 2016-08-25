@@ -28,9 +28,22 @@ function modal_slider(ele, sn, th) {
 	});
 }
 
+window.onload = function() {
+	
+	$("#load_anim").fadeOut(500);
+	
+	setTimeout(function(){
+		$("#loading_cover").fadeOut(3000);
+	}, 500)
+	
+	
+};
+
 
 
 $(document).ready(function() {
+	
+	
 	
 	$(".lazy").unveil(3500);
 	
@@ -39,50 +52,56 @@ $(document).ready(function() {
 		body	= $('body'),
 		allDoc 	= $('html, body'),
 		scene 	= $('.scene');
-	
+		
 	
 	// MODALS
 	//---------------------------------------------//
 	var modal_c	= $('.modal-center'),
 		modal	= $('.modal');
 		
-	// Close Modal
-	$('.i-close, .modal').click(function(){
+	// Close Modal // using .bind("click touchstart", function()... instead of .click(function()... to make it work on touch devises
+	$('.i-close, .modal').bind("click touchstart", function() {
 		body.removeClass('modal-open');
 		modal_c.stop(false, true).animate({ top: 40, opacity: 0 }, 700, function() {});
 		modal.fadeOut(400);
+		$("#next_scene, #timeline").fadeIn(400);
 	});
-	modal_c.click(function(e){e.stopPropagation();});
+	
+	modal_c.bind("click touchstart", function(e){e.stopPropagation();});
 	
 	
 	// Open Modal
-	scene.on('click', '.btn-info', function() {
+	
+	$(".btn-info").bind("click touchstart", function(){
 		var d 		= $(this), 
 			modal 	= d.closest('.scene').find('.modal'),
 			modal_c = modal.find('.modal-center'),
 			modal_i = modal.find('.modal-inner'),
+			has_sl	= modal.find('.modal-inner').attr('id'),
 			sc_num	= d.data("scene"),
 			sl_id	= "#slider_"+sc_num,
 			sl_num 	= d.data("slide");
 			
-			
 		body.addClass('modal-open');
 			
 		if (modal_i[0]) {
+			$("#next_scene, #timeline").fadeOut(400);
 			modal.css("display", "flex").hide().fadeIn(500);
 			modal_c.stop(false, true).animate({ top: 0, opacity: 1 }, 800, function() {});
-			
 			// when you close the modal and then click on other btn-info, it will get you to the slide you chose
-			var slider = $(sl_id).data('flexslider');
-			slider.flexAnimate(sl_num); 	
+			if (has_sl) {
+				var slider = $(sl_id).data('flexslider');
+				slider.flexAnimate(sl_num);
+			}
 		} else {
 			$.ajax({
 				method: "POST",
-				url: "modals/s" + sc_num + ".html",
+				url: "/wp-content/themes/gunsandammo/remington/modals/s" + sc_num + ".html",
 				cache: false
 			})
 			.done(function( response ) {
-				modal_c.append(response);			
+				modal_c.append(response);
+				$("#next_scene, #timeline").fadeOut(400);			
 				modal.css("display", "flex").hide().fadeIn(500);
 				modal_c.stop(false, true).animate({ top: 0, opacity: 1 }, 800, function() {});
 				var slider_el = modal_c.find(".slider");
@@ -102,8 +121,7 @@ $(document).ready(function() {
 	// END MODALS
 
 
-
-// ARROW ANIMATION
+	// ARROW ANIMATION
 	function arrow_anim(controller, duration){
 		var time_arrow	= $("#time_arrow");
 	
@@ -315,6 +333,7 @@ if (ww >= 1100 && isSafari == false) {
 	$("#c1959").click(function(){ timeNav('1959', 7, 3); });
 	$("#c1966").click(function(){ timeNav('1966', 3, 2.8); });
 	$("#c1987").click(function(){ timeNav('1987', 3.6, 2); });
+	$("#c2010").click(function(){ timeNav('2010', 4, 3); });
 	
 	
 	
@@ -3418,7 +3437,7 @@ if (ww < 1100) {
 			//console.log(leavingSection);
 			
 			//console.log(index);
-			console.log(nextIndex);
+			//console.log(nextIndex);
 			// console.log(leavingSection[0].nextElementSibling);
 			
 			sections.eq(nextIndex).find(".lazy").trigger("unveil");
@@ -3446,7 +3465,12 @@ if (ww < 1100) {
 		anchors:['ystart', 'y1816', 'y1828', 'y1845', 'y1856', 'y1858', 'y1861', 'y1865', 'y1867', 'y1871', 'y1873', 'y1875', 'y1905', 'y1906', 'y1910', 'y1914', 'y1917', 'y1918','y1922', 'y1927', 'y1933', 'y1934', 'y1940', 'y1941', 'y1950', 'y1956', 'y1959', 'yr1959', 'y1960', 'y1962', 'y1963', 'y1966', 'y1970', 'y1982', 'y1987', 'y1988', 'y2010', 'y2011', 'y2013', 'y2014']
 	});
 	
-	
+	$(".btn-info").bind("click touchstart", function(){ 
+		$.fn.fullpage.setAllowScrolling(false);
+	});
+	$('.i-close, .modal').bind("click touchstart", function() {
+		$.fn.fullpage.setAllowScrolling(true);
+	});
 	
 	$("#c1816").click(function(){$.fn.fullpage.moveTo('y1816');});
 	$("#c1856").click(function(){$.fn.fullpage.moveTo('y1856');});
@@ -3490,13 +3514,27 @@ if (ww < 1100) {
 });// end document.ready
 
 
-	$(window).on("resize", function () {
-		wh = $(window).innerHeight();
-		ww = $(window).innerWidth();
-		//controller.destroy();
-		//controller.enabled(false);
-		//controller = null;
-	});	
+$(window).on("resize", function () {
+	wh = $(window).innerHeight();
+	ww = $(window).innerWidth();
+	//controller.destroy();
+	//controller.enabled(false);
+	//controller = null;
+});// end window on resize
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ////////////////////	
 })(jQuery);

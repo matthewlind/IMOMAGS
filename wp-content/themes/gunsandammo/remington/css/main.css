@@ -1,69 +1,66 @@
-@import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,400italic,600,700,900);
 @import url(normalize.min.css);
 @import url(icons.css);
 @import url(flexslider.css);
 
+
 /*--------------------------------------------------*/
-/*   Helper classes
+/*   LOADING START
 /*--------------------------------------------------*/
-.ir {
-    background-color: transparent;
-    border: 0;
-    overflow: hidden;
-    *text-indent: -9999px;
+#loading_cover {
+	background-color: #1e3d05;
+	position: fixed;
+	z-index: 9999;
+	left: 0; top: 0; 
+	height: 100vh;
+	width: 100vw;
+}
+#years_loading {
+	color: #fff;
+}
+#load_anim {
+	position: absolute;
+	left: 0; right: 0; bottom: 6%;
+	margin: 0 auto;
+	text-align: center;
+}
+#load_anim span {
+	font-size: 20px;
+	color: #fff;
+	text-transform: uppercase;
+	-webkit-animation:load-color 2s infinite ease-in-out;
+	animation: load-color 2s infinite ease-in-out;
+	-webkit-animation-delay: 2s;
+    animation-delay: 2s;
+}
+@-webkit-keyframes load-color {
+    0%   {color: #fff;}
+    50%   {color: #1e3d05;}
+    100%   {color: #fff;}
+}
+@keyframes load-color {
+    0%   {color: #fff;}
+    50%   {color: #1e3d05;}
+    100%   {color: #fff;}
+}
+.years-200 {
+	position: absolute;
+	color: #1e3d05;
+	left: 0; right: 0; margin: 0 auto;
+	font-family: 'Oswald', sans-serif;
+	text-align: center;
+	font-size: 36px;
+	z-index: 20;
+	top: 45vh;
+}
+.rem-logo {
+	position: absolute;
+	width: 16%;
+	left: 0; right: 0; margin-left: auto; margin-right: auto;
+	z-index: 20;
+	top: 27vh;
 }
 
-.ir:before {
-    content: "";
-    display: block;
-    width: 0;
-    height: 150%;
-}
 
-.hidden {
-    display: none !important;
-    visibility: hidden;
-}
-
-.visuallyhidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-}
-
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
-    clip: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    position: static;
-    width: auto;
-}
-
-.invisible {
-    visibility: hidden;
-}
-
-.clearfix:before,
-.clearfix:after {
-    content: " ";
-    display: table;
-}
-
-.clearfix:after {
-    clear: both;
-}
-
-.clearfix {
-    *zoom: 1;
-}
 /*--------------------------------------------------*/
 /*   General
 /*--------------------------------------------------*/
@@ -162,6 +159,71 @@ textarea {
 	color: #31406e;
 }
 
+
+
+/*--------------------------------------------------*/
+/*   Helper classes
+/*--------------------------------------------------*/
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+
+
 /*--------------------------------------------------*/
 /*   ADDITIONAL INFO
 /*--------------------------------------------------*/
@@ -239,7 +301,7 @@ body.modal-open {
 
 .modal {
 	display: none;
-	position: fixed;
+	position: absolute;
 	top: 0; right: 0; bottom: 0; left: 0;
 	background-color: rgba(0,0,0,.85);
 	z-index: 1000;
@@ -530,7 +592,7 @@ body.modal-open {
 	width: 200px;
 	height: 60px;
 	background-color: rgba(0,0,0,.4);
-	z-index: 9999;
+	z-index: 950;
 	color: #fff;
 	text-transform: uppercase;
 	font-size: 25px;
@@ -585,23 +647,6 @@ body.modal-open {
 	z-index: 10;
 }
 .usa-flag-m {display: none;}
-.rem-logo {
-	position: absolute;
-	width: 16%;
-	left: 0; right: 0; margin-left: auto; margin-right: auto;
-	z-index: 20;
-	top: 19%;
-}
-.years-200 {
-	position: absolute;
-	color: #1e3d05;
-	left: 0; right: 0; margin: 0 auto;
-	font-family: 'Oswald', sans-serif;
-	text-align: center;
-	font-size: 36px;
-	z-index: 20;
-	top: 32%;
-}
 .army {
 	position: relative;
 	width: 100%;
@@ -854,6 +899,7 @@ body.modal-open {
 
 #s1856 {
 	overflow: hidden;
+	background-attachment: fixed;
 }
 #s1856 .elements {
 	padding-left: 4%;
@@ -2527,6 +2573,10 @@ body.modal-open {
 #bottom_2013 {
 	width: 110%;
 }
+#bottom_2013 .btn-info {
+	position: static;
+	display: inline-block;
+}
 #year_2013 {
 	position: static;
 	float: left;
@@ -2728,6 +2778,8 @@ body.modal-open {
 
 @import url(jquery.fullPage.css);
 
+.modal {position: absolute;}
+.i-close {top: -6px;}
 .text-box p {font-size: 18px;}
 
 #container .scene,
@@ -2741,7 +2793,8 @@ body.modal-open {
 #s1959_inner,
 #inner_1966,
 #s1988 .scene-inner,
-#s2014 .scene-inner {background-attachment: scroll; background-position: center center;}
+#s2014 .scene-inner,
+#s1856 {background-attachment: scroll; background-position: center center;}
 
 #next_scene {display: none;}
 #arrow-down {display: block;width: 120px;height: 80px;opacity: .8;position: absolute;left: 0; right: 0; margin: 0 auto;bottom: 20px;z-index: 20;}
@@ -2860,20 +2913,6 @@ body.modal-open {
 .circle{r: 13px;stroke-width:4;}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 
@@ -2881,8 +2920,7 @@ body.modal-open {
 
 #timeline {left: 0;}
 .elements {padding-left: 18vw;}
-
-
+.modal-center {width: 80%;}
 .usa-flag {display: none;}
 .usa-flag-m {width: 100%; top: 0;z-index: 10;position: absolute;display: block;}
 .rem-logo {width: 32%;}
@@ -2904,7 +2942,7 @@ body.modal-open {
 .info-s1816-4 {right: 17%;bottom: 8%;}
 .founder-photo {margin-top: 30%;}
 
-#text_1828 {width: 90%;bottom: 5%;}
+#text_1828 {width: 90%;}
 .info-s1828 {bottom: 50%;}
 
 #s1845 .elements {padding-left: 14vw;}
@@ -3039,7 +3077,7 @@ body.modal-open {
 #text_2014 {bottom: auto;right: 8%;width: 59%;top: 10%;}
 
 
-.circle {r: 15px;}
+.circle {r: 14px;}
 
 
 
@@ -3048,7 +3086,13 @@ body.modal-open {
 }
 
 @media screen and (max-width: 460px) {
-
+	
+/* .modal-center {width: 80%;} */
+.slider .flex-direction-nav .flex-prev {left: -46px; width: 60px;}
+.slider .flex-direction-nav .flex-next {right: -40px;}
+.slider .flex-direction-nav a {width: 40px;}
+.slider .flex-direction-nav a:before {margin-top: 20px;font-size: 50px;}
+.i-close {right: -40px; font-size: 38px;}
 .full-story h4 {font-size: 20px;margin-bottom: 10px;}
 .elements,
 #s1962 .elements,
@@ -3109,7 +3153,8 @@ body.modal-open {
 #top_1933 .year,
 .right_1934 .year,
 #year_1966,
-#year_1988 {font-size: 100px;}
+#year_1988,
+#year_2013 {font-size: 100px;}
 
 #year_2014 {font-size: 120px;}
 
@@ -3228,12 +3273,10 @@ body.modal-open {
 #s2013 .elements {padding-left: 19vw;}
 #s2011 .full-story h4 {margin-top: 0;}
 
-#text_2013 {width: 93%;bottom: 5%;}
+#text_2013 {width: 93%;}
 #img_2013 {top: 5%;}
 
 #text_2014 {width: 90%;}
-
-
 
 
 
@@ -3242,6 +3285,7 @@ body.modal-open {
 
 @media screen and (max-width: 380px) {
 
+.slider .flex-direction-nav .flex-next {right: -35px;}
 .full-story h4 {font-size: 16px;margin-bottom: 5px;}
 .btn-full {font-size: 17px;padding: 0 15px;}
 #s1845 .elements {padding-left: 20vw;}
@@ -3288,8 +3332,9 @@ body.modal-open {
 
 @media screen and (max-width: 321px) {
 
-
-
+.i-close {right: -36px;}
+.slider .flex-direction-nav .flex-next {right: -31px;}
+.slider .flex-direction-nav .flex-prev {left: -41px;}
 #text_1962 p {font-size: 14px;}
 
 .text-reg, .text-white, .text-box p, #left_1927 p,
@@ -3328,7 +3373,7 @@ body.modal-open {
 #year_1950,
 #year_1962,
 #year_1963 {font-size: 51px;}
-
+#s1918 .year {font-size: 60px;}
 #year_1858 {font-size: 80px;}
 
 #year_1867,
@@ -3367,6 +3412,7 @@ body.modal-open {
 .peder_1910 {width: 88px;}
 #year_1914 {right: 0%;top: -1%;}
 #year_1917 {bottom: 0%;}
+
 #s1918 .year,
 .right_1934 .year {margin-top: -12px;}
 #img_1940 {bottom: 15%;}

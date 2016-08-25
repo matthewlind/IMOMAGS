@@ -9,6 +9,7 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Oswald:400,700|Source+Sans+Pro:400,400i" rel="stylesheet">
         <link rel="stylesheet" href="/wp-content/themes/gunsandammo/remington/css/main.css">
        <!-- 		<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/TweenMax.min.js"></script> -->
         <script>window.jQuery || document.write('<script src="/wp-content/themes/gunsandammo/remington/js/vendor/jquery-3.1.0.min.js"><\/script>')</script>
@@ -23,8 +24,14 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+        <div id="loading_cover">
+	        <img class="rem-logo" src="/wp-content/themes/gunsandammo/remington/images/start/xRemington-200th-logo-white.png">
+			<h1 id="years_loading" class="years-200">200 YEARS OF REMINGTON’S HISTORY</h1>
+			<div id="load_anim">
+				<span>Loading</span>
+			</div>
+		</div>
 		<div id="container" class="container">
-			
 			<div id="next_scene" data-next="s1816" data-more="4">Next<i class="icon-long-arrow-down"></i></div>
 			
 			<section id="start" class="scene">
@@ -160,7 +167,7 @@
 							</div>
 							<h1 id="h1_1856">E. Remington & Sons Is Born</h1>
 							<div id="text_1856" class="text-box">
-								<p>Initially, the business was known as Remingtons. When Eliphalet Remington’s son, Philo, came of age in 1837, he joined his father’s business and the name was changed to E. Remington & Son. In 1839, some Samuel joined the business, followed by Eliphalet III in 1849. In 1856 the name of the firm became E. Remington & Sons. In honor of their father the name of the company was retained when the founder died in 1861, and continued until 1888 when the company became Remington Arms Company.<br>
+								<p>Initially, the business was known as Remingtons. When Eliphalet Remington’s son, Philo, came of age in 1837, he joined his father’s business and the name was changed to E. Remington & Son. In 1839, son Samuel joined the business, followed by Eliphalet III in 1849. In 1856 the name of the firm became E. Remington & Sons. In honor of their father the name of the company was retained when the founder died in 1861, and continued until 1888 when the company became Remington Arms Company.<br>
 <span class="photo-credit">Credit: History of Herkimer County, New York, published by F.W. Beers & Company. Photo Credit (image in the background): Paul Goodwin</span>
 </p>
 							</div>
@@ -179,7 +186,7 @@
 							<div id="year_1858" class="year text-with-shadow">1858</div>
 							<div id="text_1858" class="text-box">
 								<h1>BEALS’ NAVY REVOLVER</h1>
-								<p>With the introduction of the Beal's revolver, Remington began to position itself for conflict to come between the North and South. </p>
+								<p>With the introduction of the Beal's revolver, Remington began to position itself for the conflict to come between the North and South. </p>
 								<div class="full-story full-story-light">
 									<h4>READ THE FULL STORY ON<br>Handguns.COM</h4>
 									<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
@@ -356,7 +363,7 @@
 						<div class="elements-inner">
 							<div id="text_1905" class="text-reg">
 								<h1>First American Autoloading Shotgun</h1>
-								<p>John M. Browning (1855 to 1926) began developmental work on an autoloading shotgun in 1892. Eventually he offered his design to Remington Arms Co., resulting in Remington’s first autoloading shotgun in 1905. This was to be the first of over 1,000,000 Remington Mdoel 11 Autoloading Shotguns manufactured.<br><span class="photo-credit">(Photo credit: Remington Archives Photo Collection)</span></p>
+								<p>John M. Browning (1855 to 1926) began developmental work on an autoloading shotgun in 1892. Eventually he offered his design to Remington Arms Co., resulting in Remington’s first autoloading shotgun in 1905. This was to be the first of over 1,000,000 Remington Model 11 Autoloading Shotguns manufactured.<br><span class="photo-credit">(Photo credit: Remington Archives Photo Collection)</span></p>
 							</div>
 							<div id="year_1905" class="year text-with-shadow">1905</div>
 							<div id="btn_1905" class="btn-info" data-scene="1905" data-slide="0" title="View Photo"><span class="icon-wrap"><i class="icon-camera"></i></span></div>
@@ -590,7 +597,7 @@
 								<div class="year">1933</div>
 								<div class="text_1933">
 									<h1>A Milestone Year</h1>
-									<p class="text-reg">1933 and the years that followed were important for Remington with several major acquisitions that included the Chamberlain trap & Target Company, the Peters Ammunition Company and Parker shotguns.<br><span class="photo-credit">Photo Credit: Paul Budde & James Walters </span></p>
+									<p class="text-reg">1933 and the years that followed were important for Remington with several major acquisitions that included the Chamberlain Trap & Target Company, the Peters Ammunition Company and Parker shotguns.<br><span class="photo-credit">Photo Credit: Paul Budde & James Walters </span></p>
 								</div>
 							</div>
 							<img id="img_1933" class="lazy" data-src="/wp-content/themes/gunsandammo/remington/images/1933/shotgun.png">
@@ -740,7 +747,7 @@
 						<div class="elements-inner">
 							<div id="top_1956">
 								<h1>Shooting Star:<br>The Legend of Elmer Keith</h1>
-								<p class="text-white">Known for his signature 10-gallon hat and revered for his shooting prowess, Elmer Keith was a long-time contributor to Guns & Ammo and yearly guest at the Remington writer seminars. Among his many accomplishments were the development of the .357 Magnum, .41 Magnum and .44 Magnum cartridges. </p>
+								<p class="text-white">Known for his signature 10-gallon hat and revered for his shooting prowess, Elmer Keith was a long-time contributor to <i>Guns & Ammo</i> and yearly guest at the Remington writer seminars. Among his many accomplishments were the development of the .357 Magnum, .41 Magnum and .44 Magnum cartridges. </p>
 							</div>
 							<div id="bottom_1956">
 								<img class="lazy" data-src="/wp-content/themes/gunsandammo/remington/images/1956/Elmer-Keith.jpg">
@@ -1325,7 +1332,7 @@
 						<div class="elements-inner">
 							<div id="left_1982">
 								<h1>REMINGTON BULLET KNIVES</h1>
-								<p class="text-reg">Of all the knives produced by Remington during its cutlery business era, the famous “Bullet” knives were the best remembered and most collectible. They were instantly recognizable by the nickel silver cartridge shield on one handle.</p>
+								<p class="text-reg">Of all the knives produced by Remington during its cutlery business era, the famous “Bullet” knives were the best remembered and most collectible. They were instantly recognizable by the nickel silver cartridge shield on the handle.</p>
 							</div>
 							<img id="img_knife_1982" class="lazy" data-src="/wp-content/themes/gunsandammo/remington/images/1982/knife.png">
 							<div id="year_1982_wrap">
@@ -1465,13 +1472,21 @@
 								<p class="text-reg">Remington introduced the Model 783 bolt-action rifle; a rugged "working man’s" model.</p>
 								<div id="bottom_2013">
 									<div id="year_2013" class="year">2013</div>
+									<div id="btn_2013" class="btn-info" data-scene="2013" data-slide="0" title="View More Info"><span class="icon-wrap"><i class="icon-info"></i></span></div>
+<!--
 									<div id="full_2013" class="full-story">
 										<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
 										<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
 									</div>
+-->
 								</div>
 							</div>
 						</div>
+					</div>
+				</div>
+				<div id="modal-s2013" class="modal">
+					<div class="modal-center">
+						<i class="i-close icon-cancel"></i>
 					</div>
 				</div>
 				<div id="next2014" class="nextriger"></div>
