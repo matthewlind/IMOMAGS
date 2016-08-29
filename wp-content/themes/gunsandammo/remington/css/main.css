@@ -160,6 +160,56 @@ textarea {
 }
 
 
+/*--------------------------------------------------*/
+/*   Menu
+/*--------------------------------------------------*/
+#menu_rem {
+	position: fixed;
+	top: 20px;
+	right: 40px;
+	width: 100px;
+	height: 35px;
+	color: #fff;
+	font-size: 16px;
+	line-height: 35px;
+	text-align: center;
+	border-radius: 5px;
+	background-color: rgba(0,0,0,.4);
+	z-index: 1000;
+}
+#menu_rem:hover {
+    background-color: rgba(20, 42, 3, .7);
+    cursor: pointer;
+    border-bottom: 1px solid rgba(0,0,0,.7);
+}
+
+.submenu-rem {
+	display: none;
+	position: absolute;
+	top: 35px;
+	right: 0;
+	min-width: 160px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#menu_rem:hover .submenu-rem {
+	display: block;
+}
+.submenu-rem li {
+	background-color: rgba(0,0,0,.4);
+	height: 35px;
+	font-size: 15px;
+	border-radius: 5px;
+	padding: 0 10px;
+	border-bottom: 1px solid rgba(0,0,0,.7);
+	width: auto;
+    position: static;
+}
+.submenu-rem li:hover {
+	background-color: rgba(20, 42, 3, .7);
+    cursor: pointer;
+}
 
 /*--------------------------------------------------*/
 /*   Helper classes
@@ -227,7 +277,8 @@ textarea {
 /*--------------------------------------------------*/
 /*   ADDITIONAL INFO
 /*--------------------------------------------------*/
-.btn-info {
+.btn-info,
+.btn-howto {
 	width: 54px;
 	height: 54px;
 	border-radius: 27px;
@@ -308,6 +359,15 @@ body.modal-open {
 	flex-direction: column;
 	justify-content: center;
 }
+.modal-fixed {
+	position: fixed;
+}
+.modal-green {
+	background-color: #1e3d05;
+}
+
+
+
 .modal-center {
 	width: 640px;
 	max-height: 85vh;
@@ -556,7 +616,7 @@ body.modal-open {
 	left: 49%;
 	height: 10px;
 	width: 10px;
-	background-color: aqua;
+/* 	background-color: aqua; */
 	z-index: 200;
 }
 .year {
@@ -2616,11 +2676,36 @@ body.modal-open {
 	font-size: 170px;
 }
 
-
-
-
-
-
+/*--------------------------------------------------*/
+/*   HOW TO USE THE SITE
+/*--------------------------------------------------*/
+.how-to {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.how-to > li {
+	margin-bottom: 50px;
+	clear: both;
+	overflow: hidden;
+	font-size: 20px;
+}
+.how-to > li > img {
+	float: right;
+	max-width: 200px;
+	margin-left: 20px;
+}
+.how-btns {
+	float: right;
+}
+.how-btns .btn-howto {
+	position: static;
+	margin:0 0 20px 30px;
+	overflow: hidden;
+}
+.modal-green .modal-center .modal-inner:nth-of-type(2) {
+	display: none;
+}
 
 
 /*--------------------------------------------------*/
@@ -2776,9 +2861,9 @@ body.modal-open {
 
 @media screen and (max-width: 1024px) {
 
-@import url(jquery.fullPage.css);
-
+/* @import url(jquery.fullPage.css); */
 .modal {position: absolute;}
+.modal-fixed {position: fixed;}
 .i-close {top: -6px;}
 .text-box p {font-size: 18px;}
 
@@ -2911,7 +2996,7 @@ body.modal-open {
 
 
 .circle{r: 13px;stroke-width:4;}
-
+.how-to li:first-child {display: none;}
 
 }
 
@@ -3088,6 +3173,11 @@ body.modal-open {
 @media screen and (max-width: 460px) {
 	
 /* .modal-center {width: 80%;} */
+#menu_rem {width: 40px;right: 20px; line-height: 40px;}
+#menu_rem > span {display: none;}
+#menu_rem > i {font-size: 18px;}
+.submenu-rem {min-width: 200px;}
+.submenu-rem li {line-height: 35px;}
 .slider .flex-direction-nav .flex-prev {left: -46px; width: 60px;}
 .slider .flex-direction-nav .flex-next {right: -40px;}
 .slider .flex-direction-nav a {width: 40px;}
@@ -3099,8 +3189,8 @@ body.modal-open {
 #s1963 .elements {padding-left: 20vw;}
 .text-box {padding: 20px;}
 
-.rem-logo {width: 175px;top: 21%;}
-.years-200 {width: 60%;font-size: 43px;top: 38%;}
+.rem-logo {width: 175px;top: 165px;}
+.years-200 {width: 60%;font-size: 43px;top: 280px;}
 
 #gun_1845 {top: 34%;}
 
@@ -3278,7 +3368,8 @@ body.modal-open {
 
 #text_2014 {width: 90%;}
 
-
+.how-to > li > img {max-width: 120px;}
+.how-to > li {font-size: 16px;}
 
 }
 
@@ -3288,6 +3379,8 @@ body.modal-open {
 .slider .flex-direction-nav .flex-next {right: -35px;}
 .full-story h4 {font-size: 16px;margin-bottom: 5px;}
 .btn-full {font-size: 17px;padding: 0 15px;}
+.rem-logo {top: 145px;}
+.years-200 {top: 255px;}
 #s1845 .elements {padding-left: 20vw;}
 #s1856 .elements {padding-left: 17vw;}
 .text-reg, .text-white, .text-box p, #left_1927 p {font-size: 16px;}
@@ -3340,7 +3433,7 @@ body.modal-open {
 .text-reg, .text-white, .text-box p, #left_1927 p,
 .full-story h4,
 .s1959r-info p {font-size: 15px;}
-
+.rem-logo {top: 120px;}
 
 .btn-full {font-size: 16px;}
 

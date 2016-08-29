@@ -31,8 +31,23 @@
 				<span>Loading</span>
 			</div>
 		</div>
+		<div class="menu-wrap">
+			<div id="menu_rem">
+				<span>MENU</span><i class="icon-menu"></i>
+				<ul class="submenu-rem">
+					<li class="btn-info mri" data-scene="1111" data-slide="0">ALL VIDEO</li>
+					<li class="btn-info mri" data-scene="1111" data-slide="1">HOW TO USE THE SITE</li>
+				</ul>
+			</div>
+			<div id="modal-s1111" class="modal modal-fixed modal-green">
+				<div class="modal-center">
+					<i class="i-close icon-cancel"></i>
+				</div>
+			</div>
+		</div>
 		<div id="container" class="container">
 			<div id="next_scene" data-next="s1816" data-more="4">Next<i class="icon-long-arrow-down"></i></div>
+			
 			
 			<section id="start" class="scene">
 				<img class="usa-flag" src="/wp-content/themes/gunsandammo/remington/images/start/usa-flag.png">
@@ -519,14 +534,6 @@
 							</div>	
 						</div>
 					</div>
-					<ul id="cover_sheets">
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
 				</div>
 				<div id="modal-s1918" class="modal">
 					<div class="modal-center">
@@ -805,7 +812,7 @@
 						</div>
 					</div>
 				</div>
-				<div id="next1956record" class="nextriger"></div>
+				<div id="next1959record" class="nextriger"></div>
 			</section>
 			
 			<!-- 1959record

@@ -5,6 +5,10 @@ var controller,
 	flexslider,
 	isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
 
+if (isSafari == true){
+	$('head').append('<link rel="stylesheet" href="/wp-content/themes/gunsandammo/remington/css/safari.css" type="text/css" />');
+}
+
 // ajax flexslider 
 function modal_slider(ele, sn, th) {
 	$(ele).flexslider({
@@ -60,12 +64,22 @@ $(document).ready(function() {
 		modal	= $('.modal');
 		
 	// Close Modal // using .bind("click touchstart", function()... instead of .click(function()... to make it work on touch devises
-	$('.i-close, .modal').bind("click touchstart", function() {
-		body.removeClass('modal-open');
-		modal_c.stop(false, true).animate({ top: 40, opacity: 0 }, 700, function() {});
-		modal.fadeOut(400);
-		$("#next_scene, #timeline").fadeIn(400);
-	});
+	if (ww >= 1100) { 
+		$('.i-close, .modal').bind("click touchstart", function() {
+			body.removeClass('modal-open');
+			modal_c.stop(false, true).animate({ top: 40, opacity: 0 }, 700, function() {});
+			modal.fadeOut(400);
+			$("#timeline, #next_scene, #menu_rem").fadeIn(400);
+		});
+	} else {
+		$('.i-close').bind("click touchstart", function() {
+			body.removeClass('modal-open');
+			modal_c.stop(false, true).animate({ top: 40, opacity: 0 }, 700, function() {});
+			modal.fadeOut(400);
+			$("#timeline, #menu_rem").fadeIn(400);
+		});
+	}
+	
 	
 	modal_c.bind("click touchstart", function(e){e.stopPropagation();});
 	
@@ -74,18 +88,18 @@ $(document).ready(function() {
 	
 	$(".btn-info").bind("click touchstart", function(){
 		var d 		= $(this), 
-			modal 	= d.closest('.scene').find('.modal'),
-			modal_c = modal.find('.modal-center'),
-			modal_i = modal.find('.modal-inner'),
-			has_sl	= modal.find('.modal-inner').attr('id'),
 			sc_num	= d.data("scene"),
 			sl_id	= "#slider_"+sc_num,
 			sl_num 	= d.data("slide");
-			
+			modal 	= (d.hasClass('mri')) ? d.closest('.menu-wrap').find('.modal') : d.closest('.scene').find('.modal'),
+			modal_c = modal.find('.modal-center'),
+			modal_i = modal.find('.modal-inner'),
+			has_sl	= modal.find('.modal-inner > div').attr('id');
+		
 		body.addClass('modal-open');
 			
 		if (modal_i[0]) {
-			$("#next_scene, #timeline").fadeOut(400);
+			$("#next_scene, #timeline, #menu_rem").fadeOut(400);
 			modal.css("display", "flex").hide().fadeIn(500);
 			modal_c.stop(false, true).animate({ top: 0, opacity: 1 }, 800, function() {});
 			// when you close the modal and then click on other btn-info, it will get you to the slide you chose
@@ -101,7 +115,7 @@ $(document).ready(function() {
 			})
 			.done(function( response ) {
 				modal_c.append(response);
-				$("#next_scene, #timeline").fadeOut(400);			
+				$("#next_scene, #timeline, #menu_rem").fadeOut(400);			
 				modal.css("display", "flex").hide().fadeIn(500);
 				modal_c.stop(false, true).animate({ top: 0, opacity: 1 }, 800, function() {});
 				var slider_el = modal_c.find(".slider");
@@ -172,7 +186,7 @@ $(document).ready(function() {
 		
 		var ta_1959r = TweenMax.to(time_arrow, 1, {y: 524});
 		new ScrollScene({
-			triggerElement: "#next1956record",
+			triggerElement: "#next1959record",
 			duration: wh*duration[5],
 			triggerHook: "onLeave",
 			ease: Power0.easeNone
@@ -299,6 +313,9 @@ $(document).ready(function() {
 			tl.add(getBullet(), i * 0.7);
 		}
 	}
+	
+	
+	
 
 //-----------------------------------------------------------//
 //	
@@ -2314,7 +2331,7 @@ if (ww >= 1100 && isSafari == false) {
 
 	// SCENE 1959r ========================================== 
 	new ScrollScene({
-		triggerElement: "#next1956record",
+		triggerElement: "#next1959record",
 		duration: wh * 8,
 		offset: 10,
 		triggerHook: "onLeave"
@@ -2334,7 +2351,7 @@ if (ww >= 1100 && isSafari == false) {
 	    ease:Back.easeOut.config(1.1)
 	});
 	new ScrollScene({
-		triggerElement: "#next1956record",
+		triggerElement: "#next1959record",
 		offset: 150,
 		duration: wh * 3,
 		triggerHook: "onLeave"
@@ -2348,7 +2365,7 @@ if (ww >= 1100 && isSafari == false) {
 	    ease:Linear.easeInOut
 	});
 	new ScrollScene({
-		triggerElement: "#next1956record",
+		triggerElement: "#next1959record",
 		offset: wh * 0.9,
 		duration: wh * 2,
 		triggerHook: "onLeave"
@@ -2361,7 +2378,7 @@ if (ww >= 1100 && isSafari == false) {
 	    ease:Back.easeOut
 	}, 0.25);
 	new ScrollScene({
-		triggerElement: "#next1956record",
+		triggerElement: "#next1959record",
 		offset: wh,
 		duration: wh * 2,
 		triggerHook: "onLeave"
@@ -2373,7 +2390,7 @@ if (ww >= 1100 && isSafari == false) {
 	    ease:Linear.easeOut
 	}, 0.25);
 	new ScrollScene({
-		triggerElement: "#next1956record",
+		triggerElement: "#next1959record",
 			offset: wh,
 			duration: wh * 2,
 		triggerHook: "onLeave"
@@ -2383,7 +2400,7 @@ if (ww >= 1100 && isSafari == false) {
 											
 	
 	new ScrollScene({
-		triggerElement: "#next1956record", 
+		triggerElement: "#next1959record", 
 		offset: wh * 1.9,
 		duration: wh * 2.5,
 		triggerHook: "onLeave"
@@ -3171,7 +3188,15 @@ if (ww >= 1100 && isSafari == false) {
 //
 //-----------------------------------------------------------//
 
-if (ww < 1100) {
+function add_video(year, src) {
+	$("#s"+year+" .video-wrap").append('<iframe width="640" height="360" src="'+src+'?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>');
+}
+
+function rem_video(year) {
+	$("#s"+year+" .video-wrap iframe").remove();
+}
+
+if (ww < 1100 || isSafari == true) {
 	
 	
 	// TIMELINE NAVIGATION
@@ -3186,7 +3211,7 @@ if (ww < 1100) {
 		allDoc.animate({ scrollTop: $("#"+section).offset().top }, 2, "swing");
 	});
 */
-
+	$(".video-wrap iframe").remove();
 	
 	
 	
@@ -3206,10 +3231,13 @@ if (ww < 1100) {
 		if (e.type == "enter") {
 			$("#c1816").css({stroke: "#c14646"});
 			$("#t1816").css({fill: "#c14646",fontSize: "20px"});
+			add_video(1816, 'https://www.youtube.com/embed/DVEEz2m23wE');
+			
 		} else {
 			///alert('ds');
 			$("#c1816").css({stroke: "#ffffff"});
 			$("#t1816").css({fill: "#ffffff",fontSize: "17px"});
+			rem_video(1816);
 		}
 	});
 	new ScrollScene({
@@ -3263,6 +3291,32 @@ if (ww < 1100) {
 			$("#t1875").css({fill: "#1e3d05",fontSize: "17px"});
 		}
 	});
+	
+	new ScrollScene({
+		triggerElement: "#next1910",
+		duration: wh,
+		triggerHook: "onEnter"
+	}).addTo(contr_mob).on("enter leave", function (e) {
+		e.type == "enter" ? add_video(1906, 'https://www.youtube.com/embed/DVEEz2m23wE') : rem_video(1906);
+	});
+	
+	new ScrollScene({
+		triggerElement: "#next1922",
+		duration: wh,
+		triggerHook: "onEnter"
+	}).addTo(contr_mob).on("enter leave", function (e) {
+		e.type == "enter" ? add_video(1918, 'https://www.youtube.com/embed/DVEEz2m23wE') : rem_video(1918);
+	});
+	
+	new ScrollScene({
+		triggerElement: "#next1927",
+		duration: wh,
+		triggerHook: "onEnter"
+	}).addTo(contr_mob).on("enter leave", function (e) {
+		e.type == "enter" ? add_video(1922, 'https://www.youtube.com/embed/DVEEz2m23wE') : rem_video(1922);
+	});
+	
+	
 	new ScrollScene({
 		triggerElement: "#next1934",
 		duration: wh,
@@ -3276,17 +3330,36 @@ if (ww < 1100) {
 			$("#t1933").css({fill: "#ffffff",fontSize: "17px"});
 		}
 	});
+	
 	new ScrollScene({
-		triggerElement: "#next1956record",
+		triggerElement: "#next1950",
+		duration: wh,
+		triggerHook: "onEnter"
+	}).addTo(contr_mob).on("enter leave", function (e) {
+		e.type == "enter" ? add_video(1941, 'https://www.youtube.com/embed/DVEEz2m23wE') : rem_video(1941);
+	});
+	
+	new ScrollScene({
+		triggerElement: "#next1956",
+		duration: wh,
+		triggerHook: "onEnter"
+	}).addTo(contr_mob).on("enter leave", function (e) {
+		e.type == "enter" ? add_video(1950, 'https://www.youtube.com/embed/DVEEz2m23wE') : rem_video(1950);
+	});
+	
+	new ScrollScene({
+		triggerElement: "#next1959record",
 		duration: wh,
 		triggerHook: "onEnter"
 	}).addTo(contr_mob).on("enter leave", function (e) {
 		if (e.type == "enter") {
 			$("#c1959").css({stroke: "#c14646", fill: "#ffffff"});
 			$("#t1959").css({fill: "#c14646",fontSize: "20px"});
+			add_video(1959, 'https://www.youtube.com/embed/DVEEz2m23wE');
 		} else {
 			$("#c1959").css({stroke: "#ffffff", fill: "#1E3F14"});
 			$("#t1959").css({fill: "#ffffff",fontSize: "17px"});
+			rem_video(1959);
 		}
 	});
 	
@@ -3298,6 +3371,22 @@ if (ww < 1100) {
 	.addTo(contr_mob)
 	.on("enter leave", shootAnim);
 	
+	
+	new ScrollScene({
+		triggerElement: "#next1963",
+		duration: wh,
+		triggerHook: "onEnter"
+	}).addTo(contr_mob).on("enter leave", function (e) {
+		e.type == "enter" ? add_video(1962, 'https://www.youtube.com/embed/DVEEz2m23wE') : rem_video(1962);
+	});
+	
+	new ScrollScene({
+		triggerElement: "#next1966",
+		duration: wh,
+		triggerHook: "onEnter"
+	}).addTo(contr_mob).on("enter leave", function (e) {
+		e.type == "enter" ? add_video(1963, 'https://www.youtube.com/embed/DVEEz2m23wE') : rem_video(1963);
+	});
 	
 	new ScrollScene({
 		triggerElement: "#next1970",
@@ -3320,9 +3409,11 @@ if (ww < 1100) {
 		if (e.type == "enter") {
 			$("#c1987").css({stroke: "#c14646"});
 			$("#t1987").css({fill: "#c14646",fontSize: "20px"});
+			add_video(1987, 'https://www.youtube.com/embed/DVEEz2m23wE');
 		} else {
 			$("#c1987").css({stroke: "#1e3d05"});
 			$("#t1987").css({fill: "#1e3d05",fontSize: "17px"});
+			rem_video(1987);
 		}
 	});
 	
