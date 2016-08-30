@@ -725,7 +725,7 @@
 							</div>
 							<div id="bottom_1950">
 								<div class="video-1950">
-									<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/DVEEz2m23wE?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
+									<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/DVEEz2m23wE?rel=0&amp;showinfo=0" frameborder="0"></iframe></div>
 								</div>
 								<div class="full-story">
 									<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
@@ -1283,7 +1283,7 @@
 			<!-- 1966
 			<!-------------------------------------------------->
 			<section id="s1966" class="scene">
-				<div id="inner_1966" class="scene-inner lazy" data-src="/wp-content/themes/gunsandammo/remington/images/1966/back.jpg">
+				<div id="inner_1966" class="scene-inner lazy" data-src="/wp-content/themes/gunsandammo/remington/images/1966/back.jpg" data-src-m="/wp-content/themes/gunsandammo/remington/images/1966/back@m.jpg">
 					<div class="elements">
 						<div class="elements-inner">
 							<div id="year_1966" class="year text-with-shadow">1966</div>
