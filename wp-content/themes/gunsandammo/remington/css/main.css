@@ -19,7 +19,7 @@
 }
 #load_anim {
 	position: absolute;
-	left: 0; right: 0; bottom: 6%;
+	left: 0; right: 0; bottom: 9%;
 	margin: 0 auto;
 	text-align: center;
 }
@@ -678,7 +678,6 @@ body.modal-open {
 /*--------------------------------------------------*/
 
 #start {
-	top: 0;
 	background-image: url("../images/all/grey.jpg");
 	background-size: 100%;
 	background-attachment: fixed;
@@ -705,7 +704,8 @@ body.modal-open {
 	width: 100%;
 	z-index: 10;
 }
-.usa-flag-m {display: none;}
+.usa-flag-m,
+.st-army-m {display: none;}
 .army {
 	position: relative;
 	width: 100%;
@@ -2888,8 +2888,8 @@ body.modal-open {
 .scene-inner {position: static;}
 #start {height: 100vh;}
 .army {padding-top: 0;position: absolute; bottom: -77px;}
-.rem-logo {top: 25%;}
-.years-200 {top: 39%;}
+.rem-logo {top: 200px;}
+.years-200 {top: 300px;}
 #st-b1 {top: 36%;}
 #st-b2 {top: 0;}
 #st-b3 {top: 18%;}
@@ -3026,17 +3026,17 @@ body.modal-open {
 .modal-center {width: 80%;}
 .usa-flag {display: none;}
 .usa-flag-m {width: 100%; top: 0;z-index: 10;position: absolute;display: block;}
-.rem-logo {width: 32%;}
-.years-200 {width: 60%; font-size: 49px; top: 40%;}
-.army {bottom: 0;}
-.army img {display: none;}
-/* .st-army {display: none;} */
-.army .st-army-m {width: 100%; position: static; display: block;}
+.rem-logo {width: 32%;top: 230px;}
+.years-200 {width: 60%; font-size: 49px;top: 380px;}
+.army {display: none;}
+.st-army-m {width: 100%; position: absolute; display: block; left: 0; bottom: 0;z-index: 10;}
 #st-b5 {right: 8%;}
 .s1816-content-wrap {width: 100%;}
 .left-green-bar {width: 50%; left: 0;}
 .in-the-woods {width: 50%; background-image: none !important;}
 .s1816-text {position: static; padding-left: 0;}
+
+#text_2011 h1 {font-size: 35px;}
 
 #s1816-story-wrap {width: 87%;left: 7%;}
 .s1816-video {width: 100%;}
@@ -3144,6 +3144,7 @@ body.modal-open {
 #video_1963 {width: 50%}
 #s1962 .elements,
 #s1963 .elements {padding-left: 14vw;}
+#s1962 .btn-full {background-color: #fff;}
 
 #img_1970 {width: 90%;position: static;}
 #text_1970 {width: 90%;}
@@ -3157,9 +3158,9 @@ body.modal-open {
 #year_1982_wrap {top: auto;z-index: 5;bottom: 5%;}
 
 #left_1987 {width: 90%;position: static;margin: 5% 0 1%;}
-#left_1987 img:nth-child(n+5) {display: none;}
+#left_1987 img:nth-child(n+4) {display: none;}
 #right_1987 {width: 90%; position: static;}
-
+#year_1987 {bottom: 10%;}
 #s1987 .video-wrap {width: 62%;padding-top: 35.25%;}
 
 #right_1988 {width: 89%;top: auto;bottom: 7%;}
@@ -3172,7 +3173,7 @@ body.modal-open {
 
 #s2011 .elements {padding-left: 15vw;}
 #img_2011 {width: 98%;height: auto;}
-#text_2011 {left: 37%;width: 60%;}
+#text_2011 {left: 37%;width: 60%; bottom: 9%;}
 #img_2013 {width: 95%;top: 20%;}
 #text_2013 {width: 96%;bottom: 20%;left: 0;}
 
@@ -3216,7 +3217,6 @@ body.modal-open {
 #year_1861 {top: 6%;}
 
 #left_1922 {top: 10%;}
-
 
 #top_1933 {top: 20%;}
 
@@ -3391,17 +3391,11 @@ body.modal-open {
 #full_1963 {position: static;}
 #year_1962,
 #year_1963 {right: 0;top: -1%;font-size: 70px;}
-
-#left_1987 img:nth-child(n+4) {
-    display: none;
-}
-
 #text_1970 h1 {font-size: 30px;}
 
 #img_1982 {width: 120vw;right: -10vw;}
 #left_1982 { width: 93%;top: 2%;padding: 20px;position: relative;}
 #year_1982_wrap {position: relative;bottom: 0;}
-
 
 #img_knife_1982 {width: 73%;bottom: 0;right: auto;position: relative; margin-top: 10px;}
 
@@ -3424,7 +3418,6 @@ body.modal-open {
 .how-to > li > img {max-width: 120px;}
 .how-to > li {font-size: 16px;}
 
-
 .how-mobile {width: 120px;}
 .how-mobile i {bottom: 2%;font-size: 60px;width: 60px;}
 
@@ -3437,8 +3430,8 @@ body.modal-open {
 .slider .flex-direction-nav .flex-next {right: -35px;}
 .full-story h4 {font-size: 16px;margin-bottom: 5px;}
 .btn-full {font-size: 17px;padding: 0 15px;}
-.rem-logo {top: 145px;}
-.years-200 {top: 255px;}
+.rem-logo {top: 120px;}
+.years-200 {top: 230px;}
 #s1845 .elements {padding-left: 20vw;}
 #s1856 .elements {padding-left: 17vw;}
 .text-reg, .text-white, .text-box p, #left_1927 p {font-size: 16px;}
@@ -3511,9 +3504,7 @@ body.modal-open {
 
 #img_1910 {top: 42%;}
 
-.rem-logo {top: 100px;}
-
-
+.rem-logo {top: 90px;}
 
 #text_1856 p,
 #text_1871 p,
@@ -3591,7 +3582,7 @@ body.modal-open {
 #text_2011 {text-align: right;}
 
 #text_1828 {width: 100%;position: relative;bottom: auto;}
-.years-200 {font-size: 33px; top: 210px;}
+.years-200 {font-size: 33px; top: 200px;}
 #year_1856 {top: 0;width: auto;right: auto; left: -10%;font-size: 30px;}
 
 #sons {margin-top: 0%;}

@@ -11,11 +11,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/css?family=Oswald:400,700|Source+Sans+Pro:400,400i" rel="stylesheet">
         <link rel="stylesheet" href="/wp-content/themes/gunsandammo/remington/css/main.css">
-       <!-- 		<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/TweenMax.min.js"></script> -->
         <script>window.jQuery || document.write('<script src="/wp-content/themes/gunsandammo/remington/js/vendor/jquery-3.1.0.min.js"><\/script>')</script>
         <script src="/wp-content/themes/gunsandammo/remington/js/vendor/TweenMax.min.js"></script>
-		<script src="/wp-content/themes/gunsandammo/remington/js/jquery.scrollmagic.min.js"></script>
-		<script src="/wp-content/themes/gunsandammo/remington/js/jquery.fullPage.min.js"></script>
+		<script src="/wp-content/themes/gunsandammo/remington/js/vendor/jquery.scrollmagic.min.js"></script>
+		<script src="/wp-content/themes/gunsandammo/remington/js/vendor/jquery.fullPage.min.js"></script>
 		<script src="/wp-content/themes/gunsandammo/remington/js/vendor/iscroll.js"></script>
 		<script src="/wp-content/themes/gunsandammo/remington/js/vendor/iscroll-probe.js"></script>
         <script src="/wp-content/themes/gunsandammo/remington/js/main.js"></script>
@@ -54,9 +53,9 @@
 				<img class="usa-flag-m" src="/wp-content/themes/gunsandammo/remington/images/start/usa-flag@m.png">
 				<img class="rem-logo" src="/wp-content/themes/gunsandammo/remington/images/start/Remington-200th-logo.png">
 				<h1 class="years-200">200 YEARS OF REMINGTON’S HISTORY</h1>
+				<img class="st-army-m" src="/wp-content/themes/gunsandammo/remington/images/start/army-back@m.png">
 				<div id="army" class="army">
 					<img class="st-army" src="/wp-content/themes/gunsandammo/remington/images/start/army-back.png">
-					<img class="st-army-m" src="/wp-content/themes/gunsandammo/remington/images/start/army-back@m.png">
 					<img id="st-b1" src="/wp-content/themes/gunsandammo/remington/images/start/bird-1.png">
 					<img id="st-b2" src="/wp-content/themes/gunsandammo/remington/images/start/bird-2.png">
 					<img id="st-b3" src="/wp-content/themes/gunsandammo/remington/images/start/bird-3.png">
@@ -82,8 +81,6 @@
 							<span>Founder</span>
 							<span>1793-1861</span>
 						</div>
-<!-- 						<div class="btn-info" data-scene="1816" data-slide="2" title="View Photo"><span class="icon-wrap"><i class="icon-info"></i></span></div> -->
-<!-- 						<div class="info-s1816-2 btn-info" data-scene="1816" data-slide="4" title="Watch Video"><span class="icon-wrap"><i class="icon-film"></i></span></div> -->
 						<div class="info-s1816-3 btn-info" data-scene="1816" data-slide="0" title="View Photo"><span class="icon-wrap"><i class="icon-camera"></i></span></div>
 					</div>
 					<div>
@@ -96,7 +93,7 @@
 									<div class="s1816-year year">1816</div>
 									<div class="s1816-text text-reg">Young Remington made his first gun barrel in 1816 at his father’s old forge situated on Steele’s Creek in the wilds of central New York</div>
 									<div class="s1816-video">
-										<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/DVEEz2m23wE?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
+										<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
 									</div>
 									<div class="full-story">
 										<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
@@ -113,7 +110,7 @@
 					</div>
 				</div>
 				<div id="next1828" class="nextriger"></div>
-			</section><!-- .s2 end -->
+			</section>
 			
 			
 			<!-- 1828 
@@ -130,8 +127,6 @@
 						</div>
 					</div>
 					<div class="s1845-back-image inner-back-img lazy" data-src="/wp-content/themes/gunsandammo/remington/images/1845/factory.jpg"></div>
-<!-- 					<div id="s1828-back-image" class="inner-back-img lazy" data-src="/wp-content/themes/gunsandammo/remington/images/1828/1828-back.jpg"></div> -->
-					
 				</div>
 				<div id="modal-s1828" class="modal">
 					<div class="modal-center">
@@ -140,6 +135,7 @@
 				</div>
 				<div id="next1845" class="nextriger"></div>
 			</section>
+	
 			
 			<!-- 1845 
 			<!-------------------------------------------------->
@@ -167,6 +163,7 @@
 				<div id="next1856" class="nextriger"></div>
 			</section>
 			
+			
 			<!-- 1856
 			<!-------------------------------------------------->
 			<section id="s1856" class="scene lazy" data-src="/wp-content/themes/gunsandammo/remington/images/1856/back.jpg" data-src-m="/wp-content/themes/gunsandammo/remington/images/1856/back@m.jpg">
@@ -192,6 +189,7 @@
 				<div id="next1858" class="nextriger"></div>
 			</section>
 			
+			
 			<!-- 1858
 			<!-------------------------------------------------->
 			<section id="s1858" class="scene">
@@ -214,6 +212,7 @@
 				</div>
 				<div id="next1861" class="nextriger"></div>
 			</section>
+			
 			
 			<!-- 1861
 			<!-------------------------------------------------->
@@ -313,7 +312,6 @@
 			</section>
 			
 			
-			
 			<!-- 1873
 			<!-------------------------------------------------->
 			<section id="s1873" class="scene">
@@ -403,7 +401,7 @@
 					<div id="right_1906" class="lazy" data-src="/wp-content/themes/gunsandammo/remington/images/1906/family.jpg" data-src-m="/wp-content/themes/gunsandammo/remington/images/1906/family@m.jpg"></div>
 					<div class="elements">
 						<div id="video_1906">
-							<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/DVEEz2m23wE?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
+							<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
 						</div>
 						<div id="text_1906" class="text-box">
 							<h1>Model 8</h1>
@@ -494,14 +492,7 @@
 							</div>					
 						</div>
 					</div>
-					<ul id="cover_sheets">
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
+					<ul id="cover_sheets"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
 				</div>
 				<div id="modal-s1917" class="modal">
 					<div class="modal-center">
@@ -526,7 +517,7 @@
 								<div class="year text-with-shadow">1918</div>
 							</div>
 							<div id="right_1918">
-								<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/DVEEz2m23wE?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
+								<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
 								<div class="full-story full-story-light">
 									<h4>READ THE FULL STORY ON<br>Handguns.COM</h4>
 									<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
@@ -552,7 +543,7 @@
 						<div class="elements-inner">
 							<div id="left_1922">
 								<h1>Remington Model 24 Autoloading Rifle</h1>
-								<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/DVEEz2m23wE?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
+								<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
 								<div id="btn_1922" class="btn-info" data-scene="1922" data-slide="0" title="View Photo"><span class="icon-wrap"><i class="icon-info"></i></span></div>
 								<div class="year">1922</div>
 							</div>
@@ -695,7 +686,7 @@
 								<div id="text_1941">
 									<h1>Remington Goes To War</h1>
 									<p class="text-reg">During World War II, Remington manufactured 707,629 Model 1903A3 military rifles as well as thousands of shotguns and target rifles for America’s war effort.</p>
-									<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/DVEEz2m23wE?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
+									<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
 								</div>
 							</div>
 						</div>
@@ -725,7 +716,7 @@
 							</div>
 							<div id="bottom_1950">
 								<div class="video-1950">
-									<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/DVEEz2m23wE?rel=0&amp;showinfo=0" frameborder="0"></iframe></div>
+									<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
 								</div>
 								<div class="full-story">
 									<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
@@ -766,7 +757,6 @@
 							</div>
 						</div>
 					</div>
-					
 				</div>
 				<div id="modal-s1956" class="modal">
 					<div class="modal-center">
@@ -780,7 +770,6 @@
 			<!-- 1959
 			<!-------------------------------------------------->
 			<section id="s1959" class="scene">
-				
 				<div id="s1959_inner" class="lazy" data-src="/wp-content/themes/gunsandammo/remington/images/1959/two-men.jpg">
 					<div id="s1959_year" class="year">1959</div>
 					<div id="s1959_info">
@@ -804,7 +793,7 @@
 					</div>
 					<div id="bottom_1959">
 						<div class="video-1950">
-							<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/DVEEz2m23wE?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
+							<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
 						</div>
 						<div class="full-story text-with-shadow">
 							<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
@@ -814,6 +803,7 @@
 				</div>
 				<div id="next1959record" class="nextriger"></div>
 			</section>
+			
 			
 			<!-- 1959record
 			<!-------------------------------------------------->
@@ -827,8 +817,6 @@
 					<div class="test2"></div>
 					<div class="berry s1959r-person">
 						<?xml version="1.0" encoding="utf-8"?>
-						<!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-						<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 						<svg version="1.1" id="berry-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 							 viewBox="0 0 420 806.1" enable-background="new 0 0 391.5 806.1" xml:space="preserve">
 						<path fill="#4F3625" stroke="#332216" stroke-miterlimit="10" d="M145.3,772.2c0,0-4,16.9-3.7,24.2c0.3,7.3,26.4,7.3,26.4,7.3l4-6
@@ -865,7 +853,6 @@
 								</g>
 								<path class="b-arm-top" fill="#A8A8A8" d="M167.9,289.5c0,0,11.7-4.4,22.7,22.7s30,56.8,34,60.4c4,3.7,12.8,6.7,21.4,13.5c8.5,6.9,25,32.3,1.7,43.2
 									c-5.2,4.8-39.4-0.8-62-28.8S154.3,352,154.3,352c-4.9-14-14.6-38.9-9.3-48C152.3,291.3,167.9,289.5,167.9,289.5z"/>
-								
 							</g>
 							<path fill="#999999" d="M52,281.5l-18.5,34.6c0,0-7.1,62.4-7.1,65.1c0,2.7,0,97.3,0,97.3s23,0.7,49.3,2.3s58.6-0.7,80.2-3.7
 								s24.9-3.1,24.9-3.1s6-29.2,1.7-70.2s-9.7-90.7-10.7-96.3c-1-5.7-1.7-19.1-9.3-26c-7.7-7-83.7-7-83.7-7L52,281.5z"/>
@@ -878,7 +865,6 @@
 								<path fill="#A8A8A8" d="M23.9,336.2c0,0,6.7-21.7,17.7-23.3s30.7-1.7,32.3,11.7c1.7,13.3-15,64.7-19.3,81.7s-6,75-2.3,94
 									c3.7,19,4.3,27.3,4.3,27.3s-10.7,4.3-17.3,6s-18.7,3.3-18.7,3.3s-19-56.3-19-78S9.7,365.2,23.9,336.2z"/>
 							</g>
-							
 						</g>
 						<g>
 							<path fill="#CEB4AB" d="M165.6,59.6c0,0,6.5,32,9,52.5s4.5,72,3,103.5s-6,51.5-9.5,58s-6,7-18,10s-57.5,8.5-77,4.5
@@ -896,18 +882,15 @@
 							<path fill="#A55926" stroke="#915024" stroke-miterlimit="10" d="M131.9,90.6c0,0,2.3,5.3,0,12c12-2.7,26.3-0.7,32.7,2.5
 								c2.3-6.8,2.3-6.8,2.3-6.8S159.6,88.9,131.9,90.6z"/>
 							<g>
-								
-									<ellipse transform="matrix(0.9898 -0.1422 0.1422 0.9898 -18.3757 14.3955)" fill="#FFFFFF" cx="91.5" cy="135.7" rx="9.1" ry="10.5"/>
+								<ellipse transform="matrix(0.9898 -0.1422 0.1422 0.9898 -18.3757 14.3955)" fill="#FFFFFF" cx="91.5" cy="135.7" rx="9.1" ry="10.5"/>
 								<circle fill="#286340" cx="93.3" cy="132.2" r="6"/>
 							</g>
 							<g>
-								
-									<ellipse transform="matrix(0.9898 -0.1422 0.1422 0.9898 -16.9125 22.8677)" fill="#FFFFFF" cx="151.5" cy="129.7" rx="9.1" ry="10.5"/>
+								<ellipse transform="matrix(0.9898 -0.1422 0.1422 0.9898 -16.9125 22.8677)" fill="#FFFFFF" cx="151.5" cy="129.7" rx="9.1" ry="10.5"/>
 								<circle fill="#286340" cx="153.3" cy="126.2" r="6"/>
 							</g>
 							<g class="b-eye">
-								
-									<ellipse transform="matrix(0.9898 -0.1422 0.1422 0.9898 -18.3757 14.3955)" fill="#CEB4AB" cx="91.5" cy="135.7" rx="9.7" ry="11.2"/>
+								<ellipse transform="matrix(0.9898 -0.1422 0.1422 0.9898 -18.3757 14.3955)" fill="#CEB4AB" cx="91.5" cy="135.7" rx="9.7" ry="11.2"/>
 								<path fill="#59504D" d="M78.5,139.1c8.5,0,13.5-2,15.7-2.7c2.1-0.7,8-3.3,9.3-4.1"/>
 							</g>
 							<g>
@@ -926,8 +909,7 @@
 								S86.7,237.5,82.4,235.2z"/>
 							<path fill="#EFEFEF" d="M85.6,243.9l2.1-1.8c0,0,8.1,3.9,13.5,4.4s23.5-1.3,23.5-1.3l17.4-2.7l2.4,4.9v2.3l-51.1,3L85.6,243.9z"/>
 							<g class="b-eye">
-								
-									<ellipse transform="matrix(0.9858 0.1677 -0.1677 0.9858 23.9311 -23.5698)" fill="#CEB4AB" cx="151.5" cy="129.9" rx="9.7" ry="11.2"/>
+								<ellipse transform="matrix(0.9858 0.1677 -0.1677 0.9858 23.9311 -23.5698)" fill="#CEB4AB" cx="151.5" cy="129.9" rx="9.7" ry="11.2"/>
 								<path fill="#59504D" d="M138.1,129.1c8.1,2.6,13.5,2.2,15.7,2.2c2.2,0,8.6-0.7,10.2-1.1"/>
 							</g>
 						</g>
@@ -1164,8 +1146,6 @@
 								c-1.2,2.3-7.6,2-12.3,4.3c-4.6,2.4-9.2,7.5-9.2,7.5l1.6,0.4c0,0,5.5-6.9,11.7-7.2s13.6-1,13.6-1l-1.7,7.7c0,0-18.1,3.4-19.5,5.1
 								c-1.4,1.7,0.6,2.5,0.6,2.5s19.1-8.3,21.5-7.2s4.2,8.6-2.2,9.9s-16.6,2.7-16.6,2.7s0.1,5.8-1.4,6.2c-1.5,0.3,11.7,28.1,14.2,32.4
 								c-4.5,2.9-14.7,5.8-30,0.9C321.6,371.3,322.1,371.8,321.1,367.7z"/>
-								
-								<g>
 							<g>
 								<path opacity="0.2" fill="#B29518" stroke="#555555" stroke-width="2" d="M529.6,270.1l4.5,0.5c0,0,9.5,26.5,13.4,29.1s32.7,9,45.1,1.1c12.4-7.9,14.4-11.4,14.4-11.4
 									l-1.1-26.6c0,0-40.3-17.5-67.2-5.3c-17-19.1-45.6-17.9-54.5-17.1c-5.2,11.3-8,25.5-8,25.5s1.7,5.4,3.3,8.3
@@ -1185,7 +1165,6 @@
 				</div>
 				<div id="next1960" class="nextriger"></div>
 			</section>
-			
 			
 			
 			<!-- 1960
@@ -1229,7 +1208,7 @@
 								<p>If one had to choose the milestone year that began the ascendance of Remington Arms Co. to the pinnacle it achieved in the firearms industry during the second half of the 20th century, it would probably be 1962. That was the year the Model 700 bolt-action rifle was introduced. And the rifle had an immediate and major impact on the shooting world.</p>
 							</div>
 							<div id="video_1962">
-								<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/DVEEz2m23wE?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
+								<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
 							</div>
 							<div id="full_1962" class="full-story text-with-shadow">
 								<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
@@ -1238,7 +1217,6 @@
 							<div id="year_1962" class="year text-with-shadow">1962</div>
 						</div>
 					</div>
-					
 				</div>
 				<div id="modal-s1962" class="modal">
 					<div class="modal-center">
@@ -1260,7 +1238,7 @@
 								<p>Introduced in 1963, few firearms have revolutionozed shooting the way the Remington Model 1100 thas influenced shotgunning and hunting. It's no wonder that millions of these guns have been sold.</p>
 							</div>
 							<div id="video_1963">
-								<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/DVEEz2m23wE?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
+								<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
 							</div>
 							<div id="full_1963" class="full-story text-with-shadow">
 								<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
@@ -1269,7 +1247,6 @@
 							<div id="year_1963" class="year text-with-shadow">1963</div>
 						</div>
 					</div>
-					
 				</div>
 				<div id="modal-s1963" class="modal">
 					<div class="modal-center">
@@ -1330,7 +1307,6 @@
 			</section>
 			
 			
-			
 			<!-- 1982
 			<!-------------------------------------------------->
 			<section id="s1982" class="scene">
@@ -1376,7 +1352,7 @@
 							</div>
 							<div id="right_1987">
 								<h1>Model 11-87 Autoloading Shotguns</h1>
-								<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/DVEEz2m23wE?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
+								<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
 								<div id="full_1987" class="full-story">
 									<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
 									<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
@@ -1393,6 +1369,7 @@
 				</div>
 				<div id="next1988" class="nextriger"></div>
 			</section>
+		
 			
 			<!-- 1988
 			<!-------------------------------------------------->
@@ -1433,7 +1410,6 @@
 									<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
 									<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
 								</div>
-								
 							</div>
 						</div>
 					</div>
@@ -1480,12 +1456,6 @@
 								<div id="bottom_2013">
 									<div id="year_2013" class="year">2013</div>
 									<div id="btn_2013" class="btn-info" data-scene="2013" data-slide="0" title="View More Info"><span class="icon-wrap"><i class="icon-info"></i></span></div>
-<!--
-									<div id="full_2013" class="full-story">
-										<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
-										<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
-									</div>
--->
 								</div>
 							</div>
 						</div>
@@ -1519,127 +1489,65 @@
 				</div>
 				<div id="next2016" class="nextriger"></div>
 			</section>
-			
-			
-			
-			
-			
-<!-- 			<div class="back-fill"></div> -->
-		</div>
-
-
-<svg version="1.1" id="timeline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="626.9 -843.7 109.8 817.6" style="enable-background:new 626.9 -843.7 109.8 817.6;" xml:space="preserve">
-<line id="line" x1="655.7" y1="-827.5" x2="655.7" y2="-41.8"/>
-<g id="line_menu">
-	<a data-menuanchor="y1816" href="#y1816"><circle id="c1816" class="circle" cx="655.7" cy="-827.5" r="11"/></a>
-	<a data-menuanchor="y1856" href="#y1856"><circle id="c1856" class="circle" cx="655.7" cy="-740.2" r="11"/></a>
-	<a data-menuanchor="y1867" href="#y1867"><circle id="c1867" class="circle" cx="655.7" cy="-652.9" r="11"/></a>
-	<a data-menuanchor="y1875" href="#y1875"><circle id="c1875" class="circle" cx="655.7" cy="-565.6" r="11"/></a>
-	<a data-menuanchor="y1933" href="#y1933"><circle id="c1933" class="circle" cx="655.7" cy="-478.3" r="11"/></a>
-	<a data-menuanchor="y1959" href="#y1959"><circle id="c1959" class="circle" cx="655.7" cy="-391" r="11"/></a>
-	<a data-menuanchor="y1966" href="#y1966"><circle id="c1966" class="circle" cx="655.7" cy="-303.7" r="11"/></a>
-	<a data-menuanchor="y1987" href="#y1987"><circle id="c1987" class="circle" cx="655.7" cy="-216.4" r="11"/></a>
-	<a data-menuanchor="y2010" href="#y2010"><circle id="c2010" class="circle" cx="655.7" cy="-129.1" r="11"/></a>
-	<a data-menuanchor="y2016" href="#y2016"><circle id="c2016" class="circle" cx="655.7" cy="-41.8" r="11"/></a>
-</g>
-<polygon id="time_arrow" class="arr" points="626.9,-833 637.6,-828 626.9,-823.2 "/>
-<text id="t1816" transform="matrix(1 0 0 1 676.6667 -819.9643)" class="st20">1816</text>
-<text id="t1856" transform="matrix(1 0 0 1 676.6667 -732.6641)" class="st20">1856</text>
-<text id="t1867" transform="matrix(1 0 0 1 676.6667 -645.3649)" class="st20">1867</text>
-<text id="t1875" transform="matrix(1 0 0 1 676.6667 -558.8308)" class="st20">1875</text>
-<text id="t1933" transform="matrix(1 0 0 1 676.6667 -470.7673)" class="st20">1933</text>
-<text id="t1959" transform="matrix(1 0 0 1 676.6667 -384.4855)" class="st20">1959</text>
-<text id="t1966" transform="matrix(1 0 0 1 676.6667 -297.1862)" class="st20">1966</text>
-<text id="t1987" transform="matrix(1 0 0 1 676.6667 -208.8686)" class="st20">1987</text>
-<text id="t2010" transform="matrix(1 0 0 1 676.6667 -122.5859)" class="st20">2010</text>
-<text id="t2016" transform="matrix(1 0 0 1 676.6667 -35.2875)" class="st20">2016</text>
-<g>
-	<line class="st8" x1="652.3" y1="-805.7" x2="659" y2="-805.7"/>
-	<line class="st8" x1="652.3" y1="-783.9" x2="659" y2="-783.9"/>
-	<line class="st8" x1="652.3" y1="-762.1" x2="659" y2="-762.1"/>
-	<line class="st8" x1="652.3" y1="-720.6" x2="659" y2="-720.6"/>
-	<line class="st8" x1="652.3" y1="-698.8" x2="659" y2="-698.8"/>
-	<line class="st8" x1="652.3" y1="-676.9" x2="659" y2="-676.9"/>
-	<line class="st8" x1="652.3" y1="-633.3" x2="659" y2="-633.3"/>
-	<line class="st8" x1="652.3" y1="-611.5" x2="659" y2="-611.5"/>
-	<line class="st8" x1="652.3" y1="-589.6" x2="659" y2="-589.6"/>
-	<line class="st8" x1="652.3" y1="-541.6" x2="659" y2="-541.6"/>
-	<line class="st8" x1="652.3" y1="-519.8" x2="659" y2="-519.8"/>
-	<line class="st8" x1="652.3" y1="-498" x2="659" y2="-498"/>
-	<line class="st8" x1="652.3" y1="-456.5" x2="659" y2="-456.5"/>
-	<line class="st8" x1="652.3" y1="-434.7" x2="659" y2="-434.7"/>
-	<line class="st8" x1="652.3" y1="-412.9" x2="659" y2="-412.9"/>
-	<line class="st8" x1="652.3" y1="-369.2" x2="659" y2="-369.2"/>
-	<line class="st8" x1="652.3" y1="-347.4" x2="659" y2="-347.4"/>
-	<line class="st8" x1="652.3" y1="-325.6" x2="659" y2="-325.6"/>
-	<line class="st8" x1="652.3" y1="-281.9" x2="659" y2="-281.9"/>
-	<line class="st8" x1="652.3" y1="-260.1" x2="659" y2="-260.1"/>
-	<line class="st8" x1="652.3" y1="-238.3" x2="659" y2="-238.3"/>
-	<line class="st8" x1="652.3" y1="-194.6" x2="659" y2="-194.6"/>
-	<line class="st8" x1="652.3" y1="-172.8" x2="659" y2="-172.8"/>
-	<line class="st8" x1="652.3" y1="-151" x2="659" y2="-151"/>
-	<line class="st8" x1="652.3" y1="-107.3" x2="659" y2="-107.3"/>
-	<line class="st8" x1="652.3" y1="-85.5" x2="659" y2="-85.5"/>
-	<line class="st8" x1="652.3" y1="-63.7" x2="659" y2="-63.7"/>
-</g>
-</svg>
-<!--
-<svg version="1.1" id="timeline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 51.1 402.3" enable-background="new 0 0 51.1 402.3" xml:space="preserve">
-<g>
-	<g>
-		<line class="time-path" fill="none" stroke="#231F20" stroke-linecap="round" x1="13.2" y1="11.2" x2="13.2" y2="11.2"/>
-		<line class="time-path" fill="none" stroke="#231F20" stroke-linecap="round" stroke-dasharray="0.1, 2.5" x1="13.2" y1="13.2" x2="13.2" y2="390.2"/>
-		<line class="time-path" fill="none" stroke="#231F20" stroke-linecap="round" x1="13.2" y1="391.2" x2="13.2" y2="391.2"/>
-	</g>
-</g>
-<circle class="time-point c1816" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="11.2" r="2"/>
-<circle class="time-point c1959" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="31.2" r="2"/>
-<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="51.2" r="2"/>
-<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="71.2" r="2"/>
-<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="91.2" r="2"/>
-<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="111.2" r="2"/>
-<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="131.2" r="2"/>
-<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="151.2" r="2"/>
-<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="171.2" r="2"/>
-<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="191.2" r="2"/>
-<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="211.2" r="2"/>
-<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="231.2" r="2"/>
-<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="251.2" r="2"/>
-<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="271.2" r="2"/>
-<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="291.2" r="2"/>
-<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="311.2" r="2"/>
-<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="331.2" r="2"/>
-<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="351.2" r="2"/>
-<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="371.2" r="2"/>
-<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="391.2" r="2"/>
-
-<polygon id="time-arrow" fill="#1E3F14" points="0,8.9 4.9,11.2 0,13.4 "/>
-
-<text class="time-year t1816" transform="matrix(1 0 0 1 22.8078 14.6667)" font-family="'Oswald'" font-size="8">1816</text>
-<text class="time-year t1959" transform="matrix(1 0 0 1 22.8078 34.6667)" font-family="'Oswald'" font-size="8">1959</text>
-<text class="time-year" transform="matrix(1 0 0 1 22.8078 54.6667)" font-family="'Oswald'" font-size="8">1983</text>
-<text class="time-year" transform="matrix(1 0 0 1 22.8078 74.6667)" font-family="'Oswald'" font-size="8">1982</text>
-<text class="time-year" transform="matrix(1 0 0 1 22.8078 94.6667)" font-family="'Oswald'" font-size="8">1981</text>
-<text class="time-year" transform="matrix(1 0 0 1 22.8078 135.6667)" font-family="'Oswald'" font-size="8">1985</text>
-<text class="time-year" transform="matrix(1 0 0 1 22.8078 114.6667)" font-family="'Oswald'" font-size="8">1985</text>
-<text class="time-year" transform="matrix(1 0 0 1 22.8078 154.6667)" font-family="'Oswald'" font-size="8">1985</text>
-<text class="time-year" transform="matrix(1 0 0 1 22.8078 174.6667)" font-family="'Oswald'" font-size="8">1985</text>
-<text class="time-year" transform="matrix(1 0 0 1 22.8078 194.6667)" font-family="'Oswald'" font-size="8">1985</text>
-<text class="time-year" transform="matrix(1 0 0 1 22.8078 214.6667)" font-family="'Oswald'" font-size="8">1985</text>
-<text class="time-year" transform="matrix(1 0 0 1 22.8078 234.6667)" font-family="'Oswald'" font-size="8">1985</text>
-<text class="time-year" transform="matrix(1 0 0 1 22.8078 254.6667)" font-family="'Oswald'" font-size="8">1985</text>
-<text class="time-year" transform="matrix(1 0 0 1 22.8078 274.6667)" font-family="'Oswald'" font-size="8">1985</text>
-<text class="time-year" transform="matrix(1 0 0 1 22.8078 294.6667)" font-family="'Oswald'" font-size="8">1985</text>
-<text class="time-year" transform="matrix(1 0 0 1 22.8078 314.6667)" font-family="'Oswald'" font-size="8">1985</text>
-<text class="time-year" transform="matrix(1 0 0 1 22.8078 334.6667)" font-family="'Oswald'" font-size="8">1985</text>
-<text class="time-year" transform="matrix(1 0 0 1 22.8078 354.6667)" font-family="'Oswald'" font-size="8">1985</text>
-<text class="time-year" transform="matrix(1 0 0 1 22.8078 374.6667)" font-family="'Oswald'" font-size="8">1985</text>
-<text class="time-year" transform="matrix(1 0 0 1 22.8078 394.6667)" font-family="'Oswald'" font-size="8">1985</text>
--->
-
-</svg>	
+		</div><!-- end #container -->
+		
+	<svg version="1.1" id="timeline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		 viewBox="626.9 -843.7 109.8 817.6" style="enable-background:new 626.9 -843.7 109.8 817.6;" xml:space="preserve">
+		<line id="line" x1="655.7" y1="-827.5" x2="655.7" y2="-41.8"/>
+		<g id="line_menu">
+			<a data-menuanchor="y1816" href="#y1816"><circle id="c1816" class="circle" cx="655.7" cy="-827.5" r="11"/></a>
+			<a data-menuanchor="y1856" href="#y1856"><circle id="c1856" class="circle" cx="655.7" cy="-740.2" r="11"/></a>
+			<a data-menuanchor="y1867" href="#y1867"><circle id="c1867" class="circle" cx="655.7" cy="-652.9" r="11"/></a>
+			<a data-menuanchor="y1875" href="#y1875"><circle id="c1875" class="circle" cx="655.7" cy="-565.6" r="11"/></a>
+			<a data-menuanchor="y1933" href="#y1933"><circle id="c1933" class="circle" cx="655.7" cy="-478.3" r="11"/></a>
+			<a data-menuanchor="y1959" href="#y1959"><circle id="c1959" class="circle" cx="655.7" cy="-391" r="11"/></a>
+			<a data-menuanchor="y1966" href="#y1966"><circle id="c1966" class="circle" cx="655.7" cy="-303.7" r="11"/></a>
+			<a data-menuanchor="y1987" href="#y1987"><circle id="c1987" class="circle" cx="655.7" cy="-216.4" r="11"/></a>
+			<a data-menuanchor="y2010" href="#y2010"><circle id="c2010" class="circle" cx="655.7" cy="-129.1" r="11"/></a>
+			<a data-menuanchor="y2016" href="#y2016"><circle id="c2016" class="circle" cx="655.7" cy="-41.8" r="11"/></a>
+		</g>
+		<polygon id="time_arrow" class="arr" points="626.9,-833 637.6,-828 626.9,-823.2 "/>
+		<text id="t1816" transform="matrix(1 0 0 1 676.6667 -819.9643)" class="st20">1816</text>
+		<text id="t1856" transform="matrix(1 0 0 1 676.6667 -732.6641)" class="st20">1856</text>
+		<text id="t1867" transform="matrix(1 0 0 1 676.6667 -645.3649)" class="st20">1867</text>
+		<text id="t1875" transform="matrix(1 0 0 1 676.6667 -558.8308)" class="st20">1875</text>
+		<text id="t1933" transform="matrix(1 0 0 1 676.6667 -470.7673)" class="st20">1933</text>
+		<text id="t1959" transform="matrix(1 0 0 1 676.6667 -384.4855)" class="st20">1959</text>
+		<text id="t1966" transform="matrix(1 0 0 1 676.6667 -297.1862)" class="st20">1966</text>
+		<text id="t1987" transform="matrix(1 0 0 1 676.6667 -208.8686)" class="st20">1987</text>
+		<text id="t2010" transform="matrix(1 0 0 1 676.6667 -122.5859)" class="st20">2010</text>
+		<text id="t2016" transform="matrix(1 0 0 1 676.6667 -35.2875)" class="st20">2016</text>
+		<g>
+			<line class="st8" x1="652.3" y1="-805.7" x2="659" y2="-805.7"/>
+			<line class="st8" x1="652.3" y1="-783.9" x2="659" y2="-783.9"/>
+			<line class="st8" x1="652.3" y1="-762.1" x2="659" y2="-762.1"/>
+			<line class="st8" x1="652.3" y1="-720.6" x2="659" y2="-720.6"/>
+			<line class="st8" x1="652.3" y1="-698.8" x2="659" y2="-698.8"/>
+			<line class="st8" x1="652.3" y1="-676.9" x2="659" y2="-676.9"/>
+			<line class="st8" x1="652.3" y1="-633.3" x2="659" y2="-633.3"/>
+			<line class="st8" x1="652.3" y1="-611.5" x2="659" y2="-611.5"/>
+			<line class="st8" x1="652.3" y1="-589.6" x2="659" y2="-589.6"/>
+			<line class="st8" x1="652.3" y1="-541.6" x2="659" y2="-541.6"/>
+			<line class="st8" x1="652.3" y1="-519.8" x2="659" y2="-519.8"/>
+			<line class="st8" x1="652.3" y1="-498" x2="659" y2="-498"/>
+			<line class="st8" x1="652.3" y1="-456.5" x2="659" y2="-456.5"/>
+			<line class="st8" x1="652.3" y1="-434.7" x2="659" y2="-434.7"/>
+			<line class="st8" x1="652.3" y1="-412.9" x2="659" y2="-412.9"/>
+			<line class="st8" x1="652.3" y1="-369.2" x2="659" y2="-369.2"/>
+			<line class="st8" x1="652.3" y1="-347.4" x2="659" y2="-347.4"/>
+			<line class="st8" x1="652.3" y1="-325.6" x2="659" y2="-325.6"/>
+			<line class="st8" x1="652.3" y1="-281.9" x2="659" y2="-281.9"/>
+			<line class="st8" x1="652.3" y1="-260.1" x2="659" y2="-260.1"/>
+			<line class="st8" x1="652.3" y1="-238.3" x2="659" y2="-238.3"/>
+			<line class="st8" x1="652.3" y1="-194.6" x2="659" y2="-194.6"/>
+			<line class="st8" x1="652.3" y1="-172.8" x2="659" y2="-172.8"/>
+			<line class="st8" x1="652.3" y1="-151" x2="659" y2="-151"/>
+			<line class="st8" x1="652.3" y1="-107.3" x2="659" y2="-107.3"/>
+			<line class="st8" x1="652.3" y1="-85.5" x2="659" y2="-85.5"/>
+			<line class="st8" x1="652.3" y1="-63.7" x2="659" y2="-63.7"/>
+		</g>
+	</svg>	
+	
 	<script src="/wp-content/themes/gunsandammo/remington/js/vendor/jquery.unveil.js"></script>
     <script src="/wp-content/themes/gunsandammo/remington/js/vendor/jquery.flexslider-min.js"></script>
     </body>
