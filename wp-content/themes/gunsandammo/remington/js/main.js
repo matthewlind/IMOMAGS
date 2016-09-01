@@ -198,7 +198,7 @@ $(document).ready(function() {
 		})
 		.setTween(ta_1988).addTo(controller);
 		
-		var ta_2011 = TweenMax.to(time_arrow, 1, {y: 698});
+		var ta_2011 = TweenMax.to(time_arrow, 1, {y: 785});
 		new ScrollScene({
 			triggerElement: "#next2011",
 			duration: wh*duration[8],
@@ -2996,7 +2996,7 @@ if (ww >= 1100 && isSafari == false) {
 	})
 	.setPin("#s2014").addTo(controller).on("enter leave", function (e) {
 		if (e.type == "enter") {
-			$("#next_scene").data('next','s2014').data('more', 4);
+			$("#next_scene").data('next','s2016').data('more', 4);
 		} 
 	});
 	
@@ -3026,6 +3026,54 @@ if (ww >= 1100 && isSafari == false) {
 		triggerHook: "onLeave"
 	})
 	.setTween(ltext_2014).addTo(controller);
+	
+	
+	
+	// SCENE 2016
+	//-----------------------------------------------//
+	new ScrollScene({
+		triggerElement: "#next2016",
+		duration: wh * 8,
+		offset: 10,
+		triggerHook: "onLeave"
+	})
+	.setPin("#s2016").addTo(controller).on("enter leave", function (e) {
+		if (e.type == "enter") {
+			$("#next_scene").data('next','s_end').data('more', 1);
+		} 
+	});
+	
+	// Entering
+	var text_2016 = TweenMax.from('#text_2016', 10, {
+		left: '+=10%',
+		opacity: 0,
+		ease: Power1.easeInOut
+	});
+	new ScrollScene({
+		triggerElement: "#next2016",
+		duration: wh*4,
+		triggerHook: "onLeave"
+	})
+	.setTween(text_2016).addTo(controller);
+	
+	// Entering
+	var text_2016 = TweenMax.to('#text_2016', 10, {
+		left: '+=10%',
+		opacity: 0,
+		ease: Power1.easeInOut
+	});
+	var all_2016 = TweenMax.to('#next_scene, #timeline', 10, {
+		opacity: 0,
+		ease: Power1.easeInOut
+	});
+	new ScrollScene({
+		triggerElement: "#next2016",
+		offset: wh*5,
+		duration: wh*3,
+		triggerHook: "onLeave"
+	})
+	.setTween([text_2016, all_2016]).addTo(controller);
+	
 
 
 }
@@ -3250,6 +3298,20 @@ if (ww < 1100 || isSafari == true) {
 		}
 	});
 	
+	new ScrollScene({
+		triggerElement: "#next_end",
+		duration: wh,
+		triggerHook: "onEnter"
+	}).addTo(contr_mob).on("enter leave", function (e) {
+		if (e.type == "enter") {
+			$("#c2010").css({stroke: "#c14646"});
+			$("#t2010").css({fill: "#c14646",fontSize: "20px"});
+		} else {
+			$("#c2010").css({stroke: "#1e3d05"});
+			$("#t2010").css({fill: "#1e3d05",fontSize: "17px"});
+		}
+	});
+	
 	// Change color of whole timeline. I had to repeat vars, otherwise it wouldn't work 
 	// make it lighter vars
 	var st8 = TweenMax.staggerTo('.st8', 5, {stroke: "#ffffff",ease: Power1.easeInOut}, -0.5);
@@ -3344,7 +3406,7 @@ if (ww < 1100 || isSafari == true) {
 			//else if(index == 2 && direction == 'up'){  }
 		},
 		menu: '#line_menu',
-		anchors:['ystart', 'y1816', 'y1828', 'y1845', 'y1856', 'y1858', 'y1861', 'y1865', 'y1867', 'y1871', 'y1873', 'y1875', 'y1905', 'y1906', 'y1910', 'y1914', 'y1917', 'y1918','y1922', 'y1927', 'y1933', 'y1934', 'y1940', 'y1941', 'y1950', 'y1956', 'y1959', 'yr1959', 'y1960', 'y1962', 'y1963', 'y1966', 'y1970', 'y1982', 'y1987', 'y1988', 'y2010', 'y2011', 'y2013', 'y2014']
+		anchors:['ystart', 'y1816', 'y1828', 'y1845', 'y1856', 'y1858', 'y1861', 'y1865', 'y1867', 'y1871', 'y1873', 'y1875', 'y1905', 'y1906', 'y1910', 'y1914', 'y1917', 'y1918','y1922', 'y1927', 'y1933', 'y1934', 'y1940', 'y1941', 'y1950', 'y1956', 'y1959', 'yr1959', 'y1960', 'y1962', 'y1963', 'y1966', 'y1970', 'y1982', 'y1987', 'y1988', 'y2010', 'y2011', 'y2013', 'y2014', 'y2016', 'yend']
 	});
 	
 	$(".btn-info").bind("click touchstart", function(){ 
@@ -3363,8 +3425,7 @@ if (ww < 1100 || isSafari == true) {
 	$("#c1966").click(function(){$.fn.fullpage.moveTo('y1966');});
 	$("#c1987").click(function(){$.fn.fullpage.moveTo('y1987');});
 	$("#c2010").click(function(){$.fn.fullpage.moveTo('y2010');});
-/*	$("#c2016").click(function(){$.fn.fullpage.moveTo(2);});
-*/
+	$("#c2016").click(function(){$.fn.fullpage.moveTo('y2016');});
 
 	$(".circle").click(function(){
 		var id = $(this).attr("id"),

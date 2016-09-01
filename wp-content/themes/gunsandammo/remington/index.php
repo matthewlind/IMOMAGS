@@ -434,7 +434,7 @@
 								<div id="text_1910" class="text-reg">
 									<p>More than fifty-two U.S. patents were issued to John D. Pedersen between 1903 and 1941. He was also one of Remington’s finest gun designers, having invented the Model 10 pump shotgun.</p>
 								</div>
-								<div id="btn_1910" class="btn-info" data-scene="1910" data-slide="0" title="View Photo"><span class="icon-wrap"><i class="icon-info"></i></span></div>
+								<div id="btn_1910" class="btn-info" data-scene="1910" data-slide="0" title="More Information"><span class="icon-wrap"><i class="icon-info"></i></span></div>
 							</div>
 						</div>
 					</div>
@@ -486,9 +486,8 @@
 							<div id="year_1917" class="year text-with-shadow">1917</div>
 							<div id="text_1917" class="text-white">
 								<img class="lazy" data-src="/wp-content/themes/gunsandammo/remington/images/1917/mr-Best.jpg">
-								<h1>Remington's contracts with the United States</h1>
-								<p>Model 1917 Enfield Rifle and Browning Machine Gun Introduced</p>
-								<div id="btn_1917" class="btn-info" data-scene="1917" data-slide="0" title="View Photo"><span class="icon-wrap"><i class="icon-info"></i></span></div>
+								<h1>Model 1917 Enfield Rifle and Browning Machine Gun Introduced</h1>
+								<div id="btn_1917" class="btn-info" data-scene="1917" data-slide="0" title="More Information"><span class="icon-wrap"><i class="icon-info"></i></span></div>
 							</div>					
 						</div>
 					</div>
@@ -544,7 +543,7 @@
 							<div id="left_1922">
 								<h1>Remington Model 24 Autoloading Rifle</h1>
 								<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
-								<div id="btn_1922" class="btn-info" data-scene="1922" data-slide="0" title="View Photo"><span class="icon-wrap"><i class="icon-info"></i></span></div>
+								<div id="btn_1922" class="btn-info" data-scene="1922" data-slide="0" title="More Information"><span class="icon-wrap"><i class="icon-info"></i></span></div>
 								<div class="year">1922</div>
 							</div>
 							<img id="img_1922" class="lazy" data-src="/wp-content/themes/gunsandammo/remington/images/1922/duck-load.jpg">
@@ -569,7 +568,7 @@
 							<div id="left_1927">
 								<h1>Kleanbore primers Introduced</h1>
 								<p class="text-reg">By the mid-1920s, Remington offered a full variety of sporting arms and ammunition for hunting, gallery use, personal protection, and plinking. Sales in 1926 were over $18,000,000, and net earnings were $1,414,556. Sales for 1927 were even higher. The company’s output of sporting ammunition was the largest in the world (other than for military purposes).</p>
-								<div id="btn_1927" class="btn-info" data-scene="1927" data-slide="0" title="View Photo"><span class="icon-wrap"><i class="icon-info"></i></span></div>
+								<div id="btn_1927" class="btn-info" data-scene="1927" data-slide="0" title="More Information"><span class="icon-wrap"><i class="icon-info"></i></span></div>
 								<div class="year">1927</div>
 							</div>
 							<img id="img_1927" class="lazy" data-src="/wp-content/themes/gunsandammo/remington/images/1927/kleanbore.jpg" data-src-m="/wp-content/themes/gunsandammo/remington/images/1927/kleanbore@m.jpg">
@@ -599,7 +598,7 @@
 								</div>
 							</div>
 							<img id="img_1933" class="lazy" data-src="/wp-content/themes/gunsandammo/remington/images/1933/shotgun.png">
-							<div id="btn_1933" class="btn-info" data-scene="1933" data-slide="0" title="View Photo"><span class="icon-wrap"><i class="icon-info"></i></span></div>
+							<div id="btn_1933" class="btn-info" data-scene="1933" data-slide="0" title="More Information"><span class="icon-wrap"><i class="icon-info"></i></span></div>
 						</div>
 					</div>
 				</div>
@@ -1235,7 +1234,7 @@
 						<div class="elements-inner">
 							<div id="text_1963" class="text-box">
 								<h1>REMINGTON MODEL 1100 AUTOLOADING SHOTGUNS</h1>
-								<p>Introduced in 1963, few firearms have revolutionozed shooting the way the Remington Model 1100 thas influenced shotgunning and hunting. It's no wonder that millions of these guns have been sold.</p>
+								<p>Introduced in 1963, few firearms have revolutionized shooting the way the Remington Model 1100 thas influenced shotgunning and hunting. It's no wonder that millions of these guns have been sold.</p>
 							</div>
 							<div id="video_1963">
 								<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
@@ -1378,7 +1377,7 @@
 					<div class="elements">
 						<div class="elements-inner">
 							<div id="right_1988" class="text-box">
-								<h1>Model 11-87 Autoloading Shotguns</h1>
+								<h1>M24 Sniper Rifle</h1>
 								<p>The M24 designation was assigned by the U.S. Army after adoption of it as their standard sniper rifle in 1988.</p>
 								<div id="full_1988" class="full-story full-story-light">
 									<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
@@ -1400,8 +1399,8 @@
 					<div class="elements">
 						<div class="elements-inner">
 							<div id="text_2010">
-								<h1>Model 11-87 Autoloading Shotguns</h1>
-								<p class="text-reg">The M24 designation was assigned by the U.S. Army after adoption of it as their standard sniper rifle in 2010.</p>
+								<h1>VersaMax Shotgun Is Introduced</h1>
+								<p class="text-reg">Remington revolutionized the autoloading shotgun market with the introduction of the VersaMax</p>
 							</div>
 							<img id="img_2010" class="lazy" data-src="/wp-content/themes/gunsandammo/remington/images/2010/VersaMax.png">
 							<div id="bottom_2010">
@@ -1427,7 +1426,7 @@
 							<img id="img_2011" class="lazy" data-src="/wp-content/themes/gunsandammo/remington/images/2011/R1.png">
 							<div id="text_2011">
 								<h1>R1 Pistol Is Introduced</h1>
-								<p class="text-reg">After eight decades of not having a pistol in their lie, Remington intriduced teh bodl new 1911 R1.</p>
+								<p class="text-reg">After eight decades of not having a pistol in their line, Remington introduced the bold, new 1911 R1</p>
 								<div id="bottom_2011">
 									<div id="year_2011" class="year">2011</div>
 									<div id="full_2011" class="full-story">
@@ -1455,7 +1454,7 @@
 								<p class="text-reg">Remington introduced the Model 783 bolt-action rifle; a rugged "working man’s" model.</p>
 								<div id="bottom_2013">
 									<div id="year_2013" class="year">2013</div>
-									<div id="btn_2013" class="btn-info" data-scene="2013" data-slide="0" title="View More Info"><span class="icon-wrap"><i class="icon-info"></i></span></div>
+									<div id="btn_2013" class="btn-info" data-scene="2013" data-slide="0" title="More Information"><span class="icon-wrap"><i class="icon-info"></i></span></div>
 								</div>
 							</div>
 						</div>
@@ -1480,14 +1479,46 @@
 							<div id="text_2014">
 								<div id="bottom_2014">
 									<div id="year_2014" class="year text-with-shadow">2014</div>
-									<h1 class="text-with-shadow">New manufacturing facility opens in Huntsville, AL</h1>
-									<p class="text-white text-with-shadow">Remington opened a new, state-of-the-art manufacturing facility in Huntsville, Alabama.</p>
+									<h1 class="text-with-shadow">Remington opened a new, state-of-the-art manufacturing facility in Huntsville, AL</h1>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div id="next2016" class="nextriger"></div>
+			</section>
+			
+			
+			<!-- 2016
+			<!-------------------------------------------------->
+			<section id="s2016" class="scene">
+				<div class="scene-inner">
+					<div class="elements">
+						<div class="elements-inner">
+							<img id="img_2016">
+							<div id="text_2016">
+								<div id="bottom_2016">
+									<div id="year_2016" class="year text-with-shadow">2016</div>
+									<h1 class="text-with-shadow">Remington Yesterday, Today and Tomorrow</h1>
+									<p>After 200 years of deliverying great products, sportsmen in the know understand that Remington Country is a real place in real time, no matter if you’re a hunter, shooter, fisherman, or simply someone who enjoys the outdoors</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="next_end" class="nextriger"></div>
+			</section>
+			
+			<section id="s_end" class="scene">
+				<img src="/wp-content/themes/gunsandammo/remington/images/start/xRemington-200th-logo-white.png" class="end-logo">
+				<div class="end-text">
+					<p>See more exciting facts and video on Remington’s Bicentennial page</p>
+					<a href="https://www.remington.com/bicentennial" target="_blank" class="btn-white">VIEW PAGE</a>
+				</div>
+				<div class="end-copyright">
+					<p>© 2016 Outdoor Sportsman Group. All Rights Reserved</p>
+				</div>
+				<div id="end" class="nextriger"></div>
 			</section>
 		</div><!-- end #container -->
 		

@@ -2660,13 +2660,13 @@ body.modal-open {
 }
 #text_2014 {
 	position: absolute;
-    bottom: 14%;
+    top: 14%;
     right: 8%;
     width: 45%;
     z-index: 10;
 }
 #text_2014 h1 {
-	font-size: 55px;
+	font-size: 50px;
 	margin: 0;
 }
 #year_2014 {
@@ -2674,6 +2674,78 @@ body.modal-open {
 	margin-right: 30px;
 	font-size: 170px;
 }
+
+
+/*--------------------------------------------------*/
+/*   SCENE 2016
+/*--------------------------------------------------*/
+#s2016 {
+	background-image: url(../images/all/grey.jpg);
+	background-attachment: fixed;
+	overflow: hidden;
+}
+#s2016 .scene-inner {
+	background-attachment: fixed;
+}
+#text_2016 {
+	position: absolute;
+    top: 14%;
+    right: 8%;
+    width: 45%;
+    z-index: 10;
+}
+#text_2016 h1 {
+	font-size: 50px;
+	margin: 0;
+}
+#year_2016 {
+	position: static;
+	margin-right: 30px;
+	font-size: 170px;
+}
+
+
+/*--------------------------------------------------*/
+/*   SCENE 2016
+/*--------------------------------------------------*/
+#s_end {
+	background-image: none;
+	background-color: #1e3d05;
+	overflow: hidden;
+}
+.end-logo {
+	width: 16%;
+	margin: 10% auto 6%;
+	display: block;
+}
+.end-text {
+	width: 70%;
+	margin: 0 auto;
+	color: #fff;
+	text-align: center;
+	font-size: 24px;
+}
+.btn-white {
+	display: inline-block;
+	height: 50px;
+	border: 4px solid #fff;
+	border-radius: 5px;
+	line-height: 41px;
+	font-size: 17px;
+	padding: 0 30px;
+	color: #fff;
+	text-decoration: none;
+}
+.end-copyright {
+	position: absolute;
+	bottom: 5%;
+	text-align: center;
+	font-size: 15px;
+	color: #fff;
+	width: 100%;
+}
+
+
 
 /*--------------------------------------------------*/
 /*   HOW TO USE THE SITE
@@ -3178,7 +3250,7 @@ body.modal-open {
 #text_2013 {width: 96%;bottom: 20%;left: 0;}
 
 #s2013 .elements {padding-left: 14vw;}
-#text_2014 {bottom: auto;right: 8%;width: 59%;top: 10%;}
+#text_2014 {right: 8%;width: 59%;top: 10%;}
 
 
 .circle {r: 14px;}
@@ -3464,8 +3536,8 @@ body.modal-open {
 #year_1873,
 #year_1940 {font-size: 120px;}
 .s1816-video {width: 110%;margin-left: -6%;}
-#year_1856 {top: -13%;width: 145px;font-size: 70px;}
-#sons {margin-top: 28%;}
+#year_1856 {top: -8%;width: 101px;font-size: 50px;}
+#sons {margin-top: 17%;}
 #text_1906 {width: 280px;bottom: 200px;left: 18%;}
 #video_1906 {width: 280px;left: 18%;}
 .peder_1910 {margin-bottom: 13px;width: 102px;}
@@ -3476,7 +3548,7 @@ body.modal-open {
 #year_1956 {top: 70%;}
 #img_2013 {top: 10%;}
 #text_2014 {top: 18%;}
-
+#s1856 .elements {padding-right: 0;}
 
 }
 
@@ -3586,9 +3658,6 @@ body.modal-open {
 #year_1856 {top: 0;width: auto;right: auto; left: -10%;font-size: 30px;}
 
 #sons {margin-top: 0%;}
-#s1856 .elements {padding-right: 0;}
-
-
 #text_1867 {bottom: 20%;font-size: 19px;}
 #text_1871 {width: 100%;top: 0;height: 100%;}
 #john {height: 50vh;}
