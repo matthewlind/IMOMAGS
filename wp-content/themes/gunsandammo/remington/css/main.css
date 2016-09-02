@@ -1,6 +1,74 @@
 @import url(normalize.min.css);
-@import url(icons.css);
 @import url(flexslider.css);
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?xu12ux');
+  src:  url('fonts/icomoon.eot?xu12ux#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?xu12ux') format('truetype'),
+    url('fonts/icomoon.woff?xu12ux') format('woff'),
+    url('fonts/icomoon.svg?xu12ux#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-long-arrow-down:before {
+  content: "\e90c";
+}
+.icon-chevron-right:before {
+  content: "\e909";
+}
+.icon-chevron-left:before {
+  content: "\e90a";
+}
+.icon-menu:before {
+  content: "\e90d";
+}
+.icon-arrow-long-down:before {
+  content: "\e90b";
+}
+.icon-chevron-thin-up:before {
+  content: "\e904";
+}
+.icon-chevron-thin-right:before {
+  content: "\e905";
+}
+.icon-chevron-thin-left:before {
+  content: "\e906";
+}
+.icon-chevron-thin-down:before {
+  content: "\e907";
+}
+.icon-video-camera:before {
+  content: "\e902";
+}
+.icon-film:before {
+  content: "\e903";
+}
+.icon-camera:before {
+  content: "\e900";
+}
+.icon-cancel:before {
+  content: "\e908";
+}
+.icon-info:before {
+  content: "\e901";
+}
+
 
 
 /*--------------------------------------------------*/
@@ -118,16 +186,6 @@ textarea {
 .ScrollSceneIndicators {
 	z-index: 999999 !important;
 }
-/*
-#timeline-light {
-	position: fixed;
-	height: 90%;
-	top: 5%;
-	left: 3%;
-	min-height: 500px;
-	z-index: 900;
-}
-*/
 .read-full {
 	display: inline-block;
 	text-transform: uppercase;
@@ -182,13 +240,12 @@ textarea {
     cursor: pointer;
     border-bottom: 1px solid rgba(0,0,0,.7);
 }
-
 .submenu-rem {
 	display: none;
 	position: absolute;
 	top: 35px;
 	right: 0;
-	min-width: 160px;
+	min-width: 200px;
 	margin: 0;
 	padding: 0;
 	list-style: none;
@@ -198,7 +255,7 @@ textarea {
 }
 .submenu-rem li {
 	background-color: rgba(0,0,0,.4);
-	height: 35px;
+	height: auto;
 	font-size: 15px;
 	border-radius: 5px;
 	padding: 0 10px;
@@ -210,6 +267,16 @@ textarea {
 	background-color: rgba(20, 42, 3, .7);
     cursor: pointer;
 }
+.submenu-rem li a {
+	color: #fff;
+	text-decoration: none;
+}
+.submenu-rem li:last-child {
+	line-height: 15px;
+	padding: 5px 10px;
+}
+
+
 
 /*--------------------------------------------------*/
 /*   Helper classes
@@ -220,19 +287,16 @@ textarea {
     overflow: hidden;
     *text-indent: -9999px;
 }
-
 .ir:before {
     content: "";
     display: block;
     width: 0;
     height: 150%;
 }
-
 .hidden {
     display: none !important;
     visibility: hidden;
 }
-
 .visuallyhidden {
     border: 0;
     clip: rect(0 0 0 0);
@@ -243,7 +307,6 @@ textarea {
     position: absolute;
     width: 1px;
 }
-
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
     clip: auto;
@@ -253,25 +316,20 @@ textarea {
     position: static;
     width: auto;
 }
-
 .invisible {
     visibility: hidden;
 }
-
 .clearfix:before,
 .clearfix:after {
     content: " ";
     display: table;
 }
-
 .clearfix:after {
     clear: both;
 }
-
 .clearfix {
     *zoom: 1;
 }
-
 
 
 /*--------------------------------------------------*/
@@ -342,14 +400,12 @@ textarea {
 }
 
 
-
 /*--------------------------------------------------*/
 /*   INFO MODAL
 /*--------------------------------------------------*/
 body.modal-open {
     overflow: hidden;
 }
-
 .modal {
 	display: none;
 	position: absolute;
@@ -365,9 +421,6 @@ body.modal-open {
 .modal-green {
 	background-color: #1e3d05;
 }
-
-
-
 .modal-center {
 	width: 640px;
 	max-height: 85vh;
@@ -395,7 +448,6 @@ body.modal-open {
 .i-close:hover {
 	color: #fff;
 }
-
 .slides img {
 	max-width: 100%;
 	max-height: 80%;
@@ -436,20 +488,15 @@ body.modal-open {
     font-size: 70px;
     color: #aaa;
 }
-
-
 .slider .flex-direction-nav a:hover:before {
 	color: #fff;
 }
-
 .slider .flex-direction-nav .flex-next:before {
 	content: "\e905";
 }
 .slider .flex-direction-nav .flex-prev:before {
 	content: "\e906";
 }
-
-
 .modal-video {
 	width: 100%;
 	position: relative;
@@ -468,6 +515,8 @@ body.modal-open {
 .photo-credit {
 	font-size: small;
 }
+
+
 /*--------------------------------------------------*/
 /*   TIMELINE
 /*--------------------------------------------------*/
@@ -507,7 +556,6 @@ body.modal-open {
 /*--------------------------------------------------*/
 /*   ELEMENTS
 /*--------------------------------------------------*/
-
 .scene {
 	height: 100vh;
 	width: 100vw;
@@ -539,7 +587,6 @@ body.modal-open {
 	color: #fff;
 	text-transform: uppercase;
 }
-
 .inner-back-img {
 	width: 100%;
 	height: 100%;
@@ -637,7 +684,6 @@ body.modal-open {
 	margin: 0;
 	font-size: 20px;
 }
-
 #next_scene {
 	position: fixed;
 	bottom: 0;
@@ -666,17 +712,16 @@ body.modal-open {
 #next_scene i {
 	font-size: 24px;
 }
-
 .container {
 	background: url("../images/all/grey.jpg");
 	background-size: cover;
 	background-attachment: fixed;
 }
 
+
 /*--------------------------------------------------*/
 /*   START
 /*--------------------------------------------------*/
-
 #start {
 	background-image: url("../images/all/grey.jpg");
 	background-size: 100%;
@@ -750,7 +795,6 @@ body.modal-open {
     right: 2%;
     z-index: 18;
 }
-
 #arrow-down {
 	display: none;
 }
@@ -759,7 +803,6 @@ body.modal-open {
 /*--------------------------------------------------*/
 /*   SCENE 1816
 /*--------------------------------------------------*/
-
 #s1816 {
 	background-image: url("../images/all/grey.jpg");
 	background-attachment: fixed;
@@ -885,10 +928,10 @@ body.modal-open {
 	bottom: 20%;
 }
 
+
 /*--------------------------------------------------*/
 /*   SCENE 1828
 /*--------------------------------------------------*/
-
 #s1828 {
 	background-image: url(../images/all/dark.jpg);
 	background-size: cover;
@@ -911,7 +954,6 @@ body.modal-open {
 /*--------------------------------------------------*/
 /*   SCENE 1845
 /*--------------------------------------------------*/
-
 #s1845 {
 	background-image: url(../images/all/dark.jpg) black;
 	background-attachment: fixed;
@@ -955,7 +997,6 @@ body.modal-open {
 /*--------------------------------------------------*/
 /*   SCENE 1856
 /*--------------------------------------------------*/
-
 #s1856 {
 	overflow: hidden;
 	background-attachment: fixed;
@@ -1013,7 +1054,6 @@ body.modal-open {
 /*--------------------------------------------------*/
 /*   SCENE 1858
 /*--------------------------------------------------*/
-
 #s1858 {
 	background-image: url(../images/all/dark.jpg);
 	background-attachment: fixed;
@@ -1050,10 +1090,10 @@ body.modal-open {
 	opacity: .9;
 }
 
+
 /*--------------------------------------------------*/
 /*   SCENE 1861
 /*--------------------------------------------------*/
-
 #s1861 {
 	background-image: url(../images/all/dark.jpg) black;
 	background-attachment: fixed;
@@ -1084,11 +1124,9 @@ body.modal-open {
 }
 
 
-
 /*--------------------------------------------------*/
 /*   SCENE 1865
 /*--------------------------------------------------*/
-
 #s1865 {
 	background-image: url(../images/all/dark.jpg) black;
 	background-attachment: fixed;
@@ -1122,7 +1160,6 @@ body.modal-open {
 /*--------------------------------------------------*/
 /*   SCENE 1867
 /*--------------------------------------------------*/
-
 #s1867 {
 	background-image: url(../images/all/dark.jpg);
 	background-attachment: fixed;
@@ -1154,8 +1191,6 @@ body.modal-open {
 #text_1867 p {
 	margin: 0;
 }
-
-
 #btn_1867 {
 	top: 60%;
 	right: 25%;
@@ -1165,7 +1200,6 @@ body.modal-open {
 /*--------------------------------------------------*/
 /*   SCENE 1871
 /*--------------------------------------------------*/
-
 #s1871 {
 	background-image: url(../images/all/dark.jpg);
 	background-attachment: fixed;
@@ -1210,11 +1244,9 @@ body.modal-open {
 }
 
 
-
 /*--------------------------------------------------*/
 /*   SCENE 1873
 /*--------------------------------------------------*/
-
 #s1873 {
 	background-image: url(../images/all/grey.jpg);
 	background-attachment: fixed;
@@ -1259,16 +1291,13 @@ body.modal-open {
 }
 
 
-
 /*--------------------------------------------------*/
 /*   SCENE 1875
 /*--------------------------------------------------*/
-
 #s1875 {
 	background-image: url(../images/all/grey.jpg);
 	background-attachment: fixed;
 	overflow: hidden;
-/* 	background-size: 100%; */
 }
 #inner_1875 {
 	background-attachment: fixed;
@@ -1314,11 +1343,9 @@ body.modal-open {
 }
 
 
-
 /*--------------------------------------------------*/
 /*   SCENE 1905
 /*--------------------------------------------------*/
-
 #s1905 {
 	background-image: url(../images/all/grey.jpg);
 	background-attachment: fixed;
@@ -1350,11 +1377,9 @@ body.modal-open {
 }
 
 
-
 /*--------------------------------------------------*/
 /*   SCENE 1906
 /*--------------------------------------------------*/
-
 #s1906 {
 	background-image: url(../images/all/grey.jpg);
 	background-attachment: fixed;
@@ -1416,11 +1441,9 @@ body.modal-open {
 }
 
 
-
 /*--------------------------------------------------*/
 /*   SCENE 1910
 /*--------------------------------------------------*/
-
 #s1910 {
 	background-image: url(../images/all/grey.jpg);
 	background-attachment: fixed;
@@ -1480,11 +1503,9 @@ body.modal-open {
 }
 
 
-
 /*--------------------------------------------------*/
 /*   SCENE 1914
 /*--------------------------------------------------*/
-
 #s1914 {
 	background-image: url(../images/all/grey.jpg);
 	background-attachment: fixed;
@@ -1525,7 +1546,6 @@ body.modal-open {
 /*--------------------------------------------------*/
 /*   SCENE 1917
 /*--------------------------------------------------*/
-
 #s1917 {
 	background-image: url(../images/all/dark.jpg);
 	background-attachment: fixed;
@@ -1583,11 +1603,9 @@ body.modal-open {
 /*--------------------------------------------------*/
 /*   SCENE 1918
 /*--------------------------------------------------*/
-
 #s1918 {
 	background-image: url(../images/all/grey.jpg);
 	background-attachment: fixed;
-/* 	background-size: 100%; */
 }
 #l_1918 {
 	position: absolute;
@@ -1628,15 +1646,12 @@ body.modal-open {
 }
 
 
-
 /*--------------------------------------------------*/
 /*   SCENE 1922
 /*--------------------------------------------------*/
-
 #s1922 {
 	background-image: url(../images/all/grey.jpg);
 	background-attachment: fixed;
-/* 	background-size: 100%; */
 }
 #img_1922 {
 	position: absolute;
@@ -1672,11 +1687,9 @@ body.modal-open {
 /*--------------------------------------------------*/
 /*   SCENE 1927
 /*--------------------------------------------------*/
-
 #s1927 {
 	background-image: url(../images/all/grey.jpg);
 	background-attachment: fixed;
-/* 	background-size: 100%; */
 }
 #img_1927 {
 	position: absolute;
@@ -1712,7 +1725,6 @@ body.modal-open {
 /*--------------------------------------------------*/
 /*   SCENE 1933
 /*--------------------------------------------------*/
-
 #s1933 {
 	background-image: url(../images/all/grey.jpg);
 	background-attachment: fixed;
@@ -1756,7 +1768,6 @@ body.modal-open {
 /*--------------------------------------------------*/
 /*   SCENE 1934
 /*--------------------------------------------------*/
-
 #s1934 {
 	background-attachment: fixed;
 }
@@ -1801,12 +1812,9 @@ body.modal-open {
 }
 
 
-
-
 /*--------------------------------------------------*/
 /*   SCENE 1940
 /*--------------------------------------------------*/
-
 #s1940 {
 	background-image: url(../images/all/grey.jpg);
 	background-attachment: fixed;
@@ -1851,11 +1859,9 @@ body.modal-open {
 }
 
 
-
 /*--------------------------------------------------*/
 /*   SCENE 1941
 /*--------------------------------------------------*/
-
 #s1941 {
 	background-image: url(../images/all/grey.jpg);
 	background-attachment: fixed;
@@ -1896,7 +1902,6 @@ body.modal-open {
 /*--------------------------------------------------*/
 /*   SCENE 1950
 /*--------------------------------------------------*/
-
 #s1950 {
 	background-image: url(../images/all/grey.jpg);
 	background-attachment: fixed;
@@ -1929,7 +1934,6 @@ body.modal-open {
 	width: 85%;
 	margin-top: 10px;
 }
-
 #bottom_1950 {
 	width: 75%;
 	position: relative;
@@ -1958,7 +1962,6 @@ body.modal-open {
 /*--------------------------------------------------*/
 /*   SCENE 1956
 /*--------------------------------------------------*/
-
 #s1956 {
 	background-image: url(../images/all/dark.jpg);
 	background-attachment: fixed;
@@ -2180,7 +2183,6 @@ body.modal-open {
 	top: 7%; bottom: 0; right: 8.5%;
 	width: 41.5%;
 	height: 86%;
-/* 	outline: 1px dotted grey; */
 	z-index: 30;
 }
 .berry {
@@ -2229,7 +2231,6 @@ body.modal-open {
 /*--------------------------------------------------*/
 /*   SCENE 1960
 /*--------------------------------------------------*/
-
 #s1960 {
 	background-image: url(../images/all/dark.jpg);
 	background-attachment: fixed;
@@ -2266,7 +2267,6 @@ body.modal-open {
 /*--------------------------------------------------*/
 /*   SCENE 1962
 /*--------------------------------------------------*/
-
 #s1962 {
 	background-attachment: fixed;
 }
@@ -2301,7 +2301,6 @@ body.modal-open {
 /*--------------------------------------------------*/
 /*   SCENE 1963
 /*--------------------------------------------------*/
-
 #s1963 {
 	background-attachment: fixed;
 }
@@ -2333,12 +2332,9 @@ body.modal-open {
 }
 
 
-
-
 /*--------------------------------------------------*/
 /*   SCENE 1966
 /*--------------------------------------------------*/
-
 #s1966 {
 	background-color: #000;
 }
@@ -2371,7 +2367,6 @@ body.modal-open {
 /*--------------------------------------------------*/
 /*   SCENE 1970
 /*--------------------------------------------------*/
-
 #s1970 {
 	background-color: #000;
 }
@@ -2405,11 +2400,9 @@ body.modal-open {
 }
 
 
-
 /*--------------------------------------------------*/
 /*   SCENE 1982
 /*--------------------------------------------------*/
-
 #s1982 {
 	background-image: url(../images/all/grey.jpg);
 	background-attachment: fixed;
@@ -2451,11 +2444,9 @@ body.modal-open {
 }
 
 
-
 /*--------------------------------------------------*/
 /*   SCENE 1987
 /*--------------------------------------------------*/
-
 #s1987 {
 	background-image: url(../images/all/grey.jpg);
 	background-attachment: fixed;
@@ -2488,12 +2479,9 @@ body.modal-open {
 }
 
 
-
-
 /*--------------------------------------------------*/
 /*   SCENE 1988
 /*--------------------------------------------------*/
-
 #s1988 {
 	background-image: url(../images/all/grey.jpg);
 	background-attachment: fixed;
@@ -2520,17 +2508,14 @@ body.modal-open {
 }
 
 
-
 /*--------------------------------------------------*/
 /*   SCENE 2010
 /*--------------------------------------------------*/
-
 #s2010 {
 	background-image: url(../images/all/grey.jpg);
 	background-attachment: fixed;
 	overflow: hidden;
 }
-
 #text_2010 {
 	margin-top: 7%;
 }
@@ -2560,7 +2545,6 @@ body.modal-open {
 /*--------------------------------------------------*/
 /*   SCENE 2011
 /*--------------------------------------------------*/
-
 #s2011 {
 	background-image: url(../images/all/grey.jpg);
 	background-attachment: fixed;
@@ -2601,11 +2585,9 @@ body.modal-open {
 }
 
 
-
 /*--------------------------------------------------*/
 /*   SCENE 2013
 /*--------------------------------------------------*/
-
 #s2013 {
 	background-image: url(../images/all/grey.jpg);
 	background-attachment: fixed;
@@ -2697,16 +2679,24 @@ body.modal-open {
 #text_2016 h1 {
 	font-size: 50px;
 	margin: 0;
+	color: #1e3d05;
 }
 #year_2016 {
 	position: static;
 	margin-right: 30px;
 	font-size: 170px;
 }
+#img_2016 {
+	width: 38%;
+	position: absolute;
+	top: 10%;
+	left: 5%;
+	box-shadow: 5px 5px 15px rgba(0,0,0,.2);
+}
 
 
 /*--------------------------------------------------*/
-/*   SCENE 2016
+/*   END
 /*--------------------------------------------------*/
 #s_end {
 	background-image: none;
@@ -2746,7 +2736,6 @@ body.modal-open {
 }
 
 
-
 /*--------------------------------------------------*/
 /*   HOW TO USE THE SITE
 /*--------------------------------------------------*/
@@ -2778,7 +2767,6 @@ body.modal-open {
 .how-1 {
 	display: none;
 }
- 
 
 
 /*--------------------------------------------------*/
@@ -2794,7 +2782,6 @@ body.modal-open {
 .text-box p {font-size: 24px;}
 #next_scene {border-radius: 20px 20px 0 0;border-width: 7px;width: 300px;height: 100px;font-size: 40px;line-height: 93px;}
 #next_scene i {font-size: 39px;}
-
 
 .years-200 {font-size: 44px;}
 
@@ -2813,7 +2800,6 @@ body.modal-open {
 #bracket_box {bottom: 12%;font: 400 26px/30px "Oswald", sans-serif;text-align: left;}
 .s1959r-info h1 {font-size: 62px;}
 .s1959r-info p {font-size: 24px;}
-
 
 
 }/* MEDIA min width 1700 */
@@ -2874,7 +2860,8 @@ body.modal-open {
 #text_2010 h1,
 #text_2011 h1,
 #text_2013 h1,
-#text_2014 h1 {font-size: 80px;}
+#text_2014 h1,
+#text_2016 h1 {font-size: 80px;}
 
 #year_1828,
 #year_1861,
@@ -2907,7 +2894,8 @@ body.modal-open {
 #year_2010,
 #year_2011,
 #year_2013,
-#year_2014 {font-size: 200px;}
+#year_2014,
+#year_2016 {font-size: 200px;}
 
 
 #text_1873 {font-size: 30px;}
@@ -2917,8 +2905,6 @@ body.modal-open {
 .peder_1910 {width: 220px;}
 .text_1933 {padding-left: 440px;}
 #year_1960 {font-size: 120px;}
-
-
 
 
 }/* MEDIA min width 2300 */
@@ -2934,7 +2920,6 @@ body.modal-open {
 
 @media screen and (max-width: 1024px) {
 
-/* @import url(jquery.fullPage.css); */
 .modal {position: absolute;}
 .modal-fixed {position: fixed;}
 .i-close {top: -6px;}
@@ -2952,7 +2937,8 @@ body.modal-open {
 #inner_1966,
 #s1988 .scene-inner,
 #s2014 .scene-inner,
-#s1856 {background-attachment: scroll; background-position: center center;}
+#s1856,
+#s2016 .scene-inner {background-attachment: scroll; background-position: center center;}
 
 #arrow-down {display: block;width: 120px;height: 80px;opacity: .8;position: absolute;left: 0; right: 0; margin: 0 auto;bottom: 20px;z-index: 20;}
 #arrow-down img {width: 100%;}
@@ -2964,6 +2950,7 @@ body.modal-open {
 .years-200 {top: 300px;}
 #st-b1 {top: 36%;}
 #st-b2 {top: 0;}
+#img_2016 {top: 17%;}
 #st-b3 {top: 18%;}
 #st-b4 {top: 31%;}
 #st-b5 {top: 11%;}
@@ -3088,7 +3075,7 @@ body.modal-open {
 }
 
 
-}
+}/* MEDIA min width 1024 */
 
 
 @media screen and (max-width: 800px) {
@@ -3238,7 +3225,6 @@ body.modal-open {
 #right_1988 {width: 89%;top: auto;bottom: 7%;}
 #year_1988 {bottom: auto;top: 3%;right: 9%;}
 
-
 #s2010 .elements {padding-right: 5vw;}
 #text_2010 {margin-top: 19%;}
 #img_2010 {width: 100%;}
@@ -3251,24 +3237,19 @@ body.modal-open {
 
 #s2013 .elements {padding-left: 14vw;}
 #text_2014 {right: 8%;width: 59%;top: 10%;}
-
-
+#img_2016 {width: 45%;position: static;}
+#text_2016 {width: 90%; position: static; margin: 8% 0 4%;}
 .circle {r: 14px;}
 
 
-
-
-
-}
+}/* MEDIA min width 800 */
 
 @media screen and (max-width: 460px) {
 	
-/* .modal-center {width: 80%;} */
-
 #menu_rem {width: 40px;right: 20px; line-height: 40px;}
 #menu_rem > span {display: none;}
 #menu_rem > i {font-size: 18px;}
-.submenu-rem {min-width: 200px;}
+.submenu-rem {min-width: 240px;}
 .submenu-rem li {line-height: 35px;}
 .slider .flex-direction-nav .flex-prev {left: -46px; width: 60px;}
 .slider .flex-direction-nav .flex-next {right: -40px;}
@@ -3280,64 +3261,41 @@ body.modal-open {
 #s1962 .elements,
 #s1963 .elements {padding-left: 20vw;}
 .text-box {padding: 20px;}
-
 .rem-logo {width: 175px;top: 165px;}
 .years-200 {width: 60%;font-size: 43px;top: 280px;}
-
 #year_1865 {bottom: 3%;}
-
 #year_1861 {top: 6%;}
-
 #left_1922 {top: 10%;}
-
 #top_1933 {top: 20%;}
-
 #text_1861,
 #text_1865,
 #gun_1845 {top: 27%;}
-
 #text_wrap_1845 {top: 35%;}
-
 #img_1927 {bottom: 6%;}
-
 #year_1940 {bottom: 10%;}
-
 #load_anim {bottom: 14%;}
-
 #img_1940 {bottom: 28%;}
-
 #top_1950 {margin-top: 0;}
-
 #top_1950 img {margin-top: 10px;}
-
 #bottom_1950 {margin-top: 6%;}
 #text_2010 {margin-top: 9%;}
-
 .left-green-bar {width: 45%;}
-
 .in-the-woods,
 #text_1905 {width: 55%;}
-
 #text_1865,
 #text_1867,
 #text_1966,
 #left_1927 {width: 90%;}
-
 #text_1858,
 #left_1922 {width: 95%;}
-
 #elems_1875 {width: 98%;}
-
 .text-reg,
 .text-white,
 .text-box p,
 #left_1927 p {font-size: 17px;}
-
 #text_1940 h1 {font-size: 20px;}
-
 #text_1966 p {font-size: 22px;}
 #right_1987 h1 {font-size: 25px;}
-
 #top_1914 h1,
 #top_1956 h1 {font-size: 27px;}
 
@@ -3351,7 +3309,8 @@ body.modal-open {
 #left_1922 h1,
 #left_1927 h1,
 .text_1933 h1,
-#text_2010 h1 {font-size: 40px;}
+#text_2010 h1,
+#text_2016 h1 {font-size: 40px;}
 
 #year_1845 {font-size: 60px}
 
@@ -3370,7 +3329,8 @@ body.modal-open {
 #year_1966,
 #year_1988,
 #year_2013,
-#year_2010 {font-size: 100px;}
+#year_2010,
+#year_2016 {font-size: 100px;}
 
 #year_2014 {font-size: 120px;}
 
@@ -3404,8 +3364,6 @@ body.modal-open {
 #bracket_left,
 #bracket_right {display: none;}
 
-
-
 #top_1933 .year {top: -100px; font-size: 100px;}
 
 .right_1934 {top: 2%; width: 95%; right: auto;}
@@ -3421,8 +3379,6 @@ body.modal-open {
 
 #img_1941 {width: 69%;}
 #year_1941 {right: 0%;}
-
-
 
 #bottom_1950 .video-1950 {width: 70%;float: none;}
 #bottom_1950 .full-story {width: auto;float: none;margin-top: 20px;}
@@ -3494,7 +3450,7 @@ body.modal-open {
 .how-mobile i {bottom: 2%;font-size: 60px;width: 60px;}
 
 
-}
+}/* MEDIA min width 460 */
 
 
 @media screen and (max-width: 380px) {
@@ -3523,13 +3479,15 @@ body.modal-open {
 .text_1933 h1,
 #text_2014 h1,
 #text_1966 h1,
-#left_1982 h1 {font-size: 30px;}
+#left_1982 h1,
+#text_2016 h1 {font-size: 30px;}
 .years-200 {font-size: 37px;}
 #text_1934 h1 {font-size: 40px;}
 #year_1905,
 .year,
 #s1918 .year,
-.right_1934 .year {font-size: 70px;}
+.right_1934 .year,
+#year_2016 {font-size: 70px;}
 #year_1875,
 #year_1941,
 #year_1970 {font-size: 100px;}
@@ -3550,7 +3508,7 @@ body.modal-open {
 #text_2014 {top: 18%;}
 #s1856 .elements {padding-right: 0;}
 
-}
+}/* MEDIA min width 380 */
 
 
 @media screen and (max-width: 321px) {
@@ -3605,7 +3563,8 @@ body.modal-open {
 #text_1970 h1,
 #text_1875 h1,
 #left_1927 h1,
-#text_1966 h1 {font-size: 25px;}
+#text_1966 h1,
+#text_2016 h1 {font-size: 25px;}
 
 #text_1858 h1,
 #text_1865 h1,
@@ -3665,7 +3624,6 @@ body.modal-open {
 
 #left_1906, #right_1906 {background-image: none !important;}
 
-
 #s1906 .text-box {border: none; padding: 0; background-color: transparent; height: auto;}
 #year_1906 {right: auto;left: 20%;}
 #text_1906 {width: 247px;bottom: 250px;left: 20%;}
@@ -3692,91 +3650,32 @@ body.modal-open {
 
 #year_2011 {float: right; margin: 0;}
 
-
-
-
 	
-}
-/*
-
-@media print,
-       (-o-min-device-pixel-ratio: 5/4),
-       (-webkit-min-device-pixel-ratio: 1.25),
-       (min-resolution: 120dpi) {
-
-}
-*/
+}/* MEDIA min width 321 */
 
 
-
-
-
-
-
-
-/* ==========================================================================
-   Print styles
-   ========================================================================== */
-
+/*--------------------------------------------------*/
+/*   PRINT STYLES
+/*--------------------------------------------------*/
 @media print {
-    * {
-        background: transparent !important;
-        color: #000 !important;
-        box-shadow: none !important;
-        text-shadow: none !important;
-    }
-
+    * {background: transparent !important;color: #000 !important;box-shadow: none !important;text-shadow: none !important;}
     a,
-    a:visited {
-        text-decoration: underline;
-    }
-
-    a[href]:after {
-        content: " (" attr(href) ")";
-    }
-
-    abbr[title]:after {
-        content: " (" attr(title) ")";
-    }
-
+    a:visited {text-decoration: underline;}
+    a[href]:after {content: " (" attr(href) ")";}
+    abbr[title]:after {content: " (" attr(title) ")";}
     .ir a:after,
     a[href^="javascript:"]:after,
-    a[href^="#"]:after {
-        content: "";
-    }
-
+    a[href^="#"]:after
     pre,
-    blockquote {
-        border: 1px solid #999;
-        page-break-inside: avoid;
-    }
-
-    thead {
-        display: table-header-group;
-    }
-
+    blockquote {border: 1px solid #999;page-break-inside: avoid;}
+    thead {display: table-header-group;}
     tr,
-    img {
-        page-break-inside: avoid;
-    }
-
-    img {
-        max-width: 100% !important;
-    }
-
-    @page {
-        margin: 0.5cm;
-    }
-
+    img {page-break-inside: avoid;}
+    img {max-width: 100% !important;}
+    @page {margin: 0.5cm;}
     p,
     h2,
-    h3 {
-        orphans: 3;
-        widows: 3;
-    }
-
+    h3 {orphans: 3;widows: 3;}
     h2,
-    h3 {
-        page-break-after: avoid;
-    }
+    h3 {page-break-after: avoid;}
 }

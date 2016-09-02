@@ -36,6 +36,7 @@
 				<ul class="submenu-rem">
 					<li class="btn-info mri" data-scene="1111" data-slide="0">ALL VIDEO</li>
 					<li class="btn-info mri" data-scene="1111" data-slide="1">HOW TO USE THE SITE</li>
+					<li><a href="https://www.remington.com/bicentennial" target="_blank">REMINGTON'S BICENTENNIAL PAGE</a></li>
 				</ul>
 			</div>
 			<div id="modal-s1111" class="modal modal-fixed modal-green">
@@ -1491,18 +1492,16 @@
 			
 			<!-- 2016
 			<!-------------------------------------------------->
-			<section id="s2016" class="scene">
-				<div class="scene-inner">
+			<section id="s2016" class="scene" >
+				<div class="scene-inner lazy" data-src="/wp-content/themes/gunsandammo/remington/images/2016/End.jpg" data-src-m="/wp-content/themes/gunsandammo/remington/images/2016/End@m.jpg">
 					<div class="elements">
 						<div class="elements-inner">
-							<img id="img_2016">
 							<div id="text_2016">
-								<div id="bottom_2016">
-									<div id="year_2016" class="year text-with-shadow">2016</div>
-									<h1 class="text-with-shadow">Remington Yesterday, Today and Tomorrow</h1>
-									<p>After 200 years of deliverying great products, sportsmen in the know understand that Remington Country is a real place in real time, no matter if you’re a hunter, shooter, fisherman, or simply someone who enjoys the outdoors</p>
-								</div>
+								<div id="year_2016" class="year">2016</div>
+								<h1>Remington Yesterday, Today and Tomorrow</h1>
+								<p class="text-reg">After 200 years of deliverying great products, sportsmen in the know understand that Remington Country is a real place in real time, no matter if you’re a hunter, shooter, fisherman, or simply someone who enjoys the outdoors</p>
 							</div>
+							<img id="img_2016" class="lazy" data-src="/wp-content/themes/gunsandammo/remington/images/2016/RemingtonCountry2016.jpg">
 						</div>
 					</div>
 				</div>

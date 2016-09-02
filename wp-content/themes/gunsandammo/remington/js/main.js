@@ -336,6 +336,7 @@ if (ww >= 1100 && isSafari == false) {
 	$("#c1966").click(function(){ timeNav('1966', 3, 2.8); });
 	$("#c1987").click(function(){ timeNav('1987', 3.6, 2); });
 	$("#c2010").click(function(){ timeNav('2010', 4, 3); });
+	$("#c2016").click(function(){ timeNav('2016', 4, 3); });
 	
 	
 	// NEXT SCENE BUTTON
@@ -3040,7 +3041,13 @@ if (ww >= 1100 && isSafari == false) {
 	.setPin("#s2016").addTo(controller).on("enter leave", function (e) {
 		if (e.type == "enter") {
 			$("#next_scene").data('next','s_end').data('more', 1);
-		} 
+			$("#c2016").css({stroke: "#c14646",r: 13,strokeWidth: 4});
+			$("#t2016").css({fill: "#c14646",fontSize: "20px"});
+		} else {
+			$("#c2016").css({stroke: "#1e3d05",r: 11,strokeWidth: 3});
+			$("#t2016").css({fill: "#1e3d05",fontSize: "17px"});
+		}
+		
 	});
 	
 	// Entering
