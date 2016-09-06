@@ -1,0 +1,57 @@
+#container .scene,
+.s1845-back-image,
+#s1858_back,
+.s1861-back-image,
+#inner_1865,
+#inner_1867,
+#inner_1934,
+#inner_1933,
+#s1959_inner,
+#inner_1966,
+#inner_1875,
+#s1988 .scene-inner,
+#s2014 .scene-inner,
+#s1856,
+#l_1918,
+#r_1918,
+#inner_1940 {background-attachment: scroll;}
+
+#start {height: 100vh;}
+#arrow-down {display: block;width: 120px;height: 80px;opacity: .8;position: absolute;left: 0; right: 0; margin: 0 auto;bottom: 20px;z-index: 20;}
+#arrow-down img {width: 100%;}
+.scene {overflow: hidden;}	
+.scene-inner {position: static;}
+.army {padding-top: 0;position: absolute; bottom: -35%;}
+
+
+#st-b1 {top: 35%;}
+#st-b2 {top:0%;}
+#st-b3 {top: 20%;}
+#st-b4 {top: 35%;}
+#st-b5 {top: 10%;}
+
+
+#next_scene,
+#s1828 .s1845-back-image,
+#s1858 .s1861-back-image {display: none;}
+
+#s1858_back {border-radius: 0;background-size: cover; width: 100%; padding-top: 0;height: 100%;top: 0;left: 0;}
+.how-to li:first-child {display: none;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
