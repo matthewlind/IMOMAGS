@@ -122,7 +122,7 @@
 						<div class="elements-inner">
 							<div id="year_1828" class="year text-with-shadow">1828</div>
 							<div id="text_1828" class="text-box">
-								<p>In 1824 the Erie Canal was completed, running through what is now downtown Ilion, New York. Eliphalet II decided to move his ironworks north from the gorge to the south bank of the canal, probably to take advantage of this efficient means of delivering Remington products…In 1832, less than four years after moving his establishment to the location alongside the canal, Remington built a large, frame factory building on a stone foundation. Soon thereafter, twenty workmen were busy making gun barrels and other metal goods.</p>
+								<p>In 1824 the Erie Canal was completed, running through what is now downtown Ilion, New York. Eliphalet II decided to move his ironworks north from the gorge to the south bank of the canal, probably to take advantage of this efficient means of delivering Remington products. In 1832, less than four years after moving his establishment to the location alongside the canal, Remington built a large, frame factory building on a stone foundation. Soon thereafter, twenty workmen were busy making gun barrels and other metal goods.</p>
 							</div>
 							<div class="info-s1828 btn-info" data-scene="1828" data-slide="1" title="View Photo"><span class="icon-wrap"><i class="icon-camera"></i></span></div>
 						</div>
@@ -147,7 +147,7 @@
 							<div id="text_wrap_1845">
 								<div id="year_1845" class="year text-with-shadow">1845</div>
 								<div id="text_1845" class="text-white">
-									<p>Remington secured its first major military contract in 1845 to build 5,000 Model 1841 rifles for the Army Ordnance Department, 1,000 of these rifles were ultimately supplied with cast steel barrels.</p>
+									<p>Remington secured its first major military contract in 1845 to build 5,000 Model 1841 rifles for the U.S. Army Ordnance Department, 1,000 of these rifles were ultimately supplied with cast steel barrels.</p>
 								</div>
 							</div>
 							<img id="gun_1845" class="lazy" data-src="/wp-content/themes/gunsandammo/remington/images/1845/mississippi-shotgun.png" alt="Model 1841 Rifle">
@@ -199,8 +199,8 @@
 						<div class="elements-inner">
 							<div id="year_1858" class="year text-with-shadow">1858</div>
 							<div id="text_1858" class="text-box">
-								<h1>BEALS’ NAVY REVOLVER</h1>
-								<p>With the introduction of the Beal's revolver, Remington began to position itself for the conflict to come between the North and South. </p>
+								<h1>BEALS NAVY REVOLVER</h1>
+								<p>With the introduction of the Beals revolver, Remington began to position itself for the conflict to come between the North and South. </p>
 								<div class="full-story full-story-light">
 									<h4>READ THE FULL STORY ON<br>Handguns.COM</h4>
 									<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
@@ -224,7 +224,7 @@
 							<div id="year_1861" class="year text-with-shadow">1861</div>
 							<div id="text_1861" class="text-box">
 								<h1>Remington’s Founder Passes On</h1>
-								<p>The stress of the Civil War must have been enormous on everyone, especially the proprietor, Eliphalet Remington II. On July 12, 1861, the founder of Remington Arms passed into gunmaking history.
+								<p>The stress of the Civil War must have been enormous on everyone, especially the proprietor, Eliphalet Remington II. On August 12, 1861, the founder of Remington Arms passed into gun making history.
 									<span class="photo-credit">Photo Credit: Library of Congress</span>
 								</p>
 							</div>
@@ -347,7 +347,7 @@
 							<div id="elems_1875">
 								<div id="text_1875" class="text-box">
 									<h1>Remington guns of the wild west</h1>
-									<p>As America expanded westward, the appetite for civilian firearms grew, providing new markets for Remington to expand into. <br><span class="photo-credit">(Courtesy Remington Art Collection)</span></p>
+									<p>As America expanded westward, the appetite for firearms grew, providing new markets for Remington to expand into. <br><span class="photo-credit">(Courtesy Remington Art Collection)</span></p>
 									<div class="full-story full-story-light">
 										<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
 										<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
@@ -568,7 +568,7 @@
 						<div class="elements-inner">
 							<div id="left_1927">
 								<h1>Kleanbore primers Introduced</h1>
-								<p class="text-reg">By the mid-1920s, Remington offered a full variety of sporting arms and ammunition for hunting, gallery use, personal protection, and plinking. Sales in 1926 were over $18,000,000, and net earnings were $1,414,556. Sales for 1927 were even higher. The company’s output of sporting ammunition was the largest in the world (other than for military purposes).</p>
+								<p class="text-reg">By the mid-1920s, Remington offered a full variety of sporting arms and ammunition for hunting, gallery use, personal protection, and plinking. Sales in 1926 were over $18,000,000, and net earnings were $1,414,556. Sales for 1927 were even higher. The company’s output of sporting ammunition was the largest in the world.</p>
 								<div id="btn_1927" class="btn-info" data-scene="1927" data-slide="0" title="More Information"><span class="icon-wrap"><i class="icon-info"></i></span></div>
 								<div class="year">1927</div>
 							</div>
@@ -777,7 +777,7 @@
 						<h1 id="s1959_h1">Nylon 66</h1>
 						<div id="bracket_box">
 							<div class="bracket-box-inner">
-								<span>The first .22 autoloading rifle with  a stock made of DuPont Zytel</span>
+								<span>The first .22 autoloading rifle with  a stock made of DuPont Zytel.</span>
 								<div id="bracket_left">
 									<div class="bracket-left-inner">
 										<div></div><div></div><div></div>
@@ -811,7 +811,7 @@
 				<img class="record-photo lazy" data-src="/wp-content/themes/gunsandammo/remington/images/1959r/record-photo.jpg">
 				<div class="s1959r-info">
 					<h1>SHOOTING<br>WORLD RECORD</h1>
-					<p>In October <span class="s1959r-span">1959</span>, a Reminton field Rep, Tom Frye, used two weeks of his vacation to brake a fifty-two-year-old shooting record. Alternately using three Remington Nylon 66 rifles, Frye shot at and hit all but six of 100,010 wooden blocks that were tossed in the air by his assistant.</p>
+					<p>In October <span class="s1959r-span">1959</span>, a Remington field representative, Tom Frye, used two weeks of his vacation to brake a fifty-two-year-old shooting record. Alternately using three Remington Nylon 66 rifles, Frye shot at and hit all but six of 100,010 wooden blocks that were tossed in the air by his assistant.</p>
 				</div>
 				<div class="anim-rec">
 					<div class="test2"></div>
@@ -1235,7 +1235,7 @@
 						<div class="elements-inner">
 							<div id="text_1963" class="text-box">
 								<h1>REMINGTON MODEL 1100 AUTOLOADING SHOTGUNS</h1>
-								<p>Introduced in 1963, few firearms have revolutionized shooting the way the Remington Model 1100 thas influenced shotgunning and hunting. It's no wonder that millions of these guns have been sold.</p>
+								<p>Introduced in 1963, few firearms have revolutionized shooting the way the Remington Model 1100 has influenced shotgunning and hunting. It's no wonder that millions of these guns have been sold.</p>
 							</div>
 							<div id="video_1963">
 								<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
@@ -1499,7 +1499,7 @@
 							<div id="text_2016">
 								<div id="year_2016" class="year">2016</div>
 								<h1>Remington Yesterday, Today and Tomorrow</h1>
-								<p class="text-reg">After 200 years of deliverying great products, sportsmen in the know understand that Remington Country is a real place in real time, no matter if you’re a hunter, shooter, fisherman, or simply someone who enjoys the outdoors</p>
+								<p class="text-reg">After 200 years of delivering great products, sportsmen in the know understand that Remington Country is a real place in real time, no matter if you’re a hunter, shooter, fisherman, or simply someone who enjoys the outdoors.</p>
 							</div>
 							<img id="img_2016" class="lazy" data-src="/wp-content/themes/gunsandammo/remington/images/2016/RemingtonCountry2016.jpg">
 						</div>

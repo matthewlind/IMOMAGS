@@ -3003,7 +3003,7 @@ if (ww >= 1100 && isSafari == false) {
 	
 	// Entering
 	var text_2014 = TweenMax.from('#text_2014', 10, {
-		left: '+=10%',
+		right: '+=10%',
 		opacity: 0,
 		ease: Power1.easeInOut
 	});
@@ -3016,7 +3016,7 @@ if (ww >= 1100 && isSafari == false) {
 	
 	// Leaving
 	var ltext_2014 = TweenMax.to('#text_2014', 10, {
-		left: '-=10%',
+		right: '-=10%',
 		opacity: 0,
 		ease: Power1.easeInOut
 	});
