@@ -75,7 +75,9 @@ get_header(); ?>
 					</div>
 				
 				
-				<?php					
+				<?php	
+					if(!mobile() && !tablet()){
+									
 					$tvPost = new WP_Query(array( 
 						'post_type' => 'post',
 						'post_status' => 'publish',
@@ -134,7 +136,9 @@ get_header(); ?>
 				<div class="fishhead-see-more">
 					<a href="/tv/">Watch More Videos<span></span></a>
 				</div>
-				<?php endwhile; ?> 
+				<?php endwhile; 
+					}
+				?> 
 				
 			
 					<hr class="cfct-div-solid">
