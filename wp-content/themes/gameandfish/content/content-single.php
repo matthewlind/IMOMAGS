@@ -33,7 +33,7 @@ $acf_byline = get_field("byline",$postID);
 
     <?php if ( mobile() ){ ?>
     <div class="image-banner posts-image-banner">
-        <?php imo_ad_placement("300_atf"); ?>
+        <?php imo_ad_placement("300_mobile"); ?>
         <small>ADVERTISEMENT</small>
     </div>
     <?php } ?>

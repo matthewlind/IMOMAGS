@@ -1355,25 +1355,32 @@ body.modal-open {
 	right: 10%;
 	bottom: 5%;
 	font-size: 120px;
+	z-index: 5;
 }
 #text_1905 {
 	width: 30%;
 	right: 28%;
     top: 11%;
 	position: absolute;
+	z-index: 10;
 }
 #text_1905 h1 {
 	color: #1e3d05;
 }
+#text_1905 p {
+    text-shadow: 1px 1px 1px white;
+}
 #btn_1905 {
 	bottom: 12%;
 	left: 38%;
+	z-index: 11;
 }
 #john {
 	position: absolute;
 	height: 90vh;
     left: 10%;
     bottom: -1%;
+    z-index: 2;
 }
 
 
@@ -2057,7 +2064,6 @@ body.modal-open {
 	bottom: 10%;
 	color: white;
 	font: 400 22px/26px "Oswald", sans-serif; 
-	text-align: justify;	
 }
 .bracket-box-inner {
 	position: relative;
@@ -2413,11 +2419,13 @@ body.modal-open {
 	right: 5%;
 	top: 0;
 	height: 100%;
+	z-index: 2;
 }
 #year_1982_wrap {
 	position: absolute;
 	top: 67%;
 	left: 10%;
+	z-index: 3;
 }
 #year_1982_wrap .year {
 	font-size: 120px;
@@ -2430,19 +2438,24 @@ body.modal-open {
 	width: 35%;
 	left: 10%;
 	bottom: 35%;
+	z-index: 4;
 }
 #left_1982 {
 	width: 35%;
 	position: absolute;
 	top: 13%;
 	left: 10%;
+	z-index: 5;
 }
 #left_1982 h1 {
 	margin-top: 0;
 	font-size: 40px;
 	color: #1e3d05;
+	text-shadow: 1px 1px 1px white;
 }
-
+#left_1982 p {
+	text-shadow: 1px 1px 1px white;
+}
 
 /*--------------------------------------------------*/
 /*   SCENE 1987
@@ -2797,7 +2810,7 @@ body.modal-open {
 #gun_1845 {width: 800px;left: 17%;}
 
 #s1959_h1 {font-size: 60px;bottom: 6%;}
-#bracket_box {bottom: 12%;font: 400 26px/30px "Oswald", sans-serif;text-align: left;}
+#bracket_box {bottom: 12%;font: 400 26px/30px "Oswald", sans-serif;}
 .s1959r-info h1 {font-size: 62px;}
 .s1959r-info p {font-size: 24px;}
 
@@ -3039,7 +3052,7 @@ body.modal-open {
 #top_1956 {width: 90%;margin-top: 10%;}
 #bottom_1956 {width: 90%;}
 
-#bracket_box {font-size: 16px; text-align: left;}
+#bracket_box {font-size: 16px;}
 #s1959_info {width: 74%;}
 #bottom_1959 {margin-top: 4%;width: 74%;}
 #year_1966 {display: inline-block;}
@@ -3212,7 +3225,7 @@ body.modal-open {
 
 #left_1982 {width: 81%;;left: 0;z-index: 5;padding: 30px;background-color: rgba(0,0,0,.5);border: 5px solid #fff;}
 #left_1982 h1,
-#left_1982 p {color: #fff;}
+#left_1982 p {color: #fff; text-shadow: none;}
 #img_knife_1982 {width: 55%;bottom: 8%;z-index: 5;left: auto; right: 5%;}
 #year_1982_wrap {top: auto;z-index: 5;bottom: 5%;}
 
