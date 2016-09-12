@@ -251,7 +251,7 @@
 							<div id="year_1865" class="year text-with-shadow">1865</div>
 							<div id="text_1865" class="text-box">
 								<h1>The Golden Age of Sporting Arms Begins</h1>
-								<p>The Civil War officially ended in April 1865, and Remington’s vast Armory began making a great variety of firearms for civilian hunters.</p>
+								<p>The Civil War officially ended in April 1865, and Remington’s vast manufacturing facility began making a great variety of firearms for hunters.</p>
 							</div>
 						</div>
 					</div>
@@ -465,7 +465,7 @@
 									<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
 								</div>
 							</div>
-							<img id="bottom_1914" class="lazy" data-src="/wp-content/themes/gunsandammo/remington/images/1914/shotgun.png">
+<!-- 							<img id="bottom_1914" class="lazy" data-src="/wp-content/themes/gunsandammo/remington/images/1914/shotgun.png"> -->
 						</div>
 					</div>
 				</div>
@@ -513,7 +513,7 @@
 						<div class="elements-inner">
 							<div id="left_1918" class="text-white">
 								<h1>Model 1911 Autoloading Pistols</h1>
-								<p>In mid-summer 1917, a decision was made by the U.S. War Department to supply the infantry with a large number of  Colt Model 1911 autoloading pistols.  The Ordnance Department’s Small Arms Division issued an order to Rem-UMC to manufacture 500,000 pistols.</p>
+								<p>In mid-summer 1917, a decision was made by the U.S. War Department to supply the infantry with a small number of Colt Model 1911 autoloading pistols. America's love affair with the 1911 had begun. </p>
 								<div class="year text-with-shadow">1918</div>
 							</div>
 							<div id="right_1918">
@@ -542,12 +542,12 @@
 					<div class="elements">
 						<div class="elements-inner">
 							<div id="left_1922">
-								<h1>Remington Model 24 Autoloading Rifle</h1>
+								<h1>Remington Introduced The Model 24 Autoloading Rifle</h1>
 								<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
 								<div id="btn_1922" class="btn-info" data-scene="1922" data-slide="0" title="More Information"><span class="icon-wrap"><i class="icon-info"></i></span></div>
 								<div class="year">1922</div>
 							</div>
-							<img id="img_1922" class="lazy" data-src="/wp-content/themes/gunsandammo/remington/images/1922/duck-load.jpg">
+							<img id="img_1922" class="lazy" data-src="/wp-content/themes/gunsandammo/remington/images/1922/shotgun1.png">
 						</div>
 					</div>
 				</div>
@@ -621,7 +621,7 @@
 							<div class="right_1934">
 								<div id="text_1934">
 									<h1>The Guns of Bonnie & Clyde</h1>
-									<p class="text-white">The infamous Barrow Gang spread terror across America in the mid-1930's. Among the many guns they carried, several were favorite Remingtons.</p>
+									<p class="text-white">The infamous Barrow Gang spread terror across America in the mid-1930's. Among the many guns they carried, several were favorite Remingtons including Bonnie's famous Model 11 "whippet" shotgun.</p>
 								</div>
 								<div id="full_1934" class="full-story full-story-light">
 									<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
@@ -1205,7 +1205,7 @@
 						<div class="elements-inner">
 							<div id="text_1962" class="text-box">
 								<h1>Model 700<br>bolt-action rifle</h1>
-								<p>If one had to choose the milestone year that began the ascendance of Remington Arms Co. to the pinnacle it achieved in the firearms industry during the second half of the 20th century, it would probably be 1962. That was the year the Model 700 bolt-action rifle was introduced. And the rifle had an immediate and major impact on the shooting world.</p>
+								<p>If one had to choose the milestone year that began the ascendance of Remington Arms Co. to the pinnacle it achieved in the firearms industry, it would probably be 1962. That was the year the Model 700 bolt-action rifle was introduced.</p>
 							</div>
 							<div id="video_1962">
 								<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
@@ -1265,8 +1265,8 @@
 						<div class="elements-inner">
 							<div id="year_1966" class="year text-with-shadow">1966</div>
 							<div id="text_1966" class="text-with-shadow text-white">
-								<h1>REMINGTON MODEL 1100 AUTOLOADING SHOTGUNS</h1>
-								<p>In Vietnam accurized Model 700's were prized by snipers while the 870 and 1100 provided deadly close-quarters weapons for jungle firefights.</p>
+								<h1>Remington Goes to Vietnam</h1>
+								<p>Accurized Model 700's were prized by snipers during the Vietnam War while the 870 and 1100 also saw action.</p>
 							</div>
 							<div id="full_1966" class="full-story text-with-shadow">
 								<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
@@ -1292,7 +1292,7 @@
 						<div class="elements-inner">
 							<div id="year_1970" class="year text-with-shadow">1970</div>
 							<div id="text_1970" class="text-with-shadow text-white">
-								<h1>A thoroughly modern ammunition plant was constructed in Lonoke, Arkansas</h1>
+								<h1>A thoroughly modern ammunition plant was constructed in Lonoke, AR</h1>
 							</div>
 							<img id="img_1970" class="lazy" data-src="/wp-content/themes/gunsandammo/remington/images/1970/plant.jpg">
 						</div>
@@ -1351,7 +1351,7 @@
 								<img class="lazy" data-src="/wp-content/themes/gunsandammo/remington/images/1987/7.png">
 							</div>
 							<div id="right_1987">
-								<h1>Model 11-87 Autoloading Shotguns</h1>
+								<h1>Remington introduced the Model 11-87 Premier semiauto shotgun</h1>
 								<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
 								<div id="full_1987" class="full-story">
 									<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
