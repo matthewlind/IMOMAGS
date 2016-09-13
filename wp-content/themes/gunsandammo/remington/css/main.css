@@ -271,7 +271,7 @@ textarea {
 	color: #fff;
 	text-decoration: none;
 }
-.submenu-rem li:last-child {
+.submenu-rem li.low-item {
 	line-height: 15px;
 	padding: 5px 10px;
 }
