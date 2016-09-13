@@ -1372,6 +1372,7 @@ if (ww >= 1100 && isSafari == false) {
 		delay: 2,
 	    ease: Linear.easeInOut
 	});
+/*
 	var bottom_1914 = TweenMax.from('#bottom_1914', 5, {
 		bottom: '-=45%',
 		scale: 2,
@@ -1379,12 +1380,13 @@ if (ww >= 1100 && isSafari == false) {
 		delay: 4,
 	    ease: Linear.easeInOut
 	});
+*/
 	new ScrollScene({
 		triggerElement: "#next1914",
 		duration: wh*3,
 		triggerHook: "onLeave"
 	})
-	.setTween([top_1914, bottom_1914, year_1914]).addTo(controller);
+	.setTween([top_1914, year_1914]).addTo(controller);
 	
 	// Leaving
 	var all_1914 = TweenMax.to('#inner_1914', 5, {
@@ -1564,15 +1566,14 @@ if (ww >= 1100 && isSafari == false) {
 	
 	// Entering
 	var img_1922 = TweenMax.from('#img_1922', 5, {
-		right: '-40%',
-		rotation: -40,
+		left: '-=50%',
 		opacity: 0,
+		rotate: 0,
 		ease: Linear.easeInOut
 	});
 	var left_1922 = TweenMax.from('#left_1922', 5, {
-		left: 0,
+		right: 0,
 		opacity: 0,
-		delay: 5,
 		ease: Linear.easeInOut
 	});
 	new ScrollScene({
@@ -1584,13 +1585,12 @@ if (ww >= 1100 && isSafari == false) {
 	
 	// Leaving
 	var img_1922 = TweenMax.to('#img_1922', 5, {
-		right: '-40%',
-		rotation: 40,
+		left: '-40%',
 		opacity: 0,
 		ease: Linear.easeInOut
 	});
 	var left_1922 = TweenMax.to('#left_1922', 5, {
-		left: 0,
+		right: 0,
 		opacity: 0,
 		ease: Linear.easeInOut
 	});
@@ -3311,11 +3311,11 @@ if (ww < 1100 || isSafari == true) {
 		triggerHook: "onEnter"
 	}).addTo(contr_mob).on("enter leave", function (e) {
 		if (e.type == "enter") {
-			$("#c2010").css({stroke: "#c14646"});
-			$("#t2010").css({fill: "#c14646",fontSize: "20px"});
+			$("#c2016").css({stroke: "#c14646"});
+			$("#t2016").css({fill: "#c14646",fontSize: "20px"});
 		} else {
-			$("#c2010").css({stroke: "#1e3d05"});
-			$("#t2010").css({fill: "#1e3d05",fontSize: "17px"});
+			$("#c2016").css({stroke: "#1e3d05"});
+			$("#t2016").css({fill: "#1e3d05",fontSize: "17px"});
 		}
 	});
 	
@@ -3388,6 +3388,9 @@ if (ww < 1100 || isSafari == true) {
 	new ScrollScene({triggerElement: "#next1970",duration: wh,triggerHook: "onLeave"})
 	.setTween( [dst8, dcircles, dtime_text, dtime_line1] ).addTo(contr_mob);
 	
+	var ttimeline = TweenMax.to('#timeline', 5, {opacity: 0});
+	new ScrollScene({triggerElement: "#s_end",duration: wh,triggerHook: "onEnter"})
+	.setTween( ttimeline ).addTo(contr_mob);
 	
 	// FULL PAGE SCROLL
 	var sections = $("#container section");

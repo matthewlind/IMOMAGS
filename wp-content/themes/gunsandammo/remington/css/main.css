@@ -526,6 +526,7 @@ body.modal-open {
 	top: 5%;
 	left: 3%;
 	z-index: 900;
+	width: 90px;
 }
 #line {fill:none;stroke:#1E3F14;}
 .circle{
@@ -1525,28 +1526,19 @@ body.modal-open {
 }
 #top_1914 {
 	position: absolute;
-	width: 95%;
-	top: 6%;
+	width: 88%;
+	top: 14%;
 	left: 0;
 }
 #top_1914 img {
 	float: right;
-	width: 35%;
+	width: 40%;
 	margin-left: 30px;
 }
 #top_1914 h1 {
 	display: inline;
 	color: #1e3d05;
 	font-size: 40px;
-}
-#bottom_1914 {
-	position: absolute;
-	display: block;
-	bottom: 16%;
-	width: 56%;
-	left: 0;
-	right: 10%;
-	margin: 0 auto;
 }
 
 
@@ -1556,7 +1548,7 @@ body.modal-open {
 #s1917 {
 	background-image: url(../images/all/dark.jpg);
 	background-attachment: fixed;
-	background-size: 100%;
+	background-size: cover;
 }
 #year_1917 {
 	left: 5%;
@@ -1662,9 +1654,11 @@ body.modal-open {
 }
 #img_1922 {
 	position: absolute;
-	right: 5%;
-	top: 0;
-	height: 100%;
+    left: 16%;
+    transform: rotate(35deg);
+    top: -13%;
+    height: 130%;
+    z-index: 5;
 }
 #s1922 .year {
 	font-size: 120px;
@@ -1677,8 +1671,9 @@ body.modal-open {
 #left_1922 {
 	width: 35%;
 	position: absolute;
-	top: 13%;
-	left: 10%;
+	top: 10%;
+	right: 20%;
+	z-index: 10;
 }
 #left_1922 h1 {
 	font-size: 40px;
@@ -2786,6 +2781,7 @@ body.modal-open {
 /*   MEDIA QUERIES
 /*--------------------------------------------------*/
 @media only screen and (min-width: 1700px) {
+#timeline {width: 133px;}
 
 .text-reg {font-size: 24px;}
 .text-white {font-size: 24px;}
@@ -3011,7 +3007,6 @@ body.modal-open {
 #h1_1910 {width: 57%;}
 #img_1910 {width: 88%; top: 34%;}
 
-#bottom_1914 {bottom: 7%;width: 63%;}
 #text_1917 {width: 87%;top: 15%;}
 #year_1917 {bottom: 13%;}
 
@@ -3028,8 +3023,8 @@ body.modal-open {
 #s1918,
 #s1940 {background: url(../images/all/dark.jpg);}
 
-#img_1922 {right: 0; z-index: 5;}
-#left_1922 {left: 0;}
+#left_1922 {width: 45%;right: 10%;}
+#img_1922 {left: 10%;}
 
 #img_1927 {right: 0;}
 #left_1927 {left: 1%;top: 4%;}
@@ -3093,7 +3088,7 @@ body.modal-open {
 
 @media screen and (max-width: 800px) {
 
-#timeline {left: 0;}
+#timeline {left: 0;width: 124px;}
 .elements {padding-left: 18vw;}
 .modal-center {width: 80%;}
 .usa-flag {display: none;}
@@ -3157,9 +3152,7 @@ body.modal-open {
 #year_1906 {left: auto;right: 8%;top: 5%;}
 
 
-#top_1914 {top: 10%;}
 #top_1914 img {width: 49%;}
-#bottom_1914 {bottom: 13%;width: 90%;}
 
 #text_1917 img {width: 100%;}
 #text_1917 {width: 85%;top: 3%;}
@@ -3167,8 +3160,8 @@ body.modal-open {
 #left_1918 {width: 45%;top: 20%; left: 0;}
 #right_1918 {width: 45%;top: 20%;right: 5%;}
 
-#img_1922 {right: 0;z-index: 2;opacity: 0.3;height: 110%;width: 100vw;}
-#left_1922 {width: 75%; z-index: 10;}
+#img_1922 {left: -5%;transform: rotate(1deg);height: 101%;top: 0;}
+#left_1922 {width: 75%; right: 5%;}
 #left_1922 h1 {font-size: 52px;}
 
 #img_1927 {height: auto; width: 35vw;z-index: 2;top: auto; bottom: 0;}
@@ -3258,7 +3251,8 @@ body.modal-open {
 }/* MEDIA min width 800 */
 
 @media screen and (max-width: 460px) {
-	
+
+#timeline {width: auto;}	
 #menu_rem {width: 40px;right: 20px; line-height: 40px;}
 #menu_rem > span {display: none;}
 #menu_rem > i {font-size: 18px;}
@@ -3276,9 +3270,12 @@ body.modal-open {
 .text-box {padding: 20px;}
 .rem-logo {width: 175px;top: 165px;}
 .years-200 {width: 60%;font-size: 43px;top: 280px;}
+
+#btn_1906 {right: 5%;}
+
 #year_1865 {bottom: 3%;}
 #year_1861 {top: 6%;}
-#left_1922 {top: 10%;}
+#left_1922,
 #top_1933 {top: 20%;}
 #text_1861,
 #text_1865,
@@ -3302,16 +3299,21 @@ body.modal-open {
 #text_1858,
 #left_1922 {width: 95%;}
 #elems_1875 {width: 98%;}
+.end-logo {width: 150px;}
+#text_1856 p {font-size: 16px;}
+
 .text-reg,
 .text-white,
 .text-box p,
-#left_1927 p {font-size: 17px;}
+#left_1927 p,
+#text_1867 {font-size: 17px;}
 #text_1940 h1 {font-size: 20px;}
 #text_1966 p {font-size: 22px;}
 #right_1987 h1 {font-size: 25px;}
 #top_1914 h1,
 #top_1956 h1 {font-size: 27px;}
 
+#left_1922 h1,
 #text_1941 h1,
 #top_1950 h1,
 #left_1960 h1,
@@ -3319,7 +3321,6 @@ body.modal-open {
 
 #text_1858 h1,
 #text_1861 h1,
-#left_1922 h1,
 #left_1927 h1,
 .text_1933 h1,
 #text_2010 h1,
@@ -3351,12 +3352,12 @@ body.modal-open {
 #sons {margin-top: 37%;width: 90%;}
 #h1_1856 {font-size: 24px;}
 #text_1867 {bottom: 15%;}
-#text_1871 {width: 90%;top: 5%;} 
+#text_1871 {width: 100%;top: 0;} 
 
 #typewriting {height: 48vh;top: 3vh;}
 
 #year_1873 {bottom: 47%;}
-#text_1873 {font-size: 22px;}
+#text_1873 {font-size: 22px; bottom: 15%;}
 #elems_1875 {top: 2%;}
 #john {height: 54vh;left: -23%;}
 #year_1905 {right: 69%; font-size: 92px;}
@@ -3370,12 +3371,14 @@ body.modal-open {
 #img_1910 {top: 23%; left: 0; width: 95%;}
 #bottom_1910 {left: 0;}
 .peder_1910 {margin-bottom: 30px;}
+#top_1914 {width: 95%;}
 #left_1918 {width: 95%;top: 2%;}
 #right_1918 {width: 80%;top: auto;right: auto;bottom: 10%;}
 
-#img_1922,
 #bracket_left,
 #bracket_right {display: none;}
+
+#img_1922 {left: 26%;transform: rotate(90deg);height: 62%;top: -19%;}
 
 #top_1933 .year {top: -100px; font-size: 100px;}
 
@@ -3475,12 +3478,15 @@ body.modal-open {
 .years-200 {top: 230px;}
 #s1845 .elements {padding-left: 20vw;}
 #s1856 .elements {padding-left: 17vw;}
+
+#text_1856 p {font-size: 15px;}
 .text-reg, .text-white, .text-box p, #left_1927 p {font-size: 16px;}
 #text_1873,
 #text_1905 h1,
 #h1_1856,
 #top_1956 h1 {font-size: 21px;}
 
+#left_1922 h1,
 #text_1962 h1,
 #text_1941 h1,
 #top_1950 h1,
@@ -3488,7 +3494,6 @@ body.modal-open {
 #left_1918 h1,
 #s1959_h1 {font-size: 27px;}
 #text_1871 h1,
-#left_1922 h1,
 .text_1933 h1,
 #text_2014 h1,
 #text_1966 h1,
@@ -3500,6 +3505,7 @@ body.modal-open {
 .year,
 #s1918 .year,
 .right_1934 .year,
+#s1922 .year,
 #year_2016 {font-size: 70px;}
 #year_1875,
 #year_1941,
@@ -3619,7 +3625,6 @@ body.modal-open {
 .info-s1816-4,
 #in-the-woods-guy,
 .peder_1910,
-#bottom_1914,
 #top_1950 img,
 #text_1962 br { display: none;}
 
