@@ -1,9 +1,15 @@
 <?php 
 	$dartDomain = get_option("dart_domain", $default = false);
 	
+	// When creating the video page for microsite, the page slug shoud be $category_slug-video. Example bigger-bucks-video
+	$page_slug=$post->post_name;
+	$page_slug = str_replace('-video', '', $page_slug);
+	
+/*
 	$cat = get_query_var('cat');
 	$thiscat = get_category ($cat);
 	$catslug = $thiscat->slug;
+*/
 	
 	
 /* ------------------------------------------------------------------------
@@ -66,7 +72,7 @@
 	North American Whitetail 
 ---------------------------------------------------------------------------*/
 	elseif ($dartDomain == "imo.northamericanwhitetail") { 		
-		if ( is_category('bigger-bucks') || in_category('bigger-bucks')) {
+		if ( is_category('bigger-bucks') || in_category('bigger-bucks') || $page_slug == 'bigger-bucks') {
 			get_template_part('header-content/microsites/naw/header-content', 'bigger-bucks');
 		} 
 	}	
