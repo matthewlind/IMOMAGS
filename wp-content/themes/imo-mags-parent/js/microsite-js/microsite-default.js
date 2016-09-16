@@ -36,6 +36,53 @@
 		disabledLink.click(function(event){
 			event.preventDefault();
 		});	
+		
+		
+		
+		$("#mv_menu li").click(function(event){
+			event.preventDefault();
+			var d = $(this), 
+				video_cat = ".target-" + d.data("vcat"),
+				video_cats	= [];
+			
+			d.siblings().each(function(){
+				$(this).removeClass("active");
+				var vid_cat = ".target-" + $(this).data("vcat");
+				
+				if (vid_cat != ".target-all") {
+					video_cats.push(vid_cat);
+				}
+			});	
+			
+			d.addClass("active");
+			
+			if (video_cat == ".target-all") {
+				$("#mv_list li").show();
+			} else {
+				
+				
+				console.log(video_cats.join());
+				
+				
+				$(video_cats.join()).hide();
+				$(video_cat).show();
+			}	
+				
+/*
+			d.siblings().each(function(){
+				var vid_cat = $(this).data("vcat");
+				
+				if (vid_cat != "all") {
+					video_cats.push(vid_cat);
+				}
+			});	
+			console.log(video_cats);
+*/
+			
+			//$("."+video_cat)
+		});
+
+		
 	}); // end of document.ready
 	
 	
