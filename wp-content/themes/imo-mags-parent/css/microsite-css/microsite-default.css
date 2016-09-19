@@ -1426,7 +1426,7 @@ h1, h2, h3, h4, h5 {
 	height: 0;
 	position: relative;
 	background-size: cover;
-	background-color: yellow;
+	background-color: #333;
 	background-repeat: no-repeat;
 }
 .mv-video-thumb i {
@@ -1438,7 +1438,7 @@ h1, h2, h3, h4, h5 {
 	display: block;
 	opacity: .8;
 }
-.mv-video-list li:hover .m-video-thumb i {
+.mv-video-list li:hover .mv-video-thumb i {
 	opacity: 1;
 }
 .mv-video-list li h5 {
