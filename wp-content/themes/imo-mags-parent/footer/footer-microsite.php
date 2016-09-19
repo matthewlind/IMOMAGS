@@ -5,7 +5,6 @@
 	
 	// When creating the video page for microsite, the page slug shoud be $category_slug-video. Example bigger-bucks-video
 	$page_slug=$post->post_name;
-	$page_slug = str_replace('-video', '', $page_slug);
 	
 /*
 	$cat = get_query_var('cat');
@@ -84,7 +83,7 @@
 	North American Whitetail 
 ---------------------------------------------------------------------------*/
 	elseif ($dartDomain == "imo.northamericanwhitetail") { 		
-		if ( is_category('bigger-bucks') || in_category('bigger-bucks') || $page_slug == 'bigger-bucks') {
+		if ( is_category('bigger-bucks') || in_category('bigger-bucks') || $page_slug == 'bigger-bucks-video') {
 			get_template_part('footer/microsite-footers/naw/footer', "bigger-bucks");
 		} 
 		else {

@@ -187,6 +187,8 @@ if (w>=1100)
 	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [[300, 600], [300, 250]], '300_atf').addService(googletag.pubads());
 	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [728, 90], '728_btf').addService(googletag.pubads());
 	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [648, 110], 'fordWidget').addService(googletag.pubads());
+	    
+	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/SIP/SIPTV',[300, 600],'microsite_video_page').addService(googletag.pubads());
 }
 if (w>=600 && w<=1099)
 {
@@ -196,7 +198,8 @@ if (w>=600 && w<=1099)
     googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], '300_atf').addService(googletag.pubads());
     googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [728, 90], '728_btf').addService(googletag.pubads());
     googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [648, 110], 'fordWidget').addService(googletag.pubads());
-
+	
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/SIP/SIPTV',[300, 250],'microsite_video_page').addService(googletag.pubads());
 }
 if (w<=599)
 {
@@ -206,7 +209,8 @@ if (w<=599)
     googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], '300_mobile').addService(googletag.pubads());
     googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [[320, 100], [320, 50]], '320_btf').addService(googletag.pubads());
     googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [320, 200], 'fordWidget').addService(googletag.pubads());
-
+    
+    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/SIP/SIPTV',[320, 100],'microsite_video_page').addService(googletag.pubads());
 }
 
     googletag.pubads().enableSingleRequest();

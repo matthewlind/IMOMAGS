@@ -19,12 +19,8 @@ $microsite_default = true;
 get_header();
 
 $feat_video_id = get_field("feat_video_id");
-
-
-
 ?>
 <div class="content" id="uppp">
-	
 	<div class="mv-video-atf">
 		<div class="mv-player-wrap">
 			<div class="mv-player">
@@ -55,6 +51,8 @@ $feat_video_id = get_field("feat_video_id");
 				<!-- End of Brightcove Player -->
 				<script>
 					var videoPlayer;
+					
+					// On page load, add title and description text
 					function onTemplateLoaded(id) {
 						var player = brightcove.api.getExperience(id);
 						videoPlayer = player.getModule(brightcove.api.modules.APIModules.VIDEO_PLAYER);
@@ -63,7 +61,6 @@ $feat_video_id = get_field("feat_video_id");
 							videoPlayer.getCurrentVideo( function(video) {
 								var display_name = video.displayName,
 								long_desc = video.longDescription;
-								
 								jQuery("#mv_title").text(display_name);
 								if (long_desc == null) { jQuery("#mv_description").text(""); } else { jQuery("#mv_description").text(long_desc);}
 								
@@ -71,6 +68,7 @@ $feat_video_id = get_field("feat_video_id");
 						}, 400)
 					}
 					
+					// Load chosen video, change title and description, scroll player into the view
 					function loadVideo(event, videoId) {
 						videoPlayer.loadVideoByID(videoId);
 						
@@ -78,42 +76,40 @@ $feat_video_id = get_field("feat_video_id");
 							videoPlayer.getCurrentVideo( function(video) {
 								display_name = video.displayName,
 								long_desc = video.longDescription;
-								
 								jQuery("#mv_title").text(display_name);
 								if (long_desc == null) { jQuery("#mv_description").text("");} else {jQuery("#mv_description").text(long_desc);}
 							});
 						}, 400)
 						
-						
 						jQuery("html, body").animate({scrollTop: 0}, 1000, "swing");	
 					}
-					
-					
 				</script>
 			</div>
 			
 			<div id="mv_info" class="mv-info clearfix">
 				<h1 id="mv_title"></h1>
 				<p id="mv_description"></p>
-				<div class="mv-ad">
-					<div class="temp-ad"></div>
+				<div id="mv_ad" class="mv-ad">
+					<script>
+					googletag.cmd.push(function() { googletag.display('microsite_video_page'); });
+					</script>
 				</div>
 			</div>
 		</div>
 	</div>
+	<?php if( have_rows('video_menu') ) { ?>
 	<div class="mv-menu-wrap">
 		<ul id="mv_menu" class="mv-menu">
 			<li class="active" data-vcat="all"><a href="#">all</a></li>
 			<?php
-			if( have_rows('video_menu') ) {
 			    while ( have_rows('video_menu') ) { the_row();
 					$video_cat = get_sub_field('category_name');
 					echo '<li data-vcat="'.$video_cat.'"><a href="#">'.$video_cat.'</a></li>';
 			    }
-			}
 			?>
 		</ul>
 	</div>
+	<?php } ?>
 	<div class="mv-video-wrap" id="video_wrap">
 		<ul id="mv_list" class="mv-video-list clearfix">
 			<?php

@@ -38,11 +38,12 @@
 		});	
 		
 		
-		
+		// VIDEO PAGE
+		//-------------------------------------//
 		$("#mv_menu li").click(function(event){
 			event.preventDefault();
 			var d = $(this), 
-				video_cat = ".target-" + d.data("vcat"),
+				video_cat 	= ".target-" + d.data("vcat"),
 				video_cats	= [];
 			
 			d.siblings().each(function(){
@@ -59,27 +60,9 @@
 			if (video_cat == ".target-all") {
 				$("#mv_list li").show();
 			} else {
-				
-				
-				console.log(video_cats.join());
-				
-				
 				$(video_cats.join()).hide();
 				$(video_cat).show();
 			}	
-				
-/*
-			d.siblings().each(function(){
-				var vid_cat = $(this).data("vcat");
-				
-				if (vid_cat != "all") {
-					video_cats.push(vid_cat);
-				}
-			});	
-			console.log(video_cats);
-*/
-			
-			//$("."+video_cat)
 		});
 
 		
@@ -87,6 +70,7 @@
 	
 	
 	// STICKY HEADER
+	//-------------------------------------//
 	var head_wrap		= $("#header_wrap"),
 		head_main		= $(".main-header"),
 		lastScrollTop 	= 0,
