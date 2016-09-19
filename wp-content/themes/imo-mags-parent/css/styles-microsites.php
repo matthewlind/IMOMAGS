@@ -1,20 +1,6 @@
 <?php 
 	$dartDomain = get_option("dart_domain", $default = false);
-	
-	// When creating the video page for microsite, the page slug shoud be $category_slug-video. Example bigger-bucks-video
 	$page_slug=$post->post_name;
-	
-/*
-	$cat = get_query_var('cat');
-	$thiscat = get_category ($cat);
-	$catslug = $thiscat->slug;
-*/
-	
-/*
-	$url_string = site_url();
-	$url_suffixes = array(".com", ".com/", ".artem", ".artem/", ".fox", ".fox/", ".devj", ".devj/");
-	$site_url = str_replace($url_suffixes, "", $url_string);
-*/
 ?>
 
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/normalize.min.css" />

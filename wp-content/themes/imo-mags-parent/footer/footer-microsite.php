@@ -1,17 +1,7 @@
 <?php
 	$microsite = true;
-	
 	$dartDomain = get_option("dart_domain", $default = false);
-	
-	// When creating the video page for microsite, the page slug shoud be $category_slug-video. Example bigger-bucks-video
 	$page_slug=$post->post_name;
-	
-/*
-	$cat = get_query_var('cat');
-	$thiscat = get_category ($cat);
-	$catslug = $thiscat->slug;
-*/
-	
 	
 /* ------------------------------------------------------------------------
 	Petersens Hunting 
