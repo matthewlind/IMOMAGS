@@ -22,11 +22,19 @@
 	$hero_img_url = (mobile()) ? $hero_image_mobile['url'] : $hero_image['url'];
 	$hero_img_alt = (mobile()) ? $hero_image_mobile['alt'] : $hero_image['alt'];
 	$hero_image_link = get_field('hero_image_link', $term_cat_id);
+	$hero_image_btn_text = get_field('hero_image_btn_text', $term_cat_id);
+	$hero_image_btn_url = get_field('hero_image_btn_url', $term_cat_id);
 ?>
 	<div class="hero-image">
 		<?php if (!empty($hero_image_link)) { echo '<a href="'.$hero_image_link.'">'; }?>
 			<img src="<?php echo $hero_img_url; ?>" alt="<?php echo $hero_img_alt; ?>" />
-		<?php if (!empty($hero_image_link)) { echo '</a>'; }?>
+		<?php 
+			if (!empty($hero_image_link)) { echo '</a>'; }
+			if ($hero_image_btn_text) {
+				echo '<a class="hero-link" href="'.$hero_image_btn_url.'"><span>'.$hero_image_btn_text.'</span><i class="icon-play"></i></a>';
+			}
+		?>
+		
 	</div>
 <?php } 
 		

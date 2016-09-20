@@ -565,6 +565,63 @@ if(function_exists("register_field_group"))
 				'formatting' => 'html',
 				'maxlength' => '',
 			),
+			array (
+				'key' => 'field_577e6f7dca058',
+				'label' => 'Hero Image Button Text',
+				'name' => 'hero_image_btn_text',
+				'type' => 'text',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_55b91c9e31753',
+							'operator' => '==',
+							'value' => '1',
+						),
+						array (
+							'field' => 'field_55b91f75f3a7d',
+							'operator' => '==',
+							'value' => 'hero_image',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_577e6f7dca059',
+				'label' => 'Hero Image Button URL',
+				'name' => 'hero_image_btn_url',
+				'type' => 'text',
+				'instructions' => 'paste url',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_55b91c9e31753',
+							'operator' => '==',
+							'value' => '1',
+						),
+						array (
+							'field' => 'field_55b91f75f3a7d',
+							'operator' => '==',
+							'value' => 'hero_image',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
 		),
 		'location' => array (
 			array (

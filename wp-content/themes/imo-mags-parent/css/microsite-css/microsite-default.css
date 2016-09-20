@@ -478,12 +478,28 @@ h1, h2, h3, h4, h5 {
 .menu-content .menu {
 	margin: 0;
 	padding: 0;
+	*zoom: 1;
+}
+.menu-content .menu:before,
+.menu-content .menu:after {
+    content: " ";
+    display: table;
+}
+.menu-content .menu:after {
+    clear: both;
 }
 .menu-content .menu a {
 	color: #cccccc;
 }
 .menu-content .menu a:hover {
 	color: #fff;
+}
+.menu-content .menu > li {
+	float: left;
+	margin-right: 25px;
+}
+.menu-content .menu > li:nth-child(even) {
+	margin-right: 0;
 }
 .menu-content .menu > li > a {
 	font-weight: 900;
@@ -530,11 +546,43 @@ h1, h2, h3, h4, h5 {
 	min-height: 550px;
 }
 .hero-image {
-	margin: -35px 0 30px;
+	margin: -20px 0 30px;
+	position: relative;
 }
 .hero-image img {
 	width: 100%;
 	display: block;
+}
+.hero-link {
+	position: absolute;
+	display: block;
+	left: 0;
+	top: 0;
+	height: 35px;
+	border: 3px solid #d1c1b4;
+	line-height: 25px;
+	color: #fff;
+	font-size: 13px;
+	padding: 0 10px;
+	border-radius: 3px;
+	background-color: rgba(0,0,0,.4);
+}
+.hero-link:hover {
+	border-color: #fff;
+	color: #fff;
+}
+.hero-link span {
+	text-transform: uppercase;
+	vertical-align: middle;
+}
+.hero-link i {
+	margin-left: 10px;
+	font-size: 20px;
+	color: #ccc;
+	vertical-align: middle;
+}
+.hero-link:hover i {
+	color: #fff;
 }
 .featured-message {
 	width: 100%;
@@ -1600,7 +1648,13 @@ h1, h2, h3, h4, h5 {
 @media only screen and (min-width: 700px) {
 
 /* Header *******************/
-.sponsors-disclaimer {text-align: center;font-size: 16px;}		
+.sponsors-disclaimer {text-align: center;font-size: 16px;}
+.menu-content .menu > li,
+.menu-content .menu > li:nth-child(even) {margin-right: 40px;}
+.hero-image {margin-top: -35px;}
+.hero-link {left: 40px;top: 50px;height: 55px;border: 4px solid #d1c1b4;line-height: 44px;font-size: 18px;padding: 0 20px;}
+.hero-link i {font-size: 30px;margin-left: 15px;}
+	
 /* Content *******************/
 .featured-message {padding: 10px 0;}	
 .featured-message span {font-size: 20px;margin-bottom: 8px;}
@@ -1745,8 +1799,9 @@ h1, h2, h3, h4, h5 {
 .m-article .alignleft { margin-left: -150px;}
 .alignright-content {float: right;margin-right: -150px;}
 
+.menu-content .menu > li {margin-right: 40px;}
+	
 /* message unavailable magazine in online store ****************/
-/* foot */
 .s-mag-btns .s-buy-btn:first-child .unavailble-mag {top: -5px;}
 
 
