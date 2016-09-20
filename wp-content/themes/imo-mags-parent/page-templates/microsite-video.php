@@ -124,7 +124,6 @@ $feat_video_id = get_field("feat_video_id");
 							$video_cats .= "target-" . get_sub_field("cat_name") . " ";
 						}
 					}
-					//$video_cats = rtrim($video_cats,',');
 			?>
 					<li class="<?php echo $video_cats; ?>" onclick="loadVideo(event, <?php echo $video_id; ?>)">
 						<div class="mv-video-thumb" style="background-image: url(<?php echo $vm_image; ?>);">
