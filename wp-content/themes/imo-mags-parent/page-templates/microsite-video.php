@@ -121,10 +121,10 @@ $feat_video_id = get_field("feat_video_id");
 					$video_cats = "";
 					if( have_rows('video_category') ) {
 						while ( have_rows('video_category') ) { the_row();
-							$video_cats .= "target-" . get_sub_field("cat_name") . ",";
+							$video_cats .= "target-" . get_sub_field("cat_name") . " ";
 						}
 					}
-					$video_cats = rtrim($video_cats,',');
+					//$video_cats = rtrim($video_cats,',');
 			?>
 					<li class="<?php echo $video_cats; ?>" onclick="loadVideo(event, <?php echo $video_id; ?>)">
 						<div class="mv-video-thumb" style="background-image: url(<?php echo $vm_image; ?>);">
