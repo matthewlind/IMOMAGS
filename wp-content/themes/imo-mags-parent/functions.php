@@ -34,6 +34,7 @@ add_filter('single_template', create_function(
 
 // ACF for microsites. Original "Microsite Category Fields" exported from Petersens's Hunting site 
 include_once('acf_fields/microsite-category-fields.php');
+include_once('acf_fields/microsite-video-page-fields.php');
 
 // Microsite Ajax load more posts
 include_once( get_template_directory() .'/functions/microsites/ajax-load-posts.php' );

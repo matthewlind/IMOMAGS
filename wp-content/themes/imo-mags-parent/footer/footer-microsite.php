@@ -1,12 +1,7 @@
 <?php
 	$microsite = true;
-	
 	$dartDomain = get_option("dart_domain", $default = false);
-	
-	$cat = get_query_var('cat');
-	$thiscat = get_category ($cat);
-	$catslug = $thiscat->slug;
-	
+	$page_slug=$post->post_name;
 	
 /* ------------------------------------------------------------------------
 	Petersens Hunting 
@@ -78,7 +73,7 @@
 	North American Whitetail 
 ---------------------------------------------------------------------------*/
 	elseif ($dartDomain == "imo.northamericanwhitetail") { 		
-		if ( is_category('bigger-bucks') || in_category('bigger-bucks')) {
+		if ( is_category('bigger-bucks') || in_category('bigger-bucks') || $page_slug == 'bigger-bucks-video') {
 			get_template_part('footer/microsite-footers/naw/footer', "bigger-bucks");
 		} 
 		else {

@@ -1,15 +1,6 @@
 <?php 
 	$dartDomain = get_option("dart_domain", $default = false);
-	
-	$cat = get_query_var('cat');
-	$thiscat = get_category ($cat);
-	$catslug = $thiscat->slug;
-	
-/*
-	$url_string = site_url();
-	$url_suffixes = array(".com", ".com/", ".artem", ".artem/", ".fox", ".fox/", ".devj", ".devj/");
-	$site_url = str_replace($url_suffixes, "", $url_string);
-*/
+	$page_slug=$post->post_name;
 ?>
 
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/normalize.min.css" />
@@ -116,7 +107,7 @@
 -------------------------------------------------------------------------- */		
 	} elseif ($dartDomain == "imo.northamericanwhitetail") { 
 		
-		if ( is_category('bigger-bucks') || in_category('bigger-bucks')) {	
+		if ( is_category('bigger-bucks') || in_category('bigger-bucks') || $page_slug == 'bigger-bucks-video') {	
 	?>
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/microsite-default.css" />
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/naw/microsite-bigger-bucks.css" />

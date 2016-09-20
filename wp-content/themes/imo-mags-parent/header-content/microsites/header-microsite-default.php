@@ -43,7 +43,7 @@ END;
 		}
 	} 			
 ?>
-<div class="microsite-container">
+<div class="microsite-container" id="micro_container">
 
 <div class="top-panel">
 	<a href="<?php echo site_url(); ?>" class="icon-arrow-left">Back to <?php echo $blog_title; ?></a>

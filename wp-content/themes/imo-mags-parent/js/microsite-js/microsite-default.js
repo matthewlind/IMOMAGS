@@ -36,10 +36,41 @@
 		disabledLink.click(function(event){
 			event.preventDefault();
 		});	
+		
+		
+		// VIDEO PAGE
+		//-------------------------------------//
+		$("#mv_menu li").click(function(event){
+			event.preventDefault();
+			var d = $(this), 
+				video_cat 	= ".target-" + d.data("vcat"),
+				video_cats	= [];
+			
+			d.siblings().each(function(){
+				$(this).removeClass("active");
+				var vid_cat = ".target-" + $(this).data("vcat");
+				
+				if (vid_cat != ".target-all") {
+					video_cats.push(vid_cat);
+				}
+			});	
+			
+			d.addClass("active");
+			
+			if (video_cat == ".target-all") {
+				$("#mv_list li").show();
+			} else {
+				$(video_cats.join()).hide();
+				$(video_cat).show();
+			}	
+		});
+
+		
 	}); // end of document.ready
 	
 	
 	// STICKY HEADER
+	//-------------------------------------//
 	var head_wrap		= $("#header_wrap"),
 		head_main		= $(".main-header"),
 		lastScrollTop 	= 0,
