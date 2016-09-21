@@ -132,18 +132,13 @@
 					a_href		= d.attr("href"),
 					cat_slugs	= a_href.match(/(\/)\w+[^\s\/\?]*/g);
 				
-				
 				if (cat_slugs) {
 					var cat_slug 	= cat_slugs[cat_slugs.length -1],
 						cat_slug 	= cat_slug.replace("/", ""),
 						parent_cat 	= this_url.match(/(\/)\w+[^\s\/\?]*/g);
 						parent_cat	= parent_cat[1];
-						
-						if (m_video_page[0]) {parent_cat = parent_cat.replace("-video", "");}
-						
+					if (m_video_page[0]) {parent_cat = parent_cat.replace("-video", "");}
 					var	story_href 	= origin_url + parent_cat + "/#" + cat_slug;
-					
-					console.log(parent_cat);	
 					d.attr('href', story_href);	
 				}	
 			});			
