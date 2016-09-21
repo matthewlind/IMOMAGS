@@ -5,6 +5,7 @@
 		// Filtering posts , all-stories menu item.
 		var m_cat_tamplate	= $(".category"),
 			m_sngl_template = $(".single"),
+			m_video_page	= $(".page-template-microsite-video"),
 			posts_wrap		= $("#posts_wrap"),
 			stories_links 	= $(".all-stories .sub-menu a"),
 			this_url		= document.location.href,
@@ -125,19 +126,19 @@
 		} // if m_cat_template[0]			
 		
 		// for this to work url should be like http://website_name.com/main_cat_slug/post_slug . If you would have few cats in the url like in corssbow revolution, you'll have to rewrite this code		
-		if (m_sngl_template[0]) {
+		if (m_sngl_template[0] || m_video_page[0]) {
 			stories_links.each(function() {
 				var d 			= $(this),
 					a_href		= d.attr("href"),
 					cat_slugs	= a_href.match(/(\/)\w+[^\s\/\?]*/g);
-					
+				
 				if (cat_slugs) {
 					var cat_slug 	= cat_slugs[cat_slugs.length -1],
 						cat_slug 	= cat_slug.replace("/", ""),
 						parent_cat 	= this_url.match(/(\/)\w+[^\s\/\?]*/g);
-						parent_cat	= parent_cat[1],
-						story_href 	= origin_url + parent_cat + "/#" + cat_slug;
-					
+						parent_cat	= parent_cat[1];
+					if (m_video_page[0]) {parent_cat = parent_cat.replace("-video", "");}
+					var	story_href 	= origin_url + parent_cat + "/#" + cat_slug;
 					d.attr('href', story_href);	
 				}	
 			});			
