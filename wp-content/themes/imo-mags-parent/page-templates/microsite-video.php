@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: Microsite Video
- * Description: When creating video page for a microsite the slug structure should be $cat_slug-vide. Example bigger-bucks-video where bigger-bucks is category slug
+ * Description: When creating video page for a microsite the slug structure should be $cat_slug-video. Example bigger-bucks-video where bigger-bucks is category slug
  */
 global $microsite, $microsite_default;
 $microsite = true;
