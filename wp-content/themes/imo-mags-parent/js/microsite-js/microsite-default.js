@@ -164,7 +164,7 @@
 	    stickyHead();
 	});
 	
-/* Don't delete this code. It will be used on the site redesign , to make the header go away on scroll down and to appear on scroll up
+/* Don't delete this code for now. It will be used on the site redesign , to make the header go away on scroll down and to appear on scroll up
 	setInterval(function() {
 	    if (didScroll) {
 	        hasScrolled();

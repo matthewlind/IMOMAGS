@@ -1,17 +1,7 @@
 <?php
 /**
  * Template Name: Microsite Video
- * Description: A Page Template for Headers with Banners instead of titles.
- *
- * The showcase template in Twenty Eleven consists of a featured posts section using sticky posts,
- * another recent posts area (with the latest post shown in full and the rest as a list)
- * and a left sidebar holding aside posts.
- *
- * We are creating two queries to fetch the proper posts and a custom widget for the sidebar.
- *
- * @package WordPress
- * @subpackage Twenty_Eleven
- * @since Twenty Eleven 1.0
+ * Description: When creating video page for a microsite the slug structure should be $cat_slug-vide. Example bigger-bucks-video where bigger-bucks is category slug
  */
 global $microsite, $microsite_default;
 $microsite = true;
@@ -42,9 +32,7 @@ $feat_video_id = get_field("feat_video_id");
 						<param name="templateReadyHandler" value="BCL.onTemplateReady" />
 					</object>
 					<!-- 
-					This script tag will cause the Brightcove Players defined above it to be created as soon
-					as the line is read by the browser. If you wish to have the player instantiated only after
-					the rest of the HTML is processed and the page load is complete, remove the line.
+					This script tag will cause the Brightcove Players defined above it to be created as soon as the line is read by the browser. If you wish to have the player instantiated only after the rest of the HTML is processed and the page load is complete, remove the line.
 					-->
 					<script type="text/javascript">brightcove.createExperiences();</script>
 				</div>
