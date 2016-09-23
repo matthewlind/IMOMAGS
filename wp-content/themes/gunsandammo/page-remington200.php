@@ -13,7 +13,6 @@ if($user == "remington" && $pass == "Bicentennial200@") {
 }
 else {
     if(isset($_POST)) {?>
-
             <form method="POST" action="<?php echo htmlspecialchars(get_permalink()); ?>">
             User <input type="text" name="user"></input><br/>
             Pass <input type="password" name="pass"></input><br/>

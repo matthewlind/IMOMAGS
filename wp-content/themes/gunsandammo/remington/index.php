@@ -99,7 +99,7 @@
 									</div>
 									<div class="full-story">
 										<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
-										<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
+										<a href="http://www.gunsandammo.com/remington-history/remington-timeline-1816-remington-is-founded/" class="btn-full btn-full-text" target="_blank">READ THE STORY</a> 
 									</div>
 								</div>
 							</div>
@@ -203,8 +203,8 @@
 								<h1>BEALS NAVY REVOLVER</h1>
 								<p>With the introduction of the Beals revolver, Remington began to position itself for the conflict to come between the North and South. </p>
 								<div class="full-story full-story-light">
-									<h4>READ THE FULL STORY ON<br>Handguns.COM</h4>
-									<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
+									<h4>READ THE FULL STORY ON<br>Handgunsmag.COM</h4>
+									<a href="http://www.handgunsmag.com/remington-history/remington-timeline-1858-beals-revolver/" class="btn-full btn-full-text" target="_blank">READ THE STORY</a> 
 								</div>
 							</div>
 						</div>
@@ -351,7 +351,7 @@
 									<p>As America expanded westward, the appetite for firearms grew, providing new markets for Remington to expand into. <br><span class="photo-credit">(Courtesy Remington Art Collection)</span></p>
 									<div class="full-story full-story-light">
 										<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
-										<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
+										<a href="http://www.gunsandammo.com/remington-history/remington-timeline-1875-remington-guns-of-the-wild-west/" class="btn-full btn-full-text" target="_blank">READ THE STORY</a> 
 									</div>
 								</div>
 								<div id="year_1875" class="year text-with-shadow">1875</div>
@@ -463,7 +463,7 @@
 								<p class="text-reg">Remington began producing Enfield Pattern 14 rifles for a military contract with the British in 1915, shortly after World War I had broken out in Europe. Eventually, Remington factories were putting out over 1,000 completed Model 1914 rifles per day.<br><span class="photo-credit">(Photo Credit: Remington Archives Photo Collection)</span></p>
 								<div class="full-story">
 									<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
-									<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
+									<a href="http://www.gunsandammo.com/remington-history/remington-timeline-1914-world-war-i-begins/" class="btn-full btn-full-text" target="_blank">READ THE STORY</a> 
 								</div>
 							</div>
 <!-- 							<img id="bottom_1914" class="lazy" data-src="/wp-content/themes/gunsandammo/remington/images/1914/shotgun.png"> -->
@@ -520,8 +520,8 @@
 							<div id="right_1918">
 								<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
 								<div class="full-story full-story-light">
-									<h4>READ THE FULL STORY ON<br>Handguns.COM</h4>
-									<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
+									<h4>READ THE FULL STORY ON<br>handgunsmag.COM</h4>
+									<a href="http://www.handgunsmag.com/remington-history/remington-timeline-1918-model-1911-autoloading-pistols/" class="btn-full btn-full-text" target="_blank">READ THE STORY</a> 
 								</div>
 							</div>	
 						</div>
@@ -626,7 +626,7 @@
 								</div>
 								<div id="full_1934" class="full-story full-story-light">
 									<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
-									<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
+									<a href="http://www.gunsandammo.com/remington-history/remington-timeline-1934-guns-of-bonnie-clyde/" class="btn-full btn-full-text" target="_blank">READ THE STORY</a> 
 								</div>
 								<div id="year_1934" class="year">1934</div>
 							</div>
@@ -656,7 +656,7 @@
 								</div>
 								<div id="full_1940" class="full-story full-story-light">
 									<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
-									<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
+									<a href="http://www.rifleshootermag.com/rifles/remington-timeline-1940-remington-prepares-for-the-coming-conflict/" class="btn-full btn-full-text" target="_blank">READ THE STORY</a> 
 								</div>
 							</div>
 							<img id="img_1940" class="lazy" data-src="/wp-content/themes/gunsandammo/remington/images/1940/bigboard.png">
@@ -682,7 +682,7 @@
 							<div id="top_1941">
 								<div id="full_1941" class="full-story">
 									<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
-									<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
+									<a href="http://www.gunsandammo.com/remington-history/remington-timeline-1941-remington-goes-to-war/" class="btn-full btn-full-text" target="_blank">READ THE STORY</a> 
 								</div>
 								<div id="text_1941">
 									<h1>Remington Goes To War</h1>
@@ -720,8 +720,8 @@
 									<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
 								</div>
 								<div class="full-story">
-									<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
-									<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
+									<h4>READ THE FULL STORY ON<br>firearmsnews.COM</h4>
+									<a href="http://www.firearmsnews.com/remington-history/remington-timeline-1950-remington-in-the-1950s/" class="btn-full btn-full-text" target="_blank">READ THE STORY</a> 
 								</div>
 							</div>
 						</div>
@@ -752,7 +752,7 @@
 								<img class="lazy" data-src="/wp-content/themes/gunsandammo/remington/images/1956/Elmer-Keith.jpg">
 								<div class="full-story">
 									<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
-									<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
+									<a href="http://www.gunsandammo.com/remington-history/remington-timeline-1956-shooting-star-the-legend-of-elmer-keith/" class="btn-full btn-full-text" target="_blank">READ THE STORY</a> 
 								</div>
 								<div id="year_1956" class="year">1956</div>
 							</div>
@@ -797,8 +797,8 @@
 							<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
 						</div>
 						<div class="full-story text-with-shadow">
-							<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
-							<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
+							<h4>READ THE FULL STORY ON<br>shootingtimes.COM</h4>
+							<a href="http://www.shootingtimes.com/remington-history/remington-timeline-1959-nylon-66-autoloading-rifle/" class="btn-full btn-full-text" target="_blank">READ THE STORY</a> 
 						</div>
 					</div>
 				</div>
@@ -1181,7 +1181,7 @@
 								</div>
 								<div id="full_1960" class="full-story">
 									<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
-									<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
+									<a href="http://www.gunsandammo.com/remington-history/remington-timeline-1960-the-new-face-of-remington-custom-shop/" class="btn-full btn-full-text" target="_blank">READ THE STORY</a> 
 								</div>
 								<div id="year_1960" class="year">1960</div>
 							</div>
@@ -1213,7 +1213,7 @@
 							</div>
 							<div id="full_1962" class="full-story text-with-shadow">
 								<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
-								<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
+								<a href="http://www.gunsandammo.com/remington-history/remington-timeline-1962-remington-model-700-bolt-action-rifles/" class="btn-full btn-full-text" target="_blank">READ THE STORY</a> 
 							</div>
 							<div id="year_1962" class="year text-with-shadow">1962</div>
 						</div>
@@ -1242,8 +1242,8 @@
 								<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
 							</div>
 							<div id="full_1963" class="full-story text-with-shadow">
-								<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
-								<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
+								<h4>READ THE FULL STORY ON<br>petersenshunting.COM</h4>
+								<a href="http://www.petersenshunting.com/remington-history/remington-timeline-1963-remington-model-1100-autoloading-shotguns/" class="btn-full btn-full-text" target="_blank">READ THE STORY</a> 
 							</div>
 							<div id="year_1963" class="year text-with-shadow">1963</div>
 						</div>
@@ -1271,7 +1271,7 @@
 							</div>
 							<div id="full_1966" class="full-story text-with-shadow">
 								<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
-								<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
+								<a href="http://www.gunsandammo.com/remington-history/remington-timeline-1966-remington-firearms-in-vietnam/" class="btn-full btn-full-text" target="_blank">READ THE STORY</a> 
 							</div>
 						</div>
 					</div>
@@ -1355,8 +1355,8 @@
 								<h1>Remington introduced the Model 11-87 Premier semiauto shotgun</h1>
 								<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
 								<div id="full_1987" class="full-story">
-									<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
-									<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
+									<h4>READ THE FULL STORY ON<br>shootingtimes.COM</h4>
+									<a href="http://www.shootingtimes.com/remington-history/remington-timeline-1987-remington-model-11-87-autoloading-shotguns/" class="btn-full btn-full-text" target="_blank">READ THE STORY</a> 
 								</div>
 							</div>
 							<div id="year_1987" class="year">1987</div>
@@ -1382,8 +1382,8 @@
 								<h1>M24 Sniper Rifle</h1>
 								<p>The M24 designation was assigned by the U.S. Army after adoption of it as their standard sniper rifle in 1988.</p>
 								<div id="full_1988" class="full-story full-story-light">
-									<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
-									<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
+									<h4>READ THE FULL STORY ON<br>rifleshootermag.COM</h4>
+									<a href="http://www.rifleshootermag.com/remington-history/remington-timeline-1988-m24-sniper-rifle/" class="btn-full btn-full-text" target="_blank">READ THE STORY</a> 
 								</div>
 							</div>
 							<div id="year_1988" class="year text-with-shadow">1988</div>
@@ -1409,7 +1409,7 @@
 								<div id="year_2010" class="year">2010</div>
 								<div id="full_2010" class="full-story">
 									<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
-									<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
+									<a href="http://www.gunsandammo.com/historical/remington-timeline-2010-remington-introduces-the-revolutionary-versa-max/" class="btn-full btn-full-text" target="_blank">READ THE STORY</a> 
 								</div>
 							</div>
 						</div>
@@ -1432,8 +1432,8 @@
 								<div id="bottom_2011">
 									<div id="year_2011" class="year">2011</div>
 									<div id="full_2011" class="full-story">
-										<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
-										<a href="#" class="btn-full btn-full-text">READ THE STORY</a> 
+										<h4>READ THE FULL STORY ON<br>handgunsmag.COM</h4>
+										<a href="http://www.handgunsmag.com/remington-history/remington-timeline-2011-r1-pistol-is-introduced/" class="btn-full btn-full-text" target="_blank">READ THE STORY</a> 
 									</div>
 								</div>
 							</div>
@@ -1501,8 +1501,15 @@
 								<div id="year_2016" class="year">2016</div>
 								<h1>Remington Yesterday, Today and Tomorrow</h1>
 								<p class="text-reg">After 200 years of delivering great products, sportsmen in the know understand that Remington Country is a real place in real time, no matter if you’re a hunter, shooter, fisherman, or simply someone who enjoys the outdoors.</p>
+								<div id="full_2016" class="full-story">
+									<h4>READ THE FULL STORY ON<br>gunsandammo.COM</h4>
+									<a href="http://www.gunsandammo.com/remington-history/remington-timeline-2016-remington-yesterday-today-and-tomorrow/" class="btn-full btn-full-text" target="_blank">READ THE STORY</a> 
+								</div>
 							</div>
-							<img id="img_2016" class="lazy" data-src="/wp-content/themes/gunsandammo/remington/images/2016/RemingtonCountry2016.jpg">
+							<div id="img_2016">
+								<img class="lazy" data-src="/wp-content/themes/gunsandammo/remington/images/2016/RemingtonCountry2016.jpg">
+								<a href="https://store.intermediaoutdoors.com/products.php?product=Remington-Country" class="btn-small" target="_blank">View Magazine Details</a>
+							</div>
 						</div>
 					</div>
 				</div>
