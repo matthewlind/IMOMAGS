@@ -1,3 +1,7 @@
+<?php get_template_part('remington/temp');?>
+
+
+<!--
 <?php 
 
 $user = "";
@@ -21,6 +25,7 @@ else {
     <?php }
 }
 ?>
+-->
 
 
 
