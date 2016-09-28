@@ -245,7 +245,7 @@ function load_home_btf() {
 		if ($page_type == 'home') {
 			$hfc_id = get_field('homepage_featured_category','options' );
 			$hfc_cat_name = get_cat_name($hfc_id);
-			echo($hfc);
+			//echo($hfc);
 		
 		
 	?>
@@ -263,7 +263,7 @@ function load_home_btf() {
 						if ( $query->have_posts() ) {
 							while ( $query->have_posts() ) {
 								$query->the_post();
-								$thumb 	= get_the_post_thumbnail($post->ID,"list-thumb");	
+								$thumb 	= get_the_post_thumbnail($query->post->ID,"list-thumb");	
 						?>
 						<li class="twins-item" featured_id="<?php echo $feature->ID ?>">
 							<div class="twins-img"><a href="<?php the_permalink(); ?>" onclick="<?php echo $tracking; ?>"><?php echo $thumb; ?></a></div>
@@ -296,9 +296,9 @@ function load_home_btf() {
 			<div class="twins-thumbs clearfix">
 				<ul>
 					<?php	
-						$string = parse_url($_SERVER[REQUEST_URI]);
-						$term = $string["query"];
-						$args = array(
+						$string = parse_url($_SERVER['REQUEST_URI']);
+						//$term = $string["query"];
+						$args = array(	
 						   'post_type' 		=> 'reader_photos',
 						   'posts_per_page' => 2,
 						   'order' 			=> 'DESC'
@@ -307,7 +307,7 @@ function load_home_btf() {
 						if ( $query->have_posts() ) {
 							while ( $query->have_posts() ) {
 								$query->the_post();
-								$thumb = get_the_post_thumbnail($post->ID,"list-thumb");	
+								$thumb = get_the_post_thumbnail($query->post->ID,"list-thumb");	
 						?>
 						<li class="twins-item" featured_id="<?php echo $feature->ID ?>">
 							<div class="twins-img"><a href="<?php the_permalink(); ?>" onclick="<?php echo $tracking; ?>"><?php echo $thumb; ?></a></div>
@@ -352,7 +352,7 @@ function load_home_btf() {
 				if ( $query->have_posts() ) {
 					while ( $query->have_posts() ) {
 						$query->the_post();
-						$thumb 	= get_the_post_thumbnail($post->ID,"list-thumb");
+						$thumb 	= get_the_post_thumbnail($query->post->ID,"list-thumb");
 						$permalink	= get_permalink();
 						$get_title	= get_the_title();
 						

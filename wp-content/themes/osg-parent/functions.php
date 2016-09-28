@@ -196,7 +196,7 @@ class AddParentClass_Walker extends Walker_Nav_Menu
         $output .= "\n" . '</ul>' . "\n";
     }
 
-    function start_el( &$output, $item, $depth, $args )
+    function start_el( &$output, $item, $depth, $args = array() )
     {
         global $wp_query;
         $indent = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' ); // code indent
@@ -229,7 +229,7 @@ class AddParentClass_Walker extends Walker_Nav_Menu
 
         $attributes .= ' class="menu-link ' . $has_drop . ' ' . ( $depth > 0 ? 'sub-menu-link' : 'main-menu-link' ) . '"';
 
-
+		$args = (object)$args;
         $item_output = sprintf( $template,
             $args->before,
             $attributes,

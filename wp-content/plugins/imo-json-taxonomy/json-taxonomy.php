@@ -13,7 +13,7 @@ add_action("wp", "output_json_taxonomy");
 
 function output_json_taxonomy() {
 
-
+	if(!is_array(get_queried_object())) return;
 	$terms = array();
 
 	if (is_archive()) {
@@ -22,7 +22,7 @@ function output_json_taxonomy() {
 
 	} else {
 		$post = get_queried_object();
-
+		
 
 		$termObjects = wp_get_post_terms($post->ID,"category");
 
