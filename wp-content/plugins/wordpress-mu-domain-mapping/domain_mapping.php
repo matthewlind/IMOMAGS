@@ -542,9 +542,15 @@ function domain_mapping_siteurl( $setting ) {
 		}
 
 		$wpdb->suppress_errors( $s );
-		if ( false == isset( $_SERVER[ 'HTTPS' ] ) )
-			$_SERVER[ 'HTTPS' ] == 'Off';
-		$protocol = ( 'on' == strtolower( $_SERVER[ 'HTTPS' ] ) ) ? 'https://' : 'http://';
+		
+		if ( false == isset( $_SERVER[ 'HTTPS' ] ) ) {
+			
+			$protocol = 'http://';
+		}
+		else 
+			$protocol = ( 'on' == strtolower( $_SERVER[ 'HTTPS' ] ) ) ? 'https://' : 'http://';
+		
+		
 		if ( $domain ) {
 			$return_url[ $wpdb->blogid ] = untrailingslashit( $protocol . $domain  );
 			$setting = $return_url[ $wpdb->blogid ];

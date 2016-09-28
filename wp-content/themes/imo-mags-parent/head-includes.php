@@ -227,7 +227,7 @@ if (w<=599)
 //sidebar
 
 
-function imo_sidebar($type){
+function imo_sidebar($type = null){
 	global $term, $camp;
    	//Speed up mobile load time by not loading sidebar in the background
 	if(!mobile()){

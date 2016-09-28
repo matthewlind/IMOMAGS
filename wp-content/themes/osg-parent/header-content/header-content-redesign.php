@@ -72,13 +72,13 @@
 			</div>
 		</div><!-- .header-inner -->	
 		<div id="h_search_form" class="h-search-form"><?php parent_theme_get_search_form(); ?></div>
-		<?php if( in_array( 'sponsors_disclaimer', get_field('additional_elements', $term_cat_id) ) ) { 
-				$sponsors_disclaimer 	= get_field('sponsors_disclaimer', $term_cat_id);
+		<?php //if( in_array( 'sponsors_disclaimer', get_field('additional_elements', $term_cat_id) ) ) { 
+				//$sponsors_disclaimer 	= get_field('sponsors_disclaimer', $term_cat_id);
 		?>
 			<div class="sponsors-disclaimer">
-				<span><?php echo $sponsors_disclaimer;?></span>
+				<span><?php //echo //$sponsors_disclaimer;?></span>
 			</div>
-		<?php } ?>
+		<?php //} ?>
 	</div><!-- .header-wrap -->
 	
 	<div class="head-bottom">

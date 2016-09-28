@@ -60,7 +60,8 @@ function the_primary_category_ID($cat_base = null) {
 	
 	
 	$obj = (object) $catID[0];
-	return $obj->scalar; 
+	return $obj; 
+	//return $obj->scalar; 
 	
 	  
 	 

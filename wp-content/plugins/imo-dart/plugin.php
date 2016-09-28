@@ -344,15 +344,16 @@ function imo_dart_run_tests() {
     echo _imo_dart_sprint_tag($params, _imo_dart_get_tag(True) );
 }
 
-if (__FILE__ == $_SERVER['PWD'] . '/'. $_SERVER['SCRIPT_FILENAME']) {
+if(isset($_SERVER['PWD'])) {
+  if (__FILE__ == $_SERVER['PWD'] . '/'. $_SERVER['SCRIPT_FILENAME']) {
     if (! function_exists("get_option")) {
         function get_option($a, $b) {
             return $b;
         }
     }
     imo_dart_run_tests();
+  }
 }
-
 
 function iframe_maker () {
     if (preg_match("/^\/iframe-advert\.php(\?(.+)?)?$/", $_SERVER['REQUEST_URI']))
