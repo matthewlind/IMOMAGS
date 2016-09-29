@@ -99,7 +99,7 @@ Author URI: http://crowdfavorite.com/
 			include('lib/cfct-json/cfct-json.php');
 			include('lib/cf-revision-manager/cf-revision-manager.php');
 			if (defined('CFCT_BUILD_TAXONOMY_LANDING') && CFCT_BUILD_TAXONOMY_LANDING) {
-				include('lib/taxonomy-landing/taxonomy-landing.php');
+				//include('lib/taxonomy-landing/taxonomy-landing.php');
 			}
 			include('classes/message.class.php');
 			include('classes/template.class.php');

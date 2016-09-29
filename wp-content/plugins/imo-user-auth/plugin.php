@@ -24,6 +24,7 @@ function imo_user_hash($id,$username){
 function imo_user_display() {
 
 	global $user_ID;
+
 	$user = imo_get_user($user_ID);
 
 	// send the user variables to the javascript
@@ -43,6 +44,7 @@ function imo_get_user($userID = -1) {
 	if ($userID < 1) {
 		global $user_email;
 		global $user_login;
+		$WPuser = new stdClass();
 	} else {
 		$WPuser = get_user_by("id",$userID);
 		$user_email = $WPuser->user_email;
@@ -60,11 +62,14 @@ function imo_get_user($userID = -1) {
 
 
 	$perms = "user";
-	if (in_array("administrator",$WPuser->roles) || in_array("editor",$WPuser->roles) || in_array("moderator",$WPuser->roles) || in_array("community_moderator",$WPuser->roles)) {
-		$perms = "editor";
-		$editor_hash = md5($user_login .$timecode . $editorSalt);
+	$editor_hash = "";
+	
+	if($WPuser->roles) {
+		if (in_array("administrator",$WPuser->roles) || in_array("editor",$WPuser->roles) || in_array("moderator",$WPuser->roles) || in_array("community_moderator",$WPuser->roles)) {
+			$perms = "editor";
+			$editor_hash = md5($user_login .$timecode . $editorSalt);
+		}
 	}
-
 	if ($user_login == "admin") {
 		$perms = "editor";
 		$editor_hash = md5($user_login .$timecode . $editorSalt);

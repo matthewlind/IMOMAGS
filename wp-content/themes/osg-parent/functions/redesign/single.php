@@ -86,13 +86,14 @@ function ms_load_more() {
     $post_per_page		= $_POST['post_per_page'];
     $ad_after_post		= $_POST['ad_after_post'];
     $post_not			= $_POST['post_not'];
-    $post_type			= $_POST['post_type'];
+    $post_type			= (isset($_POST['post_type']))? $_POST['post_type']:"";
     $current_post_id	= $_POST['current_post_id'];
     $post_not_array 	= explode(',', $post_not);
 	$p_counter			= 0;
 	
 	$term = get_the_title($current_post_id);
 	$campaign = wp_get_post_terms($current_post_id,"campaign");
+	$camp = "";
 	foreach($campaign as $c){
 		$camp = $c->name;
 	}
@@ -111,8 +112,8 @@ function ms_load_more() {
 	// The Loop
 	if ( $query->have_posts() ) {
 		while ( $query->have_posts() ) {
-			$query->the_post();			
-			$feat_image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID) ,"list-thumb" );?>
+			$query->the_post();	
+			$feat_image = wp_get_attachment_image_src( get_post_thumbnail_id($query->post->ID) ,"list-thumb" );?>
 			
 			<a class="ms-box" href="<?php the_permalink(); ?>">
 				<div class="ms-image" style="background-image: url(<?php echo $feat_image[0]; ?>)"></div>
