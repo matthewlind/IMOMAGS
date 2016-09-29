@@ -40,7 +40,7 @@ function h_load_latest() {
     
     $dartDomain     = get_option("dart_domain", $default = false);
     $cat_id			= $_POST['cat_id'];
-    $cat_slug		= $_POST['cat_slug'];
+    $cat_slug		= (isset($_POST['cat_slug']))? $_POST['cat_slug']:"";
     $post_count		= $_POST['post_count'];
     $post_per_page	= $_POST['post_per_page'];
 	$post_not		= $_POST['post_not'];
@@ -68,7 +68,7 @@ function h_load_latest() {
 		while ( $query->have_posts() ) {
 			$query->the_post();	
 			$author 		= get_the_author();
-			$acf_byline 	= get_field("byline", $post->ID);
+			$acf_byline 	= get_field("byline", $query->post->ID);
 			?>
 			<li class="c-item">
 				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('list-thumb'); ?></a>
