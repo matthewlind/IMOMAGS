@@ -1,5 +1,5 @@
-<?php get_template_part('remington/temp');?>
-
+<?php //get_template_part('remington/temp');?>
+<?php get_template_part('remington/index');?>
 
 <!--
 <?php 
