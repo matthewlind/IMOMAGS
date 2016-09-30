@@ -94,9 +94,11 @@
 								<div class="s1816-story-inner">
 									<div class="s1816-year year">1816</div>
 									<div class="s1816-text text-reg">Young Remington made his first gun barrel in 1816 at his father’s old forge situated on Steele’s Creek in the wilds of central New York</div>
+<!--
 									<div class="s1816-video">
 										<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
 									</div>
+-->
 									<div class="full-story">
 										<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
 										<a href="http://www.gunsandammo.com/remington-history/remington-timeline-1816-remington-is-founded/" class="btn-full btn-full-text" target="_blank">READ THE STORY</a> 
@@ -402,9 +404,11 @@
 					<div id="left_1906" class="lazy" data-src="/wp-content/themes/gunsandammo/remington/images/1906/family.jpg" data-src-m="/wp-content/themes/gunsandammo/remington/images/1906/family@m.jpg"></div>
 					<div id="right_1906" class="lazy" data-src="/wp-content/themes/gunsandammo/remington/images/1906/family.jpg" data-src-m="/wp-content/themes/gunsandammo/remington/images/1906/family@m.jpg"></div>
 					<div class="elements">
+<!--
 						<div id="video_1906">
 							<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
 						</div>
+-->
 						<div id="text_1906" class="text-box">
 							<h1>Model 8</h1>
 							<p>The first production [Model 8] Remington Autoloading Repeating Rifles - No. 1 Standard Grade were ready for delivery in October 1906.</p>
@@ -518,7 +522,7 @@
 								<div class="year text-with-shadow">1918</div>
 							</div>
 							<div id="right_1918">
-								<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
+<!-- 								<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div> -->
 								<div class="full-story full-story-light">
 									<h4>READ THE FULL STORY ON<br>handgunsmag.COM</h4>
 									<a href="http://www.handgunsmag.com/remington-history/remington-timeline-1918-model-1911-autoloading-pistols/" class="btn-full btn-full-text" target="_blank">READ THE STORY</a> 
@@ -544,7 +548,7 @@
 						<div class="elements-inner">
 							<div id="left_1922">
 								<h1>Remington Introduced The Model 24 Autoloading Rifle</h1>
-								<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
+<!-- 								<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div> -->
 								<div id="btn_1922" class="btn-info" data-scene="1922" data-slide="0" title="More Information"><span class="icon-wrap"><i class="icon-info"></i></span></div>
 								<div class="year">1922</div>
 							</div>
@@ -687,7 +691,7 @@
 								<div id="text_1941">
 									<h1>Remington Goes To War</h1>
 									<p class="text-reg">During World War II, Remington manufactured 707,629 Model 1903A3 military rifles as well as thousands of shotguns and target rifles for America’s war effort.</p>
-									<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
+<!-- 									<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div> -->
 								</div>
 							</div>
 						</div>
@@ -716,9 +720,11 @@
 								<img class="lazy" data-src="/wp-content/themes/gunsandammo/remington/images/1950/shotgun.png">
 							</div>
 							<div id="bottom_1950">
+<!--
 								<div class="video-1950">
 									<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
 								</div>
+-->
 								<div class="full-story">
 									<h4>READ THE FULL STORY ON<br>firearmsnews.COM</h4>
 									<a href="http://www.firearmsnews.com/remington-history/remington-timeline-1950-remington-in-the-1950s/" class="btn-full btn-full-text" target="_blank">READ THE STORY</a> 
@@ -793,9 +799,11 @@
 						</div>
 					</div>
 					<div id="bottom_1959">
+<!--
 						<div class="video-1950">
 							<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
 						</div>
+-->
 						<div class="full-story text-with-shadow">
 							<h4>READ THE FULL STORY ON<br>shootingtimes.COM</h4>
 							<a href="http://www.shootingtimes.com/remington-history/remington-timeline-1959-nylon-66-autoloading-rifle/" class="btn-full btn-full-text" target="_blank">READ THE STORY</a> 
@@ -1208,9 +1216,11 @@
 								<h1>Model 700<br>bolt-action rifle</h1>
 								<p>If one had to choose the milestone year that began the ascendance of Remington Arms Co. to the pinnacle it achieved in the firearms industry, it would probably be 1962. That was the year the Model 700 bolt-action rifle was introduced.</p>
 							</div>
+<!--
 							<div id="video_1962">
 								<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
 							</div>
+-->
 							<div id="full_1962" class="full-story text-with-shadow">
 								<h4>READ THE FULL STORY ON<br>GUNSANDAMMO.COM</h4>
 								<a href="http://www.gunsandammo.com/remington-history/remington-timeline-1962-remington-model-700-bolt-action-rifles/" class="btn-full btn-full-text" target="_blank">READ THE STORY</a> 
@@ -1238,9 +1248,11 @@
 								<h1>REMINGTON MODEL 1100 AUTOLOADING SHOTGUNS</h1>
 								<p>Introduced in 1963, few firearms have revolutionized shooting the way the Remington Model 1100 has influenced shotgunning and hunting. It's no wonder that millions of these guns have been sold.</p>
 							</div>
+<!--
 							<div id="video_1963">
 								<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
 							</div>
+-->
 							<div id="full_1963" class="full-story text-with-shadow">
 								<h4>READ THE FULL STORY ON<br>petersenshunting.COM</h4>
 								<a href="http://www.petersenshunting.com/remington-history/remington-timeline-1963-remington-model-1100-autoloading-shotguns/" class="btn-full btn-full-text" target="_blank">READ THE STORY</a> 
@@ -1288,7 +1300,7 @@
 			<!-- 1970
 			<!-------------------------------------------------->
 			<section id="s1970" class="scene">
-				<div id="inner_1970" class="scene-inner lazy" data-src="/wp-content/themes/gunsandammo/remington/images/1970/back.jpg">
+				<div id="inner_1970" class="scene-inner">
 					<div class="elements">
 						<div class="elements-inner">
 							<div id="year_1970" class="year text-with-shadow">1970</div>
@@ -1353,7 +1365,7 @@
 							</div>
 							<div id="right_1987">
 								<h1>Remington introduced the Model 11-87 Premier semiauto shotgun</h1>
-								<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
+<!-- 								<div class="video-wrap"><iframe width="640" height="360" src="https://www.youtube.com/embed/v5MyLYN4X50?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div> -->
 								<div id="full_1987" class="full-story">
 									<h4>READ THE FULL STORY ON<br>shootingtimes.COM</h4>
 									<a href="http://www.shootingtimes.com/remington-history/remington-timeline-1987-remington-model-11-87-autoloading-shotguns/" class="btn-full btn-full-text" target="_blank">READ THE STORY</a> 
