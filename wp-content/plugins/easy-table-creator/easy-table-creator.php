@@ -228,7 +228,7 @@ if (!class_exists("EasyTableCreator")) {
                     $EasyTableCreatorAdminOptions = $this->getAdminOptions();
 
                     //not sure about this one
-                    if ($EasyTableCreatorAdminOptions['show_header'] == "false") { return; }
+                    if (!isset($EasyTableCreatorAdminOptions['show_header']) || $EasyTableCreatorAdminOptions['show_header'] == "false") { return; }
 
                 }
 

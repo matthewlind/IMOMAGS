@@ -63,8 +63,9 @@ function imo_get_user($userID = -1) {
 
 	$perms = "user";
 	$editor_hash = "";
+	$display_name = "";
 	
-	if($WPuser->roles) {
+	if(isset($WPuser->roles)) {
 		if (in_array("administrator",$WPuser->roles) || in_array("editor",$WPuser->roles) || in_array("moderator",$WPuser->roles) || in_array("community_moderator",$WPuser->roles)) {
 			$perms = "editor";
 			$editor_hash = md5($user_login .$timecode . $editorSalt);
@@ -74,6 +75,9 @@ function imo_get_user($userID = -1) {
 		$perms = "editor";
 		$editor_hash = md5($user_login .$timecode . $editorSalt);
 	}
+	if(isset($WPuser->display_name)){
+		$display_name = $WPuser->display_name;
+	}
 
 	$user = array(
 		"username" => $user_login,
@@ -82,7 +86,7 @@ function imo_get_user($userID = -1) {
 		"gravatar_hash" => md5($user_email),
 		"timecode" => $timecode,
 		"timecode_hash" => $timecode_hash,
-		"display_name" => $WPuser->display_name,
+		"display_name" => $display_name,
 		"facebook_id" => $facebookID,
 		"default_state" => $state,
 		"perms" => $perms,

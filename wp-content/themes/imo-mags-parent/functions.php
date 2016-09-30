@@ -1605,9 +1605,9 @@ function fixed_connect_footer(){
 			<?php
 			$formID = get_option('newsletter_id');
 	
-			$url = "http://".$_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI];
-		    $errorcode = $_GET["errorcode"];
-		    $errorcontrol = $_GET["errorControl"];
+			$url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+		    $errorcode = (isset($_GET["errorcode"]))? $_GET["errorcode"]:"";
+		    $errorcontrol = (isset($_GET["errorControl"]))? $_GET["errorControl"]:"";
 		
 		    switch($errorcode) {
 		

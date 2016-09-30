@@ -138,7 +138,7 @@ function imo_superpost_modify_query_vars() {
 
     $queryVars = $wp_query->query_vars;
 
-    if ($queryVars["spid"]) {
+    if (isset($queryVars["spid"])) {
         $postData = get_imo_superpost_post_data($queryVars['spid']);
 
 
@@ -172,7 +172,7 @@ function imo_superpost_set_title($title,$sep,$seplocation) {
 
 
 
-    if ($queryVars["spid"]) {
+    if (isset($queryVars["spid"])) {
         $title = $wp_query->query_vars['post_title'];
         //$title = "cheese";
     }
@@ -194,7 +194,7 @@ function imo_superpost_seo_title($title) {
     global $wp_query;
 
     //If this is community single post, change the meta.
-    if ($wp_query->query_vars['spid']) {
+    if (isset($wp_query->query_vars['spid'])) {
         $title = $wp_query->query_vars['post_title'];
     }
 
@@ -208,7 +208,7 @@ function imo_superpost_seo_desc($desc) {
     global $wp_query;
 
     //If this is community single post, change the meta.
-    if ($wp_query->query_vars['spid']) {
+    if (isset($wp_query->query_vars['spid'])) {
         $desc = $wp_query->query_vars['seo_body'];
     }
 
@@ -222,7 +222,7 @@ function imo_superpost_seo_image($image) {
     global $wp_query;
 
     //If this is community single post, change the meta.
-    if ($wp_query->query_vars['spid']) {
+    if (isset($wp_query->query_vars['spid'])) {
         $image = $wp_query->query_vars['seo_image'];
     }
 
@@ -235,7 +235,7 @@ function imo_superpost_seo_type($type) {
     global $wp_query;
 
     //If this is community single post, change the meta.
-    if ($wp_query->query_vars['spid']) {
+    if (isset($wp_query->query_vars['spid'])) {
         $type = "article";
     }
 

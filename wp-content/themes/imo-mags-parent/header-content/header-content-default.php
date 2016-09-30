@@ -174,7 +174,10 @@
 	<div class="imo-superheader">
 		<?php imo_ad_placement("superheader"); ?>
 	</div>
-	<?php include_once get_stylesheet_directory() . "/network-bar.php"; ?>
+	<?php 
+		$networkbar = get_stylesheet_directory() . "/network-bar.php";
+		if(file_exists($networkbar)) include_once $networkbar; 
+	?>
 	<div class="hfeed wrapper <?php if(get_field("full_width") == true){ echo ' full-width full-content'; }else if( is_page_template('show-page.php') || is_category("tv") || is_category("show-galleries") || (is_single() && (has_post_format( 'video' ) || in_category("show-galleries")) ) ){ echo ' tv-show full-content'; } ?>" data-role="content" role="main">
 	    <div class="layout-frame">
 	        <div id="branding" class="header clearfix" role="banner">
