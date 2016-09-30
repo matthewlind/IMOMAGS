@@ -41,7 +41,7 @@
 				
 	    // Add the blog description for the home/front page.
 	
-	    if ( $site_description && ( is_home() || is_front_page() ) )
+	    if ( isset($site_description) && ( is_home() || is_front_page() ) )
 	        get_bloginfo( 'description', 'display' );
 
 	    // Add a page number if necessary:

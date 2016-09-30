@@ -129,7 +129,7 @@ class GAReviewWidget extends \WP_Widget {
 
 
         
-    	$taxonomy = $instance['taxonomy'];
+    	$taxonomy = (isset($instance['taxonomy']))? $instance['taxonomy']:"";
  
     	$baseURL = get_bloginfo('url');
     	
@@ -202,7 +202,7 @@ class GAReviewWidget extends \WP_Widget {
 
     function get_query_args_from_term_slug_array($termSlugs,$contentType){
         
-
+		if(!is_array($termSlugs)) return array();
 
          $taxonomyList = get_taxonomies(); 
 

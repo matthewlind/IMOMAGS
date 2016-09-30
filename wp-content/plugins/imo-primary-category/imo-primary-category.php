@@ -1,4 +1,4 @@
-<?php
+	<?php
 /*
 Plugin Name: IMO Primary Category
 Plugin URI: http://imomags.com/
@@ -52,6 +52,8 @@ add_action('init', 'the_primary_category_ID');
 function the_primary_category_ID($cat_base = null) {
 	
 	$id = get_the_ID();
+	if(intval($id) < 1) return 0;
+	
 	$allCats = get_the_category( $id );
 	
 	
@@ -60,8 +62,8 @@ function the_primary_category_ID($cat_base = null) {
 	
 	
 	$obj = (object) $catID[0];
-	return $obj; 
-	//return $obj->scalar; 
+	//return $obj; 
+	return $obj->scalar;
 	
 	  
 	 
@@ -73,8 +75,9 @@ add_action('init', 'the_primary_category_slug');
 function the_primary_category_slug($cat_base = null) {
 	
 	$id = get_the_ID();
-	$allCats = get_the_category( $id );
+	if(intval($id) < 1) return "";
 	
+	$allCats = get_the_category( $id );
 	
 	$categoryID = get_post_meta($id);
 	$catID = $categoryID["_category_permalink"];
@@ -94,6 +97,8 @@ add_action('init', 'the_primary_category');
 function the_primary_category($cat_base = null) {
 	
 	$id = get_the_ID();
+	if(intval($id) < 1) return "";
+	
 	$allCats = get_the_category( $id );
 	
 	
@@ -138,10 +143,16 @@ function primary_and_secondary_categories($cat_base = null, $separator = '') {
 	$catID = $categoryID["_category_permalink"];
 	
 	$categoryName = get_term_by('id', $catID[0], 'category');
-	$primary = $categoryName->name;
-	$url = $categoryName->slug;
 	
-	$parent = $categoryName->parent;
+	$primary = "";
+	$url = "";
+	$parent = 0;
+	
+	if(is_object($categoryName)) {
+		$primary = $categoryName->name;
+		$url = $categoryName->slug;
+		$parent = $categoryName->parent;
+	}
 	
 	if($parent !=0){
 			$catParent = get_the_category_by_ID( $parent );
@@ -209,6 +220,7 @@ function primary_and_secondary_categories($cat_base = null, $separator = '') {
 		"sponsored"
     );
 	
+    $categories_a = "";
     foreach($allCats as $cat){
     	//var_dump($allCats);
 	    $slug = $cat->slug;

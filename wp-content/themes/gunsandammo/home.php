@@ -1,4 +1,5 @@
 <?php
+$i = 0;
 $dataPos = 0;
 $videoTitle = get_option('video_title', false);
 $playerID = get_option('home_player_id', false);
