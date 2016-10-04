@@ -2959,6 +2959,27 @@ body.modal-open {
 }
 
 
+
+
+@media screen and (max-width: 1205px) {
+
+
+.text-reg,
+.text-white,
+.text-box p,
+#left_1927 p,
+#text_1867 {font-size: 19px;}
+	
+#img_2011 {left: -5%; height: 67%;}	
+#year_2011 {font-size: 100px;}
+.full-story h4 {margin-top: 11px;}
+#text_2011 {bottom: 15%;}
+
+.full-story h4 {font-size: 26px;}
+	
+}
+
+
 @media screen and (max-width: 1024px) {
 
 .modal {position: absolute;}
@@ -3094,7 +3115,8 @@ body.modal-open {
 #year_1987 {bottom: 2%;}
 
 #s2011 .elements {padding-left: 13vw;}
-#text_2011 {bottom: 3%;left: 30%;width: 60%;}
+#img_2011 {left: 0;}
+#text_2011 {bottom: 7%;left: 30%;width: 60%;}
 #text_2013 {left: 22%;width: 72%;}
 #text_2014 h1 {font-size: 40px;}
 .circle{r: 13px;stroke-width:4;}
@@ -3269,6 +3291,7 @@ body.modal-open {
 
 #s2011 .elements {padding-left: 15vw;}
 #img_2011 {width: 98%;height: auto;}
+#year_2011 {font-size: 160px;}
 #text_2011 {left: 37%;width: 60%; bottom: 9%;}
 #img_2013 {width: 95%;top: 20%;}
 #text_2013 {width: 96%;bottom: 20%;left: 0;}
