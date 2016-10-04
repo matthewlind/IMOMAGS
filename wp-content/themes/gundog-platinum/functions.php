@@ -7,11 +7,13 @@ define("SITE_NAME", "Gun Dog Magazine");
 define("SUBS_LINK", "https://secure.palmcoastd.com/pcd/eSv?iMagId=014HS&i4Ky=IBZN");
 
 
+/*
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 function my_theme_enqueue_styles() {
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/css/redesign/allpages.css' );
 
 }
+*/
 add_action('init', 'cptui_register_my_cpt_reader_photos');
 function cptui_register_my_cpt_reader_photos() {
 	register_post_type(
