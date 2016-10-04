@@ -5,7 +5,7 @@ $is_home_cat 	= true;
 $dartdomain 	= get_option('dart_domain', false);
 $magazine_img 	= get_option('magazine_cover_uri' );
 $deal_copy 		= get_option('deal_copy' );
-$features 		= get_field('homepage_featured_stories','options' );
+$features 		= get_field('homepage_featured_stories_','options' );
 $site_name		= trim(get_bloginfo('name'), "Magazine");
 ?>
 
