@@ -34,7 +34,7 @@
 			<div id="menu_rem">
 				<span>MENU</span><i class="icon-menu"></i>
 				<ul class="submenu-rem">
-					<li class="btn-info mri" data-scene="1111" data-slide="0">ALL VIDEO</li>
+<!-- 					<li class="btn-info mri" data-scene="1111" data-slide="0">ALL VIDEO</li> -->
 					<li class="btn-info mri" data-scene="1111" data-slide="1">HOW TO USE THE SITE</li>
 					<li class="low-item"><a href="https://www.remington.com/bicentennial" target="_blank">REMINGTON'S BICENTENNIAL PAGE</a></li>
 					<li><a href="http://www.gunsandammo.com/">BACK TO GUNS&AMMO</a></li>
