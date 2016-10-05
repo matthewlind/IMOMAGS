@@ -535,6 +535,7 @@ if(function_exists("register_field_group"))
 				'label' => 'Homepage Featured Stories.',
 				'name' => 'homepage_featured_stories_',
 				'type' => 'relationship',
+				'instructions' => 'Choose 5 featured posts to be displayed at the beginning of the homepage',
 				'return_format' => 'object',
 				'post_type' => array (
 					0 => 'post',
