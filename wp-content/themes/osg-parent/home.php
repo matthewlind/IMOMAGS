@@ -29,12 +29,13 @@ $site_name		= trim(get_bloginfo('name'), "Magazine");
 						$author 		= get_the_author();
 						$acf_byline 	= get_field("byline", $feature->ID);
 						$thumb 			= get_the_post_thumbnail($feature->ID,"list-thumb");
-						$tracking 		= "_gaq.push(['_trackEvent','Special Features Homepage','$title','$url']);"; ?>
+						$tracking 		= "_gaq.push(['_trackEvent','Special Features Homepage','$title','$url']);"; 
+					?>
 						<li class="f-item">
 							<a href="<?php echo $url; ?>" onclick="<?php echo $tracking; ?>"><?php echo $thumb; ?></a>
 							<div class="c-info">
 								<!--<div class="c-cats"><?php //if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(null, ','); } ?></div>-->
-								<span class="is-sponsored"><?php if (in_category('sponsored', $feature->ID)) echo "Sponsored"; ?></span>
+								<?php if (in_category('sponsored', $feature->ID)) echo '<span class="is-sponsored">Sponsored</span>'; ?>
 								<h2><a href="<?php echo $url; ?>" onclick="<?php echo $tracking; ?>"><?php echo $title; ?></a></h2>
 								<!--<span class="c-author"><?php //if (!$acf_byline) { if ($author != 'admin') echo 'by '. $author;} else {echo $acf_byline;} ?></span>-->
 							</div>

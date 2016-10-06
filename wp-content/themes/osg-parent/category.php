@@ -41,6 +41,7 @@ $this_cat_name	= $this_cat->name;
 						<li class="c-item">
 							<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('list-thumb'); ?></a>
 							<div class="c-info">
+								<?php if (in_category('sponsored', $post->ID)) echo '<span class="is-sponsored">Sponsored</span>'; ?>
 								<div class="c-cats"><?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(null, ','); } ?></div>
 								<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 								<span class="c-author"><?php if (!$acf_byline) { if ($author != 'admin') echo 'by '. $author;} else {echo $acf_byline;} ?></span>
