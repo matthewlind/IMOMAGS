@@ -33,13 +33,19 @@ function modal_slider(ele, sn, th) {
 
 window.onload = function() {
 	$("#load_anim").fadeOut(500);
-	setTimeout(function(){ $("#loading_cover").fadeOut(3000); }, 500)
+	setTimeout(function(){ $("#loading_cover").fadeOut(3000); }, 500);
 };
 
 
 $(document).ready(function() {
 	
 	$(".lazy").unveil(3500);
+	
+	
+	setTimeout(function(){
+		$("#load_anim").fadeOut(500);
+		setTimeout(function(){ $("#loading_cover").fadeOut(3000); }, 500);
+	}, 15000)
 	
 	var wh 		= $(window).innerHeight(),
 		ww 		= $(window).innerWidth(),
