@@ -104,17 +104,16 @@
 				e.preventDefault();
 				
 				var d = $(this),
-					data_child_cat_slug = d.data("cat-load"),
+					data_m_cat_slug = d.data("cat-load"),
 					loader_anim			= $('.load-btn .loader-anim'),
 					reg_post_count		= $(".link-box").length,
 					load_more_reg		= $("#load_more_reg");
-					
+								
 				loader_anim.removeClass('display-none');
 				
 				var data = {
 						'action': 'load_more_m_posts',
-						'data_child_cat_slug': data_child_cat_slug,
-						'parent_cat__slug': parent_cat_slug,
+						'data_child_cat_slug': data_m_cat_slug,
 						'reg_post_count': reg_post_count
 					};
 				jQuery.post(ajax_object.ajax_url, data, function(response) {

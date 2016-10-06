@@ -454,9 +454,9 @@ if(function_exists("register_field_group"))
 				'choices' => array (
 					'sponsors_disclaimer' => 'Header Sponsors Disclaimer',
 					'hero_image' => 'Hero Image',
-					'third_test_element' => 'Third Test Element',
+					'keep_this_selected' => 'Keep This Selected',
 				),
-				'default_value' => '',
+				'default_value' => 'keep_this_selected',
 				'layout' => 'horizontal',
 			),
 			array (
