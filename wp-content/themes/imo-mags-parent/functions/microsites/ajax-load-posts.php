@@ -147,28 +147,18 @@ if ( is_admin()) {
 
 function load_more_m_posts() {
 	global $wpdb; 
-	
 	ob_start ();         
     
-    
     $children_cat_slug 	= $_POST['data_child_cat_slug'];
-    $parent_cat_slug	= $_POST['parent_cat__slug'];
     $reg_post_count		= $_POST['reg_post_count'];
 
 	$p_counter = 0;	
 	$args = array (
-		'category_name'         	=> "$children_cat_slug + $parent_cat_slug",
+		'category_name'         	=> $children_cat_slug,
 		'post_status'				=> 'publish',			
 		'posts_per_page'      		=> 10,
 		'offset'					=> $reg_post_count,
-		'order'						=> 'DESC',
-		'meta_query' => array(
-			array(
-				'key' => 'featured_post',
-				'value' => '0',
-				'compare' => '=='
-			)
-		)
+		'order'						=> 'DESC'
 	);
 	// The Query
 	$query = new WP_Query( $args );

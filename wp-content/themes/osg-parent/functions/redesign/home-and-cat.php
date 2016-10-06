@@ -73,6 +73,7 @@ function h_load_latest() {
 			<li class="c-item">
 				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('list-thumb'); ?></a>
 				<div class="c-info">
+					<?php if (in_category('sponsored', $post->ID)) echo '<span class="is-sponsored">Sponsored</span>'; ?>
 					<div class="c-cats">
 						<?php 
 							if ($page_type == 'post-type-archive-reader_photos') { 
