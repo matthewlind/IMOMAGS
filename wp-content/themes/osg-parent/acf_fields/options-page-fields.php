@@ -111,7 +111,7 @@ if(function_exists("register_field_group"))
 					),
 					'allorany' => 'all',
 				),
-				'save_format' => 'url',
+				'save_format' => 'object',
 				'preview_size' => 'medium',
 				'library' => 'all',
 			),
@@ -523,6 +523,55 @@ if(function_exists("register_field_group"))
 			),
 		),
 		'menu_order' => 0,
+	));
+	
+	
+	register_field_group(array (
+		'id' => 'acf_homepage-options',
+		'title' => 'Homepage Options',
+		'fields' => array (
+			array (
+				'key' => 'field_5396f72a968le',
+				'label' => 'Homepage Featured Stories.',
+				'name' => 'homepage_featured_stories_',
+				'type' => 'relationship',
+				'instructions' => 'Choose 5 featured posts to be displayed at the beginning of the homepage',
+				'return_format' => 'object',
+				'post_type' => array (
+					0 => 'post',
+				),
+				'taxonomy' => array (
+					0 => 'all',
+				),
+				'filters' => array (
+					0 => 'search',
+				),
+				'result_elements' => array (
+					0 => 'featured_image',
+					1 => 'post_type',
+					2 => 'post_title',
+				),
+				'max' => 6,
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'options_page',
+					'operator' => '==',
+					'value' => 'acf-options',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 31,
 	));
 }
 

@@ -5,7 +5,7 @@ $is_home_cat 	= true;
 $dartdomain 	= get_option('dart_domain', false);
 $magazine_img 	= get_option('magazine_cover_uri' );
 $deal_copy 		= get_option('deal_copy' );
-$features 		= get_field('homepage_featured_stories','options' );
+$features 		= get_field('homepage_featured_stories_','options' );
 $site_name		= trim(get_bloginfo('name'), "Magazine");
 ?>
 
@@ -34,6 +34,7 @@ $site_name		= trim(get_bloginfo('name'), "Magazine");
 							<a href="<?php echo $url; ?>" onclick="<?php echo $tracking; ?>"><?php echo $thumb; ?></a>
 							<div class="c-info">
 								<!--<div class="c-cats"><?php //if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(null, ','); } ?></div>-->
+								<span class="is-sponsored"><?php if (in_category('sponsored', $feature->ID)) echo "Sponsored"; ?></span>
 								<h2><a href="<?php echo $url; ?>" onclick="<?php echo $tracking; ?>"><?php echo $title; ?></a></h2>
 								<!--<span class="c-author"><?php //if (!$acf_byline) { if ($author != 'admin') echo 'by '. $author;} else {echo $acf_byline;} ?></span>-->
 							</div>

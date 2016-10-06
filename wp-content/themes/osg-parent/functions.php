@@ -10,6 +10,12 @@ include_once('widgets/ford-widget.php');
 include_once('widgets/tsc-schedule.php');
 include_once('widgets/tune-in-widget.php');
 
+add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
+function my_theme_enqueue_styles() {
+    wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/css/allpages.css' );
+
+}
+
 $magazine_img = get_option("magazine_cover_uri", get_stylesheet_directory_uri(). "/images/pic/journals.png" );
 $subs_link = get_option("subs_link");
 remove_action('wp_head', 'wp_generator');
@@ -30,7 +36,7 @@ add_filter('single_template', create_function(
 
 // ACF for microsites. Original "Microsite Category Fields" exported from Petersens's Hunting site 
 include_once('acf_fields/microsite-category-fields.php');
-include_once('acf_fields/redesign-fields.php');
+include_once('acf_fields/options-page-fields.php');
 
 // Microsite Ajax load more posts
 include_once( get_template_directory() .'/functions/microsites/ajax-load-posts.php' );

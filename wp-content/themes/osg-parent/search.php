@@ -6,11 +6,13 @@
 * @subpackage Twenty_Eleven
 * @since Twenty Eleven 1.0
 */
+ 	$curauth_id = "";
  	
 	get_header('redesign'); 
 	$dartdomain = get_option('dart_domain', false);
 	$is_search = true;
 	$curauth = (get_query_var('author_name')) ? get_user_by('slug', get_query_var('author_name')) : get_userdata(get_query_var('author'));
+	if ($curauth) { $curauth_id = $curauth->ID; }
 ?>
 
 
@@ -21,7 +23,7 @@
 					<h1 style="text-transform: none;"><?php printf( __( 'Search Results For: %s', 'twentyeleven' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 				</header>
 				<?php 
-					$args = array ('post_type' => 'post', 'posts_per_page'	=> 8, 's' => get_search_query(), 'order' => 'DESC', 'author' => $curauth->ID);
+					$args = array ('post_type' => 'post', 'posts_per_page'	=> 8, 's' => get_search_query(), 'order' => 'DESC', 'author' => $curauth_id);
 					$query = new WP_Query( $args );
 					$feat_counter = 0;
 					

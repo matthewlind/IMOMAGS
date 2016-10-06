@@ -341,6 +341,11 @@
 .c-info {
 	padding: 7px 15px;
 }
+.is-sponsored {
+	font-size: 16px;
+	font-weight: 600;
+	color: #407dbc;
+}
 .home .c-cats,
 .post-type-archive-reader_photos .c-cats {
 	display: block;
