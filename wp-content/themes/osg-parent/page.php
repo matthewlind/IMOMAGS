@@ -1,5 +1,5 @@
 <?php
-get_header('redesign');
+get_header();
 $post_id = $post->ID;
 $is_single_default = true;
 $dartdomain = get_option('dart_domain', false);
@@ -49,4 +49,4 @@ if(is_page("post-photo")){ ?>
 	</article>
 </main>
 
-<?php get_footer('redesign'); ?>
+<?php get_footer(); ?>

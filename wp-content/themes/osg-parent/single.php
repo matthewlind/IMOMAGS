@@ -1,5 +1,5 @@
 <?php
-	get_header('redesign');
+	get_header();
 	$is_single_default = true;
 	global $post;
 	
@@ -231,4 +231,4 @@
 
 
 
-<?php get_footer('redesign'); ?>
+<?php get_footer(); ?>

@@ -1,6 +1,6 @@
 <?php
 	
-get_header('redesign');
+get_header();
 
 $is_home_cat= true;
 $string = parse_url($_SERVER[REQUEST_URI]);
@@ -103,4 +103,4 @@ $args = array(
 	</section>
 </div>
 
-<?php get_footer('redesign'); ?>
+<?php get_footer(); ?>

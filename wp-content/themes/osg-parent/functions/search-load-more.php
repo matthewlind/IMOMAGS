@@ -6,7 +6,7 @@ add_action('init', 'register_search_script');
 add_action('wp_footer', 'print_search_script');
 
 function register_search_script() {
-	wp_register_script( 'search-default-script', get_bloginfo( 'template_directory' ) . '/js/redesign/search.js', array( 'jquery' ), '1.0', true );
+	wp_register_script( 'search-default-script', get_bloginfo( 'template_directory' ) . '/js/search.js', array( 'jquery' ), '1.0', true );
 	wp_localize_script( 'search-default-script', 'ajax_object',
         array( 
         	'ajax_url' 	=> admin_url( 'admin-ajax.php' )

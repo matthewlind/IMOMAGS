@@ -8,7 +8,7 @@
 */
  	$curauth_id = "";
  	
-	get_header('redesign'); 
+	get_header(); 
 	$dartdomain = get_option('dart_domain', false);
 	$is_search = true;
 	$curauth = (get_query_var('author_name')) ? get_user_by('slug', get_query_var('author_name')) : get_userdata(get_query_var('author'));
@@ -100,4 +100,4 @@
 
 
 
-<?php get_footer('redesign'); ?>
+<?php get_footer(); ?>
