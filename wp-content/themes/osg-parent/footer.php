@@ -5,7 +5,7 @@
 			get_template_part('footer/footer', 'microsite');
 			
 	} else { 
-			get_template_part('footer/footer', 'redesign');
+			get_template_part('footer/footer', 'default');
 	} 
 	
 ?>

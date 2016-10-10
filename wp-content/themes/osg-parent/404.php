@@ -10,7 +10,7 @@
 //For some reason, 404 pages were set to not be cached be varnish. This should fix that issue.
 header ("Cache-Control: max-age=20800"); // HTTP 1.1
  	
-get_header('redesign'); 
+get_header(); 
 $is_search = true;
 $dartdomain = get_option('dart_domain', false);
 
@@ -70,4 +70,4 @@ $dartdomain = get_option('dart_domain', false);
 
 
 
-<?php get_footer('redesign'); ?>
+<?php get_footer(); ?>

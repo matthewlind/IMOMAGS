@@ -7,7 +7,7 @@
 * @since Twenty Eleven 1.0
 */
  	
-	get_header('redesign'); 
+	get_header(); 
 	$is_search = true;
 	$curauth = (get_query_var('author_name')) ? get_user_by('slug', get_query_var('author_name')) : get_userdata(get_query_var('author'));
 	$dartdomain = get_option("dart_domain", $default = false);
@@ -69,4 +69,4 @@
 
 
 
-<?php get_footer('redesign'); ?>
+<?php get_footer(); ?>
