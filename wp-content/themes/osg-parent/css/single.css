@@ -71,6 +71,9 @@
 	margin: 0;
 	color: #555;
 }
+.author-wrap div.sponsor {
+	float: right;
+}
 .author-title {
 	color: #666;
 	font-size: 12px;
