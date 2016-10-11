@@ -38,6 +38,7 @@
 				<!--<div class="author-img"><?php //echo get_avatar($author_id, 120);?></div>-->
 				<h4><?php echo $author_name;?></h4>
 				<span class="author-title"><?php if($author_title) { echo $author_title; ?><i>&nbsp;&nbsp;•&nbsp;&nbsp;</i><br><?php }?><a href="<?php echo $author_url;?>">More From <?php echo $author_name;?></a></span>
+				<div class="sponsor"><?php imo_ad_placement("sponsor"); ?></div>
 			</div>
 			<div class="social-single">
 				<ul>

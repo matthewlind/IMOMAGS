@@ -141,7 +141,7 @@
 							if(jQuery(".forecast-map").hasClass("year-2014")){
 								window.open(map_config[id]['url']);	
 							}else if(jQuery(".forecast-map").hasClass("year-2013")){
-								window.open(map_config_2013[id]['url']);	
+								window.open(map_config_2013[id]['url']);
 							}
 							
 						}else{
