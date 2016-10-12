@@ -35,7 +35,7 @@
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
 		'downcolor':'#993366',
-		'enable':true,
+		'enable':false,
 	},
 	'map_4':{
 		'namesId':'AR',
@@ -65,7 +65,7 @@
 		'upcolor':'#ccc',
 		'overcolor':'#FF6600',
 		'downcolor':'#993366',
-		'enable':false,
+		'enable':true,
 	},
 	'map_7':{
 		'namesId':'CT',
@@ -305,7 +305,7 @@
 		'upcolor':'#ccc',
 		'overcolor':'#FF6600',
 		'downcolor':'#993366',
-		'enable':false,
+		'enable':true,
 	},
 	'map_31':{
 		'namesId':'NM',
@@ -315,7 +315,7 @@
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
 		'downcolor':'#993366',
-		'enable':true,
+		'enable':false,
 	},	
 	'map_32':{
 		'namesId':'NY',
@@ -607,7 +607,7 @@ var map_config_2013 = {
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
 		'downcolor':'#993366',
-		'enable':true,
+		'enable':false,
 	},	
 	'map_9':{
 		'namesId':'FL',
@@ -647,7 +647,7 @@ var map_config_2013 = {
 		'upcolor':'#ccc',
 		'overcolor':'#FF6600',
 		'downcolor':'#993366',
-		'enable':false,
+		'enable':true,
 	},
 	'map_13':{
 		'namesId':'IL',
@@ -787,7 +787,7 @@ var map_config_2013 = {
 		'upcolor':'#ccc',
 		'overcolor':'#FF6600',
 		'downcolor':'#993366',
-		'enable':false,
+		'enable':true,
 	},
 	'map_27':{
 		'namesId':'NE',
