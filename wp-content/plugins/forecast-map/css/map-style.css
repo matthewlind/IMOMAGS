@@ -76,13 +76,7 @@ svg{
 		width:98%;
 		margin:0px;	}
 }
-@media screen and (min-width: 1601px) {
-	#map_base{
-		height:1322px;
-		width:98%;
-		float:left;
-	}
-}
+
 .unselectable {
 	-moz-user-select:none;
 	-webkit-user-select:none;
