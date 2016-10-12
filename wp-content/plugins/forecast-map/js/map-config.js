@@ -15,7 +15,7 @@
 		'upcolor':'#EBECED', //state's color when page loads
 		'overcolor':'#FF6600', //state's color when mouse hover
 		'downcolor':'#993366',//state's color when mouse clicking
-		'enable':true,//true/false to enable/disable this state
+		'enable':true//true/false to enable/disable this state
 	},
 	'map_2':{
 		'namesId':'AK',
@@ -32,10 +32,10 @@
 		'name': 'ARIZONA',
 		'url':'/forecasts/rocky-mountain-deer-hunting-forecast-2016/',
 		'target':'_blank',
-		'upcolor':'#EBECED',
+		'upcolor':'#ccc',
 		'overcolor':'#FF6600',
 		'downcolor':'#993366',
-		'enable':false,
+		'enable':false
 	},
 	'map_4':{
 		'namesId':'AR',
@@ -62,7 +62,7 @@
 		'name': 'COLORADO',
 		'url':'/forecasts/rocky-mountain-deer-hunting-forecast-2016/',
 		'target':'_blank',
-		'upcolor':'#ccc',
+		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
 		'downcolor':'#993366',
 		'enable':true,
@@ -82,10 +82,10 @@
 		'name': 'DELAWARE',
 		'url':'/forecasts/DELAWARE-deer-hunting-forecast-2016/',
 		'target':'_blank',
-		'upcolor':'#EBECED',
+		'upcolor':'#ccc',
 		'overcolor':'#FF6600',
 		'downcolor':'#993366',
-		'enable':true,
+		'enable':false,
 	},	
 	'map_9':{
 		'namesId':'FL',
@@ -125,7 +125,7 @@
 		'upcolor':'#ccc',
 		'overcolor':'#FF6600',
 		'downcolor':'#993366',
-		'enable':false,
+		'enable':false
 	},
 	'map_13':{
 		'namesId':'IL',
@@ -205,7 +205,7 @@
 		'upcolor':'#ccc',
 		'overcolor':'#FF6600',
 		'downcolor':'#993366',
-		'enable':false,
+		'enable':false
 	},
 	'map_21':{
 		'namesId':'MA',
@@ -265,7 +265,7 @@
 		'upcolor':'#ccc',
 		'overcolor':'#FF6600',
 		'downcolor':'#993366',
-		'enable':false,
+		'enable':false
 	},
 	'map_27':{
 		'namesId':'NE',
@@ -285,7 +285,7 @@
 		'upcolor':'#ccc',
 		'overcolor':'#FF6600',
 		'downcolor':'#993366',
-		'enable':false,
+		'enable':false
 	},	
 	'map_29':{
 		'namesId':'NH',
@@ -302,7 +302,7 @@
 		'name': 'NEW JERSEY',
 		'url':'/forecasts/NEW-JERSEY-deer-hunting-forecast-2016/',
 		'target':'_blank',
-		'upcolor':'#ccc',
+		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
 		'downcolor':'#993366',
 		'enable':true,
@@ -312,10 +312,10 @@
 		'name': 'NEW MEXICO',
 		'url':'/forecasts/rocky-mountain-deer-hunting-forecast-2016/',
 		'target':'_blank',
-		'upcolor':'#EBECED',
+		'upcolor':'#ccc',
 		'overcolor':'#FF6600',
 		'downcolor':'#993366',
-		'enable':false,
+		'enable':false
 	},	
 	'map_32':{
 		'namesId':'NY',
@@ -445,7 +445,7 @@
 		'upcolor':'#ccc',
 		'overcolor':'#FF6600',
 		'downcolor':'#993366',
-		'enable':false,
+		'enable':false
 	},
 	'map_45':{
 		'namesId':'VT',
@@ -505,7 +505,7 @@
 		'upcolor':'#ccc',
 		'overcolor':'#FF6600',
 		'downcolor':'#993366',
-		'enable':false,
+		'enable':false
 	},
 	'map_51':{
 		'namesId':'DC',
@@ -515,7 +515,7 @@
 		'upcolor':'#ccc',
 		'overcolor':'#0000FF',
 		'downcolor':'#993366',
-		'enable':false,
+		'enable':false
 	},
 }
 
