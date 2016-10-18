@@ -61,7 +61,7 @@
 ---------------------------------------------------------------------------*/
 	elseif ($dartDomain == "imo.gunsandammo") { 
 		
-		if ( is_category('shoot101') || in_category('shoot101')) {
+		if ( is_category('shoot101') || in_category('shoot101') || $page_slug == 'shoot101-video') {
 			get_template_part('footer/microsite-footers/gunsandammo/footer', "shoot101");
 		} 
 		else {

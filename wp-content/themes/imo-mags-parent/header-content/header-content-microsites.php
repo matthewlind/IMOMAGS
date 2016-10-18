@@ -53,7 +53,7 @@
 	Guns & Ammo 
 ---------------------------------------------------------------------------*/
 	elseif ($dartDomain == "imo.gunsandammo") { 		
-		if ( is_category('shoot101') || in_category('shoot101')) {
+		if ( is_category('shoot101') || in_category('shoot101') || $page_slug == 'shoot101-video') {
 			get_template_part('header-content/microsites/gunsandammo/header-content', 'shoot101');
 		} 
 	}	

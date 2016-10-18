@@ -6,11 +6,48 @@ if(function_exists("register_field_group"))
 		'title' => 'Microsite Video Page',
 		'fields' => array (
 			array (
+				'key' => 'field_580594af0b5dc',
+				'label' => 'Video Service',
+				'name' => 'video_service',
+				'type' => 'radio',
+				'choices' => array (
+					'brightcove' => 'Birghtcove',
+					'youtube' => 'YouTube',
+				),
+				'other_choice' => 0,
+				'save_other_choice' => 0,
+				'default_value' => 'brightcove',
+				'layout' => 'horizontal',
+			),
+			array (
 				'key' => 'field_57d9bfc6e9ae5',
 				'label' => 'Featured Video ID',
 				'name' => 'feat_video_id',
 				'type' => 'text',
 				'instructions' => 'You can also add this id to the video list below',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_58057cf454ea8',
+				'label' => 'Featured Youtube Video Title',
+				'name' => 'youtube_video_title',
+				'type' => 'text',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_580594af0b5dc',
+							'operator' => '==',
+							'value' => 'youtube',
+						),
+					),
+					'allorany' => 'all',
+				),
 				'default_value' => '',
 				'placeholder' => '',
 				'prepend' => '',
@@ -107,6 +144,17 @@ if(function_exists("register_field_group"))
 						'label' => 'image',
 						'name' => 'image',
 						'type' => 'image',
+						'conditional_logic' => array (
+							'status' => 1,
+							'rules' => array (
+								array (
+									'field' => 'field_580594af0b5dc',
+									'operator' => '==',
+									'value' => 'brightcove',
+								),
+							),
+							'allorany' => 'all',
+						),
 						'column_width' => '',
 						'save_format' => 'url',
 						'preview_size' => 'thumbnail',

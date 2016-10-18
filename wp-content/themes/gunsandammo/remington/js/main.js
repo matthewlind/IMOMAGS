@@ -3,11 +3,16 @@
 
 var controller,
 	flexslider,
-	isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
+	isSafari = false;
 
-// Safari specific css.
-if (isSafari == true){
-	$('head').append('<link rel="stylesheet" href="/wp-content/themes/gunsandammo/remington/css/safari.css" type="text/css" />');
+// Detecting Safari Browser
+var ua = navigator.userAgent.toLowerCase(); 
+if (ua.indexOf('safari') != -1) { 
+	if (ua.indexOf('chrome') > -1) {
+		//alert("1") // Chrome
+	} else {
+		isSafari = true; // Safari
+	}
 }
 
 // ajax flexslider 
@@ -41,6 +46,10 @@ $(document).ready(function() {
 	
 	$(".lazy").unveil(3500);
 	
+	// Safari specific css.
+	if (isSafari == true){
+		$('head').append('<link rel="stylesheet" href="/wp-content/themes/gunsandammo/remington/css/safari.css" type="text/css" />');
+	}
 	
 	setTimeout(function(){
 		$("#load_anim").fadeOut(500);
