@@ -144,6 +144,17 @@ if(function_exists("register_field_group"))
 						'label' => 'image',
 						'name' => 'image',
 						'type' => 'image',
+						'conditional_logic' => array (
+							'status' => 1,
+							'rules' => array (
+								array (
+									'field' => 'field_580594af0b5dc',
+									'operator' => '==',
+									'value' => 'brightcove',
+								),
+							),
+							'allorany' => 'all',
+						),
 						'column_width' => '',
 						'save_format' => 'url',
 						'preview_size' => 'thumbnail',

@@ -20,6 +20,7 @@ $y_feat_title = "";
 				<?php if ($v_source == 'youtube') { 
 					$y_feat_title = get_field('youtube_video_title');
 				?>
+				<!-- YouTube Player -->
 				<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
 			    <div id="player"></div>
 			    <script>
@@ -52,7 +53,7 @@ $y_feat_title = "";
 					var done = false;
 					function onPlayerStateChange(event) {
 						if (event.data == YT.PlayerState.PLAYING && !done) {
-							setTimeout(stopVideo, 10000);
+							setTimeout(stopVideo, 10);
 							done = true;
 						}
 					}
@@ -67,16 +68,18 @@ $y_feat_title = "";
 								title = d.find("h5").text();
 								
 							if(player) { player.loadVideoById(vid, 1, "large"); }
-							$("html, body").animate({scrollTop: 80}, 1000, "swing");
+							$("html, body").animate({scrollTop: 70}, 1000, "swing");
 							console.log("title: "+title);
 							$("#mv_title").text(title);
 						});
 					
 					});
 			    </script>
+			    <!-- End of YouTube Player -->
 			    
 			    <?php } else { ?>
-			    <!-- Start of Brightcove Player -->
+			    
+			    <!-- Brightcove Player -->
 				<!--By use of this code snippet, I agree to the Brightcove Publisher T and C found at https://accounts.brightcove.com/en/terms-and-conditions/. -->
 				<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
 				<div id="mv_player">
@@ -133,7 +136,7 @@ $y_feat_title = "";
 									if (long_desc == null) { jQuery("#mv_description").text("");} else {jQuery("#mv_description").text(long_desc);}
 								});
 							}, 400)
-							$("html, body").animate({scrollTop: 80}, 1000, "swing");
+							$("html, body").animate({scrollTop: 70}, 1000, "swing");
 						});
 					
 					});
@@ -172,7 +175,12 @@ $y_feat_title = "";
 			    while ( have_rows('video') ) { the_row();
 					$video_id = get_sub_field('video_id');
 					$title = get_sub_field('title');
-					$vm_image = get_sub_field('image');
+					
+					if ($v_source == 'youtube') {
+						$vm_image = 'http://img.youtube.com/vi/'.$video_id.'/0.jpg';
+					} else {
+						$vm_image = get_sub_field('image');
+					}
 					$video_cats = "";
 					if( have_rows('video_category') ) {
 						while ( have_rows('video_category') ) { the_row();
