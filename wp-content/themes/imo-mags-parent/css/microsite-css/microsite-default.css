@@ -1407,6 +1407,9 @@ h1, h2, h3, h4, h5 {
 .mv-video-atf {
 	margin-bottom: 50px;
 }
+.mv-video-atf > h3 {
+	color: #aaa;
+}
 .mv-player {
 	width: 100%;
 	padding-bottom: 56.25%;
