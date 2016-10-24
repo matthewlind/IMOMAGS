@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,900');
+
+
+.subsmodalback {
+	background-color: #f0f0f0;
+	color: #000000;
+	border-radius: 12px;
+	width: 490px;
+	height: 490px;
+	overflow: hidden;
+}
+.subs_popinst_close {
+	text-align: right;
+	padding: 7px 10px 0px;
+	float:right;
+}
+.subsmodaltitle {
+	font-family: 'Raleway';
+	font-size:28px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 29px;
+	margin-top: 29px;
+}
+.subsmodaloffer {
+	margin-top: 14px;
+	font-size: 20px;
+	text-align: center;
+}
+.subsmodalcover {
+	height: 235px;
+	text-align: center;
+}
+.subsmodalcover img {
+	height:218px;
+	margin-top: 15px;
+	box-shadow: 2px 2px 3px #999999;
+}
+.subsmodalbtnarea {
+	text-align: center;
+	background-color: #e6e6e6;
+	height:170px;
+	padding-top: 2px;
+}
+.subsmodalbtn {
+	width:240px;
+	margin: 0 auto;
+	padding: 8px 10px;
+	background-color:#c52127;
+	border-radius: 4px;
+	color: #ffffff;
+	font-size: 20px;
+}
+
+.subsmodaltriangle {
+    width: 0;
+    height: 0;
+    margin: 0 auto;
+    border-left: 200px solid transparent;
+    border-right: 200px solid transparent;
+    border-top: 35px solid #f0f0f0;
+}
+.subsmodaltriangle-container {
+    height: 50px;
+    margin-bottom: 0px;
+    position: relative;
+    z-index: 1;
+    background-color: #e6e6e6;
+
+}
