@@ -515,7 +515,9 @@ body.modal-open {
 .photo-credit {
 	font-size: small;
 }
-
+#slider_1111 h2 {
+	margin-top: 70px;
+}
 
 /*--------------------------------------------------*/
 /*   TIMELINE
@@ -2581,15 +2583,16 @@ body.modal-open {
 }
 #img_2011 {
 	position: absolute;
-	top: 7%;
-	height: 80%;
+	bottom: 3%;
+	width: 36%;
 	z-index: 5;
+	left: -9%;
 }
 #text_2011 {
 	position: absolute;
-    bottom: 10%;
-    left: 37%;
-    width: 55%;
+    top: 5%;
+    left: -9%;
+    width: 46%;
     z-index: 10;
 }
 #text_2011 h1 {
@@ -2601,13 +2604,21 @@ body.modal-open {
 	position: static;
 	float: left;
 	margin-right: 30px;
-	font-size: 160px;
+	font-size: 100px;
 }
+#s2011 .full-story h4 {margin-top: 0;}
 #full_2011 {
 	float: left;
 }
 #bottom_2011 {
 	width: 110%;
+}
+#video_2011 {
+	position: absolute;
+    right: 5%;
+    top: 23%;
+    width: 52%;
+    z-index: 15;
 }
 
 
@@ -2621,15 +2632,15 @@ body.modal-open {
 }
 #img_2013 {
 	position: absolute;
-    top: 10%;
-    width: 92%;
+    top: 4%;
+    width: 76%;
     z-index: 5;
 }
 #text_2013 {
 	position: absolute;
-    bottom: 10%;
-    left: 34%;
-    width: 60%;
+    bottom: 24%;
+    left: 52%;
+    width: 41%;
     z-index: 10;
 }
 #text_2013 h1 {
@@ -2652,6 +2663,13 @@ body.modal-open {
 }
 #full_2013 {
 	float: left;
+}
+#video_2013 {
+	position: absolute;
+	left: 0;
+	bottom: 11%;
+	width: 42%;
+	z-index: 15;
 }
 
 
@@ -2895,8 +2913,7 @@ body.modal-open {
 #text_2010 h1,
 #text_2011 h1,
 #text_2013 h1,
-#text_2014 h1,
-#text_2016 h1 {font-size: 80px;}
+#text_2014 h1 {font-size: 80px;}
 
 #year_1828,
 #year_1861,
@@ -2970,7 +2987,6 @@ body.modal-open {
 #left_1927 p,
 #text_1867 {font-size: 19px;}
 	
-#img_2011 {left: -5%; height: 67%;}	
 #year_2011 {font-size: 100px;}
 .full-story h4 {margin-top: 11px;}
 #text_2011 {bottom: 15%;}
@@ -3115,9 +3131,12 @@ body.modal-open {
 #year_1987 {bottom: 2%;}
 
 #s2011 .elements {padding-left: 13vw;}
+#text_2011 h1 {font-size: 35px;}
 #img_2011 {left: 0;}
-#text_2011 {bottom: 7%;left: 30%;width: 60%;}
-#text_2013 {left: 22%;width: 72%;}
+#img_2013 {top: 11%;width: 96%;}
+#text_2011 {bottom: 7%;left: 0; width: 40%;}
+#text_2013 {bottom: 12%;}
+#video_2013 {bottom: 15%;width: 45%;}
 #text_2014 h1 {font-size: 40px;}
 .circle{r: 13px;stroke-width:4;}
 
@@ -3156,8 +3175,6 @@ body.modal-open {
 .left-green-bar {width: 50%; left: 0;}
 .in-the-woods {width: 50%; background-image: none !important;}
 .s1816-text {position: static; padding-left: 0;}
-
-#text_2011 h1 {font-size: 35px;}
 
 #s1816-story-wrap {width: 87%;left: 7%;}
 .s1816-video {width: 100%;}
@@ -3290,11 +3307,15 @@ body.modal-open {
 #img_2010 {width: 100%;}
 
 #s2011 .elements {padding-left: 15vw;}
-#img_2011 {width: 98%;height: auto;}
+#img_2011 {width: 98%;height: auto;bottom: 6%;}
+#video_2011 {right: 1%;bottom: 1%;top: auto;width: 63%;}
 #year_2011 {font-size: 160px;}
-#text_2011 {left: 37%;width: 60%; bottom: 9%;}
-#img_2013 {width: 95%;top: 20%;}
-#text_2013 {width: 96%;bottom: 20%;left: 0;}
+#text_2011 {left: 3%;width: 95%; bottom: auto;}
+#s2011 .full-story h4 {margin-top: 1em;}
+#img_2013 {width: 95%;margin-top: 10%; position: static;}
+#text_2013 {width: 96%;margin-top: 6%; position: static;overflow: hidden;}
+#video_2013 {position: static;margin-top: 5%;width: 68%;}
+#year_2013 {font-size: 100px;}
 
 #s2013 .elements {padding-left: 14vw;}
 #text_2014 {right: 8%;width: 59%;top: 10%;}
@@ -3350,7 +3371,8 @@ body.modal-open {
 #text_1865,
 #text_1867,
 #text_1966,
-#left_1927 {width: 90%;}
+#left_1927,
+#video_2013 {width: 90%;}
 #text_1858,
 #left_1922 {width: 95%;}
 #elems_1875 {width: 98%;}
@@ -3366,10 +3388,13 @@ body.modal-open {
 #text_1867 {font-size: 17px;}
 #text_1940 h1 {font-size: 20px;}
 #text_1966 p {font-size: 22px;}
+
+#text_2013 h1,
+#text_2016 h1 {font-size: 24px;}
+
 #right_1987 h1 {font-size: 25px;}
 #top_1914 h1,
-#top_1956 h1,
-#text_2016 h1 {font-size: 27px;}
+#top_1956 h1 {font-size: 27px;}
 
 #left_1922 h1,
 #text_1941 h1,
@@ -3387,9 +3412,9 @@ body.modal-open {
 #year_2016 {font-size: 60px}
 
 #text_1867 h1,
-#year_2011,
 #s1918 .year,
-.right_1934 .year {font-size: 70px;}
+.right_1934 .year,
+#year_2013 {font-size: 70px;}
 
 .s1816-year,
 #year_1828,
@@ -3400,8 +3425,8 @@ body.modal-open {
 #s1927 .year,
 #year_1966,
 #year_1988,
-#year_2013,
-#year_2010 {font-size: 100px;}
+#year_2010,
+#year_2011 {font-size: 100px;}
 
 #year_2014 {font-size: 120px;}
 
@@ -3504,12 +3529,14 @@ body.modal-open {
 #s1987 .video-wrap {width: 99%;padding-top: 55.25%;}
 
 #right_1988 {width: 96%;top: auto;bottom: 15%;right: 5%;}
-#img_2011 {width: 92%;height: auto;top: 2%;}
+#img_2011 {display: none;}
 #text_2011 {width: 93%;left: 0;bottom: 12%;}
 #year_2011 {float: none;}
 #s2011 .elements,
 #s2013 .elements {padding-left: 19vw;}
 #s2011 .full-story h4 {margin-top: 0;}
+
+#video_2011 {width: 98%; bottom: 17%;}
 
 #text_2013 {width: 93%;}
 #img_2013 {top: 5%;}
@@ -3522,12 +3549,11 @@ body.modal-open {
 .how-mobile {width: 120px;}
 .how-mobile i {bottom: 2%;font-size: 60px;width: 60px;}
 
-
-#img_2016 {
-	width: 90%;
-}
+#img_2016 {width: 90%;}
 #img_2016 img {width: 45%; float: left;}
 #s2016 .btn-small {margin: 50px 0 0 20px;}
+
+#slider_1111 h2 {margin-top: 50px;}
 
 }/* MEDIA min width 460 */
 
@@ -3639,13 +3665,14 @@ body.modal-open {
 #top_1956 h1,
 #right_1987 h1 {font-size: 20px;}
 
+.#text_2016 h1 {font-size: 24px;}
+
 .founder-info span:nth-child(1),
 #left_1918 h1,
 #text_1970 h1,
 #text_1875 h1,
 #left_1927 h1,
-#text_1966 h1,
-#text_2016 h1 {font-size: 25px;}
+#text_1966 h1 {font-size: 25px;}
 
 #text_1858 h1,
 #text_1865 h1,
@@ -3654,16 +3681,16 @@ body.modal-open {
 #left_1960 h1,
 .s1959r-info h1,
 #left_1982 h1,
-#right_1988 h1,
-#text_2011 h1 {font-size: 30px;}
+#right_1988 h1 {font-size: 30px;}
 
-#text_2013 h1 {font-size: 40px;}
 #year_1950,
 #year_1962,
-#year_1963 {font-size: 51px;}
+#year_1963,
+#year_2011 {font-size: 51px;}
 #s1918 .year,
 #s1959_year,
-#year_1966 {font-size: 60px;}
+#year_1966,
+#year_2013 {font-size: 60px;}
 
 #year_1875,
 #year_1858,
@@ -3682,15 +3709,11 @@ body.modal-open {
 
 #s1959_info {width: 81%;}
 
-#bottom_2011 {width: 100%;}
-
 .info-s1816-4,
 #in-the-woods-guy,
 .peder_1910,
 #top_1950 img,
 #text_1962 br { display: none;}
-
-#text_2011 {text-align: right;}
 
 #text_1828 {width: 100%;position: relative;bottom: auto;}
 .years-200 {font-size: 33px; top: 200px;}
@@ -3718,7 +3741,6 @@ body.modal-open {
 
 #left_1960 {width: 85%;}
 #year_1987 {bottom: 23%;font-size: 50px;}
-#year_2013 {font-size: 80px;}
 #btn_1867 {top: 56%;right: 13%;}
 #text_1873 {bottom: 20%; font-size: 16px;}
 #btn_1905 {bottom: 21%;left: 0;}
@@ -3727,9 +3749,7 @@ body.modal-open {
 #s1918 .year, .right_1934 .year {position: absolute;bottom: 2%;right: 0;font-size: 31px;}
 #year_1962 {opacity: .5;}
 #text_2010 h1 {font-size: 20px; margin-bottom: 5px;}
-
-#year_2011 {float: right; margin: 0;}
-
+#s2016 .btn-small {margin: 10px 0 0 4px;}
 	
 }/* MEDIA min width 321 */
 
