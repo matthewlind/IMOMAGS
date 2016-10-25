@@ -515,7 +515,9 @@ body.modal-open {
 .photo-credit {
 	font-size: small;
 }
-
+#slider_1111 h2 {
+	margin-top: 70px;
+}
 
 /*--------------------------------------------------*/
 /*   TIMELINE
@@ -3547,12 +3549,11 @@ body.modal-open {
 .how-mobile {width: 120px;}
 .how-mobile i {bottom: 2%;font-size: 60px;width: 60px;}
 
-
-#img_2016 {
-	width: 90%;
-}
+#img_2016 {width: 90%;}
 #img_2016 img {width: 45%; float: left;}
 #s2016 .btn-small {margin: 50px 0 0 20px;}
+
+#slider_1111 h2 {margin-top: 50px;}
 
 }/* MEDIA min width 460 */
 

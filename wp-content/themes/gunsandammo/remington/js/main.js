@@ -94,7 +94,7 @@ $(document).ready(function() {
 			sc_num	= d.data("scene"),
 			sl_id	= "#slider_"+sc_num,
 			sl_num 	= d.data("slide");
-			modal 	= (d.hasClass('mri')) ? d.closest('.menu-wrap').find('.modal') : d.closest('.scene').find('.modal'),
+			modal 	= (d.hasClass('mri')) ? d.closest('.menu-wrap').find('#modal-s'+sc_num) : d.closest('.scene').find('.modal'),
 			modal_c = modal.find('.modal-center'),
 			modal_i = modal.find('.modal-inner'),
 			has_sl	= modal.find('.modal-inner > div').attr('id');
