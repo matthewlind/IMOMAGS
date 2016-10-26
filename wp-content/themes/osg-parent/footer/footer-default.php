@@ -9,6 +9,8 @@ if(is_home()){
 	}else if(is_single()){
 		$page = "article";
 	}
+	else 
+		$page = "";
 	$is_custom_img_and_url 	= get_field('is_custom_img_and_url','options');	
 
 if ($is_custom_img_and_url) {

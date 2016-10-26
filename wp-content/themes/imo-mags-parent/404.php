@@ -18,14 +18,14 @@ imo_sidebar(); ?>
             <div id="content" role="main">
             	 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header article-brief clearfix js-responsive-section">
 					 <strong class="message-not-found">Error: Page not found.</strong>
-					 <p style="padding: 0 30px 30px;">Unfortunately, We can't find the page you are looking for. Here are the latest stories.</p>
+					 <p style="padding: 0 30px 30px;">Unfortunately, we can't find the page you are looking for.</p>
             	 </div>
 				<div class="posts-list js-responsive-section main-content-preppend">
 						<?php
-							$custom_query = new WP_Query('order=DESC&limit=10');
-							while ($custom_query->have_posts()) : $custom_query->the_post();
-								get_template_part( 'content/content', get_post_format() );
-							endwhile;
+							//$custom_query = new WP_Query('order=DESC&limit=10');
+							//while ($custom_query->have_posts()) : $custom_query->the_post();
+							//	get_template_part( 'content/content', get_post_format() );
+							//endwhile;
 						?>
 				</div>
 				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="pager-holder js-responsive-section">

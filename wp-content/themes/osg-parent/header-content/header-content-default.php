@@ -19,6 +19,8 @@
 	}else if(is_single()){
 		$page = "article";
 	}
+	else 
+		$page = "";
 	
 ?>
 <div id="fb-root"></div>
