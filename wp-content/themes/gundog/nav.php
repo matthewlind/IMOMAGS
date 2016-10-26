@@ -9,10 +9,12 @@
 			<?php if( $photosMenu ){ 
 				foreach( $photosMenu as $menu ){  
 					$categoryList = get_term_by('id', $menu, 'category'); ?>
-					<li class="sub-list"><a href="/photos?<?php echo $categoryList->slug; ?>" class="photo-menu" slug="<?php echo $categoryList->slug; ?>"><?php echo $categoryList->name; ?></a></li>
+					<ul class="sub-list">
+						<li class="sub-list"><a href="/photos?<?php echo $categoryList->slug; ?>" class="photo-menu" slug="<?php echo $categoryList->slug; ?>"><?php echo $categoryList->name; ?></a></li>
+					</ul>
 				<?php } ?>
 			<?php } ?>
 		</ul>
 	</div>			
-<div class="community-nav-below"><a href="/post-photo/"><span class="singl-post-photo"><span>Share Your Photo Now!</span></span></a></div>
+<div class="community-nav-below clearfix"><a href="/post-photo/"><span class="singl-post-photo"><span>Share Your Photo Now!</span></span></a></div>
 </div>
