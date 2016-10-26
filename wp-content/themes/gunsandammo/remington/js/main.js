@@ -3166,7 +3166,7 @@ if (ww < 1100 || isSafari == true) {
 		if (e.type == "enter") {
 			$("#c1816").css({stroke: "#c14646"});
 			$("#t1816").css({fill: "#c14646",fontSize: "20px"});
-			add_video(1816, 'https://www.youtube.com/embed/v5MyLYN4X50');
+			add_video(1816, 'https://www.youtube.com/embed/Y8eyDY3XqMg');
 		} else {
 			///alert('ds');
 			$("#c1816").css({stroke: "#ffffff"});
@@ -3229,21 +3229,21 @@ if (ww < 1100 || isSafari == true) {
 		duration: wh,
 		triggerHook: "onEnter"
 	}).addTo(contr_mob).on("enter leave", function (e) {
-		e.type == "enter" ? add_video(1906, 'https://www.youtube.com/embed/v5MyLYN4X50') : rem_video(1906);
+		e.type == "enter" ? add_video(1906, 'https://www.youtube.com/embed/gGZL9MoR7WQ') : rem_video(1906);
 	});
 	new ScrollScene({
 		triggerElement: "#next1922",
 		duration: wh,
 		triggerHook: "onEnter"
 	}).addTo(contr_mob).on("enter leave", function (e) {
-		e.type == "enter" ? add_video(1918, 'https://www.youtube.com/embed/v5MyLYN4X50') : rem_video(1918);
+		e.type == "enter" ? add_video(1918, 'https://www.youtube.com/embed/hsmAaqbQROo') : rem_video(1918);
 	});
 	new ScrollScene({
 		triggerElement: "#next1927",
 		duration: wh,
 		triggerHook: "onEnter"
 	}).addTo(contr_mob).on("enter leave", function (e) {
-		e.type == "enter" ? add_video(1922, 'https://www.youtube.com/embed/v5MyLYN4X50') : rem_video(1922);
+		e.type == "enter" ? add_video(1922, 'https://www.youtube.com/embed/SDDS4Oag4Pg') : rem_video(1922);
 	});	
 	new ScrollScene({
 		triggerElement: "#next1934",
@@ -3263,14 +3263,14 @@ if (ww < 1100 || isSafari == true) {
 		duration: wh,
 		triggerHook: "onEnter"
 	}).addTo(contr_mob).on("enter leave", function (e) {
-		e.type == "enter" ? add_video(1941, 'https://www.youtube.com/embed/v5MyLYN4X50') : rem_video(1941);
+		e.type == "enter" ? add_video(1941, 'https://www.youtube.com/embed/Y0vSL8w3Gok') : rem_video(1941);
 	});
 	new ScrollScene({
 		triggerElement: "#next1956",
 		duration: wh,
 		triggerHook: "onEnter"
 	}).addTo(contr_mob).on("enter leave", function (e) {
-		e.type == "enter" ? add_video(1950, 'https://www.youtube.com/embed/v5MyLYN4X50') : rem_video(1950);
+		e.type == "enter" ? add_video(1950, 'https://www.youtube.com/embed/qMBRK6fB_ng') : rem_video(1950);
 	});
 	new ScrollScene({
 		triggerElement: "#next1959record",
@@ -3280,7 +3280,7 @@ if (ww < 1100 || isSafari == true) {
 		if (e.type == "enter") {
 			$("#c1959").css({stroke: "#c14646", fill: "#ffffff"});
 			$("#t1959").css({fill: "#c14646",fontSize: "20px"});
-			add_video(1959, 'https://www.youtube.com/embed/v5MyLYN4X50');
+			add_video(1959, 'https://www.youtube.com/embed/R8zDXvNO4Q0');
 		} else {
 			$("#c1959").css({stroke: "#ffffff", fill: "#1E3F14"});
 			$("#t1959").css({fill: "#ffffff",fontSize: "17px"});
@@ -3306,7 +3306,7 @@ if (ww < 1100 || isSafari == true) {
 		duration: wh,
 		triggerHook: "onEnter"
 	}).addTo(contr_mob).on("enter leave", function (e) {
-		e.type == "enter" ? add_video(1963, 'https://www.youtube.com/embed/v5MyLYN4X50') : rem_video(1963);
+		e.type == "enter" ? add_video(1963, 'https://www.youtube.com/embed/oXL5GKRtWXw') : rem_video(1963);
 	});
 	new ScrollScene({
 		triggerElement: "#next1970",
@@ -3329,7 +3329,7 @@ if (ww < 1100 || isSafari == true) {
 		if (e.type == "enter") {
 			$("#c1987").css({stroke: "#c14646"});
 			$("#t1987").css({fill: "#c14646",fontSize: "20px"});
-			add_video(1987, 'https://www.youtube.com/embed/v5MyLYN4X50');
+			add_video(1987, 'https://www.youtube.com/embed/8KB3ceSCr3U');
 		} else {
 			$("#c1987").css({stroke: "#1e3d05"});
 			$("#t1987").css({fill: "#1e3d05",fontSize: "17px"});
