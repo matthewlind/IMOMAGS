@@ -33,7 +33,7 @@ class osgSubsMarketing {
 	    wp_register_style( 'subsmarketing', plugin_dir_url( __FILE__ ) . 'css/subsmarketing.css');
 	    wp_enqueue_style( 'subsmarketing' );
 	    
-	    wp_register_script( 'popupoverlay', get_template_directory_uri() . '/js/jquery.popupoverlay.js', array('jquery'));
+	    wp_register_script( 'popupoverlay', get_template_directory_uri() . '/js/plugins/jquery.popupoverlay.min.js', array('jquery'));
 	    wp_enqueue_script( 'popupoverlay' );
 	   
 	    wp_register_script( 'osgsubsmodal', plugin_dir_url( __FILE__ ) . 'js/subsmodal.js', array('jquery'));
