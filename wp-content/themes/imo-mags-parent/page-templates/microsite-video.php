@@ -12,9 +12,12 @@ $feat_video_id = get_field("feat_video_id");
 $v_source = get_field("video_service");
 $y_feat_title = "";
 
+$page_in_cat = strtoupper(get_the_title());
+
 ?>
 <div class="content" id="uppp">
 	<div class="mv-video-atf">
+		<h3><?php echo $page_in_cat; ?></h3>
 		<div class="mv-player-wrap">
 			<div class="mv-player">
 				<?php if ($v_source == 'youtube') { 
