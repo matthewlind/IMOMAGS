@@ -22,14 +22,15 @@ $dartdomain = get_option('dart_domain', false);
 		<div id="l_container" class="section-inner-wrap">
 				<header class="main-h">
 					<h1 style="text-transform: none; color: #C6262D;">Error: Page not found.</h1>
-					<p>Unfortunately, We can't find the page you are looking for. <br>Here are the latest stories.</p>
+					<p>Unfortunately, we can't find the page you are looking for.</p>
 				</header>
 				<?php 
 					$args = array ('posts_per_page'	=> 8, 'order' => 'DESC');
-					$query = new WP_Query( $args );
+					//$query = new WP_Query( $args );
 					$feat_counter = 0;
 
-					if ( $query->have_posts() ) { 
+					if(false) {
+					//if ( $query->have_posts() ) { 
 				?>
 				
                 <ul id="latest_list" class="c-list">
@@ -61,7 +62,7 @@ $dartdomain = get_option('dart_domain', false);
 					</div>
 				</div><!-- .btn-lg -->
 			<?php }  else { ?>
-				<h3>No Post's Found</h3>
+				<h3></h3>
 			<?php } ?>
 			
 		</div><!-- .l-container -->
