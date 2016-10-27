@@ -10,7 +10,18 @@ Version:        1.0
 General comments (optional).
 */
 
-.header-wrap,.head-inner,.btn-lg,.btn-lg:hover,.search-field input:last-child,.head-bottom,.menu-close:hover i,.menu-close:hover span,.menu-footer h3,.f-feat-page h3 a:hover,.f-feat-page h3 a:hover,.btn-sm{background-color: #395b5d;}
+.header-wrap,
+.head-inner,
+.btn-lg,
+.btn-lg:hover,
+.search-field input:last-child,
+.head-bottom,
+.menu-close:hover i,
+.menu-close:hover span,
+.menu-footer h3,
+.f-feat-page h3 a:hover,
+.btn-sm{background-color: #395b5d;}
+
 .btn-lg:hover {background-color: #3f686a;}
 
 
