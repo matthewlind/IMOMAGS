@@ -73,7 +73,7 @@ function h_load_latest() {
 			<li class="c-item">
 				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('list-thumb'); ?></a>
 				<div class="c-info">
-					<?php if (in_category('sponsored', $post->ID)) echo '<span class="is-sponsored">Sponsored</span>'; ?>
+					<?php if (in_category('sponsored', $query->post->ID)) echo '<span class="is-sponsored">Sponsored</span>'; ?>
 					<div class="c-cats">
 						<?php 
 							if ($page_type == 'post-type-archive-reader_photos') { 
@@ -160,6 +160,7 @@ function load_home_btf() {
 					<a class="btn-lg" href="<?php echo $subs_link . get_option("i4ky"); ?>" target="_blank">Subscribe Now!</a>
 				</div>
 			</div>
+<!--
 			<div class="store-container">
 				<h1><?php echo $site_name; ?> Store</h1>
 				<a class="store-link" href="">Visit Store</a>
@@ -240,6 +241,7 @@ function load_home_btf() {
 					</div>
 				</div>	
 			</div>
+-->
 		</div>
 	</section>
 	<?php 
@@ -267,7 +269,7 @@ function load_home_btf() {
 								$thumb 	= get_the_post_thumbnail($query->post->ID,"list-thumb");	
 						?>
 						<li class="twins-item" featured_id="<?php echo $feature->ID ?>">
-							<div class="twins-img"><a href="<?php the_permalink(); ?>" onclick="<?php echo $tracking; ?>"><?php echo $thumb; ?></a></div>
+							<div class="twins-img"><a href="<?php the_permalink(); ?>"><?php echo $thumb; ?></a></div>
 							<div class="twins-thumb-title">
 								<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 							</div>
@@ -311,7 +313,7 @@ function load_home_btf() {
 								$thumb = get_the_post_thumbnail($query->post->ID,"list-thumb");	
 						?>
 						<li class="twins-item" featured_id="<?php echo $feature->ID ?>">
-							<div class="twins-img"><a href="<?php the_permalink(); ?>" onclick="<?php echo $tracking; ?>"><?php echo $thumb; ?></a></div>
+							<div class="twins-img"><a href="<?php the_permalink(); ?>"><?php echo $thumb; ?></a></div>
 							<div class="twins-thumb-title">
 								<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 							</div>

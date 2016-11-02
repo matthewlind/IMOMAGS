@@ -15,12 +15,13 @@ $site_name		= trim(get_bloginfo('name'), "Magazine");
 				<header class="main-h">
 					<h1>Latest News & Features</h1>
 				</header>
+				<ul id="latest_list" class="c-list">
 				<?php 
+					$features_ids = array();
 					if( $features ){ 
-						$features_ids = array();
 						$feat_counter = 0;
 				?>
-                <ul id="latest_list" class="c-list">
+                
 					<?php 
 					foreach( $features as $feature ){
 						$features_ids[] = $feature->ID;
@@ -46,9 +47,8 @@ $site_name		= trim(get_bloginfo('name'), "Magazine");
 						<?php }
 						$feat_counter++;
 					} 
-					?>
-               	</ul>
-			<?php } ?>
+				} ?>
+				</ul>
 			<div id="btn_more_posts" class="btn-lg"  data-post-not="<?php echo implode(", ", $features_ids); ?>" data-cat="">
 				<span>Show More</span>
 				<div class="loader-anim dnone">

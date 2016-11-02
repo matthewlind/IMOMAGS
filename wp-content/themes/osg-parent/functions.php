@@ -28,10 +28,13 @@ add_filter('single_template', create_function(
 );
 
 
-
-// ACF for microsites. Original "Microsite Category Fields" exported from Petersens's Hunting site 
-include_once('acf_fields/microsite-category-fields.php');
+// ACF FIELDS
 include_once('acf_fields/options-page-fields.php');
+include_once('acf_fields/single-page-fields.php');
+
+//Original "Microsite Category Fields" exported from Petersens's Hunting site
+include_once('acf_fields/microsite-category-fields.php');
+
 
 // Microsite Ajax load more posts
 include_once( get_template_directory() .'/functions/microsites/ajax-load-posts.php' );

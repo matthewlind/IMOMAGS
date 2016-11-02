@@ -48,6 +48,8 @@ function loadLatestPosts(p) {
 		latest_list.append(response);
 		loader_anim.addClass('dnone');
 		
+		console.log('response: ' + response);
+		
 		//detect window width for responsive ads
 		var windowWidth = window.outerWidth;
 		$('.new-iframe-ad').each(function() {
