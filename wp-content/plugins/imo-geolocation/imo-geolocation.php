@@ -30,8 +30,9 @@ function checkForGeolocationCookie() {
 		setStateVariablesAndCookie($stateAbbrev);
 	} else {
 		//If not, detect using IP and then set the variables
-		$stateAbbrev = detectLocationFromIP();
-		setStateVariablesAndCookie($stateAbbrev);
+		//2016-10-26 We're not going to do the IP detection anymore
+		//$stateAbbrev = detectLocationFromIP();
+		//setStateVariablesAndCookie($stateAbbrev);
 	}
 
 }
