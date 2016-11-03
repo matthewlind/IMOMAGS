@@ -51,6 +51,7 @@ class osgSubsMarketing {
 
 	public function osgsubsmarketing_writeModal() {
 		
+		if(!is_object($this->ssdata)) return;
 		$ssdata = $this->ssdata;
 		
 		$p = PHP_EOL.PHP_EOL;
@@ -64,7 +65,9 @@ class osgSubsMarketing {
 		   . '	<div class="subsmodaltriangle-container"><div class="subsmodaltriangle"></div></div>'.PHP_EOL
 		   
 		   . '	<div class="subsmodalbtnarea">'
-		   . '    <div class="subsmodalbtn" id="subsmodalbtn">'.$ssdata->buttontxt.'</div>'
+		   . '    <div class="subsmodalbtn" id="subsmodalbtn">'
+		   . '<a href="'.$ssdata->orderpage.$ssdata->pkey.'" target="_blank">'
+		   .      $ssdata->buttontxt.'</a></div>'
 		   . '  </div>'.PHP_EOL	   
 		   
 		   . '</div>'.PHP_EOL;
@@ -91,11 +94,13 @@ class osgSubsMarketing {
 		$context = stream_context_create($screate);
 		$contents = file_get_contents($surl, false, $context);	
 		
+		if($contents=="") return;
+		
 		$this->ssdata = json_decode($contents);
 		
 		$p = PHP_EOL.'<script type="text/javascript">'.PHP_EOL;
 		$p.= 'var blogid = '.get_current_blog_id().';'.PHP_EOL; 
-		$p.= 'var subsmarketing = '.$contents.PHP_EOL;
+		$p.= 'var subsmarketing = '.$contents.";".PHP_EOL;
 		$p.= '</script>'.PHP_EOL.PHP_EOL;
 		
 		print $p;

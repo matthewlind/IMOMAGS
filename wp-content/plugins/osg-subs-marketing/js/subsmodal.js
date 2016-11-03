@@ -4,14 +4,16 @@ var popsshown = readCookie("subpopshow");
 popsshown = null;
 
 jQuery(window).scroll(function (event) {
+    if(!subsmarketing.scrollpct) return;
+    
     var scroll = jQuery(window).scrollTop();
     var scrollpct = parseFloat(subsmarketing.scrollpct);
     
-    if(scroll > (window.innerHeight * scrollpct) && popsshown == null){
+    if(scroll > (jQuery(document).height() * scrollpct) && popsshown == null){
 
 		jQuery('#subs_popinst').popup({
 			transition: 'all 0.3s',
-			scrolllock: true, // optional
+			scrolllock: true,
 			opacity: 0.8,
 			onopen: function() {
 				//make API call to log views
@@ -21,7 +23,8 @@ jQuery(window).scroll(function (event) {
 					url: "https://securesubs.osgimedia.com/api/mkt/logPopupDislay",      
 					data: {
 						'key':'gh3vd45',
-						'offerid':subsmarketing.offerid
+						'offerid':subsmarketing.offerid,
+						'pkey': subsmarketing.pkey
           			}
           		});
 			},
@@ -34,7 +37,7 @@ jQuery(window).scroll(function (event) {
 		
 		jQuery('#subs_popinst').popup('show');
 		jQuery('#subsmodalbtn').on("click", function() {
-			alert(subsmarketing.offerid);
+			//
 		});
 	}
 });

@@ -3428,7 +3428,7 @@ function _deprecated_file( $file, $version, $replacement = null, $message = '' )
 	 *
 	 * @param bool $trigger Whether to trigger the error for deprecated files. Default true.
 	 */
-	if ( WP_DEBUG && apply_filters( 'deprecated_file_trigger_error', true ) ) {
+	if ( WP_DEBUG && apply_filters( 'deprecated_file_trigger_error', false ) ) {
 		$message = empty( $message ) ? '' : ' ' . $message;
 		if ( function_exists( '__' ) ) {
 			if ( ! is_null( $replacement ) )
@@ -3489,7 +3489,7 @@ function _deprecated_argument( $function, $version, $message = null ) {
 	 *
 	 * @param bool $trigger Whether to trigger the error for deprecated arguments. Default true.
 	 */
-	if ( WP_DEBUG && apply_filters( 'deprecated_argument_trigger_error', true ) ) {
+	if ( WP_DEBUG && apply_filters( 'deprecated_argument_trigger_error', false ) ) {
 		if ( function_exists( '__' ) ) {
 			if ( ! is_null( $message ) )
 				trigger_error( sprintf( __('%1$s was called with an argument that is <strong>deprecated</strong> since version %2$s! %3$s'), $function, $version, $message ) );
@@ -3540,7 +3540,7 @@ function _doing_it_wrong( $function, $message, $version ) {
 	 *
 	 * @param bool $trigger Whether to trigger the error for _doing_it_wrong() calls. Default true.
 	 */
-	if ( WP_DEBUG && apply_filters( 'doing_it_wrong_trigger_error', true ) ) {
+	if ( WP_DEBUG && apply_filters( 'doing_it_wrong_trigger_error', false ) ) {
 		if ( function_exists( '__' ) ) {
 			$version = is_null( $version ) ? '' : sprintf( __( '(This message was added in version %s.)' ), $version );
 			$message .= ' ' . __( 'Please see <a href="http://codex.wordpress.org/Debugging_in_WordPress">Debugging in WordPress</a> for more information.' );
