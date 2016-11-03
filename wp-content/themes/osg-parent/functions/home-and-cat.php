@@ -127,6 +127,7 @@ function h_load_latest() {
 
 
 
+/*
 
 // Load Home BTF
 //--------------------------------------------//	
@@ -387,4 +388,46 @@ function load_home_btf() {
 	echo $response;
 	wp_die();
 }
+*/
+
+// Load Home BTF
+//--------------------------------------------//	
+if ( is_admin()) {  
+    add_action( 'wp_ajax_load_home_btf', 'load_home_btf' );
+    add_action( 'wp_ajax_nopriv_load_home_btf', 'load_home_btf' );
+} else {
+    // Add non-Ajax front-end action hooks here
+}
+
+function load_home_btf() {
+	global $wpdb;          
+    ob_start(); 
+    
+    $dartDomain     = get_option("dart_domain", $default = false);
+    $page_type		= $_POST['page_type'];
+	$magazine_img 	= get_option('magazine_cover_uri' );
+	$deal_copy 		= get_option('deal_copy' );
+	$site_name		= trim(get_bloginfo('name'), "Magazine"); 
+	$subs_link 		= get_option('subs_link') . "/?pkey=";
+	$btf_sections	= 'home_btf_sections';
+	
+	if ($page_type == 'category') {
+		$btf_sections = 'cat_btf_sections';
+	}
+	
+	if( have_rows($btf_sections, 'options') ) {
+		while ( have_rows($btf_sections, 'options') ) { 
+			the_row(); 
+			$section = get_sub_field('section');
+			include(get_template_directory() . '/content/cat-sections/section-'.$section.'.php');		
+		}
+	}
+		
+	$response = ob_get_contents();
+	ob_end_clean();
+	
+	echo $response;
+	wp_die();
+}
+
 

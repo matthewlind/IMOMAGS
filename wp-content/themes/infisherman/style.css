@@ -1,5 +1,5 @@
 /*
-Theme Name: 	In-Fisherman
+Theme Name: 	In-Fisherman New
 Theme URI:		http://imomags.com
 Description:    In-Fisherman theme
 Author:         IntermediaOutdoors
@@ -23,6 +23,9 @@ General comments (optional).
 
 .btn-lg:hover,
 .newsletter fieldset input:last-child:hover {background-color: #d31922;}
+
+
+.link-to-all {color: #BF1F27;}
 
 .wrapper .main-h > h1 > span,
 .f-feat-page h3 a:hover {color: #BF1F27;}

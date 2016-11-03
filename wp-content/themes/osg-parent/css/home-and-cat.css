@@ -243,6 +243,24 @@
 	margin: 20px auto;
 	max-width: 100%;
 }
+.twins-logo-wrap {
+	margin-top: 10px;
+}
+.twins-logo-wrap a,
+.twins-logo-wrap span {
+	display: inline-block;
+	vertical-align: middle;
+}
+.twins-logo-wrap span {
+	font-size: 12px;
+}
+.twins-logo-wrap a {
+	width: 120px;
+	margin: 20px 0 0 20px;
+}
+.twins-logo-wrap img {
+	width: 100%;
+}
 
 /* Explore Cats Section
 /* --------------------------------- */
