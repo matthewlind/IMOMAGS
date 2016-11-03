@@ -166,8 +166,9 @@ get_header(); ?>
 								<ul>
 									<?php $slug = 'featured';
 									$category = get_category_by_slug($slug);
-	
+									$i = 0;
 									$lists_query = new WP_Query( 'category_name=midwest-finesse&posts_per_page=8&offset=1' );
+									
 									while ($lists_query->have_posts()) : $lists_query->the_post(); ?>
 										<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
 									<?php $i++; endwhile; ?>
@@ -248,7 +249,7 @@ get_header(); ?>
 
 					$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                     $more_query = new WP_Query( 'post_type=post&posts_per_page=20&paged=' . $paged. '&cat=-' . $category->cat_ID.",-".$fcategory->cat_ID.",-".$DFcategory->cat_ID.",-".$Gallerycategory->cat_ID.",-".$tvcategory->cat_ID.",-".$riggedReady->cat_ID.",-".$gearGuide->cat_ID.",-".$wheelsAfield->cat_ID.",-".$crossbowRev->cat_ID.",-".$deerZone->cat_ID.",-".$biggerBucks->cat_ID );
-                    $i++;
+                    //$i++;
 
                     while ($more_query->have_posts()) : $more_query->the_post(); ?>
 

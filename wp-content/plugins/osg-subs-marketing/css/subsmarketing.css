@@ -5,13 +5,14 @@
 	background-color: #f0f0f0;
 	color: #000000;
 	border-radius: 12px;
-	width: 490px;
-	height: 490px;
+	width:490px;
+	/*height: 490px;*/
 	overflow: hidden;
 }
+
 .subs_popinst_close {
 	text-align: right;
-	padding: 7px 10px 0px;
+	padding: 8px 10px 0px;
 	float:right;
 }
 .subsmodaltitle {
@@ -20,27 +21,27 @@
 	font-weight: bold;
 	text-align: center;
 	line-height: 29px;
-	margin-top: 29px;
+	margin-top: 30px;
 }
 .subsmodaloffer {
-	margin-top: 14px;
+	margin-top: 8px;
 	font-size: 20px;
 	text-align: center;
 }
 .subsmodalcover {
-	height: 235px;
+	height: 250px;
 	text-align: center;
 }
 .subsmodalcover img {
-	height:218px;
+	height:230px;
 	margin-top: 15px;
 	box-shadow: 2px 2px 3px #999999;
 }
 .subsmodalbtnarea {
 	text-align: center;
 	background-color: #e6e6e6;
-	height:170px;
-	padding-top: 2px;
+	height:90px;
+	padding-top: 5px;
 }
 .subsmodalbtn {
 	width:240px;
@@ -48,6 +49,10 @@
 	padding: 8px 10px;
 	background-color:#c52127;
 	border-radius: 4px;
+	color: #ffffff;
+	font-size: 20px;
+}
+.subsmodalbtn a {
 	color: #ffffff;
 	font-size: 20px;
 }
@@ -67,4 +72,15 @@
     z-index: 1;
     background-color: #e6e6e6;
 
+}
+
+/* Smartphones (portrait) ----------- */
+@media (max-width : 401px) {
+
+	.subsmodalback {
+		width:360px;
+	}
+	.subsmodaltitle {
+		font-size:24px;
+	}
 }
