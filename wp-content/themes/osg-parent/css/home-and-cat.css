@@ -244,19 +244,16 @@
 	max-width: 100%;
 }
 .twins-logo-wrap {
-	margin-top: 10px;
-}
-.twins-logo-wrap a,
-.twins-logo-wrap span {
-	display: inline-block;
-	vertical-align: middle;
+	margin-top: 24px;
 }
 .twins-logo-wrap span {
-	font-size: 12px;
+	display: block;
 }
 .twins-logo-wrap a {
-	width: 120px;
-	margin: 20px 0 0 20px;
+	display: block;
+	max-width: 120px;
+	max-height: 100px;
+	margin: 14px 0;
 }
 .twins-logo-wrap img {
 	width: 100%;
