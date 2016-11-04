@@ -20,19 +20,26 @@ if (have_rows('sip_section', 'options')) {
 	<div class="section-inner-wrap clearfix">
 		<div class="twins-title">
 			<h1><?php echo $title; ?></h1>
-			<a class="link-to-all" href="<?php echo $sip_link_url; ?>">More <?php echo $sip_link_text; ?></a>
+			<a class="link-to-all" href="<?php echo $sip_link_url; ?>"><?php echo $sip_link_text; ?></a>
 			<?php if ($mag_cover) { ?>
 				<div class="twins-buy-wrap">
 					<img src="<?php echo $mag_cover; ?>">
-					<div class="twins-buy-btn">
-						<span>By Now<i class="icon-caret-down"></i></span>
-						<ul>
-							<?php if ($online_str_url) echo '<li><a href="'.$online_str_url.'">Order Print Magazine Online</a><i class="icon-arrow-right"></i></li>'; ?>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-						</ul>
+					<div id="sip_buy_btn" class="twins-buy-btn">
+						<span>Buy Now<i class="icon-caret-down"></i></span>
+						<div id="sip_drop_down" class="tw-buy-drop-down">
+							<?php if ($online_str_url) echo '<a href="'.$online_str_url.'" target="_blank">Order Print Magazine Online<i class="icon-arrow-right"></i></a>'; ?>
+							<?php if ($itunes_url || $ggle_play_url || $wind_str_url) { ?>
+							<hr>
+							<span>Get The Digital Edition</span>
+							<ul>
+							<?php 
+								if ($itunes_url) echo '<li><a href="'.$itunes_url.'" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/itunes-logo.png"><span>iTunes</span></a></li>'; 
+								if ($ggle_play_url) echo '<li><a href="'.$ggle_play_url.'" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/google_play_icon.png"><span>Google Play</span></a></li>'; 
+								if ($itunes_url) echo '<li><a href="'.$itunes_url.'" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/windows-store-icon.png"><span>Windows Store</span></a></li>'; 
+							?>
+							</ul>
+							<?php } ?>
+						</div>
 					</div>
 				</div>	
 			<?php } ?>

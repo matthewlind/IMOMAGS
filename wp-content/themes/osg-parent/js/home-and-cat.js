@@ -136,6 +136,24 @@ $(document).ready(function() {
 		loadLatestPosts(10);	
 	});
 	
+	// SIP Section 'buy now' button
+	var sbb_open = false;
+	sections_wrap.on("click", "#sip_buy_btn", function(e) {
+		if (sbb_open == false) {
+			$('#sip_drop_down').fadeIn(300);
+			sbb_open = true;
+		} else {
+			$('#sip_drop_down').fadeOut(200);
+			sbb_open = false;
+		}
+		e.stopPropagation();
+	});
+	sections_wrap.on("click", "#sip_drop_down", function(e) {
+		e.stopPropagation();	
+	});
+
+
+	
 });// end document.ready
 
 
