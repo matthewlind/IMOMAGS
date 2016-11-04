@@ -1,20 +1,19 @@
-//	console.log("init subsmarketing ", subsmkt_vars);
 
 var popsshown = readCookie("subpopshow");
-popsshown = null;
 
 jQuery(window).scroll(function (event) {
     if(!subsmarketing.scrollpct) return;
     
     var scroll = jQuery(window).scrollTop();
     var scrollpct = parseFloat(subsmarketing.scrollpct);
-    
+    console.log(popsshown);
     if(scroll > (jQuery(document).height() * scrollpct) && popsshown == null){
 
 		jQuery('#subs_popinst').popup({
 			transition: 'all 0.3s',
 			scrolllock: true,
-			opacity: 0.8,
+			opacity: 0.7,
+			autozindex: true,
 			onopen: function() {
 				//make API call to log views
 				jQuery.ajax({ 
@@ -30,7 +29,12 @@ jQuery(window).scroll(function (event) {
 			},
 			onclose: function() {
 				popsshown = 'true';
-				document.cookie = "subpopshow=true;expires=1";
+				
+				if(parseInt(subsmarketing.expires)>0) {
+					var now = new Date();
+					now.setTime(now.getTime() + parseInt(subsmarketing.expires) * 3600 * 1000);
+					document.cookie = "subpopshow=true; expires=" + now.toUTCString() + "; path=/";
+				}
 				//make API call to log close?
 			}
 		});
