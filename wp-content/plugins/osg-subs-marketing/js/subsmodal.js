@@ -6,12 +6,13 @@ jQuery(window).scroll(function (event) {
     
     var scroll = jQuery(window).scrollTop();
     var scrollpct = parseFloat(subsmarketing.scrollpct);
-    console.log(popsshown);
+
     if(scroll > (jQuery(document).height() * scrollpct) && popsshown == null){
 
 		jQuery('#subs_popinst').popup({
 			transition: 'all 0.3s',
 			scrolllock: true,
+			blur: false,
 			opacity: 0.7,
 			autozindex: true,
 			onopen: function() {
@@ -24,8 +25,32 @@ jQuery(window).scroll(function (event) {
 						'key':'gh3vd45',
 						'offerid':subsmarketing.offerid,
 						'pkey': subsmarketing.pkey
-          			}
-          		});
+        			}
+        		});
+        		
+        		jQuery('#subsmodalbtn').on("click", function(e) {
+        			e.preventDefault();
+        			jQuery('#subs_popinst').popup('hide');
+        			
+        			jQuery.ajax({ 
+						type: "POST",
+						datatype:"json", 
+						url: "https://securesubs.osgimedia.com/api/mkt/logSubscribe",      
+						data: {
+							'key':'gh3vd45',
+							'offerid':subsmarketing.offerid,
+							'pkey': subsmarketing.pkey,
+							'btntype': 'popover'
+        				},
+        				success: function() {
+        					//nothing now
+        				}
+        				
+        			});
+        			
+        			window.open(subsmarketing.orderpage+subsmarketing.pkey);
+		  			
+				});
 			},
 			onclose: function() {
 				popsshown = 'true';
@@ -40,9 +65,7 @@ jQuery(window).scroll(function (event) {
 		});
 		
 		jQuery('#subs_popinst').popup('show');
-		jQuery('#subsmodalbtn').on("click", function() {
-			//
-		});
+
 	}
 });
 

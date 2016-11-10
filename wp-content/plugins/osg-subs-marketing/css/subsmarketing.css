@@ -6,14 +6,14 @@
 	color: #000000;
 	border-radius: 12px;
 	width:490px;
-	/*height: 490px;*/
 	overflow: hidden;
 }
 
 .subs_popinst_close {
-	text-align: right;
-	padding: 8px 10px 0px;
-	float:right;
+    text-align: right;
+    padding: 8px 10px 0px;
+    float: right;
+    line-height: 14px;
 }
 .subsmodaltitle {
 	font-family: 'Raleway';
@@ -51,6 +51,7 @@
 	border-radius: 4px;
 	color: #ffffff;
 	font-size: 20px;
+	cursor: pointer;
 }
 .subsmodalbtn a {
 	color: #ffffff;
@@ -75,12 +76,19 @@
 }
 
 /* Smartphones (portrait) ----------- */
-@media (max-width : 401px) {
+@media (max-width : 491px) {
 
 	.subsmodalback {
-		width:360px;
+		width:312px;
 	}
 	.subsmodaltitle {
-		font-size:24px;
+		font-size:19px;
+	}
+	.subsmodaloffer {
+		font-size:16px;
+	}
+	.subsmodaltriangle {
+    	border-left: 140px solid transparent;
+		border-right: 140px solid transparent;
 	}
 }
