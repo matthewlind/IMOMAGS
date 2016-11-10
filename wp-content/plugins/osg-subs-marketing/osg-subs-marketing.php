@@ -8,6 +8,7 @@
  * Author URI: http:/
  * License: GPL2
  */
+ 
 add_action( 'init', array ( 'osgSubsMarketing', 'init' ) );
 
 class osgSubsMarketing {
@@ -66,8 +67,9 @@ class osgSubsMarketing {
 		   
 		   . '	<div class="subsmodalbtnarea">'
 		   . '    <div class="subsmodalbtn" id="subsmodalbtn">'
-		   . '<a href="'.$ssdata->orderpage.$ssdata->pkey.'" target="_blank">'
-		   .      $ssdata->buttontxt.'</a></div>'
+		   //. '<a href="'.$ssdata->orderpage.$ssdata->pkey.'" target="_blank">'
+		   .      $ssdata->buttontxt
+		   . '    </div>'
 		   . '  </div>'.PHP_EOL	   
 		   
 		   . '</div>'.PHP_EOL;
