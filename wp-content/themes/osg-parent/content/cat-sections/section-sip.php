@@ -2,8 +2,8 @@
 if (have_rows('sip_section', 'options')) {
 	while (have_rows('sip_section', 'options')) {
 		the_row();
-		$title 			= get_sub_field('title');
-		$subtitle 		= get_sub_field('subtitle');
+		$s_title 		= get_sub_field('title');
+		$s_subtitle 	= get_sub_field('subtitle');
 		$sip_link_text 	= get_sub_field('sip_link_text');
 		$sip_link_url 	= get_sub_field('sip_link_url');
 		$mag_cover 		= get_sub_field('mag_cover');
@@ -11,17 +11,24 @@ if (have_rows('sip_section', 'options')) {
 		$itunes_url 	= get_sub_field('itunes_url');
 		$ggle_play_url 	= get_sub_field('google_play_url');
 		$wind_str_url 	= get_sub_field('windows_store_url');
-		$post_id_1 		= get_sub_field('post_id_1');
-		$post_id_2 		= get_sub_field('post_id_2');
+		$s_post_id_1 	= get_sub_field('post_id_1');
+		$s_post_id_2 	= get_sub_field('post_id_2');
 	}
-}	
-?>
+	$title_1		= get_the_title($s_post_id_1);
+	$permalink_1	= get_permalink($s_post_id_1);
+	$thumb_1		= get_the_post_thumbnail($s_post_id_1, 'list-thumb');
+	$title_2		= get_the_title($s_post_id_2);
+	$permalink_2	= get_permalink($s_post_id_2);
+	$thumb_2		= get_the_post_thumbnail($s_post_id_2, 'list-thumb');
+?>	
 <section class="section-twins">
 	<div class="section-inner-wrap clearfix">
 		<div class="twins-title">
-			<h1><?php echo $title; ?></h1>
-			<a class="link-to-all" href="<?php echo $sip_link_url; ?>"><?php echo $sip_link_text; ?></a>
-			<?php if ($mag_cover) { ?>
+			<?php
+			echo '<h1>'.$s_title.'</h1>';
+			if ($s_subtitle) { echo '<span>'.$s_subtitle.'</span><br>'; }
+			if ($sip_link_url) { echo '<a class="link-to-all" href="'.$sip_link_url.'">'.$sip_link_text.'</a>';}
+			if ($mag_cover) { ?>
 				<div class="twins-buy-wrap">
 					<img src="<?php echo $mag_cover; ?>">
 					<div id="sip_buy_btn" class="twins-buy-btn">
@@ -46,28 +53,20 @@ if (have_rows('sip_section', 'options')) {
 		</div>
 		<div class="twins-thumbs clearfix">
 			<ul>
-				<?php	
-					$args = array ('cat' => $cat_id,'posts_per_page' => 2,'order' => 'DESC');
-					$query = new WP_Query( $args );
-					if ( $query->have_posts() ) {
-						while ( $query->have_posts() ) {
-							$query->the_post();
-							$thumb 	= get_the_post_thumbnail($query->post->ID,"list-thumb");	
-					?>
-					<li class="twins-item" featured_id="<?php echo $feature->ID ?>">
-						<div class="twins-img"><a href="<?php the_permalink(); ?>"><?php echo $thumb; ?></a></div>
-						<div class="twins-thumb-title">
-							<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-						</div>
-					</li>
-					<?php
-						}
-					} else {
-						echo "no posts found";
-					}
-					wp_reset_postdata(); 
-				?>
+				<li class="twins-item">
+					<div class="twins-img"><a href="<?php echo $permalink_1; ?>"><?php echo $thumb_1; ?></a></div>
+					<div class="twins-thumb-title">
+						<h3><a href="<?php echo $permalink_1; ?>"><?php echo $title_1; ?></a></h3>
+					</div>
+				</li>
+				<li class="twins-item">
+					<div class="twins-img"><a href="<?php echo $permalink_2; ?>"><?php echo $thumb_2; ?></a></div>
+					<div class="twins-thumb-title">
+						<h3><a href="<?php echo $permalink_2; ?>"><?php echo $title_2; ?></a></h3>
+					</div>
+				</li>
 			</ul>
 		</div>
 	</div>
-</section>
+</section>		
+<?php }	?>

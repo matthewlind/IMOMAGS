@@ -313,8 +313,6 @@ function parent_theme_widgets_init()
     ) );
 
 	register_nav_menus(array(
-        'top' => 'Top Menu',
-        'bottom' => 'Main Menu',
         'desk_vis' => 'Desktop Visible Menu',
         'desk_vis_sec' => 'Desktop Secondary Menu',
         'mobile' => 'Mobile Menu',

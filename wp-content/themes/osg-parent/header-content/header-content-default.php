@@ -104,19 +104,21 @@
 <nav id="menu_drop">
 	<div class="menu-container">
 		<div class="menu-inner">
-			<section class="menu-content">
+			<section class="menu-content clearfix">
 			<?php
             wp_nav_menu(array(
-                'menu_class'	=> 'menu',
-                'theme_location'=> 'bottom',
+                'menu_class'	=> 'menu mob-main-menu',
+                'theme_location'=> 'mobile',
                 'container' 	=> '0',
                 'walker'		=> new AddParentClass_Walker()
             ));   
             ?>
-            <?php if(has_nav_menu( 'top' )){
+            <?php if(has_nav_menu( 'desk_vis_sec' )){
             	wp_nav_menu(array(
-                    'menu_class'=>'menu',
-                    'theme_location'=>'top'
+                    'menu_class'	=> 'menu mob-sec-menu',
+                    'theme_location'=> 'desk_vis_sec',
+                    'container' 	=> '0',
+                    'walker'		=> new AddParentClass_Walker()
 				));  
             } 
             ?>

@@ -3,17 +3,18 @@ if (have_rows('featured_cat', 'options')) {
 	while (have_rows('featured_cat', 'options')) {
 		the_row();
 		$cat_id 		= get_sub_field('category');
+		$subtitle 		= get_sub_field('subtitle');
 		$sponsor_logo 	= get_sub_field('sponsor_logo');
 		$sponsor_text 	= get_sub_field('sponsor_text');
 		$sponsor_url 	= get_sub_field('sponsor_url');
 		$cat_name 		= get_cat_name($cat_id);
 	}
-}	
 ?>
 <section class="section-twins">
 	<div class="section-inner-wrap clearfix">
 		<div class="twins-title">
 			<h1><?php echo $cat_name; ?></h1>
+			<?php if ($subtitle) { echo '<span>'.$subtitle.'</span><br>'; }?>
 			<a class="link-to-all" href="<?php echo get_category_link($cat_id); ?>">More <?php echo $cat_name ?></a>
 			<?php if ($sponsor_logo) { ?>
 				<div class="twins-logo-wrap">
@@ -49,3 +50,4 @@ if (have_rows('featured_cat', 'options')) {
 		</div>
 	</div>
 </section>
+<?php } ?>
