@@ -14,8 +14,8 @@ var $document 		= $(document),
 	section_loader	= $("#section_loader"),
 	page_type		= 'home';
 	
-if ($('.post-type-archive-reader_photos')[0]) {
-	page_type = 'post-type-archive-reader_photos';
+if ($('.archive')[0]) {
+	page_type = 'archive';
 } else if ($('.category')[0]) {
 	page_type = 'category';
 }
@@ -67,7 +67,7 @@ function loadLatestPosts(p) {
 
 // Load Home BTF
 //-----------------------------------------//
-function loadHomeBTF() {
+function loadCatHomeBTF() {
 	if (btf_loaded == true) 
 		return;
 	var d = $document.scrollTop(),
@@ -79,8 +79,9 @@ function loadHomeBTF() {
 			url: ajax_object.ajax_url,
 			cache: false,
 			data: {
-				'action' 	: 'load_home_btf',
-				'page_type'	: page_type
+				'action' 	: 'load_cat_home_btf',
+				'page_type'	: page_type,
+				'cat_id'	: cat_id
 			}
 		})
 		.done(function(response) {
@@ -165,17 +166,8 @@ $(window).load(function() {
 */
 
 $document.scroll(function() {
-	
-/*
-	section_subsicribe = $("#section_subsicribe");
-	
-	if (!section_subsicribe[0]) {
-		loadHomeBTF();
-	}
-*/
-	
-	loadHomeBTF();
-	
+		
+	loadCatHomeBTF();
 	
 });
 

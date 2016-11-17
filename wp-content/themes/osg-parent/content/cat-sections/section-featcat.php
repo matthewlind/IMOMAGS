@@ -9,6 +9,7 @@ if (have_rows('featured_cat', 'options')) {
 		$sponsor_url 	= get_sub_field('sponsor_url');
 		$cat_name 		= get_cat_name($cat_id);
 	}
+	if ($curr_cat_id !== $cat_id) {
 ?>
 <section class="section-twins">
 	<div class="section-inner-wrap clearfix">
@@ -50,4 +51,4 @@ if (have_rows('featured_cat', 'options')) {
 		</div>
 	</div>
 </section>
-<?php } ?>
+<?php } } ?>

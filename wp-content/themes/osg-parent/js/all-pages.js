@@ -35,7 +35,7 @@
 	if( $('.community-mobile-menu').length ){
 		$('.community-mobile-menu').on('click touchstart', function(e){
 			e.preventDefault();
-			$('.menu-hunt, .menu-fish').toggle();
+			$('.menu-photo-wrap').toggle();
 		});
 	}
 	//layout in columns

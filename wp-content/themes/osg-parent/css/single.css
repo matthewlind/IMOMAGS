@@ -2,7 +2,7 @@
 	position: relative;
 }
 .article {
-	padding: 20px 5% 0;
+	padding: 20px 5%;
 }
 .cat-feat-label a {
 	display: inline-block;
@@ -666,7 +666,7 @@ a.ae-title {font-size: 18px;margin-bottom: 10px;}
 
 @media only screen and (min-width: 760px) {
 
-.article {padding:40px 0 0;width: 648px;margin: 0 auto;}
+.article {padding:40px 0 0;width: 648px;margin: 0 auto 40px;}
 	
 .byline span {font-size: 14px;}	
 .single-newsletter {padding: 5px 30px 20px;text-align: left;margin: 0 0 30px;}
@@ -685,7 +685,7 @@ a.ae-title {font-size: 18px;margin-bottom: 10px;}
 
 @media only screen and (min-width: 1020px) {
 
-.article {margin: 0 0 0 4%; width: 600px;}
+.article {margin: 0 0 60px 4%; width: 600px;}
 .sticky-ad {position: absolute;top: 60px;right: 6%; margin: 0;}
 .adfixed {position: fixed; top: 100px;}
 .adstick-bottom {position: absolute; top: auto; bottom: 0;}
@@ -706,23 +706,23 @@ a.ae-title {font-size: 18px;margin-bottom: 10px;}
 
 
 @media only screen and (min-width: 1100px) {
-.article {margin: 0 0 0 6%;width: 648px; }
+.article {margin: 0 0 60px 6%;width: 648px; }
 
 }/* end of media */
 
 @media only screen and (min-width: 1250px) {
-.article {margin: 0 0 0 16%; }
+.article {margin: 0 0 60px 16%; }
 
 
 }/* end of media */
 
 @media only screen and (min-width: 1350px) {
-.article {margin: 0 0 0 22%; }
+.article {margin: 0 0 60px 22%; }
 
 }/* end of media */
 
 @media only screen and (min-width: 1400px) {
-.article {margin: 0 0 0 25%; }
+.article {margin: 0 0 60px 25%; }
 .sticky-ad {right: 6%;}
 
 }/* end of media */

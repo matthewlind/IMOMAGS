@@ -291,6 +291,10 @@ h1, h2 {
 	font-family: 'Stag', serif;
 	font-weight: 600;
 }
+form h1,
+form h2 {
+	font-family: 'Open Sans', sans-serif; 
+}
 a, a:hover, a:active, label:focus, label:active, i:hover {
 	outline: none;
 	text-decoration: none;
@@ -1104,7 +1108,6 @@ nav {
 	color: #999;
 	text-align: center;
 }
-
 
 /* Photos Menu Section
 /* --------------------------------- */

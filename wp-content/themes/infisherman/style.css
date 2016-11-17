@@ -16,7 +16,8 @@ General comments (optional).
 .btn-lg,
 .search-field input:last-child,
 .btn-sm,
-.newsletter fieldset input:last-child {background-color: #BF1F27;}
+.newsletter fieldset input:last-child,
+.community-nav-below {background-color: #BF1F27;}
 
 .btn-lg:hover,
 .newsletter fieldset input:last-child:hover {background-color: #d31922;}
