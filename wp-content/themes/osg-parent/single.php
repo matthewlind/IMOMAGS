@@ -20,9 +20,15 @@
 	
 	// POST CATEGORIES
 	$post_meta			= get_post_meta($post_id);
-	$primary_cat_id		= $post_meta["_category_permalink"][0];
-	$primary_cat_name	= get_cat_name($primary_cat_id);	
-
+	$primary_cat_id		= ( !empty($post_meta["_category_permalink"][0])) ? $post_meta["_category_permalink"][0] : '';
+	$post_cats			= array();
+	if (empty($primary_cat_id)) {
+		$post_cats = get_the_category();
+		$primary_cat_name = $post_cats[0]->slug;
+		$primary_cat_id	= $post_cats[0]->term_id;
+	} else {
+		$primary_cat_name = get_cat_name($primary_cat_id);
+	}
 ?>
 
 <main class="main-single">
