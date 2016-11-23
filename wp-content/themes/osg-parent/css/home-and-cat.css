@@ -467,6 +467,7 @@
 }
 .c-info {
 	padding: 7px 15px;
+	position: relative;
 }
 .is-sponsored {
 	font-size: 16px;
@@ -598,7 +599,6 @@
 }
 .community-header .community-logo{width: 100%;}
 .community-header .community-logo img{width: 45%;margin: 10px 20px 15px;float: left;}
-
 
 
 @media only screen and (min-width: 374px) {/* iPhone 6 */

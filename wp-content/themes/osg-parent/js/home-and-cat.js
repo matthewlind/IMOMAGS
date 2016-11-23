@@ -47,9 +47,6 @@ function loadLatestPosts(p) {
 	.done(function(response) {
 		latest_list.append(response);
 		loader_anim.addClass('dnone');
-		
-		console.log('response: ' + response);
-		
 		//detect window width for responsive ads
 		var windowWidth = window.outerWidth;
 		$('.new-iframe-ad').each(function() {
@@ -57,6 +54,8 @@ function loadLatestPosts(p) {
 	    	console.log(newSrc);
 		    $(this).attr('src', newSrc);
 		});
+		setTimeout(function(){FB.XFBML.parse(document.getElementById('latest_list'));}, 100);
+		
 	})
 	.fail(function() { latest_list.append( $("<p/>", {text: "Something went wrong. Try to reload the page", style: "color: red;"})); });
 		

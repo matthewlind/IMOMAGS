@@ -97,9 +97,9 @@ function h_load_latest() {
 					</div>
 					
 					<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-					
+					<div class="fb-like" data-href="<?php the_permalink(); ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
 					<?php if ($page_type == 'post-type-archive-reader_photos') { ?>
-
+<!-- 						<div class="fb-like" data-href="<?php the_permalink(); ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div> -->
 					<?php } else { ?>
 						<!--<span class="c-author"><?php //if (!$acf_byline) { if ($author != 'admin') echo 'by '. $author;} else {echo $acf_byline;} ?></span>-->
 					<?php } ?>

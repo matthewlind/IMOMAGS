@@ -302,6 +302,7 @@ a, a:hover, a:active, label:focus, label:active, i:hover {
 	-moz-transition:color 0.3s;
 	transition:color 0.3s;
 }
+a {color: #f56200;}
 
 /* Brightcove Player */
 #player {

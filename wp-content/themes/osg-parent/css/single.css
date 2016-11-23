@@ -132,10 +132,6 @@
 	line-height: 1.8em;
 	font-family: 'Merriweather', serif;
 }
-
-.article-body a {
-	color: #f56200;
-}
 .article-body a:hover {
 	text-decoration: underline;
 }

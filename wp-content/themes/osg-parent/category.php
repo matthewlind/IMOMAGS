@@ -21,7 +21,7 @@ $this_cat_name	= $this_cat->name;
 		<div id="l_container" class="section-inner-wrap">
 			<header class="main-h">
 				<h1><?php echo $this_cat_name;?></h1>
-				<p><?php echo category_description( $this_cat_id ); ?></p>
+				<?php if (category_description( $this_cat_id )) {  echo '<p>'. category_description( $this_cat_id ) . '</p>'; }?>
 			</header>
 				<ul id="latest_list" class="c-list">
 			<?php 	

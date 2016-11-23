@@ -50,31 +50,9 @@ $args = array(
 				if ( $query->have_posts() ) { 
 					while ( $query->have_posts() ) { 
 						$query->the_post();
-					?>
-					<li class="c-item">
-						<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('list-thumb'); ?></a>
-						<div class="c-info">
-							<div class="c-cats">
-							    <?php
-								$categories = get_the_category();
-								$separator = ', ';
-								$output = '';
-								if($dartDomain == "imo.hunting"){ $photosURL = "/rack-room?"; }
-								else{$photosURL = "/photos?";}
-								
-								if($categories){
-									foreach($categories as $category) {
-										$tracking = "_gaq.push(['_trackEvent','Category','".$category->cat_name."']);";
-										$output .= '<a class="category-name-link" onclick="'.$tracking.'" href="'.$photosURL.$category->slug.'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '">'.$category->cat_name.'</a>'.$separator;
-									}
-									echo trim($output, $separator);
-								}
-								?>
-							</div>
-							<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-						</div>
-					</li>
-					<?php 
+					
+					get_template_part('content/content', 'reader_photos');
+					 
 						if ($p_counter == 1) {
 							echo '<li class="c-ad ad-wrap"><span class="ad-span">Advertisement</span><div id="c_ad_inner" class="ad-inner"><iframe class="iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term='.$term.'&camp='.$camp.'&ad_code='.$dartDomain.'&ad_unit=mediumRectangle&page=category"></iframe></div></li>';
 						}

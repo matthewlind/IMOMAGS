@@ -17,13 +17,11 @@ General comments (optional).
 .search-field input:last-child,
 .btn-sm,
 .newsletter fieldset input:last-child,
-.community-nav-below {background-color: #BF1F27;}
+.community-nav-below,
+.head-bottom {background-color: #BF1F27;}
 
 .btn-lg:hover,
 .newsletter fieldset input:last-child:hover {background-color: #d31922;}
-
-
-.link-to-all {color: #BF1F27;}
 
 .wrapper .main-h > h1 > span,
 .f-feat-page h3 a:hover,
@@ -32,12 +30,51 @@ General comments (optional).
 .tw-buy-drop-down .icon-arrow-right:hover,
 .menu-footer h3,
 .menu-close:hover span,
-.head-bottom,.menu-close:hover i,
+.menu-close:hover i,
 .menu-content .menu a:hover,
 .desk-menu > li:hover > a, 
 .desk-menu > li.current-menu-item:hover > a, 
 .desk-menu li.menu-item-has-children:hover:after,
 .desk-menu > li .sub-menu > li:hover > a,
-.desk-secmenu > li > a:hover {color: #BF1F27;} 
+.desk-secmenu > li > a:hover,
+a {color: #BF1F27;} 
 
 .link-to-all:hover {color: #d31922;}
+
+
+
+
+/* Master Angler
+/* --------------------------------- */
+.ma-enter {
+	text-align: center;
+	margin-bottom: 40px;
+}
+.ma-enter > div {
+	margin-bottom: 30px;
+}
+.c-list li img.ma-badge {
+	position: absolute;
+    width: 70px;
+    right: 0;
+    top: -88px;
+}
+
+
+@media only screen and (min-width: 600px) {
+	
+
+.c-list li img.ma-badge {right: 8px;top: -96px;}
+
+
+
+
+}
+
+
+
+
+
+
+
+
