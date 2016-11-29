@@ -2,7 +2,7 @@
 
 get_header();
 $is_home_cat 	= true;
-$dartdomain 	= get_option('dart_domain', false);
+$dartDomain 	= get_option('dart_domain', false);
 $magazine_img 	= get_option('magazine_cover_uri' );
 $deal_copy 		= get_option('deal_copy' );
 $features 		= get_field('homepage_featured_stories','options' );
@@ -14,8 +14,16 @@ $this_cat_name	= $this_cat->name;
 ?>
 <div id="sections_wrap" class="sections-wrap">
 
-    <?php if ( have_posts() ) : ?>
-	<section style="border-bottom: none;">
+    <?php 
+	    $args = array(
+			'cat'	=> $this_cat_id,
+			'posts_per_page' => 5,
+			'order' => 'DESC'
+		);
+		$query = new WP_Query( $args );
+		if ( $query->have_posts() ) {
+	?>
+	<section class="section-wysiwyg" style="border-bottom: none;">
 		<div class="section-inner-wrap">
 			<header class="main-h">
 				<h1 style="font-size: 50px;"><?php echo $this_cat_name;?></h1>
@@ -80,9 +88,9 @@ $this_cat_name	= $this_cat->name;
 			<ul id="latest_list" class="c-list">
                 <?php 
 	            $p_counter = 0;	    
-	            while ( have_posts() ) { the_post();
-					
-				get_template_part('content/content', 'reader_photos');
+	            while ( $query->have_posts() ) { 
+		        	$query->the_post();
+					get_template_part('content/content', 'reader_photos');
 				 
 					if ($p_counter == 1) {
 						echo '<li class="c-ad ad-wrap"><span class="ad-span">Advertisement</span><div id="c_ad_inner" class="ad-inner"><iframe class="iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term='.$term.'&camp='.$camp.'&ad_code='.$dartDomain.'&ad_unit=mediumRectangle&page=category"></iframe></div></li>';
@@ -91,7 +99,7 @@ $this_cat_name	= $this_cat->name;
 				} 
 				?>		
 			</ul>
-			<div id="btn_more_posts" class="btn-lg"  data-post-not="" data-cat-slug="<?php echo $this_cat_id;?>">
+			<div id="btn_more_posts" class="btn-lg"  data-post-not="" data-cat="<?php echo $this_cat_id;?>" data-fb-like="1">
 				<span>Show More</span>
 				<div class="loader-anim dnone">
 					<div class="line-spin-fade-loader">
@@ -101,7 +109,7 @@ $this_cat_name	= $this_cat->name;
 			</div><!-- .btn-lg -->
 		</div>
 	</section>
-    <?php else : ?>
+    <?php } else { ?>
 
         <div id="post-0" class="post no-results not-found">
             <div class="entry-header">
@@ -114,8 +122,7 @@ $this_cat_name	= $this_cat->name;
             </div><!-- .entry-content -->
         </div><!-- #post-0 -->
 
-    <?php endif; ?>
+    <?php } ?>
    <?php social_footer(); ?>
-   <a href="#" class="back-top jq-go-top">back to top</a>
 </div><!-- #primary -->
 <?php get_footer(); ?>

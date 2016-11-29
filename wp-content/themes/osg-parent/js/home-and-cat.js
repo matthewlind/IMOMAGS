@@ -9,10 +9,13 @@ var $document 		= $(document),
 	cat_id 			= btn_more_posts.data("cat"),
 	post_not		= btn_more_posts.data("post-not"),
 	cat_slug		= btn_more_posts.data("cat-slug"),
+	fb_like			= btn_more_posts.data("fb-like"),
+	post_type		= btn_more_posts.data("post-type"),
 	sections_wrap	= $("#sections_wrap"),
 	btf_loaded		= false,
 	section_loader	= $("#section_loader"),
-	page_type		= 'home';
+	page_type		= 'home',
+	load_action		= 'h_load_latest';
 	
 if ($('.archive')[0]) {
 	page_type = 'archive';
@@ -35,13 +38,15 @@ function loadLatestPosts(p) {
 		url: ajax_object.ajax_url,
 		cache: false,
 		data: {
-			'action'		: 'h_load_latest',
+			'action'		: load_action,
 			'cat_id'		: cat_id,
 			'post_count'	: post_count,
 			'post_not'		: post_not,
 			'post_per_page'	: post_per_page,
 			'page_type'		: page_type,
-			'cat_slug'		: cat_slug
+			'cat_slug'		: cat_slug,
+			'fb_like'		: fb_like,
+			'post_type'		: post_type
 		}
 	})
 	.done(function(response) {

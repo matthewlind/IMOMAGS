@@ -528,6 +528,7 @@ a.ae-title p {
 .ms-desc {
 	padding: 16px;
 	width: 100%;
+	position: relative;
 }
 .ms-desc h1 {
 	margin: 0;

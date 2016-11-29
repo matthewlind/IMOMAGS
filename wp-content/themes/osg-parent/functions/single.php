@@ -86,7 +86,7 @@ function ms_load_more() {
     $post_per_page		= $_POST['post_per_page'];
     $ad_after_post		= $_POST['ad_after_post'];
     $post_not			= $_POST['post_not'];
-    $post_type			= (isset($_POST['post_type']))? $_POST['post_type']:"";
+    $post_type			= (isset($_POST['post_type']))? $_POST['post_type']:"post";
     $current_post_id	= $_POST['current_post_id'];
     $post_not_array 	= explode(',', $post_not);
 	$p_counter			= 0;
@@ -117,7 +117,14 @@ function ms_load_more() {
 			
 			<a class="ms-box" href="<?php the_permalink(); ?>">
 				<div class="ms-image" style="background-image: url(<?php echo $feat_image[0]; ?>)"></div>
-				<div class="ms-desc"><?php the_title( '<h1>', '</h1>'); ?></div>
+				<div class="ms-desc">
+					<?php the_title( '<h1>', '</h1>'); ?>
+					<?php if(in_category("master-angler")){ ?><img class="ma-badge" src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/pic/badge-ma.png" alt="Master Angler" /><?php } ?>
+				</div>
+				<?php if ($post_type != 'post') { ?>
+					<div class="fb-like" data-href="<?php the_permalink(); ?>" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
+				<?php } ?>
+				
 			</a>
 <?php		if ($p_counter == $ad_after_post) {
 				echo '<div class="ms-ad ad-wrap"><span class="ad-span">Advertisement</span><div class="ad-inner"><iframe class="new-iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term='.$term.'&camp='.$camp.'&ad_code='.$dartDomain.'&ad_unit=mediumRectangle&page=single"></div></div>';

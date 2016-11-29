@@ -41,15 +41,14 @@ function h_load_latest() {
     $dartDomain     = get_option("dart_domain", $default = false);
     $cat_id			= (isset($_POST['cat_id']))? $_POST['cat_id']:"";
     $cat_slug		= (isset($_POST['cat_slug']))? $_POST['cat_slug']:"";
+    $fb_like		= (isset($_POST['fb_like']))? intval($_POST['fb_like']): 0 ;
+    $post_type		= (isset($_POST['post_type']))? $_POST['post_type'] : 'post' ;
     $post_count		= $_POST['post_count'];
     $post_per_page	= $_POST['post_per_page'];
 	$post_not		= $_POST['post_not'];
 	$page_type		= $_POST['page_type'];
 	$post_not_array = explode(',', $post_not);
 	$p_counter		= 0;
-	$post_type		= 'post';
-
-	if ($page_type == 'post-type-archive-reader_photos') $post_type = 'reader_photos';
 			
 	$args = array (
 		'post_type'			=> $post_type,
@@ -95,14 +94,11 @@ function h_load_latest() {
 							} 
 						?>
 					</div>
-					
 					<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-					<div class="fb-like" data-href="<?php the_permalink(); ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
-					<?php if ($page_type == 'post-type-archive-reader_photos') { ?>
-<!-- 						<div class="fb-like" data-href="<?php the_permalink(); ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div> -->
-					<?php } else { ?>
-						<!--<span class="c-author"><?php //if (!$acf_byline) { if ($author != 'admin') echo 'by '. $author;} else {echo $acf_byline;} ?></span>-->
+					<?php if ($fb_like == 1) { ?>
+						<div class="fb-like" data-href="<?php the_permalink(); ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
 					<?php } ?>
+					<?php if(in_category("master-angler")){ ?><img class="ma-badge" src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/pic/badge-ma.png" alt="Master Angler" /><?php } ?>
 				</div>
 			</li>
 	<?php  $cat = get_the_category();

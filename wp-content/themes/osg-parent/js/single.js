@@ -80,6 +80,7 @@ function loadMorePosts(p, a) {
 	.done(function(response) {
 		ms_inner.append(response);
 		loader_anim.addClass('dnone');
+		setTimeout(function(){FB.XFBML.parse(document.getElementById('ms_inner'));}, 100);
 	})
 	.fail(function() { ms_inner.append( $("<p/>", {text: "The error ocurred. Try to reload the page",style: "color: red;"})); });
 }
@@ -101,7 +102,6 @@ function evenMore() {
 
 
 $(document).ready(function() {	
-	
 	// Load More Posts Button
 	//-----------------------------------------//				
 	more_stories.on("click", "#btn_more_stories", function() {

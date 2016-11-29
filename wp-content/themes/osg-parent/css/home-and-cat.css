@@ -90,7 +90,13 @@
 	display: inline-block;
 	width: 100%;
 }
-
+.section-wysiwyg {
+	padding: 0 20px;
+}
+.section-wysiwyg img {
+	max-width: 100%;
+}
+ 
 /* Loader Section
 /* --------------------------------- */
 #section_loader {
@@ -532,75 +538,6 @@
 	float: left;
 }
 
-/* READERS PHOTO
-/* --------------------------------- */
-.community-header{background: #333;overflow: hidden;}
-.community-header .header-section{
-	display: inline-block;
-	background: #333;
-	padding: 18px 18px 18px 0;
-	border-left: 1px solid #3b3b3b;
-	vertical-align: top;
-	position: relative;
-}
-.community-header .header-section.menu-photo-wrap {text-align: center;padding: 0 0 4px;display: none;}
-
-.community-header .header-section:first-child{border: none;width: 100%;padding: 0;}
-.community-header img{vertical-align: 12px;width: 200px;margin: 16px auto 0;display: block;}
-.community-header .header-section h3 a{padding-left: 16px;color: white;}
-.community-header .header-section h3 a:hover{color: #acacac;}
-
-.community-header ul.sub-list{display: block;padding: 0 0 10px 16px;vertical-align: text-top;}
-.community-header ul  li a{font-size: 14px;color: #acacac;}
-.community-header ul li a:hover{color: white;}
-
-.community-nav-below{background-color: #6cc7b8; text-align: center;}
-.community-nav-below > a{
-	height: 30px;
-	font-size: 12px;
-	line-height: 30px;
-	text-transform: uppercase;
-	color:white;
-	text-shadow:none;
-	margin: 5px auto 6px;
-	width: 218px;
-	background: #333;
-	border-radius: 4px;
-	display: inline-block;
-	text-align: center;
-}
-.community-nav-below > a:hover {
-	opacity: .9;
-}
-.community-header .community-mobile-menu {
-	width: 114px;
-	background: white;
-	padding: 5px;
-	font-size: 14px;
-	line-height: 1.5;
-	right: 0;
-	border-radius: 0;
-	height: 34px;
-	border: 1px solid #adadad;
-	position: absolute;
-	display: block;
-	margin: 0 28px 0 0;
-	cursor: pointer;
-	top:22%;
-}
-.community-header .header-section .select-arrow{
-	position: absolute;
-	right: 4px;
-	margin-top: 9px;
-	border-top: 6px solid #000000;
-	border-right: 6px solid transparent;
-	border-left: 6px solid transparent;
-	border-bottom: 0 dotted;
-}
-.community-header .community-logo{width: 100%;}
-.community-header .community-logo img{width: 45%;margin: 10px 20px 15px;float: left;}
-
-
 @media only screen and (min-width: 374px) {/* iPhone 6 */
 
 .store-item-img {height: 211px;}
@@ -650,16 +587,6 @@ a img.aligncenter {display: block;margin-left: auto;margin-right: auto;}
 .wp-caption.alignnone {margin: 5px 20px 20px 0;}
 .wp-caption.alignleft {margin: 5px 20px 20px 0;max-width: 300px;}
 .wp-caption.alignright {margin: 5px 0 20px 20px;max-width: 300px;}
-
-/* Reader Photos */
-.community-mobile-menu{display: none;}
-.community-header .header-section:first-child {width: 253px;height: 118px; float: left;}
-.community-header .community-logo img {width: 200px; margin: 16px auto 0;display: block;float: none;}
-.community-header .header-section.menu-photo-wrap {height: 118px;display: block; float: left; padding: 18px 18px 18px 0;    width: calc(100% - 255px); text-align: left;}	
-.community-header ul.sub-list {display: inline-block;}
-.community-nav-below {float: left; width: 100%; text-align: left; padding: 0 20px;}
-.community-header .community-mobile-menu {display: none;}
-.community-nav-below > a {margin-right: 25px;}
 
 }
 
