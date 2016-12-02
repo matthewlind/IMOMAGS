@@ -5,7 +5,7 @@
 		<?php 	
 		$card_count		= 0;
 		
-		while( have_rows('explore_section', 'options')) {
+		while( have_rows('explore_section', $options)) {
 			the_row();
 			$c 			= get_sub_field('category');
 			$cat_name 	= get_cat_name($c);

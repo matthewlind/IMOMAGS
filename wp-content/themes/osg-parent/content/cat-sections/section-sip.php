@@ -1,6 +1,6 @@
 <?php
-if (have_rows('sip_section', 'options')) {
-	while (have_rows('sip_section', 'options')) {
+if (have_rows('sip_section', $options)) {
+	while (have_rows('sip_section', $options)) {
 		the_row();
 		$s_title 		= get_sub_field('title');
 		$s_subtitle 	= get_sub_field('subtitle');

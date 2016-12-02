@@ -54,7 +54,7 @@ a,
 .ma-enter > div {
 	margin-bottom: 30px;
 }
-img.ma-badge {
+.c-list img.ma-badge {
 	position: absolute;
     width: 70px;
     right: 0;

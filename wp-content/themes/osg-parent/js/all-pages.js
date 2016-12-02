@@ -78,6 +78,11 @@
 		// Main Nav
 		menu_container.css("height", window_height + "px");
 		
+		// Disable Parent links in the main mobile menu (column titles)
+		$("#menu-mobile-menu > li.menu-item-has-children > a").click(function(e){
+			e.preventDefault();
+		});
+		
 		// Buy magazine dorp down menu
 		var buyMagHeadLink 	= $("#head-subscribe"),	
 			buyMag 			= $('li.buy-mag'),

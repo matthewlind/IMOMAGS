@@ -107,12 +107,17 @@ $site_name	= trim(get_bloginfo('name'), "Magazine");
 		</div><!-- .wrapper -->	
 		<!-- defer script to prevent render blocking-->
 		<script aysync src="<?php bloginfo('template_directory'); ?>/js/all-pages.js" type="text/javascript"></script>
-		<?php 
+		<?php if (is_category('tv')|| in_category('tv')) { ?>
+		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/video-portal.js"></script>
+		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/Smart-jQuery-Brightcove-Video-Plugin/jquery.brightcove-video.js"></script>
+		<?php }
+		 
     	include_once get_stylesheet_directory() . "/footer-includes.php";
 
 	    if(is_single()){
 	    	imo_ad_placement("teads");
 	    }
+	    
 		wp_footer(); 
 	?>
 	</body>

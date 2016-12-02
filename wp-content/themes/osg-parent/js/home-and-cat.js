@@ -15,7 +15,8 @@ var $document 		= $(document),
 	btf_loaded		= false,
 	section_loader	= $("#section_loader"),
 	page_type		= 'home',
-	load_action		= 'h_load_latest';
+	load_action		= 'h_load_latest',
+	overwrite_cat_btf = sections_wrap.data("overwrite-cat-btf");
 	
 if ($('.archive')[0]) {
 	page_type = 'archive';
@@ -85,13 +86,15 @@ function loadCatHomeBTF() {
 			data: {
 				'action' 	: 'load_cat_home_btf',
 				'page_type'	: page_type,
-				'cat_id'	: cat_id
+				'cat_id'	: cat_id,
+				'overwrite_cat_btf' : overwrite_cat_btf
 			}
 		})
 		.done(function(response) {
 			section_loader.remove();
 			sections_wrap.append(response);
 			
+/*
 			var window_width	= $(window).width(),
 				item_width		= 140,
 				item_margin		= 30,
@@ -109,6 +112,7 @@ function loadCatHomeBTF() {
 				item_width		= 140;
 			} 
 			
+*/
 			/*
 			$('#store_slider').flexslider({
 				slideshow: false,

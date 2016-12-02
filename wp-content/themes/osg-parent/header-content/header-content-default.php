@@ -20,6 +20,8 @@
 		$page = "article";
 	}
 	
+	$is_tv = (is_category('tv') || in_category('tv')) ? 'is-tv' : '';
+	
 ?>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -30,12 +32,12 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-<div class="wrapper">	
+
+<div class="wrapper <?php echo $is_tv; ?>">	
 <?php imo_ad_placement("superheader"); ?>
 
 <header class="main-header">
 	<div id="header_wrap" class="header-wrap">
-		
 		<div class="head-inner">
 			<div class="head-left">
 				<div class="main-logo">

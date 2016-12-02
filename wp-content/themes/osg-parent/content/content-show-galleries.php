@@ -19,7 +19,7 @@ $slug = $post_data['post_name'];
 
 ?>
 <style type="text/css">
-	body {
+	.wrapper {
 		background: url(<?php echo get_field('background_skin',$acfID); ?>);
 	    background-repeat: no-repeat;
 		background-size: 100% auto;

@@ -80,13 +80,13 @@
 	if ( $microsite){ 
 		include('css/styles-microsites.php');
 	} else { 
-		if (is_category("tv") || in_category("tv") || is_page_template( "show-page.php" )) { ?>
-				<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' );?>/css/category-tv.css" />
-<?php 	} // end if if (is_category("tv") ?>	
+?>	
 		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/allpages.css" />
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-<?php		
-
+		
+<?php	if (is_category("tv") || in_category("tv") || is_page_template( "show-page.php" )) { ?>
+			<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' );?>/css/category-tv.css" />
+<?php	}
 	} // end else	
 	wp_enqueue_script("jquery");
     wp_head();

@@ -1,6 +1,6 @@
 <?php
-if (have_rows('tv_section', 'options')) {
-	while (have_rows('tv_section', 'options')) {
+if (have_rows('tv_section', $options)) {
+	while (have_rows('tv_section', $options)) {
 		the_row();
 		$tv_title 		= get_sub_field('title');
 		$tv_subtitle 	= get_sub_field('subtitle');
@@ -22,17 +22,17 @@ if (have_rows('tv_section', 'options')) {
 		</div>
 		<div class="cat-player clearfix">
 			<div class="player-wrap">
-					<video 	
-							data-video-id="<?php echo $tv_video_id; ?>"
-							data-account="3165341001" 
-							data-player="Sy0xelbbl" 
-							data-embed="default" 
-							data-application-id 
-							class="video-js" 
-							controls 
-							style="width: 100%; height: 100%; position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px;">
-					</video>
-					<script src="//players.brightcove.net/3165341001/Sy0xelbbl_default/index.min.js"></script>
+				<video 	
+						data-video-id="<?php echo $tv_video_id; ?>"
+						data-account="3165341001" 
+						data-player="Sy0xelbbl" 
+						data-embed="default" 
+						data-application-id 
+						class="video-js" 
+						controls 
+						style="width: 100%; height: 100%; position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px;">
+				</video>
+				<script src="//players.brightcove.net/3165341001/Sy0xelbbl_default/index.min.js"></script>
 			</div> 
 		</div>
 	</div>

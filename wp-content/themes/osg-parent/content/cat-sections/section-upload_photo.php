@@ -1,6 +1,6 @@
 <?php
-if (have_rows('upload_photo', 'options')) {
-	while (have_rows('upload_photo', 'options')) {
+if (have_rows('upload_photo', $options)) {
+	while (have_rows('upload_photo', $options)) {
 		the_row();
 		$p_title 		= get_sub_field('title');
 		$p_subtitle 	= get_sub_field('subtitle');

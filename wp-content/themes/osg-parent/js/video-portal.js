@@ -21,7 +21,7 @@ var videoPortal = (function(e){
 
 			var self = this;
 			self.brightcoveRequest();
-			$(".wpsocialite.small").remove();	
+			//$(".wpsocialite.small").remove();	
 		
 			if($(".single-format-video").length){
 				video_id = $(".video-title").attr("data-videoid");
@@ -71,7 +71,7 @@ var videoPortal = (function(e){
 			$(window).bind('orientationchange', function() {
 				self.loadVideo(video_id);
 			});
-			Socialite.load();
+			//Socialite.load();
 		},
 		thumbClick : function(){
 			var self = this;
@@ -93,13 +93,14 @@ var videoPortal = (function(e){
 				$(".video-description").html(description);
 				
 				self.videoInit(video_id,videoLink,slug,title,description,post_url,img_url);
-				self.socialite(video_id,slug,title,description,post_url,img_url);
+				//self.socialite(video_id,slug,title,description,post_url,img_url);
 			    
 				console.log(video_id);
 				//show page default
 				_gaq.push(['_trackPageview', window.location.pathname + slug]);
 			});
 		},
+/*
 		socialite : function(video_id,slug,title,description,post_url,img_url){
 			$(".wpsocialite.small").remove();	
 			//socialite
@@ -107,6 +108,7 @@ var videoPortal = (function(e){
 			$('<li><a href="http://twitter.com/share" class="socialite twitter-share reload-twitter" data-text="' + title + '" data-url="' + post_url + '" data-count="none" rel="nofollow" target="_blank"><span class="vhidden"></span></a></li><li><a href="https://plus.google.com/share?url=<' + post_url + '" data-annotation="none" class="socialite googleplus-one g-plusone reload-google" data-href="' + post_url + '" rel="nofollow" target="_blank"><span class="vhidden"></span></a></li> <li><a href="http://www.facebook.com/sharer.php?u=' + post_url + '&t=' + title + '" class="socialite facebook-like reload-fb" data-href="' + post_url + '" data-send="false" data-layout="button" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden"></span></a></li>').appendTo(".social-buttons");
 			Socialite.load();
 		},
+*/
 		videoFilter : function(){
 			var self = this;
 			//video filter
@@ -305,6 +307,7 @@ var videoPortal = (function(e){
 			};
 			
 		},
+
 		updateSocial: function(slug,title,post_url,img_url){
 			try{
 				$('title').text(title);
@@ -317,15 +320,15 @@ var videoPortal = (function(e){
 				//console.log(e);
 			}
 			//video portal
-			$(".sidebar .fb-like").attr("data-href",post_url);
-			$(".sidebar .twitter-share-button").remove();
-			$('<a href="https://twitter.com/share" class="twitter-share-button" data-url="' + post_url + '">Tweet</a>').insertAfter(".sidebar .fb-like");
+			//$(".sidebar .fb-like").attr("data-href",post_url);
+			//$(".sidebar .twitter-share-button").remove();
+			//$('<a href="https://twitter.com/share" class="twitter-share-button" data-url="' + post_url + '">Tweet</a>').insertAfter(".sidebar .fb-like");
 			
-			
-			/*$(".reload-fb").attr("href","http://www.facebook.com/sharer.php?u=" + post_url + "&t=" + title);
-			$(".reload-twitter").attr("href","http://twitter.com/home/?status=" + title + " - " + post_url);
-			$(".reload-google").attr("href","https://plus.google.com/share?url=" + post_url);*/
+			$("#fb_btn").attr("href","http://www.facebook.com/sharer.php?u=" + post_url + "&t=" + title);
+			$("#twitter_btn").attr("href","http://twitter.com/home/?status=" + title + " - " + post_url);
+			$("#email_btn").attr("href","mailto:?body=" + title + " " + post_url);
 		},
+
 		loadVideo: function(video_id,videoLink){
 			//load videos
 		    var playerID = $("#show-destination").attr("playerID");
@@ -373,7 +376,7 @@ var showGallery = (function(e){
 		},
 		loadGallery : function(){
 	
-	    	$(".wpsocialite.small").remove();	
+	    	//$(".wpsocialite.small").remove();	
 	    
 			if( $(".category-show-galleries").length ){
 				title =  $(".video-title").text();

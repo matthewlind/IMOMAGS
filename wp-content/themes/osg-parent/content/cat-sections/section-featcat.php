@@ -1,6 +1,6 @@
 <?php
-if (have_rows('featured_cat', 'options')) {
-	while (have_rows('featured_cat', 'options')) {
+if (have_rows('featured_cat', $options)) {
+	while (have_rows('featured_cat', $options)) {
 		the_row();
 		$cat_id 		= get_sub_field('category');
 		$subtitle 		= get_sub_field('subtitle');
