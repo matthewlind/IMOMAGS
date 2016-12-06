@@ -61,19 +61,6 @@ while (have_posts()) : the_post();
 				<div id="description-area">
 					<div class="unify">
 						<h1 class="video-title" data-videoid="<?php echo $video_id; ?>" data-slug="<?php echo $post->post_name;?>"><?php the_title(); ?></h1>
-<!--
-						<ul class="social-buttons clearfix">
-						    <li>
-						        <a href="http://twitter.com/share" class="socialite twitter-share reload-twitter" data-text="<?php the_title(); ?>" data-url="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" data-count="none" rel="nofollow" target="_blank"><span class="vhidden"></span></a>
-						    </li>
-						    <li>
-						        <a href="https://plus.google.com/share?url=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" data-annotation="none" class="socialite googleplus-one g-plusone reload-google" data-href="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" rel="nofollow" target="_blank"><span class="vhidden"></span></a>
-						    </li>
-						    <li>
-						        <a href="http://www.facebook.com/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&t=<?php the_title(); ?>" class="socialite facebook-like reload-fb" data-href="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" data-send="false" data-layout="button" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden"></span></a>
-						    </li>
-						</ul>
--->
 						<div class="social-single">
 							<ul>
 								<li><a id="fb_btn" href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>&title=<?php the_title(); ?>" target="_blank"><i class="icon-facebook"></i><span>Share</span></a></li>
@@ -94,9 +81,6 @@ while (have_posts()) : the_post();
 				</div>
 				<?php //get_template_part( 'widgets/sportsmanLocator' ); ?>
 			</div>
-				
-				<!-- this widget is located in imo-mags-parent/widgets -->
-
 		</div><!-- end of .shows_player_area-->
 	</div><!-- end of #show-destination-->
 	<?php endwhile; ?> 
@@ -115,8 +99,6 @@ while (have_posts()) : the_post();
 		?>
 	
 		<div class="thumbs-full">
-		
-					
 				<div class="loading-gif"></div>
 				<?php if( have_rows('seasons', $acfID) ): ?>
 					
@@ -128,9 +110,7 @@ while (have_posts()) : the_post();
 						<?php endwhile; ?>
 					</select>
 				<?php endif; ?>
-	
 				
-	
 			<?php $categories = get_field("category_filter", $acfID);
 			if( $categories ){ ?>
 				<ul id="video-filter">		
@@ -187,12 +167,13 @@ while (have_posts()) : the_post();
 	</div><!-- end of #show-featured -->
 	<div id="upcoming">
 		<div class="container tiled-grid clr">
-			<div class="tonight-bg"></div>
+<!-- 			<div class="tonight-bg"></div> -->
 			<div class="tiled-grid-entry on-tonight clr span_1_of_4 col col-1">
 				<h3>Sportsman Channel Tonight</h3>
 				<a class="" href="http://thesportsmanchannel.com/schedule" tarfet="_blank">Full Schedule <i class="fa fa-angle-double-right"></i></a>
 			</div>
 			<div class="tonight-schedule">
+				<span class="tonight-swipe">Swipe to see next >>></span>
 				<ul class="slides">
 					<?php echo do_shortcode('[tscschedule format="tonight"]'); ?>
 				</ul>
@@ -206,13 +187,4 @@ while (have_posts()) : the_post();
 	?>
 
 </div>	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
