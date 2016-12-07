@@ -1276,6 +1276,8 @@ box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.1);
 	border-left-width: 0;
 	border-right-width: 0;
 	padding: 0 0 9px;
+	height: 112px;
+	border-bottom: 1px solid #ccc;
 }
 #upcoming .tiled-grid{background: #eee;padding: 0;}
 #upcoming .tiled-grid .tiled-grid-entry{min-height: 0;color: #2d2d2d;}
@@ -1493,12 +1495,22 @@ box-sizing: border-box;
 	.tv-show .header-right {padding: 4px 20px;width: 207px;}
 	
 	.tv-show div.sponsors-wrap .sidebar-area {float: none;margin-top: 20px;}
-	#upcoming {border-bottom: 1px solid #ccc;}
+	
+	/* Tonight on TSC ********/
+	#upcoming {border-bottom: 1px solid #ccc; height: auto;overflow-y: visible;}
 	#upcoming .on-tonight h3 {text-align: center;width: 100%;}
 	#upcoming .on-tonight a {text-decoration: underline;}
 	#upcoming .flex-direction-nav{display: none;}
 	.tonight-swipe {position: absolute; display: inline-block; width: 100%; text-align: center; top: 4px; left: 0; color: #003965; font-size: 10px; text-transform: uppercase;}
 	.show-child-general{width: 100%;}
+	.tonight-schedule .flex-direction-nav a{width: 20px;height: 100px;}
+	.tonight-schedule .flex-direction-nav a.flex-prev{background: url(images/arrow-left.png) no-repeat 10px 30px #dedddd;left: 0;}
+	.tonight-schedule .flex-direction-nav a.flex-next{background: url(images/arrow-right.png) no-repeat 10px 30px #dedddd;right: 40px;}
+	#upcoming .tonight-bg{display: none;}
+	#upcoming .tiled-grid .tiled-grid-entry.on-tonight{padding: 15px 0;text-align: center;width: 100%;height: auto;}
+	.tonight-schedule {margin-left: 0;width: 100%;padding:0clear: both;overflow: hidden;}
+	.tonight-schedule ul.slides li{height: 100px;}
+	#upcoming .tiled-grid .col{padding: 16px 60px 18px 8px;}
 	
 } /* End of media */  
 
@@ -1539,15 +1551,7 @@ box-sizing: border-box;
 	.w2w-schedule h1 {font-size: 25px;}
 	.w-sport-head h2 {font-size: 22px;}
 	.tv-show div.sponsors-wrap{padding-left: 10px;padding-right: 10px;}
-	.tonight-schedule .flex-direction-nav a{width: 20px;height: 100px;}
-	.tonight-schedule .flex-direction-nav a.flex-prev{background: url(images/arrow-left.png) no-repeat 10px 30px #dedddd;left: 0;}
-	.tonight-schedule .flex-direction-nav a.flex-next{background: url(images/arrow-right.png) no-repeat 10px 30px #dedddd;right: 40px;}
-	#upcoming {height: auto;overflow-y: visible;}
-	#upcoming .tonight-bg{display: none;}
-	#upcoming .tiled-grid .tiled-grid-entry.on-tonight{padding: 15px 0;text-align: center;width: 100%;height: auto;}
-	.tonight-schedule {margin-left: 0;width: 100%;padding:0clear: both;overflow: hidden;}
-	.tonight-schedule ul.slides li{height: 100px;}
-	#upcoming .tiled-grid .col{padding: 16px 60px 18px 8px;}
+	
 	.tv-show .shows-player-area{padding-left: 15px;padding-right: 15px;}
 	#show-featured{padding-top: 20px;}
 	#show-featured .thumbs-full .loading-gif{top:-16px;}
