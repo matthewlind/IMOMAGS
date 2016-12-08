@@ -32,7 +32,7 @@ get_header(); ?>
 		</div> <!-- end .modal-overlay -->
         <div class="general-frame">
             <div id="content" role="main">
-				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header marquee-img clearfix js-responsive-section b2b-header">
+				<div class="page-header clearfix b2b-header">
 					<div class="b2b-title">
 						<img class="b2b-img-phtv" src="/wp-content/themes/petersenshunting/images/b2b/ph-presents.png">
 						<img class="b2b-img-title" src="/wp-content/themes/petersenshunting/images/b2b/b2b-title.png">
