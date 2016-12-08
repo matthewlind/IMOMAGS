@@ -92,6 +92,10 @@ subscribe-links a{color: white;}
 .paging-posts .flex-direction-nav .flex-next {background-position:-107px 0 !important;}
 .paging-posts .flex-direction-nav .flex-next:hover {background-position:-189px 0 !important;}
 
+
+.a-slideshow .flex-direction-nav a {
+	top: 35%;
+}
 /*banners*/
 .gd-reader-photos {
 	background: url(http://www.gundogmag.com/files/2012/11/Gun-Dog-Reader-Photos-Banner.jpg) no-repeat scroll 60px 0px black;
@@ -620,7 +624,6 @@ subscribe-links a{color: white;}
 .a-slideshow .slider-wrap p {
 	font-size: 14px;
 	color: #777;
-	max-width: 62%;
 }
 .a-slideshow .thumbs-wrap ul {
 	width: auto !important;
@@ -1021,7 +1024,7 @@ subscribe-links a{color: white;}
 .b2b .shows-nav ul li { border-right: 1px solid #566e83;}
 
 /* b2b article **********/
-#content .a-slideshow .slider-wrap .slides li img {max-height: 9999px;}	
+#content .a-slideshow .slider-wrap .slides li img {max-height: 9999px; width: 100%;}	
 .b2b .block-aside {width: 95.5%;padding-left: 0;}	
 
 .b2b .stats-item { width: 144px; min-height: 167px;}
