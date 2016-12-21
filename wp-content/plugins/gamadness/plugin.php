@@ -464,7 +464,7 @@ function jsGAMRender($mobile) {
 
 	$outp.= '</script>';
 
-	$outp.= renderGAMpopup();
+	$outp.= renderGAMpopup(mobile());
 	$outp.= '
 	<div id="captchaWrapper">
 	<br />
