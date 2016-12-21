@@ -774,7 +774,7 @@ abstract class WpFramework_Base_0_5 extends WP_Widget {
 			if(is_callable($callback, false)){
 				$form_vo = new WpFramework_Vo_Form(array_merge($defaults, $_POST, $_FILES));
 				$form_vo->setSaved(true);
-				call_user_func($callback, &$form_vo);
+				call_user_func($callback, $form_vo);
 				return $form_vo;
 			}else{
 				throw new Exception('Form handler method "' . $current_form_handler[1] . '" is not callable.');
