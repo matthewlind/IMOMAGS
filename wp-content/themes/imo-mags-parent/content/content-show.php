@@ -201,7 +201,6 @@ while (have_posts()) : the_post();
 	</div>
 </div><!-- end of #upcoming -->
 <?php 
-	get_template_part( 'content/tv-show/show-store' ); 
 	get_template_part( 'content/tv-show/show-sponsors' ); 
 ?>
 
