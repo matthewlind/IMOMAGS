@@ -28,9 +28,7 @@ if(function_exists("register_field_group"))
 							'explore' => 'Explore Section',
 							'wysiwyg' => 'WYSIWYG Editor',
 							'custom_html' => 'Custom HTML',
-							'future_feature_1' => 'Future Feature 1',
-							'future_feature_2' => 'Future Feature 2',
-							'future_feature_3' => 'Future Feature 3',
+							'multi_vid' => 'Multiple Video Section',
 						),
 						'default_value' => '',
 						'allow_null' => 1,
@@ -601,6 +599,168 @@ if(function_exists("register_field_group"))
 						'layout' => 'row',
 						'button_label' => 'Add Row',
 					),
+					
+					
+					
+					
+					array (
+						'key' => 'field_905d45e5a298a',
+						'label' => 'Multiple Video Section',
+						'name' => 'multi_video',
+						'type' => 'repeater',
+						'conditional_logic' => array (
+							'status' => 1,
+							'rules' => array (
+								array (
+									'field' => 'field_582b5cce30ffd',
+									'operator' => '==',
+									'value' => 'multi_vid',
+								),
+							),
+							'allorany' => 'all',
+						),
+						'column_width' => '',
+						'sub_fields' => array (
+							array (
+								'key' => 'field_90a5b4af0b5dc',
+								'label' => 'Video Service',
+								'name' => 'video_service',
+								'type' => 'radio',
+								'choices' => array (
+									'brightcove' => 'Birghtcove',
+									'youtube' => 'YouTube',
+								),
+								'other_choice' => 0,
+								'save_other_choice' => 0,
+								'default_value' => 'brightcove',
+								'layout' => 'horizontal',
+							),
+							array (
+								'key' => 'field_905da61fa2a8b',
+								'label' => 'Section Title',
+								'name' => 'section_title',
+								'type' => 'text',
+								'column_width' => '',
+								'default_value' => '',
+								'placeholder' => '',
+								'prepend' => '',
+								'append' => '',
+								'formatting' => 'html',
+								'maxlength' => '',
+							),
+							array (
+								'key' => 'field_905dc65ca2a8c',
+								'label' => 'Featured Video ID',
+								'name' => 'feat_video_id',
+								'type' => 'text',
+								'column_width' => '',
+								'default_value' => '',
+								'placeholder' => '',
+								'prepend' => '',
+								'append' => '',
+								'formatting' => 'html',
+								'maxlength' => '',
+							),
+							array (
+								'key' => 'field_905db67ca2a8d',
+								'label' => 'Featured Video Title',
+								'name' => 'feat_video_title',
+								'type' => 'text',
+								'column_width' => '',
+								'default_value' => '',
+								'placeholder' => '',
+								'prepend' => '',
+								'append' => '',
+								'formatting' => 'html',
+								'maxlength' => '',
+							),
+							array (
+								'key' => 'field_906bfccbd86ad',
+								'label' => 'Featured Video Description',
+								'name' => 'feat_video_desc',
+								'type' => 'textarea',
+								'default_value' => '',
+								'placeholder' => '',
+								'maxlength' => '',
+								'rows' => '',
+								'formatting' => 'br',
+							),
+							array (
+								'key' => 'field_906bfccbd86af',
+								'label' => 'Featured Video Thumb',
+								'name' => 'feat_image_z',
+								'type' => 'image',
+								'column_width' => '',
+								'save_format' => 'url',
+								'preview_size' => 'thumbnail',
+								'library' => 'all',
+							),
+							array (
+								'key' => 'field_905dd689a2a8e',
+								'label' => 'Video List',
+								'name' => 'video_list',
+								'type' => 'repeater',
+								'column_width' => '',
+								'sub_fields' => array (
+									array (
+										'key' => 'field_9e5d469fa2a8f',
+										'label' => 'Video ID',
+										'name' => 'video_id',
+										'type' => 'text',
+										'column_width' => '',
+										'default_value' => '',
+										'placeholder' => '',
+										'prepend' => '',
+										'append' => '',
+										'formatting' => 'html',
+										'maxlength' => '',
+									),
+									array (
+										'key' => 'field_915db67ca2a8d',
+										'label' => 'Video Title Z',
+										'name' => 'znamez',
+										'type' => 'text',
+										'column_width' => '',
+										'default_value' => '',
+										'placeholder' => '',
+										'prepend' => '',
+										'append' => '',
+										'formatting' => 'html',
+										'maxlength' => '',
+									),
+									array (
+										'key' => 'field_915d460ca2k8f',
+										'label' => 'Video Image',
+										'name' => 'z_image_z',
+										'type' => 'image',
+										'column_width' => '',
+										'save_format' => 'url',
+										'preview_size' => 'thumbnail',
+										'library' => 'all',
+									),
+									array (
+										'key' => 'field_915d460ca2k8g',
+										'label' => 'Video Description i',
+										'name' => 'udesk',
+										'type' => 'textarea',
+										'default_value' => '',
+										'placeholder' => '',
+										'maxlength' => '',
+										'rows' => '',
+										'formatting' => 'br',
+									),
+								),
+								'row_min' => 0,
+								'row_limit' => 0,
+								'layout' => 'row',
+								'button_label' => 'Add Row',
+							),
+						),
+						'row_min' => 1,
+						'row_limit' => 1,
+						'layout' => 'row',
+						'button_label' => 'Add Row',
+					),
 					array (
 						'key' => 'field_582b5fcad28ea',
 						'label' => 'WYSIWYG Editor',
@@ -697,9 +857,7 @@ if(function_exists("register_field_group"))
 							'explore' => 'Explore Section',
 							'wysiwyg' => 'WYSIWYG Editor',
 							'custom_html' => 'Custom HTML',
-							'future_feature_1' => 'Future Feature 1',
-							'future_feature_2' => 'Future Feature 2',
-							'future_feature_3' => 'Future Feature 3',
+							'multi_vid' => 'Multiple Video Section',
 						),
 						'default_value' => '',
 						'allow_null' => 1,
@@ -1272,6 +1430,160 @@ if(function_exists("register_field_group"))
 						'layout' => 'row',
 						'button_label' => 'Add Row',
 					),
+					
+					
+					///////////////////////////////////
+					
+					
+					array (
+						'key' => 'field_585d45e5a298a',
+						'label' => 'Multiple Video Section',
+						'name' => 'multi_video',
+						'type' => 'repeater',
+						'conditional_logic' => array (
+							'status' => 1,
+							'rules' => array (
+								array (
+									'field' => 'field_581b4e100a4b3',
+									'operator' => '==',
+									'value' => 'multi_vid',
+								),
+							),
+							'allorany' => 'all',
+						),
+						'column_width' => '',
+						'sub_fields' => array (
+							array (
+								'key' => 'field_58a5b4af0b5dc',
+								'label' => 'Video Service',
+								'name' => 'video_service',
+								'type' => 'radio',
+								'choices' => array (
+									'brightcove' => 'Birghtcove',
+									'youtube' => 'YouTube',
+								),
+								'other_choice' => 0,
+								'save_other_choice' => 0,
+								'default_value' => 'brightcove',
+								'layout' => 'horizontal',
+							),
+							array (
+								'key' => 'field_585da61fa2a8b',
+								'label' => 'Section Title',
+								'name' => 'section_title',
+								'type' => 'text',
+								'column_width' => '',
+								'default_value' => '',
+								'placeholder' => '',
+								'prepend' => '',
+								'append' => '',
+								'formatting' => 'html',
+								'maxlength' => '',
+							),
+							array (
+								'key' => 'field_585dc65ca2a8c',
+								'label' => 'Featured Video ID',
+								'name' => 'feat_video_id',
+								'type' => 'text',
+								'column_width' => '',
+								'default_value' => '',
+								'placeholder' => '',
+								'prepend' => '',
+								'append' => '',
+								'formatting' => 'html',
+								'maxlength' => '',
+							),
+							array (
+								'key' => 'field_585db67ca2a8d',
+								'label' => 'Featured Video Title',
+								'name' => 'feat_video_title',
+								'type' => 'text',
+								'column_width' => '',
+								'default_value' => '',
+								'placeholder' => '',
+								'prepend' => '',
+								'append' => '',
+								'formatting' => 'html',
+								'maxlength' => '',
+							),
+							array (
+								'key' => 'field_586bfccbd86ad',
+								'label' => 'Featured Video Description',
+								'name' => 'feat_video_desc',
+								'type' => 'textarea',
+								'default_value' => '',
+								'placeholder' => '',
+								'maxlength' => '',
+								'rows' => '',
+								'formatting' => 'br',
+							),
+							array (
+								'key' => 'field_585dd689a2a8e',
+								'label' => 'Video List',
+								'name' => 'video_list',
+								'type' => 'repeater',
+								'column_width' => '',
+								'sub_fields' => array (
+									array (
+										'key' => 'field_5e5d469fa2a8f',
+										'label' => 'Video ID',
+										'name' => 'video_id',
+										'type' => 'text',
+										'column_width' => '',
+										'default_value' => '',
+										'placeholder' => '',
+										'prepend' => '',
+										'append' => '',
+										'formatting' => 'html',
+										'maxlength' => '',
+									),
+									array (
+										'key' => 'field_925db67ca2a8d',
+										'label' => 'Video Title Z',
+										'name' => 'znamez',
+										'type' => 'text',
+										'column_width' => '',
+										'default_value' => '',
+										'placeholder' => '',
+										'prepend' => '',
+										'append' => '',
+										'formatting' => 'html',
+										'maxlength' => '',
+									),
+									array (
+										'key' => 'field_926bfc78d86ad',
+										'label' => 'Video Description',
+										'name' => 'z_video_desc',
+										'type' => 'textarea',
+										'default_value' => '',
+										'placeholder' => '',
+										'maxlength' => '',
+										'rows' => '',
+										'formatting' => 'br',
+									),
+									array (
+										'key' => 'field_925d460ca2k8f',
+										'label' => 'Video Image',
+										'name' => 'z_image_z',
+										'type' => 'image',
+										'column_width' => '',
+										'save_format' => 'url',
+										'preview_size' => 'thumbnail',
+										'library' => 'all',
+									),
+								),
+								'row_min' => 0,
+								'row_limit' => 0,
+								'layout' => 'row',
+								'button_label' => 'Add Row',
+							),
+						),
+						'row_min' => 1,
+						'row_limit' => 1,
+						'layout' => 'row',
+						'button_label' => 'Add Row',
+					),
+
 					array (
 						'key' => 'field_581b58e379e4c',
 						'label' => 'WYSIWYG Editor',
@@ -1343,12 +1655,25 @@ if(function_exists("register_field_group"))
 		),
 		'menu_order' => 0,
 	));
+	
+	
+	
+	
 	register_field_group(array (
 		'id' => 'acf_single-category-options',
 		'title' => 'Single Category Options',
 		'fields' => array (
 			array (
-				'key' => 'field_584037ec22d3f',
+				'key' => 'field_936bd6622df1e',
+				'label' => 'Overwrite default BTF options',
+				'name' => 'overwrite_default_btf_options',
+				'type' => 'true_false',
+				'instructions' => 'Check this if you want to customize below the fold (BTF) sections for this category',
+				'message' => '',
+				'default_value' => 0,
+			),
+			array (
+				'key' => 'field_934037ec72d3f',
 				'label' => 'Category BTF Sections',
 				'name' => 'custom_cat_btf_sections',
 				'type' => 'repeater',
@@ -1356,7 +1681,7 @@ if(function_exists("register_field_group"))
 					'status' => 1,
 					'rules' => array (
 						array (
-							'field' => 'field_584032adfcb6a',
+							'field' => 'field_936bd6622df1e',
 							'operator' => '==',
 							'value' => '1',
 						),
@@ -1365,7 +1690,7 @@ if(function_exists("register_field_group"))
 				),
 				'sub_fields' => array (
 					array (
-						'key' => 'field_58403d268db0a',
+						'key' => 'field_58407d268db0a',
 						'label' => 'SECTION',
 						'name' => 'section',
 						'type' => 'select',
@@ -1380,8 +1705,6 @@ if(function_exists("register_field_group"))
 							'wysiwyg' => 'WYSIWYG Editor',
 							'custom_html' => 'Custom HTML',
 							'multi_video' => 'Multiple Video Section',
-							'future_feature_2' => 'Future Feature 2',
-							'future_feature_3' => 'Future Feature 3',
 						),
 						'default_value' => '',
 						'allow_null' => 1,
@@ -1396,7 +1719,7 @@ if(function_exists("register_field_group"))
 							'status' => 1,
 							'rules' => array (
 								array (
-									'field' => 'field_58403d268db0a',
+									'field' => 'field_58703d268db0a',
 									'operator' => '==',
 									'value' => 'subscribe',
 								),
@@ -1419,7 +1742,7 @@ if(function_exists("register_field_group"))
 							'status' => 1,
 							'rules' => array (
 								array (
-									'field' => 'field_58403d268db0a',
+									'field' => 'field_58407d268db0a',
 									'operator' => '==',
 									'value' => 'featcat',
 								),
@@ -1429,7 +1752,7 @@ if(function_exists("register_field_group"))
 						'column_width' => '',
 						'sub_fields' => array (
 							array (
-								'key' => 'field_58403d87f7afd',
+								'key' => 'field_58406d87f7afd',
 								'label' => 'Category',
 								'name' => 'category',
 								'type' => 'taxonomy',
@@ -1442,7 +1765,7 @@ if(function_exists("register_field_group"))
 								'multiple' => 0,
 							),
 							array (
-								'key' => 'field_58403da3f7afe',
+								'key' => 'field_58698da3f7afe',
 								'label' => 'Subtitle',
 								'name' => 'subtitle',
 								'type' => 'text',
@@ -1455,7 +1778,7 @@ if(function_exists("register_field_group"))
 								'maxlength' => '',
 							),
 							array (
-								'key' => 'field_58403dbdf7aff',
+								'key' => 'field_5840adbdf7aff',
 								'label' => 'Sponsor Logo',
 								'name' => 'sponsor_logo',
 								'type' => 'image',
@@ -1465,7 +1788,7 @@ if(function_exists("register_field_group"))
 								'library' => 'all',
 							),
 							array (
-								'key' => 'field_58403de8f7b00',
+								'key' => 'field_58a03de8f7b00',
 								'label' => 'Sponsor Text',
 								'name' => 'sponsor_text',
 								'type' => 'text',
@@ -1478,7 +1801,7 @@ if(function_exists("register_field_group"))
 								'maxlength' => '',
 							),
 							array (
-								'key' => 'field_58403dedf7b01',
+								'key' => 'field_58ab3dedf7b01',
 								'label' => 'Sponsor URL',
 								'name' => 'sponsor_url',
 								'type' => 'text',
@@ -1497,7 +1820,7 @@ if(function_exists("register_field_group"))
 						'button_label' => 'Add Row',
 					),
 					array (
-						'key' => 'field_58403e0db64da',
+						'key' => 'field_584she0db64da',
 						'label' => 'TV Section',
 						'name' => 'tv_section',
 						'type' => 'repeater',
@@ -1505,7 +1828,7 @@ if(function_exists("register_field_group"))
 							'status' => 1,
 							'rules' => array (
 								array (
-									'field' => 'field_58403d268db0a',
+									'field' => 'field_58407d268db0a',
 									'operator' => '==',
 									'value' => 'tv',
 								),
@@ -1604,7 +1927,7 @@ if(function_exists("register_field_group"))
 							'status' => 1,
 							'rules' => array (
 								array (
-									'field' => 'field_58403d268db0a',
+									'field' => 'field_58407d268db0a',
 									'operator' => '==',
 									'value' => 'sip',
 								),
@@ -1769,7 +2092,7 @@ if(function_exists("register_field_group"))
 							'status' => 1,
 							'rules' => array (
 								array (
-									'field' => 'field_58403d268db0a',
+									'field' => 'field_58407d268db0a',
 									'operator' => '==',
 									'value' => 'explore',
 								),
@@ -1806,7 +2129,7 @@ if(function_exists("register_field_group"))
 							'status' => 1,
 							'rules' => array (
 								array (
-									'field' => 'field_58403d268db0a',
+									'field' => 'field_58407d268db0a',
 									'operator' => '==',
 									'value' => 'upload_photo',
 								),
@@ -1952,14 +2275,25 @@ if(function_exists("register_field_group"))
 						'button_label' => 'Add Row',
 					),
 					array (
-						'key' => 'field_585d45e5a2a8a',
+						'key' => 'field_955d45e5a2a8a',
 						'label' => 'Multiple Video Section',
-						'name' => 'multi_video',
+						'name' => 'multi_vid',
 						'type' => 'repeater',
+						'conditional_logic' => array (
+							'status' => 1,
+							'rules' => array (
+								array (
+									'field' => 'field_58407d268db0a',
+									'operator' => '==',
+									'value' => 'multi_video',
+								),
+							),
+							'allorany' => 'all',
+						),
 						'column_width' => '',
 						'sub_fields' => array (
 							array (
-								'key' => 'field_585d461fa2a8b',
+								'key' => 'field_955d461fa2a8b',
 								'label' => 'Section Title',
 								'name' => 'section_title',
 								'type' => 'text',
@@ -1972,7 +2306,7 @@ if(function_exists("register_field_group"))
 								'maxlength' => '',
 							),
 							array (
-								'key' => 'field_585d465ca2a8c',
+								'key' => 'field_955d465ca2a8c',
 								'label' => 'Featured Video ID',
 								'name' => 'featured_video_id',
 								'type' => 'text',
@@ -1985,7 +2319,18 @@ if(function_exists("register_field_group"))
 								'maxlength' => '',
 							),
 							array (
-								'key' => 'field_585d467ca2a8d',
+								'key' => 'field_956bfccbd86ad',
+								'label' => 'Featured Video Description',
+								'name' => 'feat_video_desc',
+								'type' => 'textarea',
+								'default_value' => '',
+								'placeholder' => '',
+								'maxlength' => '',
+								'rows' => '',
+								'formatting' => 'br',
+							),
+							array (
+								'key' => 'field_955d467ca2a8d',
 								'label' => 'Featured Video Title',
 								'name' => 'featured_video_title',
 								'type' => 'text',
@@ -1998,14 +2343,14 @@ if(function_exists("register_field_group"))
 								'maxlength' => '',
 							),
 							array (
-								'key' => 'field_585d4689a2a8e',
+								'key' => 'field_955d4689a2a8e',
 								'label' => 'Video List',
 								'name' => 'video_list',
 								'type' => 'repeater',
 								'column_width' => '',
 								'sub_fields' => array (
 									array (
-										'key' => 'field_585d469fa2a8f',
+										'key' => 'field_955d469fa2a8f',
 										'label' => 'Video ID',
 										'name' => 'video_id',
 										'type' => 'text',
@@ -2018,9 +2363,9 @@ if(function_exists("register_field_group"))
 										'maxlength' => '',
 									),
 									array (
-										'key' => 'field_585d46c1a2a90',
+										'key' => 'field_955db67ca2a8d',
 										'label' => 'Video Title',
-										'name' => 'video_title',
+										'name' => 'znamez',
 										'type' => 'text',
 										'column_width' => '',
 										'default_value' => '',
@@ -2031,9 +2376,20 @@ if(function_exists("register_field_group"))
 										'maxlength' => '',
 									),
 									array (
-										'key' => 'field_585d46cda2a91',
+										'key' => 'field_956bfc78d86ad',
+										'label' => 'Video Description',
+										'name' => 'z_video_desc',
+										'type' => 'textarea',
+										'default_value' => '',
+										'placeholder' => '',
+										'maxlength' => '',
+										'rows' => '',
+										'formatting' => 'br',
+									),
+									array (
+										'key' => 'field_955d460ca2k8f',
 										'label' => 'Video Image',
-										'name' => 'video_image',
+										'name' => 'z_image_z',
 										'type' => 'image',
 										'column_width' => '',
 										'save_format' => 'url',
@@ -2043,13 +2399,13 @@ if(function_exists("register_field_group"))
 								),
 								'row_min' => 0,
 								'row_limit' => 0,
-								'layout' => 'table',
+								'layout' => 'row',
 								'button_label' => 'Add Row',
 							),
 						),
 						'row_min' => 1,
 						'row_limit' => 1,
-						'layout' => 'table',
+						'layout' => 'row',
 						'button_label' => 'Add Row',
 					),
 					array (
@@ -2061,7 +2417,7 @@ if(function_exists("register_field_group"))
 							'status' => 1,
 							'rules' => array (
 								array (
-									'field' => 'field_58403d268db0a',
+									'field' => 'field_58407d268db0a',
 									'operator' => '==',
 									'value' => 'wysiwyg',
 								),
@@ -2083,7 +2439,7 @@ if(function_exists("register_field_group"))
 							'status' => 1,
 							'rules' => array (
 								array (
-									'field' => 'field_58403d268db0a',
+									'field' => 'field_58407d268db0a',
 									'operator' => '==',
 									'value' => 'custom_html',
 								),
@@ -2123,6 +2479,9 @@ if(function_exists("register_field_group"))
 		),
 		'menu_order' => 0,
 	));
+
+
+
 
 	register_field_group(array (
 		'id' => 'acf_footer-featured-content',

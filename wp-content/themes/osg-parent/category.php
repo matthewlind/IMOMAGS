@@ -14,7 +14,7 @@ $this_cat 		= get_category( get_query_var( 'cat' ) );
 $this_cat_id	= $this_cat->term_id;
 $this_cat_name	= $this_cat->name;
 
-$overwrite_cat_btf = get_field('overwirte_cat_btf', 'category_'.$this_cat_id);
+$overwrite_cat_btf = get_field('overwrite_default_btf_options', 'category_'.$this_cat_id);
 ?>
 
 

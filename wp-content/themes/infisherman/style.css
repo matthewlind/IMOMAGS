@@ -39,11 +39,15 @@ a,
 .desk-menu > li .sub-menu > li:hover > a,
 .desk-secmenu > li > a:hover,
 .foot-social .social-title span,
-.foot-social .socials > a:hover {color: #BF1F27;} 
+.foot-social .socials > a:hover,
+.section-video .twins-title > span,
+.mv-video-list li > span {color: #BF1F27;} 
 
 .link-to-all:hover {color: #d31922;}
 
-
+.mv-video-list li:hover i {
+	border-color: transparent transparent transparent #BF1F27;
+}
 
 /* Master Angler
 /* --------------------------------- */

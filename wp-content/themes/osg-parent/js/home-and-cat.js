@@ -93,43 +93,6 @@ function loadCatHomeBTF() {
 		.done(function(response) {
 			section_loader.remove();
 			sections_wrap.append(response);
-			
-/*
-			var window_width	= $(window).width(),
-				item_width		= 140,
-				item_margin		= 30,
-				min_items		= 2,
-				max_items		= 2;
-				
-			if (window_width > 600) {
-				item_margin		= 55;
-				min_items		= 3;
-				max_items		= 3;
-			} else if (window_width > 410) {
-				item_margin		= 50;
-			} else if (window_width > 320)	{
-				item_margin		= 40;
-				item_width		= 140;
-			} 
-			
-*/
-			/*
-			$('#store_slider').flexslider({
-				slideshow: false,
-				animation: "slide",
-				animationLoop: false,
-				itemWidth: item_width,
-				itemMargin: item_margin,
-				minItems: min_items,
-				maxItems: max_items,
-				controlNav: false,
-				prevText: "",
-				nextText: "",
-				directionNav: true,
-				animationSpeed: 400, 
-				useCSS: false
-			});
-			*/
 		})
 		.fail(function() { latest_list.append( $("<p/>", {text: "Something went wrong. Try to reload the page", style: "color: red;"})); });
 		
@@ -161,7 +124,25 @@ $(document).ready(function() {
 		e.stopPropagation();	
 	});
 
-
+	// LOAD MORE VIDEO IN MULTIPLE VIDEO SECTION
+	sections_wrap.on("click", ".mv-load", function(){
+		var d 	= $(this),
+			ul	= d.closest("ul").find(".mv-hidden"),
+			th 	= ul.find(".mv-video-thumb");
+			
+		d.fadeOut(250);
+		setTimeout(function(){d.slideUp(250);}, 250);
+		ul.slideDown(500);
+		
+		$.each(th, function(i, val){
+			
+			console.log(val);
+			var url = $(this).data("mv-img");
+			console.log(i);
+			$(this).css('background-image', 'url(' + url + ')'); 
+		});
+	});
+	
 	
 });// end document.ready
 
