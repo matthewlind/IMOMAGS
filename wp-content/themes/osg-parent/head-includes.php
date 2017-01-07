@@ -98,6 +98,11 @@ else {
 
 $term = str_replace(" &amp; ", "-", $term);
 $term = str_replace("'", "", $term);
+
+/*
+$all_params = $page . ', '. $term . ', '. $camp;
+$all_params = rtrim($all_params,',');
+*/
 ?>
 <script language="javascript" type="text/javascript">
 	function resizeIframe(obj) {
@@ -119,19 +124,34 @@ $term = str_replace("'", "", $term);
 	googletag.cmd.push(function() {
 	
 	var w = window.innerWidth;
+	
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], 'medium_rect_ATF').addService(googletag.pubads());
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], 'medium_rect_loaded').addService(googletag.pubads());
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], 'medium_rect_explore').addService(googletag.pubads());
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], 'medium_rect_footer').addService(googletag.pubads());
+	
 	<?php if(is_single()){ ?>
 			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [4, 4], 'teads').addService(googletag.pubads());
 	    <?php } ?>
 	    
 	if (w>=1100){
 		googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [3, 3], 'superheader').addService(googletag.pubads());
+		
+		googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [[970, 250], [728, 90]], 'billboard').addService(googletag.pubads());
+		googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 600], 'sticky').addService(googletag.pubads());
 	}
-	
+	if (w>=600 && w<=1099) {
+	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [728, 90], 'billboard').addService(googletag.pubads());
+	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], 'sticky').addService(googletag.pubads());
+	}
 	if (w>=600){
 	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [648, 110], 'fordWidget').addService(googletag.pubads());
 	}
 	if (w<=599){
 		googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [320, 200], 'fordWidget').addService(googletag.pubads());
+		
+		googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [320, 100], 'billboard').addService(googletag.pubads());
+		googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], 'sticky').addService(googletag.pubads());
 	}
 	
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [2, 2], 'nativeAd').addService(googletag.pubads());
@@ -155,21 +175,17 @@ $term = str_replace("'", "", $term);
 	googletag.pubads().enableSingleRequest();
 	googletag.pubads().setTargeting('sect', ['<?php echo $term; ?>']).setTargeting('camp', ['<?php echo $camp; ?>']);
 	googletag.pubads().collapseEmptyDivs(); 
-	googletag.pubads().enableSyncRendering();
+	//googletag.pubads().enableSyncRendering(); (i commented it out so the ads loaded with ajax will be displayed)
 	googletag.enableServices();
 	
 });
 
 </script>
-<?php 
-//sidebar
 
-//ad placement
-function imo_ad_placement($size){ ?>
-	<div id='<?php echo $size; ?>'>
-		<script type='text/javascript'>
-			googletag.cmd.push(function() { googletag.display('<?php echo $size; ?>'); });
-		</script>
-	</div>
-
-<?php } ?>
+<script>
+	window.onload = function() {
+		jQuery("body").attr('data-page', '<?php echo $page; ?>');
+		jQuery("body").attr('data-term', '<?php echo $term; ?>');
+		jQuery("body").attr('data-camp', '<?php echo $camp; ?>');
+	};
+</script>

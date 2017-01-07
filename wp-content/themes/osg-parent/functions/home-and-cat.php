@@ -45,9 +45,14 @@ function h_load_latest() {
     $post_per_page	= $_POST['post_per_page'];
 	$post_not		= $_POST['post_not'];
 	$page_type		= $_POST['page_type'];
+	$d_page			= $_POST['d_page'];
+	$d_term			= $_POST['d_term'];
+	$d_camp			= $_POST['d_camp'];
 	$post_not_array = explode(',', $post_not);
 	$p_counter		= 0;
 	$post_type		= 'post';
+	$ad_id_sufix	= strval(rand());
+	$tag_name		= '';
 
 	if ($page_type == 'post-type-archive-reader_photos') $post_type = 'reader_photos';
 			
@@ -106,9 +111,37 @@ function h_load_latest() {
 				</div>
 			</li>
 	<?php  $cat = get_the_category();
-		if ($p_counter == 1 || $p_counter == 6) { 
-			echo '<li class="c-ad ad-wrap"><span class="ad-span">Advertisement</span><div class="ad-inner"><iframe class="new-iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term='.$cat[0]->slug.'&ad_code='.$dartDomain.'&ad_unit=mediumRectangle&page=category"></iframe></div></li>'; }
+			if ($p_counter == 1 || $p_counter == 6) { ?>
+			<li class="c-ad ad-wrap">
+				<span class="ad-span">Advertisement</span>
+				<div class="ad-inner">
+<!-- 					<iframe class="new-iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term='.$cat[0]->slug.'&ad_code='.$dartDomain.'&ad_unit=mediumRectangle&page=category"></iframe> -->
+					<?php //imo_ad_placement("medium_rect_loaded"); ?>
+					<?php 
+						$tag_name = "medium_rect_" . $ad_id_sufix;
+						echo $tag_name;
+						osg_ajax_ad_placement($tag_name, $d_page, $d_term, $d_camp);
+					?>
+<!--
+					<div id='medium_rect_loaded'>
+						<script type='text/javascript'>
+/*
+							var slot1 = googletag.pubads().display('medium_rect_loaded');
+							var slot2 = googletag.cmd.push(function() { googletag.display('medium_rect_loaded'); });
+							setTimeout(function(){
+								googletag.pubads().refresh([slot2]);
+							}, 100)
+*/
+							
+							googletag.cmd.push(function() { googletag.display('medium_rect_loaded'); });
+						</script>
+					</div>
+--> 
+				</div>
+			</li>
+	<?php	}
 			$p_counter++;
+			$ad_id_sufix .= 'b';
 		}
 	} else { ?>
 		<script>
@@ -368,8 +401,15 @@ function load_home_btf() {
 				
 				echo $card_out;
 				
-				if ($card_count == 4) {echo '<li class="ec-ad ad-wrap"><span class="ad-span">Advertisement</span><div id="ec_ad_inner" class="ad-inner"><iframe class="new-iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term=home&ad_code='.$dartDomain.'&ad_unit=mediumRectangle&page=homepage"></iframe></div></li>';}
-				
+				if ($card_count == 4) { ?>
+				<li class="ec-ad ad-wrap">
+					<span class="ad-span">Advertisement</span>
+					<div id="ec_ad_inner" class="ad-inner">
+<!-- 						<iframe class="new-iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term=home&ad_code='.$dartDomain.'&ad_unit=mediumRectangle&page=homepage"></iframe> -->
+					<?php imo_ad_placement("medium_rect_explore"); ?>
+					</div>
+				</li>
+	<?php		}		
 				$card_count++;
 			}
 			?>

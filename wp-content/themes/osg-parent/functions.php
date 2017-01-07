@@ -1,4 +1,5 @@
 <?php
+
 apply_filters ( 'admin_memory_limit', 512 );
 add_theme_support( 'post-thumbnails' );
 add_action( 'widgets_init', 'parent_theme_widgets_init' );
@@ -18,6 +19,7 @@ function my_theme_enqueue_styles() {
 
 $magazine_img = get_option("magazine_cover_uri", get_stylesheet_directory_uri(). "/images/pic/journals.png" );
 $subs_link = get_option("subs_link");
+$dartDomain = get_option("dart_domain", $default = false);
 remove_action('wp_head', 'wp_generator');
 /** changing default wordpres email settings */
 add_filter('wp_mail_from', 'new_mail_from');
@@ -51,6 +53,32 @@ function sub_footer(){ ?>
 	<!-- future promotional area -->
 <?php
 }
+
+function imo_ad_placement($size){ ?>
+	<div id='<?php echo $size; ?>'>
+		<script type='text/javascript'>
+			googletag.cmd.push(function() { googletag.display('<?php echo $size; ?>'); });
+		</script>
+	</div>
+
+<?php } 
+	
+function osg_ajax_ad_placement($size, $page, $term, $camp, ){ ?>
+	<div id='<?php echo $size; ?>'>
+		<script type='text/javascript'>
+		googletag.cmd.push(function() {	
+			googletag.defineSlot('/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], '<?php echo $size; ?>').addService(googletag.pubads());
+			googletag.display('<?php echo $size; ?>');
+		});
+		</script>
+		<script type='text/javascript'>
+			//setTimeout(function(){
+				//googletag.cmd.push(function() { googletag.display('<?php echo $size; ?>'); });
+			//}, 200);
+		</script>
+	</div>
+
+<?php } 
 
 function imo_login_form_shortcode( $atts, $content = null ) {
 

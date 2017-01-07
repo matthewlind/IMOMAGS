@@ -26,7 +26,10 @@ function loadLatestPosts(p) {
 	var loader_anim		= $('#btn_more_posts .loader-anim'),
 		post_count		= $(".c-item").length,
 		latest_list		= $("#latest_list"),
-		post_per_page	= p;
+		post_per_page	= p,
+		d_page 			= $("body").data("page"),
+		d_term 			= $("body").data("term"),
+		d_camp 			= $("body").data("camp");
 					
 	loader_anim.removeClass('dnone');
 	
@@ -41,7 +44,10 @@ function loadLatestPosts(p) {
 			'post_not'		: post_not,
 			'post_per_page'	: post_per_page,
 			'page_type'		: page_type,
-			'cat_slug'		: cat_slug
+			'cat_slug'		: cat_slug,
+			'd_page'		: d_page,
+			'd_term'		: d_term,
+			'd_camp'		: d_camp
 		}
 	})
 	.done(function(response) {
@@ -55,6 +61,8 @@ function loadLatestPosts(p) {
 	    	console.log(newSrc);
 		    $(this).attr('src', newSrc);
 		});
+		//var slot1 = googletag.pubads().display('medium_rect_loaded');
+		//googletag.cmd.push(function() { googletag.display('medium_rect_loaded'); });
 	})
 	.fail(function() { latest_list.append( $("<p/>", {text: "Something went wrong. Try to reload the page", style: "color: red;"})); });
 		
