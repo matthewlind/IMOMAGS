@@ -53,11 +53,10 @@ if (w<=599)
 </script>
 </head>
 <body>
-<div id='<?php echo $adUnit; ?>'>
+	<div id='<?php echo $adUnit; ?>'>
 		<script type='text/javascript'>
 			googletag.cmd.push(function() { googletag.display('<?php echo $adUnit; ?>'); });
 		</script>
 	</div>
-
 </body>
 </html>

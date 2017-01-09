@@ -1,4 +1,5 @@
 <?php
+
 apply_filters ( 'admin_memory_limit', 512 );
 add_theme_support( 'post-thumbnails' );
 add_action( 'widgets_init', 'parent_theme_widgets_init' );
@@ -51,6 +52,28 @@ function sub_footer(){ ?>
 	<!-- future promotional area -->
 <?php
 }
+
+// ADs LOADED ON PAGE LOAD
+function imo_ad_placement($size){ ?>
+	<div id='<?php echo $size; ?>'>
+		<script type='text/javascript'>
+			googletag.cmd.push(function() { googletag.display('<?php echo $size; ?>'); });
+		</script>
+	</div>
+
+<?php } 
+
+// ADs LOADED WITH AJAX
+function osg_ajax_ad_placement($size, $dartDomain, $page){ ?>
+	<div id='<?php echo $size; ?>'>
+		<script type='text/javascript'>
+		googletag.cmd.push(function() {	
+			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], '<?php echo $size; ?>').addService(googletag.pubads());
+			googletag.display('<?php echo $size; ?>');
+		});
+		</script>
+	</div>
+<?php } 
 
 function imo_login_form_shortcode( $atts, $content = null ) {
 

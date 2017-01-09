@@ -45,9 +45,14 @@ function h_load_latest() {
     $post_per_page	= $_POST['post_per_page'];
 	$post_not		= $_POST['post_not'];
 	$page_type		= $_POST['page_type'];
+	$d_dart			= $_POST['d_dart'];
+	$d_page			= $_POST['d_page'];
+	$ad_count		= $_POST['ad_count'];
 	$post_not_array = explode(',', $post_not);
 	$p_counter		= 0;
 	$post_type		= 'post';
+	$tag_name		= '';
+	
 
 	if ($page_type == 'post-type-archive-reader_photos') $post_type = 'reader_photos';
 			
@@ -73,7 +78,7 @@ function h_load_latest() {
 			<li class="c-item">
 				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('list-thumb'); ?></a>
 				<div class="c-info">
-					<?php if (in_category('sponsored', $post->ID)) echo '<span class="is-sponsored">Sponsored</span>'; ?>
+					<?php if (in_category('sponsored', $query->post->ID)) echo '<span class="is-sponsored">Sponsored</span>'; ?>
 					<div class="c-cats">
 						<?php 
 							if ($page_type == 'post-type-archive-reader_photos') { 
@@ -106,8 +111,18 @@ function h_load_latest() {
 				</div>
 			</li>
 	<?php  $cat = get_the_category();
-		if ($p_counter == 1 || $p_counter == 6) { 
-			echo '<li class="c-ad ad-wrap"><span class="ad-span">Advertisement</span><div class="ad-inner"><iframe class="new-iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term='.$cat[0]->slug.'&ad_code='.$dartDomain.'&ad_unit=mediumRectangle&page=category"></iframe></div></li>'; }
+			if ($p_counter == 1 || $p_counter == 6) { ?>
+			<li class="c-ad ad-wrap">
+				<span class="ad-span">Advertisement</span>
+				<div class="ad-inner">
+					<?php 
+						$tag_name = "home_cat_300x250_" . $ad_count;
+						osg_ajax_ad_placement($tag_name, $d_dart, $d_page);
+						$ad_count++;
+					?>
+				</div>
+			</li>
+	<?php	}
 			$p_counter++;
 		}
 	} else { ?>
@@ -159,86 +174,6 @@ function load_home_btf() {
 					<p><?php echo $deal_copy; ?></p>
 					<a class="btn-lg" href="<?php echo $subs_link . get_option("i4ky"); ?>" target="_blank">Subscribe Now!</a>
 				</div>
-			</div>
-			<div class="store-container">
-				<h1><?php echo $site_name; ?> Store</h1>
-				<a class="store-link" href="">Visit Store</a>
-				<div class="store-slider-wrap">
-					<div id="store_slider" class="flexslider">
-						<ul class="slides">
-							<li>
-								<div class="store-item-img">
-									<a href=""><img src="/wp-content/themes/imo-mags-parent/images/temp/gun-dog.jpg" /></a>
-								</div>
-								<div class="store-item-title"><a href="">1 Lorem Ipsum Dolor Sit Amet</a></div>
-								<a class="btn-sm" href="">Buy Now!</a>
-							</li>
-							<li>
-								<div class="store-item-img">
-									<img src="/wp-content/themes/imo-mags-parent/images/temp/gun-dog-dvd.jpg" />
-								</div>
-								<div class="store-item-title"><a href="">2 Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet</a></div>
-								<a class="btn-sm" href="">Buy Now!</a>
-							</li>
-							<li>
-								<div class="store-item-img">
-									<a href=""><img src="/wp-content/themes/imo-mags-parent/images/temp/gun-dog.jpg" /></a>
-								</div>
-								<div class="store-item-title"><a href="">3 Lorem Ipsum Dolor Sit Amet</a></div>
-								<a class="btn-sm" href="">Buy Now!</a>
-							</li>
-							<li>
-								<div class="store-item-img">
-									<img src="/wp-content/themes/imo-mags-parent/images/temp/mike-bear1.jpg" />
-								</div>
-								<div class="store-item-title"><a href="">4 Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet</a></div>
-								<a class="btn-sm" href="">Buy Now!</a>
-							</li>
-							<li>
-								<div class="store-item-img">
-									<a href=""><img src="/wp-content/themes/imo-mags-parent/images/temp/gun-dog.jpg" /></a>
-								</div>
-								<div class="store-item-title"><a href="">5 Lorem Ipsum Dolor Sit Amet</a></div>
-								<a class="btn-sm" href="">Buy Now!</a>
-							</li>
-							<li>
-								<div class="store-item-img">
-									<img src="/wp-content/themes/imo-mags-parent/images/temp/gun-dog-dvd.jpg" />
-								</div>
-								<div class="store-item-title"><a href="">6 Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet</a></div>
-								<a class="btn-sm" href="">Buy Now!</a>
-							</li>
-							<li>
-								<div class="store-item-img">
-									<a href=""><img src="/wp-content/themes/imo-mags-parent/images/temp/gun-dog.jpg" /></a>
-								</div>
-								<div class="store-item-title"><a href="">7 Lorem Ipsum Dolor Sit Amet</a></div>
-								<a class="btn-sm" href="">Buy Now!</a>
-							</li>
-							<li>
-								<div class="store-item-img">
-									<img src="/wp-content/themes/imo-mags-parent/images/temp/gun-dog-dvd.jpg" />
-								</div>
-								<div class="store-item-title"><a href="">8 Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet</a></div>
-								<a class="btn-sm" href="">Buy Now!</a>
-							</li>
-							<li>
-								<div class="store-item-img">
-									<a href=""><img src="/wp-content/themes/imo-mags-parent/images/temp/gun-dog.jpg" /></a>
-								</div>
-								<div class="store-item-title"><a href="">9 Lorem Ipsum Dolor Sit Amet</a></div>
-								<a class="btn-sm" href="">Buy Now!</a>
-							</li>
-							<li>
-								<div class="store-item-img">
-									<img src="/wp-content/themes/imo-mags-parent/images/temp/gun-dog-dvd.jpg" />
-								</div>
-								<div class="store-item-title"><a href="">10 Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet</a></div>
-								<a class="btn-sm" href="">Buy Now!</a>
-							</li>
-						</ul>
-					</div>
-				</div>	
 			</div>
 		</div>
 	</section>
@@ -368,8 +303,14 @@ function load_home_btf() {
 				
 				echo $card_out;
 				
-				if ($card_count == 4) {echo '<li class="ec-ad ad-wrap"><span class="ad-span">Advertisement</span><div id="ec_ad_inner" class="ad-inner"><iframe class="new-iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term=home&ad_code='.$dartDomain.'&ad_unit=mediumRectangle&page=homepage"></iframe></div></li>';}
-				
+				if ($card_count == 4) { ?>
+				<li class="ec-ad ad-wrap">
+					<span class="ad-span">Advertisement</span>
+					<div id="ec_ad_inner" class="ad-inner">
+					<?php imo_ad_placement("medium_rect_explore"); ?>
+					</div>
+				</li>
+	<?php		}		
 				$card_count++;
 			}
 			?>

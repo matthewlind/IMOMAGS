@@ -43,7 +43,12 @@ $site_name	= trim(get_bloginfo('name'), "Magazine");
 							<?php get_template_part("content/redesign/content", "newsletter");?>
 			        	</li>
 			        	<li class="f-feat-page"><?php echo "<h3><a href='$f_url'>$f_title</a></h3><a href='$f_url'>$f_thumb</a><a class='link-to-all' href='$f_url'>$foot_post_btn_txt</a>"; ?></li>
-			        	<li class="ad-wrap"><span class="ad-span">Advertisement</span><div class="ad-inner"><iframe class="iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term=<?php echo $term; ?>&camp=<?php echo $camp; ?>&ad_code=<?php echo $dartDomain; ?>&ad_unit=mediumRectangle&page=<?php echo $page; ?>"></iframe></div></li>
+			        	<li class="ad-wrap">
+			        		<span class="ad-span">Advertisement</span>
+			        		<div class="ad-inner">
+								<?php imo_ad_placement("medium_rect_footer"); ?>
+				        	</div>
+				        </li>
 		        	</ul>
 				</div>
 			</div>

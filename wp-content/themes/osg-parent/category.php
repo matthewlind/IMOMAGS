@@ -47,9 +47,14 @@ $this_cat_name	= $this_cat->name;
 								<span class="c-author"><?php if (!$acf_byline) { if ($author != 'admin') echo 'by '. $author;} else {echo $acf_byline;} ?></span>
 							</div>
 						</li>
-			<?php		if ($p_counter == 1) {
-							echo '<li class="c-ad ad-wrap"><span class="ad-span">Advertisement</span><div id="c_ad_inner" class="ad-inner"><iframe class="iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term='.$term.'&camp='.$camp.'&ad_code='.$dartdomain.'&ad_unit=mediumRectangle&page=category&pos=btf"></iframe></div></li>';
-						}
+			<?php		if ($p_counter == 1) { ?>
+							<li class="c-ad ad-wrap">
+								<span class="ad-span">Advertisement</span>
+								<div id="c_ad_inner" class="ad-inner">
+									<?php imo_ad_placement("medium_rect_ATF"); ?>
+								</div>
+							</li>
+			<?php		}
 						$p_counter++;
 					}
 				} else {
