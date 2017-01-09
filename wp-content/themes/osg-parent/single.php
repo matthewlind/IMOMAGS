@@ -92,7 +92,6 @@
 		    if ($p_counter == 1) { ?>
 			    <div id="sticky-ad" class="sticky-ad">
 				    <div class="sticky-ad-inner">
-<!-- 					    <iframe class="iframe-ad" onload="resizeIframe(this)" width="300" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term=<?php echo $term; ?>&camp=<?php echo $camp; ?>&ad_code=<?php echo $dartdomain; ?>&ad_unit=sticky&page=article"></iframe> -->
 					    <?php imo_ad_placement("sticky"); ?>
 					</div>
 			    </div>
