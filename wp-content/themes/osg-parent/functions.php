@@ -54,6 +54,7 @@ function sub_footer(){ ?>
 <?php
 }
 
+// ADs LOADED ON PAGE LOAD
 function imo_ad_placement($size){ ?>
 	<div id='<?php echo $size; ?>'>
 		<script type='text/javascript'>
@@ -62,22 +63,17 @@ function imo_ad_placement($size){ ?>
 	</div>
 
 <?php } 
-	
-function osg_ajax_ad_placement($size, $page, $term, $camp, ){ ?>
+
+// ADs LOADED WITH AJAX
+function osg_ajax_ad_placement($size, $dartDomain, $page){ ?>
 	<div id='<?php echo $size; ?>'>
 		<script type='text/javascript'>
 		googletag.cmd.push(function() {	
-			googletag.defineSlot('/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], '<?php echo $size; ?>').addService(googletag.pubads());
+			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], '<?php echo $size; ?>').addService(googletag.pubads());
 			googletag.display('<?php echo $size; ?>');
 		});
 		</script>
-		<script type='text/javascript'>
-			//setTimeout(function(){
-				//googletag.cmd.push(function() { googletag.display('<?php echo $size; ?>'); });
-			//}, 200);
-		</script>
 	</div>
-
 <?php } 
 
 function imo_login_form_shortcode( $atts, $content = null ) {

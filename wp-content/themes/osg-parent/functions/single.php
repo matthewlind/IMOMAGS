@@ -86,6 +86,9 @@ function ms_load_more() {
     $post_per_page		= $_POST['post_per_page'];
     $ad_after_post		= $_POST['ad_after_post'];
     $post_not			= $_POST['post_not'];
+    $d_dart				= $_POST['d_dart'];
+	$d_page				= $_POST['d_page'];
+	$ad_count			= $_POST['ad_count'];
     $post_type			= (isset($_POST['post_type']))? $_POST['post_type']:"";
     $current_post_id	= $_POST['current_post_id'];
     $post_not_array 	= explode(',', $post_not);
@@ -119,9 +122,18 @@ function ms_load_more() {
 				<div class="ms-image" style="background-image: url(<?php echo $feat_image[0]; ?>)"></div>
 				<div class="ms-desc"><?php the_title( '<h1>', '</h1>'); ?></div>
 			</a>
-<?php		if ($p_counter == $ad_after_post) {
-				echo '<div class="ms-ad ad-wrap"><span class="ad-span">Advertisement</span><div class="ad-inner"><iframe class="new-iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term='.$term.'&camp='.$camp.'&ad_code='.$dartDomain.'&ad_unit=mediumRectangle&page=single"></div></div>';
-			}
+<?php		if ($p_counter == $ad_after_post) { ?>
+				<div class="ms-ad ad-wrap">
+					<span class="ad-span">Advertisement</span>
+					<div class="ad-inner">
+						<?php
+						$tag_name = "article_more_300x250_" . $ad_count;
+						osg_ajax_ad_placement($tag_name, $d_dart, $d_page);
+						$ad_count++;
+						?>
+					</div>
+				</div>
+<?php			}
 			$p_counter++;
 		}
 	} else { ?>

@@ -98,11 +98,6 @@ else {
 
 $term = str_replace(" &amp; ", "-", $term);
 $term = str_replace("'", "", $term);
-
-/*
-$all_params = $page . ', '. $term . ', '. $camp;
-$all_params = rtrim($all_params,',');
-*/
 ?>
 <script language="javascript" type="text/javascript">
 	function resizeIframe(obj) {
@@ -126,9 +121,11 @@ $all_params = rtrim($all_params,',');
 	var w = window.innerWidth;
 	
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], 'medium_rect_ATF').addService(googletag.pubads());
-	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], 'medium_rect_loaded').addService(googletag.pubads());
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], 'medium_rect_explore').addService(googletag.pubads());
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], 'medium_rect_footer').addService(googletag.pubads());
+	
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], 'medium_rect_article').addService(googletag.pubads());
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], 'medium_rect_after_article').addService(googletag.pubads());
 	
 	<?php if(is_single()){ ?>
 			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [4, 4], 'teads').addService(googletag.pubads());
@@ -175,7 +172,7 @@ $all_params = rtrim($all_params,',');
 	googletag.pubads().enableSingleRequest();
 	googletag.pubads().setTargeting('sect', ['<?php echo $term; ?>']).setTargeting('camp', ['<?php echo $camp; ?>']);
 	googletag.pubads().collapseEmptyDivs(); 
-	//googletag.pubads().enableSyncRendering(); (i commented it out so the ads loaded with ajax will be displayed)
+	//googletag.pubads().enableSyncRendering(); //(i commented it out so the ads loaded with ajax will be displayed)
 	googletag.enableServices();
 	
 });
@@ -184,8 +181,10 @@ $all_params = rtrim($all_params,',');
 
 <script>
 	window.onload = function() {
+		setInterval(function(){
+			googletag.pubads().refresh();
+			console.log('refresh');
+		}, 1200000);
 		jQuery("body").attr('data-page', '<?php echo $page; ?>');
-		jQuery("body").attr('data-term', '<?php echo $term; ?>');
-		jQuery("body").attr('data-camp', '<?php echo $camp; ?>');
 	};
 </script>
