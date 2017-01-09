@@ -183,7 +183,6 @@ $term = str_replace("'", "", $term);
 	window.onload = function() {
 		setInterval(function(){
 			googletag.pubads().refresh();
-			console.log('refresh');
 		}, 1200000);
 		jQuery("body").attr('data-page', '<?php echo $page; ?>');
 	};
