@@ -59,6 +59,7 @@
 					<h2><?php echo $buy_mag_foot_message; ?> </h2>
 				<?php } ?>
 				<div class="s-mag-btns clearfix">
+<!--
 					<div class="s-buy-btn">
 						<a href="<?php echo $online_store_url; ?>" target="_blank">BUY THE MAGAZINE NOW!</a>
 						<?php if ($mag_online_store == false) : ?>
@@ -67,6 +68,7 @@
 							</div>
 						<?php endif; ?>
 					</div>
+-->
 					<div class="s-buy-btn">
 						<a class="disabled-link" href="">GET THE DIGITAL EDITION!</a>
 						<?php

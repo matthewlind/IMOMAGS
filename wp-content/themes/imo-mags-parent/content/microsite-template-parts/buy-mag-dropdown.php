@@ -9,14 +9,6 @@
 				}
 			?>
 		</li>
-		<li class="m-buy-online">
-			<a href="<?php echo $online_store_url; ?>" target="_blank">Order Print Magazine Online</a>
-			<?php if ($mag_online_store == false) : ?>
-				<div class="unavailble-mag">
-					<p>The print magazine is temporarily unavailable in the online store. Instead find it in your area using your zip code, or get the digital edition.</p>
-				</div>
-			<?php endif; ?>
-		</li>
 		<?php 
 			if ($digital_edition_available == true && have_rows('digital_edition_urls', $term_cat_id)) { 
 				while ( have_rows('digital_edition_urls', $term_cat_id) ) { the_row();
