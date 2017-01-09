@@ -19,7 +19,6 @@ function my_theme_enqueue_styles() {
 
 $magazine_img = get_option("magazine_cover_uri", get_stylesheet_directory_uri(). "/images/pic/journals.png" );
 $subs_link = get_option("subs_link");
-$dartDomain = get_option("dart_domain", $default = false);
 remove_action('wp_head', 'wp_generator');
 /** changing default wordpres email settings */
 add_filter('wp_mail_from', 'new_mail_from');
