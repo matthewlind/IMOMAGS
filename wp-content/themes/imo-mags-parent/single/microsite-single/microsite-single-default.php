@@ -87,11 +87,10 @@
 		    		<?php if ($end_date_newsstand > $today  ) {	?>
 						<h2>NOW AVAILABLE ON NEWSSTANDS!</h2>
 						<?php echo do_shortcode('[osgimpubissue bipad="'.$zip_finder_bipad.'" alias="mid"]'); ?>
-					<?php } else {  ?>
-						<h2><?php echo $buy_mag_foot_message; ?> </h2>
 					<?php } ?>
 	    			<div class="m-buy-mag-bottom clearfix"> 				
 	    				<div class="m-buy-mag-img" style="background-image: url(<?php echo $mag_cover_image['url']; ?>);"></div>
+<!--
 	    				<div class="m-buy-dig">
 	    					<a href="<?php echo $online_store_url; ?>" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
 	    					<?php if ($mag_online_store == false) : ?>
@@ -100,6 +99,7 @@
 							</div>
 							<?php endif; ?>
 	    				</div>
+-->
 	    				<div class="m-buy-dig" href="#" target="_blank">
 							<span>GET THE DIGITAL EDITION!</span>
 							<?php
