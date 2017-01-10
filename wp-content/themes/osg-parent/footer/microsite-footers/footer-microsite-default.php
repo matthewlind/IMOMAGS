@@ -55,18 +55,9 @@
 					<div class="s-or">
 						<div>OR</div>			
 					</div>
-				<?php } else {  ?>
-					<h2><?php echo $buy_mag_foot_message; ?> </h2>
 				<?php } ?>
 				<div class="s-mag-btns clearfix">
-					<div class="s-buy-btn">
-						<a href="<?php echo $online_store_url; ?>" target="_blank">BUY THE MAGAZINE NOW!</a>
-						<?php if ($mag_online_store == false) : ?>
-							<div class="unavailble-mag">
-								<p>The print magazine is temporarily unavailable in the online store. Instead find it in your area using your zip code, or get the digital edition.</p>
-							</div>
-						<?php endif; ?>
-					</div>
+				
 					<div class="s-buy-btn">
 						<a class="disabled-link" href="">GET THE DIGITAL EDITION!</a>
 						<?php

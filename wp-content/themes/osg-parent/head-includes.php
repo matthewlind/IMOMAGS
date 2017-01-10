@@ -151,6 +151,7 @@ $term = str_replace("'", "", $term);
 		googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], 'sticky').addService(googletag.pubads());
 	}
 	
+/*
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [2, 2], 'nativeAd').addService(googletag.pubads());
 	googletag.defineOutOfPageSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>','interstitial').addService(googletag.pubads());	 
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [240, 60], 'sponsor').addService(googletag.pubads());
@@ -159,6 +160,7 @@ $term = str_replace("'", "", $term);
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [2, 2], 'standard_native').addService(googletag.pubads());
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [2, 3], 'vide_native').addService(googletag.pubads());
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [2, 4], 'collection_native').addService(googletag.pubads());
+*/
 	
 	<?php if($microsite){ ?>
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], 'microsite_ATF_300x250').addService(googletag.pubads().setTargeting('sect', ['micro_atf']));
