@@ -87,14 +87,6 @@
 					<?php } ?>
 	    			<div class="m-buy-mag-bottom clearfix"> 				
 	    				<div class="m-buy-mag-img"></div> 
-	    				<div class="m-buy-dig">
-	    					<a href="<?php echo $online_store_url; ?>" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
-	    					<?php if ($mag_online_store == false) : ?>
-	    					<div class="unavailble-mag">
-								<p>The print magazine is temporarily unavailable in the online store. Instead find it in your area using your zip code, or get the digital edition.</p>
-							</div>
-							<?php endif; ?>
-	    				</div>
 	    				<div class="m-buy-dig" href="#" target="_blank">
 							<span>GET THE DIGITAL EDITION!</span>
 							<?php

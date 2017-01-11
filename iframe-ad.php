@@ -32,7 +32,7 @@ googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [3
 
 if (w>=1100)
 {
-    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [970, 250], 'billboard').addService(googletag.pubads());
+    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [[970, 250], [728, 90]], 'billboard').addService(googletag.pubads());
     googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 600], 'sticky').addService(googletag.pubads());
 }
 if (w>=600 && w<=1099)
@@ -53,11 +53,10 @@ if (w<=599)
 </script>
 </head>
 <body>
-<div id='<?php echo $adUnit; ?>'>
+	<div id='<?php echo $adUnit; ?>'>
 		<script type='text/javascript'>
 			googletag.cmd.push(function() { googletag.display('<?php echo $adUnit; ?>'); });
 		</script>
 	</div>
-
 </body>
 </html>

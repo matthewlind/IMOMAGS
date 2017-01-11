@@ -13,11 +13,11 @@ class Signup_Widget extends WP_Widget {
     
 	$formID = get_option('newsletter_id');
 	
-	$url = "http://".$_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI]; 
+	$url = "http://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]; 
 	//string urlencode ( string $url );
 	//$url.str_replace("errorcode=4&errorcontrol=Email%20Address", "", $url);
-    $errorcode = $_GET["errorcode"];
-    $errorcontrol = $_GET["errorControl"];
+    $errorcode = isset($_GET["errorcode"])? $_GET["errorcode"]:"";
+    $errorcontrol = isset($_GET["errorControl"])? $_GET["errorControl"]:"" ;
 
     switch($errorcode) {
 

@@ -145,7 +145,10 @@ while (have_posts()) : the_post();
 		<?php } ?>
 
 		<ul id="video-thumbs">
-			<?php while (have_posts()) : the_post(); $i++; 
+			<?php 
+				
+				$i = 0;
+				while (have_posts()) : the_post(); $i++; 
 				$post_id = get_the_id();
 				$post = get_post($post_id);
 				$slug = $post->post_name;
@@ -198,7 +201,6 @@ while (have_posts()) : the_post();
 	</div>
 </div><!-- end of #upcoming -->
 <?php 
-	get_template_part( 'content/tv-show/show-store' ); 
 	get_template_part( 'content/tv-show/show-sponsors' ); 
 ?>
 

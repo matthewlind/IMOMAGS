@@ -100,7 +100,9 @@
 		    
 		    if ($p_counter == 1) { ?>
 			    <div id="sticky-ad" class="sticky-ad">
-				    <div class="sticky-ad-inner"><iframe class="iframe-ad" onload="resizeIframe(this)" width="300" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term=<?php echo $term; ?>&camp=<?php echo $camp; ?>&ad_code=<?php echo $dartdomain; ?>&ad_unit=sticky&page=article"></iframe></div>
+				    <div class="sticky-ad-inner">
+					    <?php imo_ad_placement("sticky"); ?>
+					</div>
 			    </div>
 <?php			}
 		   
@@ -159,7 +161,12 @@
 			if ($p_number > 10 && $p_counter - ($inline_ad_1) == $slots[$as1] || $p_number > 15 && $p_counter - ($inline_ad_2) == $slots[$as2] || $p_number > 20 && $p_counter - ($inline_ad_3) == $slots[$as3]){ 
 			$ad_count++; ?>
 				<div class="ad-single-inline">
-					<div class="as-inner"><iframe class="iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term=<?php echo $term; ?>&camp=<?php echo $camp; ?>&ad_code=<?php echo $dartdomain; ?>&ad_unit=mediumRectangle&page=article&pos=inline-<?php echo $ad_count; ?>"></iframe></div>
+					<div class="as-inner">
+						<?php 
+							$tag_name = "article_300x250_" . $ad_count;
+							osg_ajax_ad_placement($tag_name, $dartdomain, 'article');
+						?>
+					</div>
 				</div>
 <?php			}
 		    $p_counter++;
@@ -200,7 +207,9 @@
 			<div id="disqus_thread"></div>
 		</div>
 		<div class="ad-single-bottom">
-			<div class="as-inner"><iframe class="iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term=<?php echo $term; ?>&camp=<?php echo $camp; ?>&ad_code=<?php echo $dartdomain; ?>&ad_unit=mediumRectangle&page=article&pos=btf"></iframe></div>
+			<div class="as-inner">
+				<?php imo_ad_placement("medium_rect_after_article"); ?>
+			</div>
 		</div>
 <!-- 		<div class="grey-hr"></div> -->
 		<div class="single-newsletter">

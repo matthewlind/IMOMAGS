@@ -43,7 +43,11 @@ $site_name		= trim(get_bloginfo('name'), "Magazine");
 						</li>
 					<?php 
 						if ($feat_counter == 1) { ?>
-						<li class="c-ad ad-wrap"><span class="ad-span">Advertisement</span><div id="c_ad_inner" class="ad-inner"><iframe class="iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term=<?php echo $term; ?>&camp=<?php echo $camp; ?>&ad_code=<?php echo $dartdomain; ?>&ad_unit=mediumRectangle&page=homepage"></iframe></div></li>
+						<li class="c-ad ad-wrap"><span class="ad-span">Advertisement</span>
+							<div id="c_ad_inner" class="ad-inner">
+								<?php imo_ad_placement("medium_rect_ATF"); ?>
+							</div>
+						</li>
 						<?php }
 						$feat_counter++;
 					} 

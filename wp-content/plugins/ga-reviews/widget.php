@@ -73,7 +73,7 @@ class GAReviewWidget extends \WP_Widget {
 	        <div class="icon"></div>
 	        <span>Proofhouse - Reviews</span> 
 	    </h2>
-	    <form action="<?php $_SELF['REQUEST_URI']; ?>" method="post" id="form" class="reviews-form">
+	    <form action="<?php $_SERVER['REQUEST_URI']; ?>" method="post" id="form" class="reviews-form">
 			<div class="review-select1">
 		        <select class="guntype slider-reviews-select slider-reviews-guntype">
 		            <option selected="selected" name="guntype" value="">Type</option>

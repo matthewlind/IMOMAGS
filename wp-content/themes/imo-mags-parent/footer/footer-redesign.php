@@ -75,7 +75,7 @@ $site_name	= trim(get_bloginfo('name'), "Magazine");
 	                            	<li class="f-sportsman-ch"><a target="_blank" href="http://www.thesportsmanchannel.com/"><span>The Sportsman Channel</span></a></li>
 	                            	<li class="f-wfn"><a target="_blank" href="http://www.worldfishingnetwork.com/"><span>World Fishing Network</span></a></li>
 	                                <li class="f-game-and-fish"><a target="_blank" href="http://www.gameandfishmag.com/"><span>Game &amp; Fish</span></a></li>
-	                                <li class="f-imo-store"><a target="_blank" href="http://store.imoutdoors.com/"><span>The IMO Store</span></a></li>
+	                                <li class="f-imo-store" style="display:none;"><a target="_blank" href="http://store.imoutdoors.com/"><span>The IMO Store</span></a></li>
 	                            </ul>
 	                        </div>
 		                </div>

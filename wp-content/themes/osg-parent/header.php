@@ -135,7 +135,6 @@
 	<?php	
 		imo_ad_placement("interstitial");
 		if ( $microsite ){ 
-// 				include('header-content/header-content-microsites.php');
  				get_template_part('header-content/header-content', 'microsites');
 		} 
 		else { 

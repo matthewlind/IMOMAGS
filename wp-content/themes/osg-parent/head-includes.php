@@ -119,21 +119,39 @@ $term = str_replace("'", "", $term);
 	googletag.cmd.push(function() {
 	
 	var w = window.innerWidth;
+	
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], 'medium_rect_ATF').addService(googletag.pubads());
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], 'medium_rect_explore').addService(googletag.pubads());
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], 'medium_rect_footer').addService(googletag.pubads());
+	
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], 'medium_rect_article').addService(googletag.pubads());
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], 'medium_rect_after_article').addService(googletag.pubads());
+	
 	<?php if(is_single()){ ?>
 			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [4, 4], 'teads').addService(googletag.pubads());
 	    <?php } ?>
 	    
 	if (w>=1100){
 		googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [3, 3], 'superheader').addService(googletag.pubads());
+		
+		googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [[970, 250], [728, 90]], 'billboard').addService(googletag.pubads());
+		googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 600], 'sticky').addService(googletag.pubads());
 	}
-	
+	if (w>=600 && w<=1099) {
+	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [728, 90], 'billboard').addService(googletag.pubads());
+	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], 'sticky').addService(googletag.pubads());
+	}
 	if (w>=600){
 	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [648, 110], 'fordWidget').addService(googletag.pubads());
 	}
 	if (w<=599){
 		googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [320, 200], 'fordWidget').addService(googletag.pubads());
+		
+		googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [320, 100], 'billboard').addService(googletag.pubads());
+		googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], 'sticky').addService(googletag.pubads());
 	}
 	
+/*
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [2, 2], 'nativeAd').addService(googletag.pubads());
 	googletag.defineOutOfPageSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>','interstitial').addService(googletag.pubads());	 
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [240, 60], 'sponsor').addService(googletag.pubads());
@@ -142,6 +160,7 @@ $term = str_replace("'", "", $term);
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [2, 2], 'standard_native').addService(googletag.pubads());
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [2, 3], 'vide_native').addService(googletag.pubads());
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [2, 4], 'collection_native').addService(googletag.pubads());
+*/
 	
 	<?php if($microsite){ ?>
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], 'microsite_ATF_300x250').addService(googletag.pubads().setTargeting('sect', ['micro_atf']));
@@ -155,21 +174,18 @@ $term = str_replace("'", "", $term);
 	googletag.pubads().enableSingleRequest();
 	googletag.pubads().setTargeting('sect', ['<?php echo $term; ?>']).setTargeting('camp', ['<?php echo $camp; ?>']);
 	googletag.pubads().collapseEmptyDivs(); 
-	googletag.pubads().enableSyncRendering();
+	//googletag.pubads().enableSyncRendering(); //(i commented it out so the ads loaded with ajax will be displayed)
 	googletag.enableServices();
 	
 });
 
 </script>
-<?php 
-//sidebar
 
-//ad placement
-function imo_ad_placement($size){ ?>
-	<div id='<?php echo $size; ?>'>
-		<script type='text/javascript'>
-			googletag.cmd.push(function() { googletag.display('<?php echo $size; ?>'); });
-		</script>
-	</div>
-
-<?php } ?>
+<script>
+	window.onload = function() {
+		setInterval(function(){
+			googletag.pubads().refresh();
+		}, 1200000);
+		jQuery("body").attr('data-page', '<?php echo $page; ?>');
+	};
+</script>

@@ -11,8 +11,9 @@ var $document 		= $(document),
 	ms_h1			= $("#ms_h1"),
 	btn_more_stories= $("#btn_more_stories"),
 	cat_id 			= btn_more_stories.data("cat"),
-	post_not		= btn_more_stories.data("post-not");
-	post_type		= btn_more_stories.data("post-type");
+	post_not		= btn_more_stories.data("post-not"),
+	post_type		= btn_more_stories.data("post-type"),
+	ad_count		= 1;
 
 	
 // Sticky Ad Function
@@ -57,8 +58,10 @@ function loadMorePosts(p, a) {
 		post_count		= $(".ms-box").length,
 		ms_inner		= $("#ms_inner"),
 		post_per_page	= p,
-		ad_after_post	= a;
-		current_post_id = $("body").attr("id");
+		ad_after_post	= a,
+		current_post_id = $("body").attr("id"),
+		d_dart 			= $("body").attr("domain"),
+		d_page 			= $("body").data("page");
 					
 	loader_anim.removeClass('dnone');
 	
@@ -74,13 +77,17 @@ function loadMorePosts(p, a) {
 			'post_per_page'		: post_per_page,
 			'ad_after_post' 	: ad_after_post,
 			'current_post_id'	: current_post_id, 
-			'post_type'			: post_type
+			'post_type'			: post_type,
+			'd_dart'			: d_dart,
+			'd_page'			: d_page,
+			'ad_count'			: ad_count
 		}
 	})
 	.done(function(response) {
 		ms_inner.append(response);
 		loader_anim.addClass('dnone');
 		setTimeout(function(){FB.XFBML.parse(document.getElementById('ms_inner'));}, 100);
+		ad_count += 2;
 	})
 	.fail(function() { ms_inner.append( $("<p/>", {text: "The error ocurred. Try to reload the page",style: "color: red;"})); });
 }
