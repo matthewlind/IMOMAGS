@@ -727,8 +727,8 @@ a img.aligncenter {display: block;margin-left: auto;margin-right: auto;}
 .sections-wrap .section-tv {padding: 45px 0;}
 .section-tv .twins-title {width: 36%; padding-right: 30px;}
 .section-tv .twins-title h1 {margin: .67em 0;}
-.cat-player {width: 66%;}
-
+.cat-player {width: 64%;}
+.section-video .cat-player{width: 66%;}
 .sections-wrap .section-latest-posts {padding: 0 30px 60px;}
 .twins-logo-wrap a {display: inline-block;margin: 0 0 0 20px; vertical-align: middle;}
 .twins-logo-wrap span {display: inline-block; vertical-align: middle; margin-bottom: 15px;}

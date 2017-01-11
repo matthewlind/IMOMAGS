@@ -29,7 +29,7 @@ if (have_rows('multi_video', $options)) {
 				
 				//echo $znamez . 'f-';
 				if ($v_source == 'youtube') {
-					$mvv_image = 'http://img.youtube.com/vi/'.$mvv_video_id.'/0.jpg';
+					$mv_image = 'http://img.youtube.com/vi/'.$mv_video_id.'/0.jpg';
 				} else {
 					$mv_image = get_sub_field('z_image_z');
 				}
@@ -114,20 +114,48 @@ if (have_rows('multi_video', $options)) {
 						function stopVideo() {
 							player.stopVideo();
 						}
-/*
 		
 						jQuery(document).ready(function($) {
-							$("#mv_list > li").click(function(){
+							$("#sections_wrap").on("click", "#mv_list_<?php echo $feat_video_id; ?> > li", function()
 								var d = $(this),
 									vid = d.data('vid'),
-									title = d.find("h5").text();
+									title = d.find("h5").text(),
+									descr = d.find("p").text(),
+									section_vid_scroll = $("#section_video_<?php echo $feat_video_id;?>").offset();
+									
+								console.log('youtube');	
 									
 								if(player) { player.loadVideoById(vid, 1, "large"); }
-								$("html, body").animate({scrollTop: 70}, 1000, "swing");
-								console.log("title: "+title);
-								$("#mv_title").text(title);
+								$("#video_title_<?php echo $feat_video_id; ?>").text(title);
+								$("#video_desc_<?php echo $feat_video_id; ?>").text(descr);
+								$("html, body").animate({scrollTop: section_vid_scroll.top - 85}, 1000, "swing");
+								
+								setTimeout(function(){
+									$("#mv_list_<?php echo $feat_video_id; ?> > li").removeClass("mv-active");
+									d.addClass("mv-active");
+								}, 400);
 							});
 						
+						});
+						
+/*
+						jQuery(document).ready(function($) {
+							$("#sections_wrap").on("click", "#mv_list_<?php echo $feat_video_id; ?> > li", function() {
+								var d = $(this),
+									vid = d.data('vid'),
+									title = d.find("h5").text(),
+									descr = d.find("p").text(),
+									section_vid_scroll = $("#section_video_<?php echo $feat_video_id;?>").offset();
+								videoPlayer.loadVideoByID(vid);
+								$("#video_title_<?php echo $feat_video_id; ?>").text(title);
+								$("#video_desc_<?php echo $feat_video_id; ?>").text(descr);
+								$("html, body").animate({scrollTop: section_vid_scroll.top - 85}, 1000, "swing");
+								
+								setTimeout(function(){
+									$("#mv_list_<?php echo $feat_video_id; ?> > li").removeClass("mv-active");
+									d.addClass("mv-active");
+								}, 400);
+							});
 						});
 */
 				    </script>
@@ -163,9 +191,6 @@ if (have_rows('multi_video', $options)) {
 						
 						// On page load, add title and description text
 						
-						///////////////////
-						///////////////////
-/*
 						function onTemplateLoaded(id) {
 							var player = brightcove.api.getExperience(id);
 							videoPlayer = player.getModule(brightcove.api.modules.APIModules.VIDEO_PLAYER);
@@ -173,8 +198,6 @@ if (have_rows('multi_video', $options)) {
 						
 						jQuery(document).ready(function($) {
 							$("#sections_wrap").on("click", "#mv_list_<?php echo $feat_video_id; ?> > li", function() {
-								
-								
 								var d = $(this),
 									vid = d.data('vid'),
 									title = d.find("h5").text(),
@@ -189,11 +212,8 @@ if (have_rows('multi_video', $options)) {
 									$("#mv_list_<?php echo $feat_video_id; ?> > li").removeClass("mv-active");
 									d.addClass("mv-active");
 								}, 400);
-								
 							});
-						
 						});
-*/
 					</script>	
 					</div>
 				    <?php } ?>
