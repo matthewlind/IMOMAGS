@@ -291,7 +291,7 @@ jQuery(document).ready(function () {
 	                url: jQuery(".next-link a").attr('href'),
 	                dataType: 'html',
 	                success: function(data) {
-						console.log(data);
+						//console.log(data);
 	                    jQuery('.main-content-preppend').append(
 	                        jQuery(data).find('.posts-list').find(findId).hide()
 	                    );
@@ -304,6 +304,7 @@ jQuery(document).ready(function () {
 	                    jQuery("#ajax-loader").hide();
 	                   
 	                    //refresh the sticky ad on load more
+/*
 	                    if (jQuery(window).width() >  610 ) {
 	                    	document.getElementById('sticky-iframe-ad').contentWindow.location.reload();
 	                    	jQuery(".sidebar.advert").css({
@@ -312,6 +313,7 @@ jQuery(document).ready(function () {
 								top: 10
 							});
 	                    }
+*/
 	                    if(jQuery(".next-link a").length){
 						    jQuery("a.btn-base").css("display","block");
 					    }
