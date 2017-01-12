@@ -15,12 +15,9 @@ var $document 		= $(document),
 	btf_loaded		= false,
 	section_loader	= $("#section_loader"),
 	page_type		= 'home',
-<<<<<<< HEAD
 	load_action		= 'h_load_latest',
 	overwrite_cat_btf = sections_wrap.data("overwrite-cat-btf");
-=======
 	ad_count		= 1;
->>>>>>> e26891de68faf66e5ea5d6f124d72e5b4f7ed678
 	
 if ($('.archive')[0]) {
 	page_type = 'archive';
@@ -52,14 +49,11 @@ function loadLatestPosts(p) {
 			'post_per_page'	: post_per_page,
 			'page_type'		: page_type,
 			'cat_slug'		: cat_slug,
-<<<<<<< HEAD
 			'fb_like'		: fb_like,
-			'post_type'		: post_type
-=======
+			'post_type'		: post_type,
 			'd_dart'		: d_dart,
 			'd_page'		: d_page,
 			'ad_count'		: ad_count
->>>>>>> e26891de68faf66e5ea5d6f124d72e5b4f7ed678
 		}
 	})
 	.done(function(response) {
@@ -72,13 +66,8 @@ function loadLatestPosts(p) {
 	    	console.log(newSrc);
 		    $(this).attr('src', newSrc);
 		});
-<<<<<<< HEAD
 		setTimeout(function(){FB.XFBML.parse(document.getElementById('latest_list'));}, 100);
-		
-=======
-		
 		ad_count += 2;
->>>>>>> e26891de68faf66e5ea5d6f124d72e5b4f7ed678
 	})
 	.fail(function() { latest_list.append( $("<p/>", {text: "Something went wrong. Try to reload the page", style: "color: red;"})); });
 		
@@ -110,11 +99,6 @@ function loadCatHomeBTF() {
 		.done(function(response) {
 			section_loader.remove();
 			sections_wrap.append(response);
-<<<<<<< HEAD
-=======
-			
-
->>>>>>> e26891de68faf66e5ea5d6f124d72e5b4f7ed678
 		})
 		.fail(function() { latest_list.append( $("<p/>", {text: "Something went wrong. Try to reload the page", style: "color: red;"})); });
 		

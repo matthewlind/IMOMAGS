@@ -8,7 +8,12 @@ if (have_rows('multi_video', $options)) {
 		$v_source = get_sub_field("video_service");
 		$feat_video_title = get_sub_field('feat_video_title');
 		$feat_video_desc = get_sub_field('feat_video_desc');
-		$feat_image = get_sub_field('feat_image_z');
+		
+		if ($v_source == 'youtube') {
+			$feat_image = 'http://img.youtube.com/vi/'.$feat_video_id.'/0.jpg';
+		} else {
+			$feat_image = get_sub_field('feat_image_z');
+		}
 		
 		$bv_row_count = 0;
 		$video_list = '';
@@ -73,8 +78,8 @@ if (have_rows('multi_video', $options)) {
 			<div class="cat-player clearfix">
 				
 				<?php if ($v_source == 'youtube') { ?>
-				
-					<div class="player-wrap"></div>
+					<div class="player-wrap">
+					<div id="<?php echo 'player_'.$feat_video_id; ?>"></div>
 					<!-- YouTube Player -->
 					<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
 				    <script>
@@ -87,7 +92,7 @@ if (have_rows('multi_video', $options)) {
 						//    after the API code downloads.
 						var player;
 						function onYouTubeIframeAPIReady() {
-							player = new YT.Player('player', {
+							player = new YT.Player('<?php echo 'player_'.$feat_video_id; ?>', {
 								height: '390',
 								width: '640',
 								videoId: '<?php echo $feat_video_id; ?>',
@@ -116,7 +121,7 @@ if (have_rows('multi_video', $options)) {
 						}
 		
 						jQuery(document).ready(function($) {
-							$("#sections_wrap").on("click", "#mv_list_<?php echo $feat_video_id; ?> > li", function()
+							$("#sections_wrap").on("click", "#mv_list_<?php echo $feat_video_id; ?> > li", function() {
 								var d = $(this),
 									vid = d.data('vid'),
 									title = d.find("h5").text(),
@@ -160,7 +165,7 @@ if (have_rows('multi_video', $options)) {
 */
 				    </script>
 				    <!-- End of YouTube Player -->
-				  
+					</div>
 				    <?php } else { ?>
 				    <div class="player-wrap">
 				    <!-- Brightcove Player -->

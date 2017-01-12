@@ -694,6 +694,17 @@ if(function_exists("register_field_group"))
 								'save_format' => 'url',
 								'preview_size' => 'thumbnail',
 								'library' => 'all',
+								'conditional_logic' => array (
+									'status' => 1,
+									'rules' => array (
+										array (
+											'field' => 'field_90a5b4af0b5dc',
+											'operator' => '==',
+											'value' => 'brightcove',
+										),
+									),
+									'allorany' => 'all',
+								),
 							),
 							array (
 								'key' => 'field_905dd689a2a8e',
@@ -737,6 +748,17 @@ if(function_exists("register_field_group"))
 										'save_format' => 'url',
 										'preview_size' => 'thumbnail',
 										'library' => 'all',
+										'conditional_logic' => array (
+											'status' => 1,
+											'rules' => array (
+												array (
+													'field' => 'field_90a5b4af0b5dc',
+													'operator' => '==',
+													'value' => 'brightcove',
+												),
+											),
+											'allorany' => 'all',
+										),
 									),
 									array (
 										'key' => 'field_915d460ca2k8g',
