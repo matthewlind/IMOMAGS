@@ -152,6 +152,7 @@ googletag.cmd.push(function() {
 var screen;
 var w = window.innerWidth;
 var h = window.innerHeight;
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], '300_btf').setTargeting('pos', ['btf']).addService(googletag.pubads());
 	<?php if(is_single()){ ?>
 		googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [4, 4], 'teads').addService(googletag.pubads());
     <?php } ?>
@@ -244,7 +245,7 @@ function imo_sidebar($type = null){
 	    	echo '<div id="responderfollow"></div>';
 			echo '<div class="sidebar advert">';
 				echo '<div class="widget_advert-widget">';
-					echo '<iframe id="sticky-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-sticky.php?ad_code='.$dartDomain.'&term='.$term.'&camp='.$camp.'"></iframe>';
+					imo_ad_placement("300_btf");
 				echo '</div>';
 				get_sidebar("sticky");
 			echo '</div>';
