@@ -914,6 +914,7 @@ input.gsc-search-button-v2{
 .mdl-banner{padding: 20px 0;width: 100%;text-align: center;}
 #leaderboard, #billboard{display: inline-block;}
 .footer-728 .mdl-banner{width: 728px;margin: 0 auto;}
+.is-sponsored {color: #215dc0; font-size: 15px; text-transform: uppercase; font-weight: 600; display: inline-block;margin-top: 5px;}
 .mdl-banner.mdl-728{
     width: 728px;
 }

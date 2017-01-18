@@ -40,6 +40,7 @@ get_header(); ?>
 	                                    	<div class="clearfix">
 		                                    	<h3><a href="<?php echo $url; ?>" onclick="<?php echo $tracking; ?>"><?php echo $title; ?></a></h3>
 	                                    	</div>
+	                                    	<?php if (in_category('sponsored', $feature->ID)) echo '<span class="is-sponsored">Sponsored</span>'; ?>
 		                                </div>
 		                                <div class="feat-sep"><div></div></div>
 		                            </div>
