@@ -1,4 +1,5 @@
 <?php
+$player_id = get_field('brightcove_player_id', 'options');
 if (have_rows('tv_section', $options)) {
 	while (have_rows('tv_section', $options)) {
 		the_row();
@@ -25,7 +26,7 @@ if (have_rows('tv_section', $options)) {
 				<video 	
 						data-video-id="<?php echo $tv_video_id; ?>"
 						data-account="3165341001" 
-						data-player="Sy0xelbbl" 
+						data-player="<?php echo $player_id; ?>" 
 						data-embed="default" 
 						data-application-id 
 						class="video-js" 

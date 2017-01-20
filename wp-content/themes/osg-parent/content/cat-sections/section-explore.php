@@ -35,7 +35,12 @@
 			
 			echo $card_out;
 			
-			if ($card_count == 4) {echo '<li class="ec-ad ad-wrap"><span class="ad-span">Advertisement</span><div id="ec_ad_inner" class="ad-inner"><iframe class="new-iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term=home&ad_code='.$dartDomain.'&ad_unit=mediumRectangle&page=homepage"></iframe></div></li>';}
+			if ($card_count == 4) { ?>
+				<li class="ec-ad ad-wrap">
+					<span class="ad-span">Advertisement</span>
+					<div id="ec_ad_inner" class="ad-inner"><?php imo_ad_placement("medium_rect_explore"); ?></div>
+				</li>
+			<?php }
 			
 			$card_count++;
 		}
