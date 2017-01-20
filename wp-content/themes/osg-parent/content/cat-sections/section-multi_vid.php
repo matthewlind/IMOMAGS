@@ -1,4 +1,5 @@
 <?php
+$player_id = get_field('brightcove_player_id', 'options');
 if (have_rows('multi_video', $options)) {
 	while (have_rows('multi_video', $options)) {
 		the_row();
@@ -127,9 +128,7 @@ if (have_rows('multi_video', $options)) {
 									title = d.find("h5").text(),
 									descr = d.find("p").text(),
 									section_vid_scroll = $("#section_video_<?php echo $feat_video_id;?>").offset();
-									
-								console.log('youtube');	
-									
+																		
 								if(player) { player.loadVideoById(vid, 1, "large"); }
 								$("#video_title_<?php echo $feat_video_id; ?>").text(title);
 								$("#video_desc_<?php echo $feat_video_id; ?>").text(descr);
@@ -142,73 +141,46 @@ if (have_rows('multi_video', $options)) {
 							});
 						
 						});
-						
-/*
-						jQuery(document).ready(function($) {
-							$("#sections_wrap").on("click", "#mv_list_<?php echo $feat_video_id; ?> > li", function() {
-								var d = $(this),
-									vid = d.data('vid'),
-									title = d.find("h5").text(),
-									descr = d.find("p").text(),
-									section_vid_scroll = $("#section_video_<?php echo $feat_video_id;?>").offset();
-								videoPlayer.loadVideoByID(vid);
-								$("#video_title_<?php echo $feat_video_id; ?>").text(title);
-								$("#video_desc_<?php echo $feat_video_id; ?>").text(descr);
-								$("html, body").animate({scrollTop: section_vid_scroll.top - 85}, 1000, "swing");
-								
-								setTimeout(function(){
-									$("#mv_list_<?php echo $feat_video_id; ?> > li").removeClass("mv-active");
-									d.addClass("mv-active");
-								}, 400);
-							});
-						});
-*/
 				    </script>
 				    <!-- End of YouTube Player -->
 					</div>
 				    <?php } else { ?>
-				    <div class="player-wrap">
-				    <!-- Brightcove Player -->
-					<!--By use of this code snippet, I agree to the Brightcove Publisher T and C found at https://accounts.brightcove.com/en/terms-and-conditions/. -->
-					<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
-					
-						<object id="myExperience" class="BrightcoveExperience">
-							<param name="bgcolor" value="#FFFFFF" />
-							<param name="playerID" value="5127750281001" />
-							<param name="playerKey" value="AQ~~,AAAAALyrRUk~,m8Wuv4JIiTobaElEYjriRAAaiqhciIls" />
-							<param name="isVid" value="true" />
-							<param name="isUI" value="true" />
-							<param name="dynamicStreaming" value="true" />
-							<param name="@videoPlayer" value="<?php echo $feat_video_id; ?>" />
-							<!-- smart player api params -->
-							<param name="includeAPI" value="true" />
-							<param name="templateLoadHandler" value="onTemplateLoaded" />
-							<param name="templateReadyHandler" value="BCL.onTemplateReady" />
-						</object>
-						<!-- 
-						This script tag will cause the Brightcove Players defined above it to be created as soon as the line is read by the browser. If you wish to have the player instantiated only after the rest of the HTML is processed and the page load is complete, remove the line.
-						-->
-<!-- 						<script type="text/javascript">brightcove.createExperiences();</script> -->
-					
-					<!-- End of Brightcove Player -->
-					<script>
-						var videoPlayer;
+					<div class="player-wrap" id="placeHolder_<?php echo $feat_video_id; ?>"></div>
+					<script type="text/JavaScript">
+						var myPlayer,
+							playerHTML,
+							playerData = {
+								'accountId': '3165341001',
+								'playerId': '<?php echo $player_id; ?>',
+								'videoId': '<?php echo $feat_video_id; ?>'
+							};
 						
-						// On page load, add title and description text
+						// dynamically build the player video element
+						playerHTML = '<video id=\"artem_player\" data-video-id=\"' + playerData.videoId + '\" data-account=\"' + playerData.accountId + '\" data-player=\"' + playerData.playerId + '\" data-embed=\"default\" class=\"video-js\" controls style=\"width: 100%; height: 100%; position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px;\"></video>';
+						// inject the player code into the DOM
+						document.getElementById('placeHolder_<?php echo $feat_video_id; ?>').innerHTML = playerHTML;
+						// add and execute the player script tag
+						var s = document.createElement('script');
+						s.src = "//players.brightcove.net/" + playerData.accountId + "/" + playerData.playerId + "_default/index.min.js";
+						document.body.appendChild(s);
 						
-						function onTemplateLoaded(id) {
-							var player = brightcove.api.getExperience(id);
-							videoPlayer = player.getModule(brightcove.api.modules.APIModules.VIDEO_PLAYER);
+						function changeVideo(video_id){
+							myPlayer = videojs('artem_player');
+							myPlayer.catalog.getVideo(video_id, function(error, video) { 
+								myPlayer.catalog.load(video);
+								myPlayer.play();
+							})
 						}
-						
-						jQuery(document).ready(function($) {
+				        
+				        jQuery(document).ready(function($) {
 							$("#sections_wrap").on("click", "#mv_list_<?php echo $feat_video_id; ?> > li", function() {
 								var d = $(this),
 									vid = d.data('vid'),
 									title = d.find("h5").text(),
 									descr = d.find("p").text(),
 									section_vid_scroll = $("#section_video_<?php echo $feat_video_id;?>").offset();
-								videoPlayer.loadVideoByID(vid);
+									
+								changeVideo(vid);
 								$("#video_title_<?php echo $feat_video_id; ?>").text(title);
 								$("#video_desc_<?php echo $feat_video_id; ?>").text(descr);
 								$("html, body").animate({scrollTop: section_vid_scroll.top - 85}, 1000, "swing");
@@ -219,8 +191,7 @@ if (have_rows('multi_video', $options)) {
 								}, 400);
 							});
 						});
-					</script>	
-					</div>
+					</script>
 				    <?php } ?>
 			</div>
 		</div>	
