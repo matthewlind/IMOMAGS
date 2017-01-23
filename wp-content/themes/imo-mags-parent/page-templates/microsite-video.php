@@ -9,7 +9,7 @@ $microsite_default = true;
 get_header();
 
 $feat_video_id = get_field("feat_video_id");
-$v_source = get_field("video_service");
+$v_service = get_field("video_service");
 $y_feat_title = "";
 
 $page_in_cat = strtoupper(get_the_title());
@@ -17,10 +17,10 @@ $page_in_cat = strtoupper(get_the_title());
 ?>
 <div class="content" id="uppp">
 	<div class="mv-video-atf">
-		<h3><?php echo $page_in_cat; ?></h3>
+		<h3 id="mv_heading"><?php echo $page_in_cat; ?></h3>
 		<div class="mv-player-wrap">
 			<div class="mv-player">
-				<?php if ($v_source == 'youtube') { 
+				<?php if ($v_service == 'youtube') { 
 					$y_feat_title = get_field('youtube_video_title');
 				?>
 				<!-- YouTube Player -->
@@ -81,69 +81,55 @@ $page_in_cat = strtoupper(get_the_title());
 			    <!-- End of YouTube Player -->
 			    
 			    <?php } else { ?>
-			    
-			    <!-- Brightcove Player -->
-				<!--By use of this code snippet, I agree to the Brightcove Publisher T and C found at https://accounts.brightcove.com/en/terms-and-conditions/. -->
-				<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
-				<div id="mv_player">
-					<object id="myExperience" class="BrightcoveExperience">
-						<param name="bgcolor" value="#FFFFFF" />
-						<param name="playerID" value="5127750281001" />
-						<param name="playerKey" value="AQ~~,AAAAALyrRUk~,m8Wuv4JIiTobaElEYjriRAAaiqhciIls" />
-						<param name="isVid" value="true" />
-						<param name="isUI" value="true" />
-						<param name="dynamicStreaming" value="true" />
-						<param name="@videoPlayer" value="<?php echo $feat_video_id; ?>" />
-						<!-- smart player api params -->
-						<param name="includeAPI" value="true" />
-						<param name="templateLoadHandler" value="onTemplateLoaded" />
-						<param name="templateReadyHandler" value="BCL.onTemplateReady" />
-					</object>
-					<!-- 
-					This script tag will cause the Brightcove Players defined above it to be created as soon as the line is read by the browser. If you wish to have the player instantiated only after the rest of the HTML is processed and the page load is complete, remove the line.
-					-->
-					<script type="text/javascript">brightcove.createExperiences();</script>
-				</div>
-				<!-- End of Brightcove Player -->
-				<script>
-					var videoPlayer;
+			    <div class="player-wrap">
+				    <video id="bc_player"
+					    data-account="3165341001" 
+						data-player="Syj6BKtn"
+						data-video-id="<?php echo $feat_video_id; ?>" 
+						data-embed="default" 
+						data-application-id 
+						class="video-js" 
+						controls 
+						style="width: 100%; height: 100%; position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px;">
+					</video>
+					<script src="//players.brightcove.net/3165341001/Syj6BKtn_default/index.min.js"></script> 
+			    </div>
+				<script type="text/JavaScript">
+					var myPlayer,
+						playerHTML,
+						playerData = {
+							'accountId': '3165341001',
+							'playerId': 'Syj6BKtn',
+							'videoId': '<?php echo $feat_video_id; ?>'
+						};
 					
-					// On page load, add title and description text
-					function onTemplateLoaded(id) {
-						var player = brightcove.api.getExperience(id);
-						videoPlayer = player.getModule(brightcove.api.modules.APIModules.VIDEO_PLAYER);
-						
-						setTimeout(function(){
-							videoPlayer.getCurrentVideo( function(video) {
-								var display_name = video.displayName,
-								long_desc = video.longDescription;
-								jQuery("#mv_title").text(display_name);
-								if (long_desc == null) { jQuery("#mv_description").text(""); } else { jQuery("#mv_description").text(long_desc);}
-								
-							});
-						}, 400)
+					function changeVideo(video_id){
+						myPlayer = videojs('bc_player');
+						myPlayer.catalog.getVideo(video_id, function(error, video) { 
+							myPlayer.catalog.load(video);
+							myPlayer.play();
+						});
 					}
-					
+			        
 					jQuery(document).ready(function($) {
+						videojs('bc_player').on('loadedmetadata',function(){
+							var myPlayer = this,
+								videDescription = myPlayer.mediainfo.description;
+								if (videDescription == null) {videDescription = '';}
+							$("#mv_title").text(myPlayer.mediainfo.name);
+							$("#mv_description").text(myPlayer.mediainfo.description);
+						});
+						
 						$("#mv_list > li").click(function(){
 							var d = $(this),
 								vid = d.data('vid'),
-								title = d.find("h5").text();
-								
-							videoPlayer.loadVideoByID(vid);
-							setTimeout(function(){
-								videoPlayer.getCurrentVideo( function(video) {
-									display_name = video.displayName,
-									long_desc = video.longDescription;
-									jQuery("#mv_title").text(display_name);
-									if (long_desc == null) { jQuery("#mv_description").text("");} else {jQuery("#mv_description").text(long_desc);}
-								});
-							}, 400)
-							$("html, body").animate({scrollTop: 70}, 1000, "swing");
+								mv_heading = $("#mv_heading").offset();
+							
+							changeVideo(vid);
+							$("html, body").animate({scrollTop: mv_heading.top - 65}, 1000, "swing");
 						});
-					
 					});
-				</script>			    
+				</script>
 			    <?php } ?>
 			</div>
 			
@@ -179,7 +165,7 @@ $page_in_cat = strtoupper(get_the_title());
 					$video_id = get_sub_field('video_id');
 					$title = get_sub_field('title');
 					
-					if ($v_source == 'youtube') {
+					if ($v_service == 'youtube') {
 						$vm_image = 'http://img.youtube.com/vi/'.$video_id.'/0.jpg';
 					} else {
 						$vm_image = get_sub_field('image');
@@ -195,7 +181,7 @@ $page_in_cat = strtoupper(get_the_title());
 						<div class="mv-video-thumb" style="background-image: url(<?php echo $vm_image; ?>);">
 							<i class="icon-play"></i>
 						</div>
-						<h5 class="mv-thumb-title"><?php echo $title; echo $video_source;?></h5>
+						<h5 class="mv-thumb-title"><?php echo $title; ?></h5>
 					</li>		
 			<?php
 			    }
