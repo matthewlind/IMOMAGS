@@ -95,14 +95,6 @@ $page_in_cat = strtoupper(get_the_title());
 					<script src="//players.brightcove.net/3165341001/Syj6BKtn_default/index.min.js"></script> 
 			    </div>
 				<script type="text/JavaScript">
-					var myPlayer,
-						playerHTML,
-						playerData = {
-							'accountId': '3165341001',
-							'playerId': 'Syj6BKtn',
-							'videoId': '<?php echo $feat_video_id; ?>'
-						};
-					
 					function changeVideo(video_id){
 						myPlayer = videojs('bc_player');
 						myPlayer.catalog.getVideo(video_id, function(error, video) { 
@@ -110,14 +102,13 @@ $page_in_cat = strtoupper(get_the_title());
 							myPlayer.play();
 						});
 					}
-			        
 					jQuery(document).ready(function($) {
 						videojs('bc_player').on('loadedmetadata',function(){
 							var myPlayer = this,
 								videDescription = myPlayer.mediainfo.description;
 								if (videDescription == null) {videDescription = '';}
 							$("#mv_title").text(myPlayer.mediainfo.name);
-							$("#mv_description").text(myPlayer.mediainfo.description);
+							$("#mv_description").text(videDescription);
 						});
 						
 						$("#mv_list > li").click(function(){
