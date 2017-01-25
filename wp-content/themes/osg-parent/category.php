@@ -9,19 +9,21 @@ $deal_copy 		= get_option('deal_copy' );
 $features 		= get_field('homepage_featured_stories','options' );
 $site_name		= trim(get_bloginfo('name'), "Magazine");
 
+
 $this_cat 		= get_category( get_query_var( 'cat' ) );
 $this_cat_id	= $this_cat->term_id;
 $this_cat_name	= $this_cat->name;
 
+$overwrite_cat_btf = get_field('overwrite_default_btf_options', 'category_'.$this_cat_id);
 ?>
 
 
-<div id="sections_wrap" class="sections-wrap">
+<div id="sections_wrap" class="sections-wrap" data-overwrite-cat-btf="<?php echo $overwrite_cat_btf; ?>">
 	<section class="section-latest-posts">
 		<div id="l_container" class="section-inner-wrap">
 			<header class="main-h">
 				<h1><?php echo $this_cat_name;?></h1>
-				<p><?php echo category_description( $this_cat_id ); ?></p>
+				<?php if (category_description( $this_cat_id )) {  echo '<p>'. category_description( $this_cat_id ) . '</p>'; }?>
 			</header>
 				<ul id="latest_list" class="c-list">
 			<?php 	

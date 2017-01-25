@@ -20,9 +20,15 @@
 	
 	// POST CATEGORIES
 	$post_meta			= get_post_meta($post_id);
-	$primary_cat_id		= $post_meta["_category_permalink"][0];
-	$primary_cat_name	= get_cat_name($primary_cat_id);	
-
+	$primary_cat_id		= ( !empty($post_meta["_category_permalink"][0])) ? $post_meta["_category_permalink"][0] : '';
+	$post_cats			= array();
+	if (empty($primary_cat_id)) {
+		$post_cats = get_the_category();
+		$primary_cat_name = $post_cats[0]->slug;
+		$primary_cat_id	= $post_cats[0]->term_id;
+	} else {
+		$primary_cat_name = get_cat_name($primary_cat_id);
+	}
 ?>
 
 <main class="main-single">
@@ -34,10 +40,13 @@
 			</div>
 			<h1><?php the_title(); ?></h1>
 			<div class="byline"><span><?php if($byline) { echo $byline; } ?></span></div>
+			
 			<div class="author-wrap clearfix">
+				<?php if ($author_name != 'admin') { ?>
 				<!--<div class="author-img"><?php //echo get_avatar($author_id, 120);?></div>-->
 				<h4><?php echo $author_name;?></h4>
 				<span class="author-title"><?php if($author_title) { echo $author_title; ?><i>&nbsp;&nbsp;•&nbsp;&nbsp;</i><br><?php }?><a href="<?php echo $author_url;?>">More From <?php echo $author_name;?></a></span>
+				<?php } ?>
 				<div class="sponsor"><?php imo_ad_placement("sponsor"); ?></div>
 			</div>
 			<div class="social-single">

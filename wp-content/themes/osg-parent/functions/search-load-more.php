@@ -45,7 +45,7 @@ function s_load_latest() {
 	$p_counter		= 0;
 	$dartdomain 	= get_option('dart_domain', false);
 
-	if ($page_type == 'post-type-archive-reader_photos') $post_type = 'reader_photos';
+	//if ($page_type == 'post-type-archive-reader_photos') $post_type = 'reader_photos';
 			
 	$args = array (
 		'post_type'			=> 'post',
@@ -63,8 +63,10 @@ function s_load_latest() {
 	if ( $query->have_posts() ) {
 		while ( $query->have_posts() ) {
 			$query->the_post();	
+/*
 			$author 		= get_the_author();
-			$acf_byline 	= get_field("byline", $post->ID);
+			$acf_byline 	= get_field("byline");
+*/
 			?>
 			<li class="c-item">
 				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('list-thumb'); ?></a>

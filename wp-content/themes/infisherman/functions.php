@@ -45,18 +45,20 @@ if(!function_exists('_log')){
 }
 
 function social_networks(){
-	echo '<div class="socials">';
-		echo '<a href="'.FACEBOOK_LINK.'" class="facebook">Facebook</a>';
-	    echo '<a href="https://www.twitter.com/@InFishermanTV" class="twitter">Twitter</a>';
-	    echo '<a href="http://www.youtube.com/user/InFishermanTV" class="youtube">YouTube</a>';
-	    echo '<a href="http://www.in-fisherman.com/feed/" class="rss">RSS</a>';
-	echo '</div>';
+	echo '<div class="socials">'.
+			'<a href="'.FACEBOOK_LINK.'" class="facebook"><i class="icon-facebook"></i></a>'.
+			'<a href="https://www.twitter.com/@InFishermanTV" class="twitter"><i class="icon-twitter"></i></a>'.
+			'<a href="http://www.youtube.com/user/InFishermanTV" class="youtube"><i class="icon-youtube"></i></a>'.
+			'<a href="http://www.in-fisherman.com/feed/" class="rss"><i class="icon-rss"></i></a>'.
+		'</div>';
 }
 
 function social_footer(){ ?>
 	<div class="foot-social clearfix">
-		<strong class="social-title">Like us on Facebook to <span>stay updated !</span></strong>
-		<div class="fb-like" data-href="<?php echo FACEBOOK_LINK; ?>" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div>
+		<div class="foot-s-top">
+			<strong class="social-title">Like us on Facebook to <span>stay updated !</span></strong>
+			<div class="fb-like" data-href="<?php echo FACEBOOK_LINK; ?>" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div>
+		</div>
 		<?php social_networks(); ?>
 	</div>
 <?php }

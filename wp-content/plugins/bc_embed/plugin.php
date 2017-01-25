@@ -80,8 +80,8 @@ function bcplayerFish_function($atts){
 
    $adServerURL = "http://ad.doubleclick.net/pfadx/" .  get_option("dart_domain", _imo_dart_guess_domain())  ."/video";
    
-   $playerID = get_option("bc_gf2_player_id", _BC_GF2_PLAYER_ID );
-   $playerKey = get_option("bc_gf2_player_key", _BC_GF2_PLAYER_KEY );
+   $playerID = get_option("bc_gf2_player_id", "_BC_GF2_PLAYER_ID" );
+   $playerKey = get_option("bc_gf2_player_key", "_BC_GF2_PLAYER_KEY" );
    
    $return_string = '<!-- Start of Brightcove Player -->
 

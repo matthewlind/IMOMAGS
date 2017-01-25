@@ -89,7 +89,7 @@ $show_logo = get_field('show_logo',$acfID);
 		</div>		
 				
 		<?php 		
-		$whenToWatch = get_field('when_to_watch',$acfID);		
+		$whenToWatch = get_field('when_to_watch',$acfID);	
 		echo do_shortcode("[tscschedule format='singleshow' postid='".$whenToWatch."']"); ?>			
 	</div><!-- end of #when-to-watch -->
 

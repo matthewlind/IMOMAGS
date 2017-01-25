@@ -1,12 +1,9 @@
 <?php
 	
 get_header();
+$post_type = 'reader_photos';
 
-$is_home_cat= true;
-$string = parse_url($_SERVER[REQUEST_URI]);
-$term = $string["query"];
-$ph_cat_name = 'Reader Photos';
-$dartdomain = get_option('dart_domain', false);
+include(get_template_directory(). '/content/photos.php');
 
 if (!empty($term)) {
 	$ph_cat_obj = get_category_by_slug( $term );

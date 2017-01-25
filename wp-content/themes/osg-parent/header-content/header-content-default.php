@@ -22,6 +22,8 @@
 	else 
 		$page = "";
 	
+	$is_tv = (is_category('tv') || in_category('tv')) ? 'is-tv' : '';
+	
 ?>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -32,12 +34,12 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-<div class="wrapper">	
+
+<div class="wrapper <?php echo $is_tv; ?>">	
 <?php imo_ad_placement("superheader"); ?>
 
 <header class="main-header">
 	<div id="header_wrap" class="header-wrap">
-		
 		<div class="head-inner">
 			<div class="head-left">
 				<div class="main-logo">
@@ -106,19 +108,21 @@
 <nav id="menu_drop">
 	<div class="menu-container">
 		<div class="menu-inner">
-			<section class="menu-content">
+			<section class="menu-content clearfix">
 			<?php
             wp_nav_menu(array(
-                'menu_class'	=> 'menu',
-                'theme_location'=> 'bottom',
+                'menu_class'	=> 'menu mob-main-menu',
+                'theme_location'=> 'mobile',
                 'container' 	=> '0',
                 'walker'		=> new AddParentClass_Walker()
             ));   
             ?>
-            <?php if(has_nav_menu( 'top' )){
+            <?php if(has_nav_menu( 'desk_vis_sec' )){
             	wp_nav_menu(array(
-                    'menu_class'=>'menu',
-                    'theme_location'=>'top'
+                    'menu_class'	=> 'menu mob-sec-menu',
+                    'theme_location'=> 'desk_vis_sec',
+                    'container' 	=> '0',
+                    'walker'		=> new AddParentClass_Walker()
 				));  
             } 
             ?>

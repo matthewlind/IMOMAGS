@@ -120,7 +120,14 @@ function ms_load_more() {
 			
 			<a class="ms-box" href="<?php the_permalink(); ?>">
 				<div class="ms-image" style="background-image: url(<?php echo $feat_image[0]; ?>)"></div>
-				<div class="ms-desc"><?php the_title( '<h1>', '</h1>'); ?></div>
+				<div class="ms-desc">
+					<?php the_title( '<h1>', '</h1>'); ?>
+					<?php if(in_category("master-angler")){ ?><img class="ma-badge" src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/pic/badge-ma.png" alt="Master Angler" /><?php } ?>
+				</div>
+				<?php if ($post_type != 'post') { ?>
+					<div class="fb-like" data-href="<?php the_permalink(); ?>" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
+				<?php } ?>
+				
 			</a>
 <?php		if ($p_counter == $ad_after_post) { ?>
 				<div class="ms-ad ad-wrap">

@@ -35,7 +35,7 @@
 	if( $('.community-mobile-menu').length ){
 		$('.community-mobile-menu').on('click touchstart', function(e){
 			e.preventDefault();
-			$('.menu-hunt, .menu-fish').toggle();
+			$('.menu-photo-wrap').toggle();
 		});
 	}
 	//layout in columns
@@ -77,6 +77,11 @@
 		
 		// Main Nav
 		menu_container.css("height", window_height + "px");
+		
+		// Disable Parent links in the main mobile menu (column titles)
+		$("#menu-mobile-menu > li.menu-item-has-children > a").click(function(e){
+			e.preventDefault();
+		});
 		
 		// Buy magazine dorp down menu
 		var buyMagHeadLink 	= $("#head-subscribe"),	
