@@ -1575,6 +1575,27 @@ if(function_exists("register_field_group"))
 								'formatting' => 'br',
 							),
 							array (
+								'key' => 'field_586bfccbd86ae',
+								'label' => 'Featured Video Thumb',
+								'name' => 'feat_image_z',
+								'type' => 'image',
+								'column_width' => '',
+								'save_format' => 'url',
+								'preview_size' => 'thumbnail',
+								'library' => 'all',
+								'conditional_logic' => array (
+									'status' => 1,
+									'rules' => array (
+										array (
+											'field' => 'field_58a5b4af0b5dc',
+											'operator' => '==',
+											'value' => 'brightcove',
+										),
+									),
+									'allorany' => 'all',
+								),
+							),
+							array (
 								'key' => 'field_585dd689a2a8e',
 								'label' => 'Video List',
 								'name' => 'video_list',
@@ -1761,7 +1782,7 @@ if(function_exists("register_field_group"))
 							'explore' => 'Explore Section',
 							'wysiwyg' => 'WYSIWYG Editor',
 							'custom_html' => 'Custom HTML',
-							'multi_video' => 'Multiple Video Section',
+							'multi_vid' => 'Multiple Video Section',
 						),
 						'default_value' => '',
 						'allow_null' => 1,
@@ -2334,7 +2355,7 @@ if(function_exists("register_field_group"))
 					array (
 						'key' => 'field_955d45e5a2a8a',
 						'label' => 'Multiple Video Section',
-						'name' => 'multi_vid',
+						'name' => 'multi_video',
 						'type' => 'repeater',
 						'conditional_logic' => array (
 							'status' => 1,
@@ -2342,13 +2363,27 @@ if(function_exists("register_field_group"))
 								array (
 									'field' => 'field_58407d268db0a',
 									'operator' => '==',
-									'value' => 'multi_video',
+									'value' => 'multi_vid',
 								),
 							),
 							'allorany' => 'all',
 						),
 						'column_width' => '',
 						'sub_fields' => array (
+							array (
+								'key' => 'field_955d461fa2a8a',
+								'label' => 'Video Service',
+								'name' => 'video_service',
+								'type' => 'radio',
+								'choices' => array (
+									'brightcove' => 'Birghtcove',
+									'youtube' => 'YouTube',
+								),
+								'other_choice' => 0,
+								'save_other_choice' => 0,
+								'default_value' => 'brightcove',
+								'layout' => 'horizontal',
+							),
 							array (
 								'key' => 'field_955d461fa2a8b',
 								'label' => 'Section Title',
@@ -2398,6 +2433,27 @@ if(function_exists("register_field_group"))
 								'append' => '',
 								'formatting' => 'html',
 								'maxlength' => '',
+							),
+							array (
+								'key' => 'field_955d467ca2a8e',
+								'label' => 'Featured Video Thumb',
+								'name' => 'feat_image_z',
+								'type' => 'image',
+								'column_width' => '',
+								'save_format' => 'url',
+								'preview_size' => 'thumbnail',
+								'library' => 'all',
+								'conditional_logic' => array (
+									'status' => 1,
+									'rules' => array (
+										array (
+											'field' => 'field_955d461fa2a8a',
+											'operator' => '==',
+											'value' => 'brightcove',
+										),
+									),
+									'allorany' => 'all',
+								),
 							),
 							array (
 								'key' => 'field_955d4689a2a8e',

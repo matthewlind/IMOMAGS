@@ -63,7 +63,7 @@ function loadLatestPosts(p) {
 		var windowWidth = window.outerWidth;
 		$('.new-iframe-ad').each(function() {
 	    	var newSrc = $(this).attr('src') + "&windowWidth=" + windowWidth;
-	    	console.log(newSrc);
+	    	//console.log(newSrc);
 		    $(this).attr('src', newSrc);
 		});
 		setTimeout(function(){FB.XFBML.parse(document.getElementById('latest_list'));}, 100);
@@ -141,10 +141,9 @@ $(document).ready(function() {
 		ul.slideDown(500);
 		
 		$.each(th, function(i, val){
-			
-			console.log(val);
+			//console.log(val);
 			var url = $(this).data("mv-img");
-			console.log(i);
+			//console.log(i);
 			$(this).css('background-image', 'url(' + url + ')'); 
 		});
 	});

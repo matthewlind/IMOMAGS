@@ -169,6 +169,7 @@ function load_cat_home_btf() {
 		while ( have_rows($btf_sections, $options) ) { 
 			the_row(); 
 			$section = get_sub_field('section');
+			echo get_template_directory() . '/content/cat-sections/section-'.$section.'.php';
 			include(get_template_directory() . '/content/cat-sections/section-'.$section.'.php');		
 		}
 	}
