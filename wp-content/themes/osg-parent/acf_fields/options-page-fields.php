@@ -69,6 +69,7 @@ if(function_exists("register_field_group"))
 						'allow_null' => 1,
 						'multiple' => 0,
 					),
+/*
 					array (
 						'key' => 'field_582b5ced30ffe',
 						'label' => 'Store',
@@ -93,6 +94,7 @@ if(function_exists("register_field_group"))
 						'default_value' => '',
 						'layout' => 'vertical',
 					),
+*/
 					array (
 						'key' => 'field_582b5d23ac56c',
 						'label' => 'Featured Category',
@@ -176,7 +178,7 @@ if(function_exists("register_field_group"))
 						),
 						'row_min' => 1,
 						'row_limit' => 1,
-						'layout' => 'table',
+						'layout' => 'row',
 						'button_label' => 'Add Row',
 					),
 					array (
@@ -894,6 +896,29 @@ if(function_exists("register_field_group"))
 		'title' => 'Home Options',
 		'fields' => array (
 			array (
+				'key' => 'field_5396f72a968le',
+				'label' => 'Homepage Featured Stories.',
+				'name' => 'homepage_featured_stories_',
+				'type' => 'relationship',
+				'instructions' => 'Choose 5 featured posts to be displayed at the beginning of the homepage',
+				'return_format' => 'object',
+				'post_type' => array (
+					0 => 'post',
+				),
+				'taxonomy' => array (
+					0 => 'all',
+				),
+				'filters' => array (
+					0 => 'search',
+				),
+				'result_elements' => array (
+					0 => 'featured_image',
+					1 => 'post_type',
+					2 => 'post_title',
+				),
+				'max' => 5,
+			),
+			array (
 				'key' => 'field_581b4d950a4b2',
 				'label' => 'Home BTF Sections',
 				'name' => 'home_btf_sections',
@@ -920,6 +945,7 @@ if(function_exists("register_field_group"))
 						'allow_null' => 1,
 						'multiple' => 0,
 					),
+/*
 					array (
 						'key' => 'field_581b51b2784e0',
 						'label' => 'Store',
@@ -944,6 +970,7 @@ if(function_exists("register_field_group"))
 						'default_value' => '',
 						'layout' => 'vertical',
 					),
+*/
 					array (
 						'key' => 'field_581b5243784e1',
 						'label' => 'Featured Category',
@@ -1027,7 +1054,7 @@ if(function_exists("register_field_group"))
 						),
 						'row_min' => 1,
 						'row_limit' => 1,
-						'layout' => 'table',
+						'layout' => 'row',
 						'button_label' => 'Add Row',
 					),
 					array (
@@ -1126,7 +1153,7 @@ if(function_exists("register_field_group"))
 						),
 						'row_min' => 1,
 						'row_limit' => 1,
-						'layout' => 'table',
+						'layout' => 'row',
 						'button_label' => 'Add Row',
 					),
 					array (
@@ -1482,8 +1509,8 @@ if(function_exists("register_field_group"))
 								'maxlength' => '',
 							),
 						),
-						'row_min' => '',
-						'row_limit' => '',
+						'row_min' => 1,
+						'row_limit' => 1,
 						'layout' => 'row',
 						'button_label' => 'Add Row',
 					),
@@ -1617,7 +1644,7 @@ if(function_exists("register_field_group"))
 									),
 									array (
 										'key' => 'field_925db67ca2a8d',
-										'label' => 'Video Title Z',
+										'label' => 'Video Title',
 										'name' => 'znamez',
 										'type' => 'text',
 										'column_width' => '',
@@ -1631,7 +1658,7 @@ if(function_exists("register_field_group"))
 									array (
 										'key' => 'field_926bfc78d86ad',
 										'label' => 'Video Description',
-										'name' => 'z_video_desc',
+										'name' => 'udesk',
 										'type' => 'textarea',
 										'default_value' => '',
 										'placeholder' => '',
@@ -1788,6 +1815,7 @@ if(function_exists("register_field_group"))
 						'allow_null' => 1,
 						'multiple' => 0,
 					),
+/*
 					array (
 						'key' => 'field_58403d4bf7afb',
 						'label' => 'Store',
@@ -1811,6 +1839,7 @@ if(function_exists("register_field_group"))
 						'default_value' => '',
 						'layout' => 'vertical',
 					),
+*/
 					array (
 						'key' => 'field_58403d75f7afc',
 						'label' => 'Featured Category',
@@ -1894,7 +1923,7 @@ if(function_exists("register_field_group"))
 						),
 						'row_min' => 1,
 						'row_limit' => 1,
-						'layout' => 'table',
+						'layout' => 'row',
 						'button_label' => 'Add Row',
 					),
 					array (
@@ -2858,6 +2887,7 @@ if(function_exists("register_field_group"))
 	));
 	
 	
+/*
 	register_field_group(array (
 		'id' => 'acf_homepage-options',
 		'title' => 'Homepage Options',
@@ -2883,7 +2913,7 @@ if(function_exists("register_field_group"))
 					1 => 'post_type',
 					2 => 'post_title',
 				),
-				'max' => 6,
+				'max' => 5,
 			),
 		),
 		'location' => array (
@@ -2905,6 +2935,7 @@ if(function_exists("register_field_group"))
 		),
 		'menu_order' => 31,
 	));
+*/
 }
 
 ?>
