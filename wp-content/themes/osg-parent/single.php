@@ -5,6 +5,7 @@
 	
 	$dartdomain 	= get_option('dart_domain', false);
 	$post_id		= $post->ID;
+	$post_type 		= get_post_type( $post_id );
 	$hide_date		= get_field('hide_date');
 	$author_id		= $post->post_author;
 	$author_url		= get_author_posts_url($author_id);
@@ -237,7 +238,7 @@
           <div></div>
         </div>
 	</div>
-	<div id="btn_more_stories" class="btn-lg" data-cat="<?php echo $primary_cat_id; ?>" data-post-not="<?php echo $post_id; ?>">
+	<div id="btn_more_stories" class="btn-lg" data-cat="<?php echo $primary_cat_id; ?>" data-post-type="<?php echo $post_type; ?>" data-post-not="<?php echo $post_id; ?>">
 		<span>Show More</span>
 		<div class="loader-anim dnone">
 			<div class="line-spin-fade-loader">

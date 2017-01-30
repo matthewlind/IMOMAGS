@@ -152,7 +152,7 @@ function load_cat_home_btf() {
 	global $wpdb;          
     ob_start(); 
     $curr_cat_id	= (isset($_POST['cat_id']))? $_POST['cat_id']:"";
-    $overwrite_cat_btf = (isset($_POST['overwrite_cat_btf']))? filter_var($_POST['overwrite_cat_btf'], FILTER_VALIDATE_BOOLEAN):"";
+    $overwrite_cat_btf = (isset($_POST['overwrite_default_category_btf_']))? filter_var($_POST['overwrite_default_category_btf_'], FILTER_VALIDATE_BOOLEAN):"";
     $dartDomain     = get_option("dart_domain", $default = false);
     $page_type		= $_POST['page_type'];
 	$magazine_img 	= get_option('magazine_cover_uri' );
@@ -162,7 +162,7 @@ function load_cat_home_btf() {
 	$btf_sections	= 'cat_btf_sections';
 	$options		= 'options';
 	
-	if ($overwrite_cat_btf) {$btf_sections = 'custom_cat_btf_sections'; $options = 'category_'.$curr_cat_id;}
+	if ($overwrite_cat_btf) {$btf_sections = 'custom_category_btf_sections_'; $options = 'category_'.$curr_cat_id;}
 	if ($page_type == 'home') {$btf_sections = 'home_btf_sections';} 
 	
 	if( have_rows($btf_sections, $options) ) {

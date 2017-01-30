@@ -7,7 +7,7 @@ if (have_rows('sip_section', $options)) {
 		$sip_link_text 	= get_sub_field('sip_link_text');
 		$sip_link_url 	= get_sub_field('sip_link_url');
 		$mag_cover 		= get_sub_field('mag_cover');
-		$online_str_url	= get_sub_field('online_store_url');
+		//$online_str_url	= get_sub_field('online_store_url');
 		$itunes_url 	= get_sub_field('itunes_url');
 		$ggle_play_url 	= get_sub_field('google_play_url');
 		$wind_str_url 	= get_sub_field('windows_store_url');
@@ -34,9 +34,8 @@ if (have_rows('sip_section', $options)) {
 					<div id="sip_buy_btn" class="twins-buy-btn">
 						<span>Buy Now<i class="icon-caret-down"></i></span>
 						<div id="sip_drop_down" class="tw-buy-drop-down">
-							<?php if ($online_str_url) echo '<a href="'.$online_str_url.'" target="_blank">Order Print Magazine Online<i class="icon-arrow-right"></i></a>'; ?>
+							<?php //if ($online_str_url) echo '<a href="'.$online_str_url.'" target="_blank">Order Print Magazine Online<i class="icon-arrow-right"></i></a>'; ?>
 							<?php if ($itunes_url || $ggle_play_url || $wind_str_url) { ?>
-							<hr>
 							<span>Get The Digital Edition</span>
 							<ul>
 							<?php 
