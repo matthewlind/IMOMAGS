@@ -69,32 +69,6 @@ if(function_exists("register_field_group"))
 						'allow_null' => 1,
 						'multiple' => 0,
 					),
-/*
-					array (
-						'key' => 'field_582b5ced30ffe',
-						'label' => 'Store',
-						'name' => 'store',
-						'type' => 'checkbox',
-						'instructions' => 'Include store widget?',
-						'conditional_logic' => array (
-							'status' => 1,
-							'rules' => array (
-								array (
-									'field' => 'field_582b5cce30ffd',
-									'operator' => '==',
-									'value' => 'subscribe',
-								),
-							),
-							'allorany' => 'all',
-						),
-						'column_width' => '',
-						'choices' => array (
-							'store' => 'Store',
-						),
-						'default_value' => '',
-						'layout' => 'vertical',
-					),
-*/
 					array (
 						'key' => 'field_582b5d23ac56c',
 						'label' => 'Featured Category',
@@ -360,6 +334,7 @@ if(function_exists("register_field_group"))
 								'preview_size' => 'thumbnail',
 								'library' => 'all',
 							),
+/*
 							array (
 								'key' => 'field_582b5e559045b',
 								'label' => 'Online Store URL',
@@ -373,6 +348,7 @@ if(function_exists("register_field_group"))
 								'formatting' => 'html',
 								'maxlength' => '',
 							),
+*/
 							array (
 								'key' => 'field_582b5e679045c',
 								'label' => 'iTunes URL',
@@ -765,7 +741,7 @@ if(function_exists("register_field_group"))
 									),
 									array (
 										'key' => 'field_915db67ca2a8d',
-										'label' => 'Video Title Z',
+										'label' => 'Video Title',
 										'name' => 'znamez',
 										'type' => 'text',
 										'column_width' => '',
@@ -945,32 +921,6 @@ if(function_exists("register_field_group"))
 						'allow_null' => 1,
 						'multiple' => 0,
 					),
-/*
-					array (
-						'key' => 'field_581b51b2784e0',
-						'label' => 'Store',
-						'name' => 'store',
-						'type' => 'checkbox',
-						'instructions' => 'Include store widget?',
-						'conditional_logic' => array (
-							'status' => 1,
-							'rules' => array (
-								array (
-									'field' => 'field_581b4e100a4b3',
-									'operator' => '==',
-									'value' => 'subscribe',
-								),
-							),
-							'allorany' => 'all',
-						),
-						'column_width' => '',
-						'choices' => array (
-							'store' => 'Store',
-						),
-						'default_value' => '',
-						'layout' => 'vertical',
-					),
-*/
 					array (
 						'key' => 'field_581b5243784e1',
 						'label' => 'Featured Category',
@@ -1238,6 +1188,7 @@ if(function_exists("register_field_group"))
 								'preview_size' => 'thumbnail',
 								'library' => 'all',
 							),
+/*
 							array (
 								'key' => 'field_581bd61fe291f',
 								'label' => 'Online Store URL',
@@ -1251,6 +1202,7 @@ if(function_exists("register_field_group"))
 								'formatting' => 'html',
 								'maxlength' => '',
 							),
+*/
 							array (
 								'key' => 'field_581bd94156550',
 								'label' => 'iTunes URL',
@@ -1762,6 +1714,7 @@ if(function_exists("register_field_group"))
 	));
 	
 	
+/*
 	
 	
 	register_field_group(array (
@@ -1815,31 +1768,6 @@ if(function_exists("register_field_group"))
 						'allow_null' => 1,
 						'multiple' => 0,
 					),
-/*
-					array (
-						'key' => 'field_58403d4bf7afb',
-						'label' => 'Store',
-						'name' => 'store',
-						'type' => 'checkbox',
-						'conditional_logic' => array (
-							'status' => 1,
-							'rules' => array (
-								array (
-									'field' => 'field_58703d268db0a',
-									'operator' => '==',
-									'value' => 'subscribe',
-								),
-							),
-							'allorany' => 'all',
-						),
-						'column_width' => '',
-						'choices' => array (
-							'store' => 'Store',
-						),
-						'default_value' => '',
-						'layout' => 'vertical',
-					),
-*/
 					array (
 						'key' => 'field_58403d75f7afc',
 						'label' => 'Featured Category',
@@ -2070,7 +1998,7 @@ if(function_exists("register_field_group"))
 								'maxlength' => '',
 							),
 							array (
-								'key' => 'field_58403eb4b64e4',
+								'key' => 'field_58403eacb64e4',
 								'label' => 'SIP link text',
 								'name' => 'sip_link_text',
 								'type' => 'text',
@@ -2520,7 +2448,7 @@ if(function_exists("register_field_group"))
 									array (
 										'key' => 'field_956bfc78d86ad',
 										'label' => 'Video Description',
-										'name' => 'z_video_desc',
+										'name' => 'udesk',
 										'type' => 'textarea',
 										'default_value' => '',
 										'placeholder' => '',
@@ -2621,6 +2549,7 @@ if(function_exists("register_field_group"))
 		),
 		'menu_order' => 0,
 	));
+*/
 
 
 
@@ -2782,71 +2711,8 @@ if(function_exists("register_field_group"))
 		'menu_order' => -20,
 	));
 	
-/*
-	register_field_group(array (
-		'id' => 'acf_homepage-fields',
-		'title' => 'Homepage Fields',
-		'fields' => array (
-			array (
-				'key' => 'field_573c885547f34',
-				'label' => 'Homepage Featured Category',
-				'name' => 'homepage_featured_category',
-				'type' => 'taxonomy',
-				'taxonomy' => 'category',
-				'field_type' => 'select',
-				'allow_null' => 0,
-				'load_save_terms' => 0,
-				'return_format' => 'id',
-				'multiple' => 0,
-			),
-			array (
-				'key' => 'field_57597848699dd',
-				'label' => 'Homepage "explore" categories',
-				'name' => 'home_explore_categories',
-				'type' => 'repeater',
-				'instructions' => 'Preferred numbers of chosen categories	are 3, 5, 8 or 11',
-				'sub_fields' => array (
-					array (
-						'key' => 'field_575978cffc7b2',
-						'label' => 'Explore Category',
-						'name' => 'explore_category',
-						'type' => 'taxonomy',
-						'column_width' => '',
-						'taxonomy' => 'category',
-						'field_type' => 'select',
-						'allow_null' => 0,
-						'load_save_terms' => 0,
-						'return_format' => 'id',
-						'multiple' => 0,
-					),
-				),
-				'row_min' => '',
-				'row_limit' => '',
-				'layout' => 'table',
-				'button_label' => 'Add Row',
-			),
-		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'options_page',
-					'operator' => '==',
-					'value' => 'acf-options',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'normal',
-			'layout' => 'default',
-			'hide_on_screen' => array (
-			),
-		),
-		'menu_order' => 0,
-	));
-*/
 	
+		
 	//Byline
 	register_field_group(array (
 		'id' => 'acf_byline-field',
@@ -2886,56 +2752,6 @@ if(function_exists("register_field_group"))
 		'menu_order' => 0,
 	));
 	
-	
-/*
-	register_field_group(array (
-		'id' => 'acf_homepage-options',
-		'title' => 'Homepage Options',
-		'fields' => array (
-			array (
-				'key' => 'field_5396f72a968le',
-				'label' => 'Homepage Featured Stories.',
-				'name' => 'homepage_featured_stories_',
-				'type' => 'relationship',
-				'instructions' => 'Choose 5 featured posts to be displayed at the beginning of the homepage',
-				'return_format' => 'object',
-				'post_type' => array (
-					0 => 'post',
-				),
-				'taxonomy' => array (
-					0 => 'all',
-				),
-				'filters' => array (
-					0 => 'search',
-				),
-				'result_elements' => array (
-					0 => 'featured_image',
-					1 => 'post_type',
-					2 => 'post_title',
-				),
-				'max' => 5,
-			),
-		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'options_page',
-					'operator' => '==',
-					'value' => 'acf-options',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'normal',
-			'layout' => 'default',
-			'hide_on_screen' => array (
-			),
-		),
-		'menu_order' => 31,
-	));
-*/
 }
 
 ?>

@@ -331,26 +331,12 @@
 	text-align: left;
 	cursor: auto;
 }
-.tw-buy-drop-down a,
 .tw-buy-drop-down > span {
 	color: #222;
 	font-size: 13px;
 	display: inline-block;
-}
-.tw-buy-drop-down > a {
-	padding-bottom: 3px;
-}
-.tw-buy-drop-down a:hover,
-.tw-buy-drop-down .icon-arrow-right:hover {
-	color: #2776b9;
-}
-.tw-buy-drop-down .icon-arrow-right {
-	vertical-align: middle;
-	padding-left: 3px;
-	font-size: 19px;
-}
-.tw-buy-drop-down > span {
-	padding-top: 10px;
+	padding-top: 8px;
+	font-weight: 600;
 }
 .tw-buy-drop-down ul {
 	list-style: none;
@@ -364,6 +350,8 @@
 	background-color: #eee;
 }
 .tw-buy-drop-down ul li a {
+	font-size: 13px;
+	color: #222;
 	display: block;
 	padding: 2px 0;
 }
