@@ -72,7 +72,6 @@ while (have_posts()) : the_post();
 						<div class="video-more-content" style="display:none;"><div class="more-link">Read More</div></div>					
 					</div><!-- end of .unify -->										
 				</div><!-- end of #description-area -->
-				
 			</div><!-- end of #video-player-area -->
 							
 			<div class="ad-block">

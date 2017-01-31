@@ -148,8 +148,12 @@ body.page-template-show-page-php, .wrapper.is-tv {
 .tv-show .main {
 	border: none;
 }
-.tv-show .main, .content-banner-section {
+.tv-show .main, .is-tv .content-banner-section  {
 	background: transparent;
+	border: none;
+}
+.is-tv .general {
+	background: transparent !important;
 	border: none;
 }
 .tv-show .shows-logo {
