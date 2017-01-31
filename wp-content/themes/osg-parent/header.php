@@ -75,7 +75,7 @@
 		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/allpages.css" />
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 		
-<?php	if (is_category("tv") || in_category("tv") || is_page_template( "show-page.php" )) { ?>
+<?php	if (is_category("tv") || in_category("tv") && is_single() || is_page_template( "show-page.php" )) { ?>
 			<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' );?>/css/category-tv.css" />
 <?php	}
 	} // end else

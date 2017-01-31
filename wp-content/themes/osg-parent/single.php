@@ -11,13 +11,12 @@
 	$author_url		= get_author_posts_url($author_id);
 	$author_name	= (!get_field("author_name")) ? get_the_author() : get_field("author_name");
 	$author_title	= get_field("author_title");
-	$byline 		= get_post_meta($post_id, 'ecpt_byline', true);
-	if(!$byline){
-		$byline 		= get_field("byline");
-	}
-	
-	
 	$tv_player_id 	= get_field("tv_player_id","options");
+	
+	// for sponsored stories
+	$sponsored_text = get_field("sponsored_text");
+	$sponsor_logo = get_field("sponsor_logo");
+	$sponsor_url = get_field("sponsor_url");
 	
 	// POST CATEGORIES
 	$post_meta			= get_post_meta($post_id);
@@ -35,17 +34,19 @@
 <main class="main-single">
 	<article id="article" class="article">
 		<header class="article-header">
+			<div class="sponsor-info">
+				<span><?php echo $sponsored_text; ?></span><a href="<?php echo $sponsor_url; ?>" target="_blank"><img src="<?php echo $sponsor_logo; ?>"></a>
+			</div>
 			<div class="cat-feat-wrap">
 				<?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(); } ?>
-				<?php if ($hide_date == false) { ?> <div class="the-date"><?php the_time('F jS, Y'); ?></div> <?php } ?>
 			</div>
-			<h1><?php the_title(); ?></h1>
-			<div class="byline"><span><?php if($byline) { echo $byline; } ?></span></div>
-			
+			<h1><?php the_title(); ?></h1>			
 			<div class="author-wrap clearfix">
 				<?php if ($author_name != 'admin') { ?>
 				<!--<div class="author-img"><?php //echo get_avatar($author_id, 120);?></div>-->
 				<h4><?php echo $author_name;?></h4>
+				
+				<?php if ($hide_date == false) { ?> <span class="the-date"><?php the_time('F jS, Y'); ?>&nbsp;&nbsp;|&nbsp;&nbsp;</span><?php } ?>
 				<span class="author-title"><?php if($author_title) { echo $author_title; ?><i>&nbsp;&nbsp;•&nbsp;&nbsp;</i><br><?php }?><a href="<?php echo $author_url;?>">More From <?php echo $author_name;?></a></span>
 				<?php } ?>
 				<div class="sponsor"><?php imo_ad_placement("sponsor"); ?></div>
