@@ -1,5 +1,6 @@
 <?php
 $player_id = get_field('brightcove_player_id', 'options');
+$account_num = get_field('brightcove_account_num', 'options');
 if (have_rows('multi_video', $options)) {
 	while (have_rows('multi_video', $options)) {
 		the_row();
@@ -150,7 +151,7 @@ if (have_rows('multi_video', $options)) {
 						var myPlayer,
 							playerHTML,
 							playerData = {
-								'accountId': '3165341001',
+								'accountId': '<?php echo $account_num; ?>',
 								'playerId': '<?php echo $player_id; ?>',
 								'videoId': '<?php echo $feat_video_id; ?>'
 							};

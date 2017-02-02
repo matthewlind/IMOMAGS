@@ -1,5 +1,6 @@
 <?php
 $player_id = get_field('brightcove_player_id', 'options');
+$account_num = get_field('brightcove_account_num', 'options');
 if (have_rows('tv_section', $options)) {
 	while (have_rows('tv_section', $options)) {
 		the_row();
@@ -25,7 +26,7 @@ if (have_rows('tv_section', $options)) {
 			<div class="player-wrap">
 				<video 	
 						data-video-id="<?php echo $tv_video_id; ?>"
-						data-account="3165341001" 
+						data-account="<?php echo $account_num; ?>" 
 						data-player="<?php echo $player_id; ?>" 
 						data-embed="default" 
 						data-application-id 
@@ -33,7 +34,7 @@ if (have_rows('tv_section', $options)) {
 						controls 
 						style="width: 100%; height: 100%; position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px;">
 				</video>
-				<script src="//players.brightcove.net/3165341001/Sy0xelbbl_default/index.min.js"></script>
+				<script src="//players.brightcove.net/<?php echo $account_num; ?>/<?php echo $player_id; ?>_default/index.min.js"></script>
 			</div> 
 		</div>
 	</div>
