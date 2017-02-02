@@ -2,7 +2,7 @@
 	get_header();
 	$is_single_default = true;
 	global $post;
-	
+	$permalink 		= str_replace("artem", "com", get_permalink());
 	$dartdomain 	= get_option('dart_domain', false);
 	$post_id		= $post->ID;
 	$post_type 		= get_post_type( $post_id );
@@ -29,6 +29,9 @@
 	} else {
 		$primary_cat_name = get_cat_name($primary_cat_id);
 	}
+	
+	$fb_count = facebook_count($permalink);
+	$fb_zero  = ($fb_count < 1) ? 'fb-zero' : '';
 ?>
 
 <main class="main-single">
@@ -51,17 +54,19 @@
 				<?php } ?>
 				<div class="sponsor"><?php imo_ad_placement("sponsor"); ?></div>
 			</div>
-			<div class="social-single">
+			<div class="social-single <?php echo $fb_zero; ?>">
 				<ul>
-					<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>&title=<?php the_title(); ?>" target="_blank"><i class="icon-facebook"></i><span>Share</span></a></li>
-					<li><a href="http://twitter.com/intent/tweet?status=<?php the_title(); ?>+<?php the_permalink(); ?>" target="_blank"><i class="icon-twitter"></i><span>Tweet</span></a></li>
-					<li><a href="mailto:?body=<?php the_permalink(); ?>"><i class="icon-envelope"></i><span>Email</span></a></li>
+					<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo $permalink; ?>&title=<?php the_title(); ?>" target="_blank"><i class="icon-facebook"></i><span>Share</span></a><b title="Facebook share count"><?php echo $fb_count; ?></b></li>
+					<li><a href="http://twitter.com/intent/tweet?status=<?php the_title(); ?>+<?php echo $permalink; ?>" target="_blank"><i class="icon-twitter"></i><span>Tweet</span></a></li>
+					<li><a href="mailto:?body=<?php echo $permalink; ?>"><i class="icon-envelope"></i><span>Email</span></a></li>
 				</ul>
 			</div>
 		</header>
 		<div class="article-body">
 			
-<?php		
+<?php	
+//echo facebook_count('http://www.in-fisherman.com/panfish/world-record-sunfish/');
+		
 		// these acf fields are numbers to push n pargraphs up or n paragraphs down the inline element
 		$sponsored_el	= (get_field('sponsored_el'))	? get_field('sponsored_el') : 0 ;
 		$video_el		= (get_field('video_el')) 		? get_field('video_el') 	: 0 ;
@@ -195,11 +200,11 @@
 				</div>
 	    	</div>
 		</div>-->
-		<div class="social-single">
+		<div class="social-single <?php echo $fb_zero; ?>">
 			<ul>
-				<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>&title=<?php the_title(); ?>" target="_blank"><i class="icon-facebook"></i><span>Share</span></a></li>
-				<li><a href="http://twitter.com/intent/tweet?status=<?php the_title(); ?>+<?php the_permalink(); ?>" target="_blank"><i class="icon-twitter"></i><span>Tweet</span></a></li>
-				<li><a href="mailto:?body=<?php the_permalink(); ?>"><i class="icon-envelope"></i><span>Email</span></a></li>
+				<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo $permalink; ?>&title=<?php the_title(); ?>" target="_blank"><i class="icon-facebook"></i><span>Share</span></a><b title="Facebook share count"><?php echo $fb_count; ?></b></li>
+				<li><a href="http://twitter.com/intent/tweet?status=<?php the_title(); ?>+<?php echo $permalink; ?>" target="_blank"><i class="icon-twitter"></i><span>Tweet</span></a></li>
+				<li><a href="mailto:?body=<?php echo $permalink; ?>"><i class="icon-envelope"></i><span>Email</span></a></li>
 			</ul>
 		</div>
 		<div class="a-comments">
@@ -239,7 +244,7 @@
           <div></div>
         </div>
 	</div>
-	<div id="btn_more_stories" class="btn-lg" data-cat="<?php echo $primary_cat_id; ?>" data-post-type="<?php echo $post_type; ?>" data-post-not="<?php echo $post_id; ?>">
+	<div id="btn_more_stories" class="btn-lg" data-cat="<?php echo $primary_cat_id; ?>" data-post-type="<?php echo $post_type; ?>" data-post-not="<?php echo $post_id; ?>" data-fb-like="<?php if (in_category('master-angler')) echo '1'; ?>">
 		<span>Show More</span>
 		<div class="loader-anim dnone">
 			<div class="line-spin-fade-loader">

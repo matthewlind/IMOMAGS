@@ -13,6 +13,7 @@ var $document 		= $(document),
 	cat_id 			= btn_more_stories.data("cat"),
 	post_not		= btn_more_stories.data("post-not"),
 	post_type		= btn_more_stories.data("post-type"),
+	fb_like			= btn_more_stories.data("fb-like"),
 	ad_count		= 1;
 
 	
@@ -62,7 +63,7 @@ function loadMorePosts(p, a) {
 		current_post_id = $("body").attr("id"),
 		d_dart 			= $("body").attr("domain"),
 		d_page 			= $("body").data("page");
-					
+		
 	loader_anim.removeClass('dnone');
 	
 	$.ajax({
@@ -80,7 +81,8 @@ function loadMorePosts(p, a) {
 			'post_type'			: post_type,
 			'd_dart'			: d_dart,
 			'd_page'			: d_page,
-			'ad_count'			: ad_count
+			'ad_count'			: ad_count,
+			'fb_like'			: fb_like
 		}
 	})
 	.done(function(response) {
