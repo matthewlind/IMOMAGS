@@ -128,11 +128,11 @@ $term = str_replace("'", "", $term);
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], 'medium_rect_after_article').addService(googletag.pubads());
 	
 	<?php if(is_single()){ ?>
-			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [4, 4], 'teads').addService(googletag.pubads());
+			//googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [4, 4], 'teads').addService(googletag.pubads());
 	    <?php } ?>
 	    
 	if (w>=1100){
-		googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [3, 3], 'superheader').addService(googletag.pubads());
+		//googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [3, 3], 'superheader').addService(googletag.pubads());
 		
 		googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [[970, 250], [728, 90]], 'billboard').addService(googletag.pubads());
 		googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 600], 'sticky').addService(googletag.pubads());
