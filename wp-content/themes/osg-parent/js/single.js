@@ -63,7 +63,7 @@ function loadMorePosts(p, a) {
 		current_post_id = $("body").attr("id"),
 		d_dart 			= $("body").attr("domain"),
 		d_page 			= $("body").data("page");
-		console.log(d_page);			
+		
 	loader_anim.removeClass('dnone');
 	
 	$.ajax({
