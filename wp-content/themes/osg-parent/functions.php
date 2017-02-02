@@ -492,6 +492,22 @@ function isset_related_posts()
     return (false == strpos($output, 'No related photos'));
 }
 
+
+function facebook_count($url){
+    $fqlURL = "https://graph.facebook.com/?id=" . $url;
+    // Facebook Response is in JSON
+    $response = file_get_contents($fqlURL);
+    //return json_decode($response);
+	$fb = json_decode($response);
+	$count = $fb->share->share_count;
+	if ($count > 999) { $count = floor($count / 1000) . 'k'; }
+	//echo $count;
+	
+	return $count;
+	//DEBUG	
+	//echo '<pre>';print_r($fb);echo '</pre>';
+}
+
 /**
  * Callback Handler for the admin_menu action.
  */

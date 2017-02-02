@@ -87,7 +87,8 @@ function ms_load_more() {
     $ad_after_post		= $_POST['ad_after_post'];
     $post_not			= $_POST['post_not'];
     $d_dart				= $_POST['d_dart'];
-	$d_page				= $_POST['d_page'];
+    $fb_like			= (isset($_POST['fb_like']))? intval($_POST['fb_like']): 0 ;
+	$d_page				= (isset($_POST['d_page']))? $_POST['d_page']:"";
 	$ad_count			= $_POST['ad_count'];
     $post_type			= (isset($_POST['post_type']))? $_POST['post_type']:"";
     $current_post_id	= $_POST['current_post_id'];
@@ -124,7 +125,7 @@ function ms_load_more() {
 					<?php the_title( '<h1>', '</h1>'); ?>
 					<?php if(in_category("master-angler")){ ?><img class="ma-badge" src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/pic/badge-ma.png" alt="Master Angler" /><?php } ?>
 				</div>
-				<?php if ($post_type != 'post') { ?>
+				<?php if ($fb_like == 1) { ?>
 					<div class="fb-like" data-href="<?php the_permalink(); ?>" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
 				<?php } ?>
 				

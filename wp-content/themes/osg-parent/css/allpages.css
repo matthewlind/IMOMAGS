@@ -1067,9 +1067,10 @@ nav {
 .social-single ul li {
 	display: inline-block;
 	margin-right: 5px;
+	position: relative;
 }
 .social-single ul li a {
-	display: block;
+	display: inline-block;
 	width: 45px;
 	height: 45px;
 	border-radius: 2px;
@@ -1079,6 +1080,7 @@ nav {
 }
 .social-single ul li a:hover {
 	opacity: 0.9;
+	text-decoration: none;
 }
 .social-single ul li:nth-of-type(2) a {
 	background-color: #28A9E0;
@@ -1093,6 +1095,18 @@ nav {
 }
 .social-single ul span {
 	display: none;
+}
+.social-single ul li > b {
+	padding: 0 10px;
+	height: 45px;
+	vertical-align: bottom;
+	text-align: center;
+	display: inline-block;
+	border-right: 1px solid #ddd;
+	font: 600 19px/45px 'Stag', serif;
+}
+.social-single ul li > b:hover {
+	cursor: default;
 }
 
 
@@ -1379,8 +1393,11 @@ nav {
 
 /* Social Buttons */
 .social-single ul {display: flex;justify-content:space-between;}
-.social-single ul li {margin: 0; width: 32%;}
+.social-single ul li {margin: 0; width: 29%;}
+.social-single ul li:nth-of-type(1) {width: 37.4%;}
 .social-single ul li a {width: 100%;}
+.social-single ul li:nth-of-type(1) a {width: 78%;}
+.social-single ul li > b {width: 22%;}
 .social-single ul i,
 .social-single ul span {display: inline; vertical-align: middle; line-height: 45px; margin:0 5px;}
 .social-single ul span {font-size: 15px;}

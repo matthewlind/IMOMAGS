@@ -3,6 +3,7 @@
 	$post_id = $post->ID;
 	$post_type = get_post_type( $post_id );
 	$dartDomain = get_option("dart_domain", $default = false);
+	$permalink = str_replace("artem", "com", get_permalink());
 
 // POST CATEGORIES
 	$post_meta			= get_post_meta($post_id);
@@ -37,15 +38,15 @@
 			<div class="byline"><span><?php the_time('F jS, Y'); ?></span></div>
 			<div class="social-single">
 				<ul>
-					<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>&title=<?php the_title(); ?>" target="_blank"><i class="icon-facebook"></i><span>Share</span></a></li>
-					<li><a href="http://twitter.com/intent/tweet?status=<?php the_title(); ?>+<?php the_permalink(); ?>" target="_blank"><i class="icon-twitter"></i><span>Tweet</span></a></li>
-					<li><a href="mailto:?body=<?php the_permalink(); ?>"><i class="icon-envelope"></i><span>Email</span></a></li>
+					<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo $permalink; ?>&title=<?php the_title(); ?>" target="_blank"><i class="icon-facebook"></i><span>Share</span></a><b title="Facebook share count"><?php echo facebook_count($permalink); ?></b></li>
+					<li><a href="http://twitter.com/intent/tweet?status=<?php the_title(); ?>+<?php echo $permalink; ?>" target="_blank"><i class="icon-twitter"></i><span>Tweet</span></a></li>
+					<li><a href="mailto:?body=<?php echo $permalink; ?>"><i class="icon-envelope"></i><span>Email</span></a></li>
 				</ul>
 			</div>
 		</header>
 		<div class="article-body">
 			<div id="sticky-ad" class="sticky-ad">
-			    <div class="sticky-ad-inner"><iframe class="iframe-ad" onload="resizeIframe(this)" width="300" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?term=<?php echo $term; ?>&camp=<?php echo $camp; ?>&ad_code=<?php echo $dartdomain; ?>&ad_unit=sticky&page=article"></iframe></div>
+			    <div class="sticky-ad-inner"><?php imo_ad_placement("sticky"); ?></div>
 		    </div>
 			<div class="feat-img">
 	            <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('large'); ?></a>
@@ -67,9 +68,9 @@
 		</div>
 		<div class="social-single">
 			<ul>
-				<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>&title=<?php the_title(); ?>" target="_blank"><i class="icon-facebook"></i><span>Share</span></a></li>
-				<li><a href="http://twitter.com/intent/tweet?status=<?php the_title(); ?>+<?php the_permalink(); ?>" target="_blank"><i class="icon-twitter"></i><span>Tweet</span></a></li>
-				<li><a href="mailto:?body=<?php the_permalink(); ?>"><i class="icon-envelope"></i><span>Email</span></a></li>			
+				<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo $permalink; ?>&title=<?php the_title(); ?>" target="_blank"><i class="icon-facebook"></i><span>Share</span></a><b title="Facebook share count"><?php echo facebook_count($permalink); ?></b></li>
+				<li><a href="http://twitter.com/intent/tweet?status=<?php the_title(); ?>+<?php echo $permalink; ?>" target="_blank"><i class="icon-twitter"></i><span>Tweet</span></a></li>
+				<li><a href="mailto:?body=<?php echo $permalink; ?>"><i class="icon-envelope"></i><span>Email</span></a></li>
 			</ul>
 		</div>
 		<div class="a-comments">
@@ -106,7 +107,7 @@
           <div></div>
         </div>
 	</div>
-	<div id="btn_more_stories" class="btn-lg" data-cat="<?php echo $primary_cat_id; ?>" data-post-type="<?php echo $post_type; ?>" data-post-not="<?php echo $post_id; ?>">
+	<div id="btn_more_stories" class="btn-lg" data-cat="<?php echo $primary_cat_id; ?>" data-post-type="<?php echo $post_type; ?>" data-post-not="<?php echo $post_id; ?>" data-fb-like="1">
 		<span>Show More</span>
 		<div class="loader-anim dnone">
 			<div class="line-spin-fade-loader">
