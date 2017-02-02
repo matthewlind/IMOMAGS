@@ -1108,7 +1108,7 @@ nav {
 .social-single ul li > b:hover {
 	cursor: default;
 }
-
+.fb-zero ul li > b {display: none;}
 
 /*----------------------------------------------------------*/
 /*	FOOTER
@@ -1402,6 +1402,10 @@ nav {
 .social-single ul span {display: inline; vertical-align: middle; line-height: 45px; margin:0 5px;}
 .social-single ul span {font-size: 15px;}
 .social-single ul li:nth-of-type(3) span {color: #333;}
+.fb-zero ul li {width: 32%;}
+.fb-zero ul li:nth-of-type(1) {width: 32%;}
+.fb-zero ul li:nth-of-type(1) a {width: 100%;}
+
 
 }/* end media 600 */
 

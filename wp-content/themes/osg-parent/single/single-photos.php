@@ -8,8 +8,10 @@
 // POST CATEGORIES
 	$post_meta			= get_post_meta($post_id);
 	$primary_cat_id		= $post_meta["_category_permalink"][0];
-	$primary_cat_name	= get_cat_name($primary_cat_id);	
-
+	$primary_cat_name	= get_cat_name($primary_cat_id);
+	
+	$fb_count = facebook_count($permalink);
+	$fb_zero  = ($fb_count < 1) ? 'fb-zero' : '';	
 ?>
 <div class="section-inner-wrap">
 	<?php get_template_part('content/content', 'comunity-header'); ?>
@@ -36,9 +38,9 @@
 			</div>
 			<h1><?php the_title(); ?></h1>
 			<div class="byline"><span><?php the_time('F jS, Y'); ?></span></div>
-			<div class="social-single">
+			<div class="social-single <?php echo $fb_zero; ?>">
 				<ul>
-					<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo $permalink; ?>&title=<?php the_title(); ?>" target="_blank"><i class="icon-facebook"></i><span>Share</span></a><b title="Facebook share count"><?php echo facebook_count($permalink); ?></b></li>
+					<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo $permalink; ?>&title=<?php the_title(); ?>" target="_blank"><i class="icon-facebook"></i><span>Share</span></a><b title="Facebook share count"><?php echo $fb_count; ?></b></li>
 					<li><a href="http://twitter.com/intent/tweet?status=<?php the_title(); ?>+<?php echo $permalink; ?>" target="_blank"><i class="icon-twitter"></i><span>Tweet</span></a></li>
 					<li><a href="mailto:?body=<?php echo $permalink; ?>"><i class="icon-envelope"></i><span>Email</span></a></li>
 				</ul>
@@ -66,9 +68,9 @@
 				<?php } ?>
 		        </div>
 		</div>
-		<div class="social-single">
+		<div class="social-single <?php echo $fb_zero; ?>">
 			<ul>
-				<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo $permalink; ?>&title=<?php the_title(); ?>" target="_blank"><i class="icon-facebook"></i><span>Share</span></a><b title="Facebook share count"><?php echo facebook_count($permalink); ?></b></li>
+				<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo $permalink; ?>&title=<?php the_title(); ?>" target="_blank"><i class="icon-facebook"></i><span>Share</span></a><b title="Facebook share count"><?php echo $fb_count; ?></b></li>
 				<li><a href="http://twitter.com/intent/tweet?status=<?php the_title(); ?>+<?php echo $permalink; ?>" target="_blank"><i class="icon-twitter"></i><span>Tweet</span></a></li>
 				<li><a href="mailto:?body=<?php echo $permalink; ?>"><i class="icon-envelope"></i><span>Email</span></a></li>
 			</ul>

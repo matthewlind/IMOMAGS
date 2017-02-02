@@ -30,7 +30,8 @@
 		$primary_cat_name = get_cat_name($primary_cat_id);
 	}
 	
-	
+	$fb_count = facebook_count($permalink);
+	$fb_zero  = ($fb_count < 1) ? 'fb-zero' : '';
 ?>
 
 <main class="main-single">
@@ -53,9 +54,9 @@
 				<?php } ?>
 				<div class="sponsor"><?php imo_ad_placement("sponsor"); ?></div>
 			</div>
-			<div class="social-single">
+			<div class="social-single <?php echo $fb_zero; ?>">
 				<ul>
-					<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo $permalink; ?>&title=<?php the_title(); ?>" target="_blank"><i class="icon-facebook"></i><span>Share</span></a><b title="Facebook share count"><?php echo facebook_count($permalink); ?></b></li>
+					<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo $permalink; ?>&title=<?php the_title(); ?>" target="_blank"><i class="icon-facebook"></i><span>Share</span></a><b title="Facebook share count"><?php echo $fb_count; ?></b></li>
 					<li><a href="http://twitter.com/intent/tweet?status=<?php the_title(); ?>+<?php echo $permalink; ?>" target="_blank"><i class="icon-twitter"></i><span>Tweet</span></a></li>
 					<li><a href="mailto:?body=<?php echo $permalink; ?>"><i class="icon-envelope"></i><span>Email</span></a></li>
 				</ul>
@@ -199,9 +200,9 @@
 				</div>
 	    	</div>
 		</div>-->
-		<div class="social-single">
+		<div class="social-single <?php echo $fb_zero; ?>">
 			<ul>
-				<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo $permalink; ?>&title=<?php the_title(); ?>" target="_blank"><i class="icon-facebook"></i><span>Share</span></a><b  title="Facebook share count"><?php echo facebook_count($permalink); ?></b></li>
+				<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo $permalink; ?>&title=<?php the_title(); ?>" target="_blank"><i class="icon-facebook"></i><span>Share</span></a><b title="Facebook share count"><?php echo $fb_count; ?></b></li>
 				<li><a href="http://twitter.com/intent/tweet?status=<?php the_title(); ?>+<?php echo $permalink; ?>" target="_blank"><i class="icon-twitter"></i><span>Tweet</span></a></li>
 				<li><a href="mailto:?body=<?php echo $permalink; ?>"><i class="icon-envelope"></i><span>Email</span></a></li>
 			</ul>
