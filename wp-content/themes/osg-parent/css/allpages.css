@@ -207,6 +207,10 @@ dl,h3,menu,ol,p,pre,ul{margin:1em 0}body,figure,form{margin:0}*,::before,:after{
 	display: none;
 }
 
+.wpsocialite {
+	display: none;
+}
+
 /*----------------------------------------------------------
 	3.1 Loaders
 ----------------------------------------------------------*/
