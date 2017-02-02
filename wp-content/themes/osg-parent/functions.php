@@ -501,8 +501,6 @@ function facebook_count($url){
 	$fb = json_decode($response);
 	$count = $fb->share->share_count;
 	if ($count > 999) { $count = floor($count / 1000) . 'k'; }
-	//echo $count;
-	
 	return $count;
 	//DEBUG	
 	//echo '<pre>';print_r($fb);echo '</pre>';
