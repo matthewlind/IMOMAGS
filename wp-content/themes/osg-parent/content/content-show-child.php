@@ -43,45 +43,47 @@ $slug_tv = get_post( $post )->post_name;
         }
     });
 </script>
-<div id="show-destination" playerID="<?php echo get_field("tv_player_id","options"); ?>" adServerURL="<?php echo $adServerURL; ?>" videoLink="<?php echo $videoLink; ?>">
-	<?php get_template_part( 'content/tv-show/show-header' ); ?>
-		<div class="sidebar-area">
-			<div class="sidebar">
-				<div class="widget_advert-widget widget">
-					<?php imo_ad_placement("300_atf"); ?>
-				</div>
-				<?php the_widget( 'Schedule_Widget' ); ?>
-				<div class="widget"><?php get_template_part( 'widgets/sportsmanLocator' ); ?></div>
-				<?php the_widget( 'imo\SubscribeWidget' ); ?>
-			</div><!-- end of .sidebar -->
-		</div><!-- end of .sidebar-area -->
 
-		<div class="show-child-general">
-			<div class="show-child-general-frame">
-				<div class="show-header js-responsive-section">
-					<h1 class="page-title">
-						<span><?php the_title(); ?></span>
-				    </h1>
-				</div>
-				
-				<div id="post-<?php the_ID(); ?>" <?php post_class('article-brief js-responsive-section'); ?>>
-					<div class="article-holder">
-						<?php the_content(); ?>
+<div class="tv-show">
+	<div id="show-destination" playerID="<?php echo get_field("tv_player_id","options"); ?>" adServerURL="<?php echo $adServerURL; ?>" videoLink="<?php echo $videoLink; ?>">
+		<?php get_template_part( 'content/tv-show/show-header' ); ?>
+			<div class="sidebar-area">
+				<div class="sidebar">
+					<div class="widget_advert-widget widget">
+						<?php imo_ad_placement("300_atf"); ?>
 					</div>
-				</div>
-				
-				<?php get_template_part( "content/tv-show/{$slug_tv}" ); ?>
-			</div><!-- end of .show-child-general-frame -->
-		</div><!-- end of .show-child-general -->
-	</div><!-- end of #show-destination -->
-</div><!-- end of #shows_player_area :::: this div ends an open div in the show header template-->
-<div class="wrap4padding"><div class="border-stripes"></div></div>
-<?php 
-//get_template_part( "content/tv-show/show-schedule" );
-get_template_part( 'content/tv-show/show-store' ); 
-get_template_part( 'content/tv-show/show-sponsors' ); ?>
+					<?php the_widget( 'Schedule_Widget' ); ?>
+					<div class="widget"><?php get_template_part( 'widgets/sportsmanLocator' ); ?></div>
+					<?php the_widget( 'imo\SubscribeWidget' ); ?>
+				</div><!-- end of .sidebar -->
+			</div><!-- end of .sidebar-area -->
+	
+			<div class="show-child-general">
+				<div class="show-child-general-frame">
+					<div class="show-header js-responsive-section">
+						<h1 class="page-title">
+							<span><?php the_title(); ?></span>
+					    </h1>
+					</div>
+					
+					<div id="post-<?php the_ID(); ?>" <?php post_class('article-brief js-responsive-section'); ?>>
+						<div class="article-holder">
+							<?php the_content(); ?>
+						</div>
+					</div>
+					
+					<?php get_template_part( "content/tv-show/{$slug_tv}" ); ?>
+				</div><!-- end of .show-child-general-frame -->
+			</div><!-- end of .show-child-general -->
+		</div><!-- end of #show-destination -->
+	</div><!-- end of #shows_player_area :::: this div ends an open div in the show header template-->
+	<div class="wrap4padding"><div class="border-stripes"></div></div>
+	<?php 
+	//get_template_part( "content/tv-show/show-schedule" );
+	get_template_part( 'content/tv-show/show-store' ); 
+	get_template_part( 'content/tv-show/show-sponsors' ); ?>
 
-
+</div>
 
 
 
