@@ -5,6 +5,9 @@
 .sections-wrap h1 {
 	font-weight: 700;
 }
+.home .sections-wrap {
+	padding-top: 5px;
+}
 .main-h {
 	text-align: center;
 	padding: 0 15px;
@@ -687,6 +690,7 @@ a img.aligncenter {display: block;margin-left: auto;margin-right: auto;}
 @media only screen and (min-width: 700px) {
 	
 .sections-wrap section {padding-bottom: 35px;}
+.home .sections-wrap {padding-top: 30px;}
 .l-container {padding: 0 30px;}
 .l-list li {width: 48%;}
 .l-list .l-ad-wrap {text-align: center;margin-bottom: 35px;width: 100%;}

@@ -29,17 +29,14 @@ if ($is_custom_img_and_url) {
 	$foot_post_btn_txt	= 'Read Now!';
 }
 
-
-	
-$site_name	= trim(get_bloginfo('name'), "Magazine");
 		if(!is_page()){	
 ?>			
 			<div class="pre-footer">
 				<div class="section-inner-wrap">
 		        	<ul>
 			        	<li class="f-newsletter">
-			        		<h3>Get the <?php echo $site_name; ?> Email!</h3>
-							<p>Get the Top Stories from <?php echo $site_name; ?> Delivered to Your Inbox Every Week</p>
+			        		<h3>Get the <?php echo get_bloginfo('name'); ?> Newsletter FREE!</h3>
+							<p>Get the top stories delivered right to your inbox every week.</p>
 							<?php get_template_part("content/redesign/content", "newsletter");?>
 			        	</li>
 			        	<li class="f-feat-page"><?php echo "<h3><a href='$f_url'>$f_title</a></h3><a href='$f_url'>$f_thumb</a><a class='link-to-all' href='$f_url'>$foot_post_btn_txt</a>"; ?></li>
