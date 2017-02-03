@@ -32,10 +32,10 @@
 		'name': 'ARIZONA',
 		'url':'/forecasts/2017-rocky-mountain-fishing-forecast/',
 		'target':'_blank',
-		'upcolor':'#ccc',
+		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
 		'downcolor':'#993366',
-		'enable':false
+		'enable':true
 	},
 	'map_4':{
 		'namesId':'AR',
@@ -80,12 +80,12 @@
 	'map_8':{
 		'namesId':'DE',
 		'name': 'DELAWARE',
-		'url':'/forecasts/2017-DELAWARE-fishing-forecast/',
+		'url':'/forecasts/2017-virginia-fishing-forecast/',
 		'target':'_blank',
-		'upcolor':'#ccc',
+		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
 		'downcolor':'#993366',
-		'enable':false,
+		'enable':true,
 	},	
 	'map_9':{
 		'namesId':'FL',
@@ -120,12 +120,12 @@
 	'map_12':{
 		'namesId':'ID',
 		'name': 'IDAHO',
-		'url':'/forecasts/2017-IDAHO-fishing-forecast/',
+		'url':'/forecasts/2017-rocky-mountain-fishing-forecast/',
 		'target':'_blank',
-		'upcolor':'#ccc',
+		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
 		'downcolor':'#993366',
-		'enable':false
+		'enable':true
 	},
 	'map_13':{
 		'namesId':'IL',
@@ -200,12 +200,12 @@
 	'map_20':{
 		'namesId':'MD',
 		'name': 'MARYLAND',
-		'url':'/forecasts/2017-MARYLAND-fishing-forecast/',
+		'url':'/forecasts/2017-virginia-fishing-forecast/',
 		'target':'_blank',
-		'upcolor':'#ccc',
+		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
 		'downcolor':'#993366',
-		'enable':false
+		'enable':true,
 	},
 	'map_21':{
 		'namesId':'MA',
@@ -260,12 +260,12 @@
 	'map_26':{
 		'namesId':'MT',
 		'name': 'MONTANA',
-		'url':'/forecasts/2017-MONTANA-fishing-forecast/',
+		'url':'/forecasts/2017-rocky-mountain-fishing-forecast/',
 		'target':'_blank',
-		'upcolor':'#ccc',
+		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
 		'downcolor':'#993366',
-		'enable':false
+		'enable':true
 	},
 	'map_27':{
 		'namesId':'NE',
@@ -280,12 +280,12 @@
 	'map_28':{
 		'namesId':'NV',
 		'name': 'NEVADA',
-		'url':'/forecasts/2017-NEVADA-fishing-forecast/',
+		'url':'/forecasts/2017-rocky-mountain-fishing-forecast/',
 		'target':'_blank',
-		'upcolor':'#ccc',
+		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
 		'downcolor':'#993366',
-		'enable':false
+		'enable':true
 	},	
 	'map_29':{
 		'namesId':'NH',
@@ -300,7 +300,7 @@
 	'map_30':{
 		'namesId':'NJ',
 		'name': 'NEW JERSEY',
-		'url':'/forecasts/2017-NEW-JERSEY-fishing-forecast/',
+		'url':'/forecasts/2017-virginia-fishing-forecast/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -312,10 +312,10 @@
 		'name': 'NEW MEXICO',
 		'url':'/forecasts/2017-rocky-mountain-fishing-forecast/',
 		'target':'_blank',
-		'upcolor':'#ccc',
+		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
 		'downcolor':'#993366',
-		'enable':false
+		'enable':true
 	},	
 	'map_32':{
 		'namesId':'NY',
@@ -370,7 +370,7 @@
 	'map_37':{
 		'namesId':'OR',
 		'name': 'OREGON',
-		'url':'/forecasts/2017-washington-oregon-fishing-forecast/',
+		'url':'/forecasts/2017-washingtonoregon-fishing-forecast/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -440,12 +440,12 @@
 	'map_44':{
 		'namesId':'UT',
 		'name': 'UTAH',
-		'url':'/forecasts/2017-UTAH-fishing-forecast/',
+		'url':'/forecasts/2017-rocky-mountain-fishing-forecast/',
 		'target':'_blank',
-		'upcolor':'#ccc',
+		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
 		'downcolor':'#993366',
-		'enable':false
+		'enable':true
 	},
 	'map_45':{
 		'namesId':'VT',
@@ -470,7 +470,7 @@
 	'map_47':{
 		'namesId':'WA',
 		'name': 'WASHINGTON',
-		'url':'/forecasts/2017-washington-oregon-fishing-forecast/',
+		'url':'/forecasts/2017-washingtonoregon-fishing-forecast/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -502,10 +502,10 @@
 		'name': 'WYOMING',
 		'url':'/forecasts/2017-rocky-mountain-fishing-forecast/',
 		'target':'_blank',
-		'upcolor':'#ccc',
+		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
 		'downcolor':'#993366',
-		'enable':false
+		'enable':true
 	},
 	'map_51':{
 		'namesId':'DC',
