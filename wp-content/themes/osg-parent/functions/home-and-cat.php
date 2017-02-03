@@ -157,7 +157,7 @@ function load_cat_home_btf() {
     $page_type		= $_POST['page_type'];
 	$magazine_img 	= get_option('magazine_cover_uri' );
 	$deal_copy 		= get_option('deal_copy' );
-	$site_name		= get_bloginfo('name'); 
+	$site_name 		= str_replace('Magazine', '', get_bloginfo('name'));
 	$subs_link 		= get_option('subs_link') . "/?pkey=";
 	$btf_sections	= 'cat_btf_sections';
 	$options		= 'options';

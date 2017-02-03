@@ -14,7 +14,9 @@ $acfID = 'category_' . $id;
 $format = get_post_format( $postID );
 $adServerURL = "http://ad.doubleclick.net/pfadx/" .  get_option("dart_domain", _imo_dart_guess_domain())  ."/tv";
 $videoLink = !empty($postID) ? get_permalink($postID) :  site_url() . $_SERVER['REQUEST_URI']; 
-
+$permalink = str_replace("artem", "com", get_permalink());
+$fb_count = facebook_count($permalink);
+$fb_zero  = ($fb_count < 1) ? 'fb-zero' : '';
 
 if( !is_single() ){
 	query_posts(array( 
@@ -61,11 +63,11 @@ while (have_posts()) : the_post();
 				<div id="description-area">
 					<div class="unify">
 						<h1 class="video-title" data-videoid="<?php echo $video_id; ?>" data-slug="<?php echo $post->post_name;?>"><?php the_title(); ?></h1>
-						<div class="social-single">
+						<div class="social-single <?php echo $fb_zero; ?>">
 							<ul>
-								<li><a id="fb_btn" href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>&title=<?php the_title(); ?>" target="_blank"><i class="icon-facebook"></i><span>Share</span></a></li>
-								<li><a id="twitter_btn" href="http://twitter.com/intent/tweet?status=<?php the_title(); ?>+<?php the_permalink(); ?>" target="_blank"><i class="icon-twitter"></i><span>Tweet</span></a></li>
-								<li><a id="email_btn" href="mailto:?body=<?php echo get_the_title() . ": " . get_permalink(); ?>"><i class="icon-envelope"></i><span>Email</span></a></li>
+								<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo $permalink; ?>&title=<?php the_title(); ?>" target="_blank"><i class="icon-facebook"></i><span>Share</span></a><b title="Facebook share count"><?php echo $fb_count; ?></b></li>
+								<li><a href="http://twitter.com/intent/tweet?status=<?php the_title(); ?>+<?php echo $permalink; ?>" target="_blank"><i class="icon-twitter"></i><span>Tweet</span></a></li>
+								<li><a href="mailto:?body=<?php echo $permalink; ?>"><i class="icon-envelope"></i><span>Email</span></a></li>
 							</ul>
 						</div>
 						<div class="video-description"><?php the_content(); ?></div>

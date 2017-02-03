@@ -27,7 +27,7 @@ if (have_rows('featured_cat', $options)) {
 		<div class="twins-thumbs clearfix">
 			<ul>
 				<?php	
-					$args = array ('cat' => $cat_id,'posts_per_page' => 2,'order' => 'DESC');
+					$args = array ('cat' => $cat_id,'posts_per_page' => 2,'order' => 'DESC', 'post_status' => 'publish');
 					$query = new WP_Query( $args );
 					if ( $query->have_posts() ) {
 						while ( $query->have_posts() ) {

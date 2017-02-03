@@ -327,6 +327,8 @@ body {
 .calendar-data td > div.active .c-date {right:17px;}
 .day-data {
     list-style:none;
+    margin: 0;
+    padding: 0;
 }
 .w-col .day-data {padding:0 0 7px;}
 .cal-popup .day-data {
