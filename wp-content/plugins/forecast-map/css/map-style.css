@@ -30,7 +30,7 @@ svg{
 }
 @media screen and (max-width: 400px) and (min-width: 321px) {
 	#map_base{
-		height:266px;
+		height:240px;
 		width:98%;
 		margin:0px;	}
 }
@@ -42,37 +42,37 @@ svg{
 }
 @media screen and (max-width: 568px) and (min-width: 481px) {
 	#map_base{
-		height:370px;
+		height:340px;
 		width:98%;
 		margin:0px;	}
 }
 @media screen and (max-width: 685px) and (min-width: 569px) {
 	#map_base{
-		height:456px;
+		height:400px;
 		width:98%;
 		margin:0px;	}
 }
 @media screen and (max-width: 768px) and (min-width: 686px) {
 	#map_base{
-		height:502px;
+		height:460px;
 		width:98%;
 		margin:0px;	}
 }
 @media screen and (max-width: 1024px) and (min-width: 769px) {
 	#map_base{
-		height:672px;
+		height:560px;
 		width:98%;
 		margin:0px;	}
 }
 @media screen and (max-width: 1280px) and (min-width: 1025px) {
 	#map_base{
-		height:842px;
+		height:610px;
 		width:98%;
 		margin:0px;	}
 }
 @media screen and (max-width: 1600px) and (min-width: 1281px) {
 	#map_base{
-		height:1056px;
+		height:720px;
 		width:98%;
 		margin:0px;	}
 }
