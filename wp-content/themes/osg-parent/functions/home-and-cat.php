@@ -49,6 +49,9 @@ function h_load_latest() {
 	$page_type		= $_POST['page_type'];
 	$d_dart			= $_POST['d_dart'];
 	$d_page			= $_POST['d_page'];
+	$d_page			= $_POST['d_page'];
+	$d_term			= $_POST['d_term'];
+	$d_camp			= $_POST['d_camp'];
 	$ad_count		= $_POST['ad_count'];
 	$post_not_array = explode(',', $post_not);
 	$p_counter		= 0;
@@ -116,7 +119,7 @@ function h_load_latest() {
 				<div class="ad-inner">
 					<?php 
 						$tag_name = "home_cat_300x250_" . $ad_count;
-						osg_ajax_ad_placement($tag_name, $d_dart, $d_page);
+						osg_ajax_ad_placement($tag_name, $d_dart, $d_page, $d_term, $d_camp);
 						$ad_count++;
 					?>
 				</div>

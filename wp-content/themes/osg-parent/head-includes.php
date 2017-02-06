@@ -188,6 +188,28 @@ $term = str_replace("'", "", $term);
 		setInterval(function(){
 			googletag.pubads().refresh();
 		}, 1200000);
-		jQuery("body").attr('data-page', '<?php echo $page; ?>');
+		
 	};
+	
+	jQuery(document).ready(function(){
+		jQuery("body").attr('data-page', '<?php echo $page; ?>');
+		jQuery("body").attr('data-term', '<?php echo $term; ?>');
+		jQuery("body").attr('data-camp', '<?php echo $camp; ?>');
+	});
 </script>
+
+
+<?php
+function osg_article_ad_placement($size, $dartDomain, $page){ 
+	global $term, $camp;
+?>
+	<div id='<?php echo $size; ?>'>
+		<script type='text/javascript'>
+			googletag.cmd.push(function() {	
+				googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], '<?php echo $size; ?>').addService(googletag.pubads().setTargeting('sect', ['<?php echo $term; ?>']).setTargeting('camp', ['<?php echo $camp; ?>']));
+				googletag.display('<?php echo $size; ?>');
+			});
+		</script>
+	</div>
+<?php } 
+
