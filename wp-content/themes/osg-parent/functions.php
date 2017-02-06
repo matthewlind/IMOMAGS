@@ -63,11 +63,11 @@ function imo_ad_placement($size){ ?>
 <?php } 
 
 // ADs LOADED WITH AJAX
-function osg_ajax_ad_placement($size, $dartDomain, $page){ ?>
+function osg_ajax_ad_placement($size, $dartDomain, $page, $term, $camp){ ?>
 	<div id='<?php echo $size; ?>'>
 		<script type='text/javascript'>
 		googletag.cmd.push(function() {	
-			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], '<?php echo $size; ?>').addService(googletag.pubads());
+			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], '<?php echo $size; ?>').addService(googletag.pubads().setTargeting('sect', ['<?php echo $term; ?>']).setTargeting('camp', ['<?php echo $camp; ?>']));
 			googletag.display('<?php echo $size; ?>');
 		});
 		</script>

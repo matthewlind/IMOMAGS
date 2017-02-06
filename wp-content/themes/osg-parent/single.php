@@ -171,7 +171,7 @@
 					<div class="as-inner">
 						<?php 
 							$tag_name = "article_300x250_" . $ad_count;
-							osg_ajax_ad_placement($tag_name, $dartdomain, 'article');
+							osg_article_ad_placement($tag_name, $dartdomain, 'article');
 						?>
 					</div>
 				</div>

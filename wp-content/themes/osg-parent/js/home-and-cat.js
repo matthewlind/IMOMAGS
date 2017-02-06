@@ -33,7 +33,9 @@ function loadLatestPosts(p) {
 		latest_list		= $("#latest_list"),
 		post_per_page	= p,
 		d_dart 			= $("body").attr("domain"),
-		d_page 			= $("body").data("page")
+		d_page 			= $("body").data("page"),
+		d_term 			= $("body").data("term"),
+		d_camp 			= $("body").data("camp");
 					
 	loader_anim.removeClass('dnone');
 	
@@ -53,6 +55,8 @@ function loadLatestPosts(p) {
 			'post_type'		: post_type,
 			'd_dart'		: d_dart,
 			'd_page'		: d_page,
+			'd_term'		: d_term,
+			'd_camp'		: d_camp,
 			'ad_count'		: ad_count
 		}
 	})
