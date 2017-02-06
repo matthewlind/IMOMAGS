@@ -17,11 +17,7 @@ get_header(); ?>
 	<div id="primary" class="general">
         <div class="general-frame">
             <div id="content" role="main">
-				<?php 
-					while ( have_posts() ) : the_post(); 
-						include("wp-content/themes/imo-mags-parent/content/content-show-child.php");
-					endwhile; // end of the loop. 
-				?>
+	            <?php get_template_part( 'content/content-show-child' ); ?>
             </div><!-- #content -->
         </div>
     </div><!-- #primary -->
