@@ -41,8 +41,8 @@ $this_cat_name	= $this_cat->name;
 				<p>Anglers who enter qualifying fish receive a Master Angler patch (one per year) and species chevron.<img style="float:right" src="http://dev.imomags.com/infisherman/files/2011/07/sharvestlogo.jpg" /></p>
 				<h2>SELECTIVE HARVEST</h2>
 				<p>Selective Harvest is wise conservation of our natural resources. It maintains a tradition of harvesting some fish to eat, as they're nutritious, delicious, and renewable when harvested wisely. Large predators and large panfish must be released to sustain good fishing. Only numerous and smaller fish should be kept.</p>
-				<h2>RECOGNITION PIN AND CERTIFICATE</h2>
-				<p>In each region, anglers who enter the largest kept or largest released fish of a species receive a Master Angler lapel pin and a parchment certificate suitable for framing.</p>
+				<h2>RECOGNITION CERTIFICATE</h2>
+				<p>In each region, anglers who enter the largest kept or largest released fish of a species receive a Master Angler parchment certificate suitable for framing.</p>
 				<h2>RECOGNITION PLAQUE</h2>
 				<p>Anglers who enter a state-record fish qualify for a personalized Master Angler plaque.</p>
 	
