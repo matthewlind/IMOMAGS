@@ -79,14 +79,14 @@
 		$contents 		= explode("</p>", $content);
 		$p_number		= count($contents);
 		$slots			= array();
-		//$vs				= 1; // video element slot (sponsored story is in slot 0)
-		$as1			= 0; // inline ad slot
-		$as2			= 1; // inline ad slot
-		$as3			= 2; // inline ad slot
+		$vs				= 1; // video element slot (sponsored story is in slot 0)
+		$as1			= 2; // inline ad slot
+		$as2			= 3; // inline ad slot
+		$as3			= 4; // inline ad slot
 		$interval		= $p_number / 2;
 		$ad_count 		= 0;
 		
-		//if 		(empty($tv_player_id)) {$video_el = 999; $as1 = 1; $as2 = 2; $as3 = 3;}
+		if 		(empty($tv_player_id)) {$video_el = 999; $as1 = 1; $as2 = 2; $as3 = 3;}
 		
 		if 		($p_number >= 25) { $interval = $p_number / 5; }
 		else if ($p_number >= 20) { $interval = $p_number / 4; } 
@@ -94,22 +94,14 @@
 		
 		for 	($i = $interval; $i <= $p_number; $i+=$interval) { $slots[] = floor($i); }
 		
-		
-		
-/*
-				echo '<div style="color: #4464B2;">';
+		/*
+		echo '<div style="color: #4464B2;">';
 		echo 'Number of paragraphs: ' . $p_number. '<br><br>';
-		echo '$as1 = '. $as1 . '<br>';
-		echo '$as2 = '. $as2 . '<br>';
-		echo '$as3 = '. $as3 . '<br>';
-		echo '$tv_player_id = '. $tv_player_id . '<br>';
 		echo '$slots array: <pre>'; print_r($slots); echo '</pre>Sponsored content element is always in $slots[0]';
 		echo '<br>First ad is in the slot: '.$as1.' , after '.$slots[$as1].'th paragraph<br>';
 		echo 'Second ad is in the slot: '.$as2.' , after '.$slots[$as2].'th paragraph... and so on<br>';
 		echo '</div>';
-*/
-		
-		
+		*/
 		foreach($contents as $content){
 		    echo $content.'</p>';
 		    
@@ -119,24 +111,95 @@
 					    <?php imo_ad_placement("sticky"); ?>
 					</div>
 			    </div>
-<?php		}
+<?php			}
+		   
+		   // if ($p_number > 5 && $p_counter - ($sponsored_el) == $slots[0]){ ?>
+				<!--<div class="article-elem">
+					<div class="ae-header">
+						<div></div>
+						<h4><span>Sponsored Story</span></h4>
+					</div>
+					<div class="ae-content sp-inner clearfix">
+						<a class="ae-img" href="#"><div style="background-image: url(/wp-content/themes/imo-mags-parent/images/temp/1.jpg)"></div></a>
+						<a class="ae-title" href="#"><span>Introducing the 2016 Franchi Instinct Catalyst</span></a><br>
+						<div class="ae-sponsor"><span>Presented by <a href="#">Quebec Tourism</a></span></div> 
+					</div>
+		    	</div>-->
+<?php 			//}	
+
+
+			if ($p_number > 10 && $p_counter - ($video_el) == $slots[$vs]){ ?>
+				<!--<div class="video-elem">
+					<div class="ve-head">
+						<h4>DON’T MISS IN-FISHERMAN TV</h4>
+						<span>Saturday’s at 10am ET on <a href="">Sportsman Channel</a></span>
+					</div>
+					<div class="ve-content">
+						<ul class="clearfix">
+							<li>
+								<a class="ve-img" href="#">
+									<div style="background-image: url(/wp-content/themes/imo-mags-parent/images/temp/1.jpg)">
+										<div class="ae-play"><div class="ae-triangle"></div></div>
+									</div>
+								</a>
+								<a href=""><h4>Lure Strategies for Ice Walleyes</h4></a>
+							</li>
+							<li>
+								<a class="ve-img" href="#">
+									<div style="background-image: url(/wp-content/themes/imo-mags-parent/images/temp/1.jpg)">
+										<div class="ae-play"><div class="ae-triangle"></div></div>
+									</div>
+								</a>
+								<a href=""><h4>Lorem Ipsum Dolor Reveals Some of The Season's</h4></a>
+							</li>
+							<li>
+								<a class="ve-img" href="#">
+									<div style="background-image: url(/wp-content/themes/imo-mags-parent/images/temp/1.jpg)">
+										<div class="ae-play"><div class="ae-triangle"></div></div>
+									</div>
+								</a>
+								<a href=""><h4>Lure Strategies for Ice Walleyes</h4></a>
+							</li>
+						</ul>
+					</div>
+					<a class="ve-link" href="#">Watch More In-Fisherman TV</a>
+		    	</div>-->
+<?php			}
 			if ($p_number > 10 && $p_counter - ($inline_ad_1) == $slots[$as1] || $p_number > 15 && $p_counter - ($inline_ad_2) == $slots[$as2] || $p_number > 20 && $p_counter - ($inline_ad_3) == $slots[$as3]){ 
 			$ad_count++; ?>
 				<div class="ad-single-inline">
 					<div class="as-inner">
 						<?php 
-							$tag_name = "article_ad_" . $ad_count;
-							imo_ad_placement($tag_name);
+							$tag_name = "article_300x250_" . $ad_count;
+							osg_article_ad_placement($tag_name, $dartdomain, 'article');
 						?>
 					</div>
 				</div>
-<?php		}
+<?php			}
 		    $p_counter++;
 		    
 		    
 		    
 		}
 ?>		
+			<!--<div class="article-elem">
+				<div class="ae-header">
+					<div></div>
+					<h4><span>Read This Next</span></h4>
+				</div>
+				<div class="ae-content clearfix">
+					<a class="ae-img" href="#">
+						<div style="background-image: url(/wp-content/themes/imo-mags-parent/images/temp/1.jpg)">
+							<div class="ae-play"><div class="ae-triangle"></div></div>
+						</div>
+					</a>
+					<a class="ae-title" href="#">
+						<span>Lure Strategies for Ice Walleyes</span>
+						<p>Check out this video: The In-Fisherman staff reveals some of the season's slickest new lure strategies for ice walleyes.</p>
+					</a>
+				</div>
+	    	</div>
+		</div>-->
 		<div class="social-single <?php echo $fb_zero; ?>">
 			<ul>
 				<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo $permalink; ?>&title=<?php the_title(); ?>" target="_blank"><i class="icon-facebook"></i><span>Share</span></a><b title="Facebook share count"><?php echo $fb_count; ?></b></li>
