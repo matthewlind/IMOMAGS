@@ -55,7 +55,6 @@ function h_load_latest() {
 	$ad_count		= $_POST['ad_count'];
 	$post_not_array = explode(',', $post_not);
 	$p_counter		= 0;
-	$post_type		= 'post';
 	$tag_name		= '';
 	
 
