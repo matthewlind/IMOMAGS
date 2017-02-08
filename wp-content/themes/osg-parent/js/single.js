@@ -62,7 +62,9 @@ function loadMorePosts(p, a) {
 		ad_after_post	= a,
 		current_post_id = $("body").attr("id"),
 		d_dart 			= $("body").attr("domain"),
-		d_page 			= $("body").data("page");
+		d_page 			= $("body").data("page"),
+		d_term 			= $("body").data("term"),
+		d_camp 			= $("body").data("camp");
 		
 	loader_anim.removeClass('dnone');
 	
@@ -81,6 +83,8 @@ function loadMorePosts(p, a) {
 			'post_type'			: post_type,
 			'd_dart'			: d_dart,
 			'd_page'			: d_page,
+			'd_term'			: d_term,
+			'd_camp'			: d_camp,
 			'ad_count'			: ad_count,
 			'fb_like'			: fb_like
 		}

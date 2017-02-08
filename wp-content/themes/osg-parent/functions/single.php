@@ -87,6 +87,8 @@ function ms_load_more() {
     $ad_after_post		= $_POST['ad_after_post'];
     $post_not			= $_POST['post_not'];
     $d_dart				= $_POST['d_dart'];
+    $d_term				= $_POST['d_term'];
+	$d_camp				= $_POST['d_camp'];
     $fb_like			= (isset($_POST['fb_like']))? intval($_POST['fb_like']): 0 ;
 	$d_page				= (isset($_POST['d_page']))? $_POST['d_page']:"";
 	$ad_count			= $_POST['ad_count'];
@@ -136,7 +138,7 @@ function ms_load_more() {
 					<div class="ad-inner">
 						<?php
 						$tag_name = "article_more_300x250_" . $ad_count;
-						osg_ajax_ad_placement($tag_name, $d_dart, $d_page);
+						osg_ajax_ad_placement($tag_name, $d_dart, $d_page, $d_term, $d_camp);
 						$ad_count++;
 						?>
 					</div>
