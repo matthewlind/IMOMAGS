@@ -52,6 +52,11 @@ $site_name = str_replace('Magazine', '', get_bloginfo('name'));
 				</div>
 			</div>
 		<?php } ?>
+		<div class="content-banner-section">
+			<div class="mdl-banner">
+				<?php imo_ad_placement("leaderboard"); ?>
+			</div>
+	    </div>
 			<footer id="footer" class="footer" role="contentinfo">
 				<div class="network">
 		            <div class="frame">
