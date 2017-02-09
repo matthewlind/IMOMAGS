@@ -268,5 +268,63 @@ if(function_exists("register_field_group"))
 		),
 		'menu_order' => 0,
 	));
+	
+	register_field_group(array (
+		'id' => 'acf_sponsored-story-fields',
+		'title' => 'Sponsored Story Fields',
+		'fields' => array (
+			array (
+				'key' => 'field_588faa91207b2',
+				'label' => 'Sponsored Text',
+				'name' => 'sponsored_text',
+				'type' => 'text',
+				'default_value' => 'Sponsored by:',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_588faacf207b3',
+				'label' => 'Sponsor Logo',
+				'name' => 'sponsor_logo',
+				'type' => 'image',
+				'save_format' => 'url',
+				'preview_size' => 'thumbnail',
+				'library' => 'all',
+			),
+			array (
+				'key' => 'field_588fb0963fa6b',
+				'label' => 'Sponsor URL',
+				'name' => 'sponsor_url',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_category',
+					'operator' => '==',
+					'value' => '561',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'side',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 5,
+	));
 }	
 	

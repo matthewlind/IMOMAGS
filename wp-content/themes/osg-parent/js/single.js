@@ -14,6 +14,7 @@ var $document 		= $(document),
 	post_not		= btn_more_stories.data("post-not"),
 	post_type		= btn_more_stories.data("post-type"),
 	fb_like			= btn_more_stories.data("fb-like"),
+	is_sponsored	= btn_more_stories.data("is-sponsored"),
 	ad_count		= 1;
 
 	
@@ -86,7 +87,8 @@ function loadMorePosts(p, a) {
 			'd_term'			: d_term,
 			'd_camp'			: d_camp,
 			'ad_count'			: ad_count,
-			'fb_like'			: fb_like
+			'fb_like'			: fb_like,
+			'is_sponsored'		: is_sponsored
 		}
 	})
 	.done(function(response) {
