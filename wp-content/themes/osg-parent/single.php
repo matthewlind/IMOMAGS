@@ -32,13 +32,16 @@
 	
 	$fb_count = facebook_count($permalink);
 	$fb_zero  = ($fb_count < 1) ? 'fb-zero' : '';
+	
+	$is_sponsored = (in_category('sponsored')) ? 1 : 0;
 ?>
 
 <main class="main-single">
 	<article id="article" class="article">
 		<header class="article-header">
 			<div class="sponsor-info">
-				<span><?php echo $sponsored_text; ?></span><a href="<?php echo $sponsor_url; ?>" target="_blank"><img src="<?php echo $sponsor_logo; ?>"></a>
+				<?php imo_ad_placement("sponsor"); ?>
+<!-- 				<img src="http://www.in-fisherman.com/files/2017/02/sponsored-logo-5.jpg"> -->
 			</div>
 			<div class="cat-feat-wrap">
 				<?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(); } ?>
@@ -52,7 +55,6 @@
 				<?php if ($hide_date == false) { ?> <span class="the-date"><?php the_time('F jS, Y'); ?>&nbsp;&nbsp;|&nbsp;&nbsp;</span><?php } ?>
 				<span class="author-title"><?php if($author_title) { echo $author_title; ?><i>&nbsp;&nbsp;•&nbsp;&nbsp;</i><br><?php }?><a href="<?php echo $author_url;?>">More From <?php echo $author_name;?></a></span>
 				<?php } ?>
-				<div class="sponsor"><?php imo_ad_placement("sponsor"); ?></div>
 			</div>
 			<div class="social-single <?php echo $fb_zero; ?>">
 				<ul>
@@ -120,17 +122,20 @@
 					</div>
 			    </div>
 <?php		}
-			if ($p_number > 10 && $p_counter - ($inline_ad_1) == $slots[$as1] || $p_number > 15 && $p_counter - ($inline_ad_2) == $slots[$as2] || $p_number > 20 && $p_counter - ($inline_ad_3) == $slots[$as3]){ 
-			$ad_count++; ?>
-				<div class="ad-single-inline">
-					<div class="as-inner">
-						<?php 
-							$tag_name = "article_ad_" . $ad_count;
-							imo_ad_placement($tag_name);
-						?>
+			if (!in_category('sponsored')) {
+				if ($p_number > 10 && $p_counter - ($inline_ad_1) == $slots[$as1] || $p_number > 15 && $p_counter - ($inline_ad_2) == $slots[$as2] || $p_number > 20 && $p_counter - ($inline_ad_3) == $slots[$as3]){ 
+				$ad_count++; ?>
+					<div class="ad-single-inline">
+						<div class="as-inner">
+							<?php 
+								$tag_name = "article_ad_" . $ad_count;
+								imo_ad_placement($tag_name);
+							?>
+						</div>
 					</div>
-				</div>
-<?php		}
+	<?php		}
+			}
+			
 		    $p_counter++;
 		    
 		    
@@ -181,7 +186,7 @@
           <div></div>
         </div>
 	</div>
-	<div id="btn_more_stories" class="btn-lg" data-cat="<?php echo $primary_cat_id; ?>" data-post-type="<?php echo $post_type; ?>" data-post-not="<?php echo $post_id; ?>" data-fb-like="<?php if (in_category('master-angler')) echo '1'; ?>">
+	<div id="btn_more_stories" class="btn-lg" data-cat="<?php echo $primary_cat_id; ?>" data-post-type="<?php echo $post_type; ?>" data-post-not="<?php echo $post_id; ?>" data-fb-like="<?php if (in_category('master-angler')) echo '1'; ?>" data-is-sponsored="<?php echo $is_sponsored; ?>">
 		<span>Show More</span>
 		<div class="loader-anim dnone">
 			<div class="line-spin-fade-loader">

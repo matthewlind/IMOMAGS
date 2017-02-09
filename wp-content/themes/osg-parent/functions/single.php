@@ -91,6 +91,7 @@ function ms_load_more() {
 	$d_camp				= $_POST['d_camp'];
     $fb_like			= (isset($_POST['fb_like']))? intval($_POST['fb_like']): 0 ;
 	$d_page				= (isset($_POST['d_page']))? $_POST['d_page']:"";
+	$is_sponsored		= (isset($_POST['is_sponsored']))? $_POST['is_sponsored']: 0;
 	$ad_count			= $_POST['ad_count'];
     $post_type			= (isset($_POST['post_type']))? $_POST['post_type']:"";
     $current_post_id	= $_POST['current_post_id'];
@@ -98,11 +99,16 @@ function ms_load_more() {
 	$p_counter			= 0;
 	
 	$term = get_the_title($current_post_id);
+	
+	if ($is_sponsored) {$post_per_page = $post_per_page + 1;}
+/*
 	$campaign = wp_get_post_terms($current_post_id,"campaign");
 	$camp = "";
 	foreach($campaign as $c){
 		$camp = $c->name;
 	}
+*/
+	
 
 	$args = array (
 		'cat'         		=> $cat_id,
@@ -132,7 +138,7 @@ function ms_load_more() {
 				<?php } ?>
 				
 			</a>
-<?php		if ($p_counter == $ad_after_post) { ?>
+<?php		if ($p_counter == $ad_after_post && !$is_sponsored) { ?>
 				<div class="ms-ad ad-wrap">
 					<span class="ad-span">Advertisement</span>
 					<div class="ad-inner">

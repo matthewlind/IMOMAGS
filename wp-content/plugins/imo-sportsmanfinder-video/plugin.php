@@ -150,11 +150,7 @@ function popwin(loc,winname,w,h,scroll,resize) {
     }
 }
 
-add_action( 'wp_enqueue_scripts', 'tsc_vid_enqueue_my_styles' );
-function tsc_vid_enqueue_my_styles() {
-    wp_enqueue_style('channel-video-css', plugins_url('styles.css', __FILE__));
-}
-
+wp_enqueue_style('channel-video-css', plugins_url('styles.css', __FILE__));
 
 add_action("widgets_init", function() {
     return register_widget("imo\IMOSportsmanVideoWidget");

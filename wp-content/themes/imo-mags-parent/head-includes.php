@@ -163,9 +163,8 @@ var h = window.innerHeight;
 	    googletag.defineSlot('/4930/imo.gunsandammo/guns_and_ammo_madness/gam_region_sponsor_3', [240, 60], 'region3').addService(googletag.pubads());
 	    googletag.defineSlot('/4930/imo.gunsandammo/guns_and_ammo_madness/gam_region_sponsor_4', [240, 60], 'region4').addService(googletag.pubads());
 	<?php } ?>
-	 
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [240, 60], 'sponsor').addService(googletag.pubads()); 
 /*
-   	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [240, 60], 'sponsor').addService(googletag.pubads());
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [2, 2], 'native').addService(googletag.pubads());
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [564, 252], 'e_commerce_widget').addService(googletag.pubads());
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [2, 2], 'standard_native').addService(googletag.pubads());

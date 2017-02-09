@@ -132,7 +132,7 @@ $term = str_replace("'", "", $term);
 	<?php } ?>
 	
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 250], 'medium_rect_footer').addService(googletag.pubads());	
-	    
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [240, 60], 'sponsor').addService(googletag.pubads());    
 	if (w>=1100){
 		googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [[970, 250], [728, 90]], 'billboard').addService(googletag.pubads());
 		googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [728, 90], 'leaderboard').addService(googletag.pubads());
