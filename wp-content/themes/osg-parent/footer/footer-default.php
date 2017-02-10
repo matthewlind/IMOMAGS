@@ -42,12 +42,16 @@ $site_name = str_replace('Magazine', '', get_bloginfo('name'));
 							<?php get_template_part("content/redesign/content", "newsletter");?>
 			        	</li>
 			        	<li class="f-feat-page"><?php echo "<h3><a href='$f_url'>$f_title</a></h3><a href='$f_url'>$f_thumb</a><a class='link-to-all' href='$f_url'>$foot_post_btn_txt</a>"; ?></li>
+			        	
+			        	<?php if (!in_category('sponsored')) { ?>
 			        	<li class="ad-wrap">
 			        		<span class="ad-span">Advertisement</span>
 			        		<div class="ad-inner">
 								<?php imo_ad_placement("medium_rect_footer"); ?>
 				        	</div>
 				        </li>
+			        	<?php } ?>
+			        	
 		        	</ul>
 				</div>
 			</div>
