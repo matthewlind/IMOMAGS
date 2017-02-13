@@ -495,15 +495,21 @@ function isset_related_posts()
 
 function facebook_count($url){
     $fqlURL = "https://graph.facebook.com/?id=" . $url;
-    // Facebook Response is in JSON
-    $response = file_get_contents($fqlURL);
-    //return json_decode($response);
-	$fb = json_decode($response);
-	$count = $fb->share->share_count;
-	if ($count > 999) { $count = floor($count / 1000) . 'k'; }
-	return $count;
-	//DEBUG	
-	//echo '<pre>';print_r($fb);echo '</pre>';
+    $file_headers = @get_headers($fqlURL);
+    
+    if(!$file_headers || $file_headers[0] == 'HTTP/1.1 403 Forbidden') {
+    	return 0;
+	} else {
+		// Facebook Response is in JSON
+	    $response = file_get_contents($fqlURL);
+	    //return json_decode($response);
+		$fb = json_decode($response);
+		$count = $fb->share->share_count;
+		if ($count > 999) { $count = floor($count / 1000) . 'k'; }
+		return $count;
+		//DEBUG	
+		//echo '<pre>';print_r($fb);echo '</pre>';
+	}
 }
 
 /**

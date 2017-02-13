@@ -52,9 +52,11 @@
 		<div class="alignright-content inline-ad">
 			<?php imo_ad_placement("microsite_ATF_300x250"); ?>
 		</div>
-		<?php the_content(); ?>
-		<!-- end of the_content(); -->
-		
+		<?php 
+			$content 		= apply_filters('the_content', $post->post_content);
+			echo $content;
+			//the_content(); 
+		?>		
 		<div class="m-article-bottom clearfix">
 			<div class="m-social-wrap">
 				<p class="m-hlep-grow">Share This Article</p>
