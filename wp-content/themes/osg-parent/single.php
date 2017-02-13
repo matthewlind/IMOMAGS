@@ -122,7 +122,7 @@
 					</div>
 			    </div>
 <?php		}
-			if (in_category('sponsored')) {
+			if (in_category('sponsored') || tablet()) {
 				if ($p_number > 10 && $p_counter - ($inline_ad_1) == $slots[$as1] || $p_number > 15 && $p_counter - ($inline_ad_2) == $slots[$as2]){ 
 				$ad_count++; ?>
 					<div class="ad-single-inline">
@@ -134,7 +134,19 @@
 						</div>
 					</div>
 	<?php		}
-			} else {
+			} else if (mobile()) {
+				if ($p_number > 15 && $p_counter - ($inline_ad_2) == $slots[$as2]){ 
+				$ad_count++; ?>
+					<div class="ad-single-inline">
+						<div class="as-inner">
+							<?php 
+								$tag_name = "article_ad_" . $ad_count;
+								imo_ad_placement($tag_name);
+							?>
+						</div>
+					</div>
+	<?php		}
+			} else { // display up to 3 ads on desktop
 				if ($p_number > 10 && $p_counter - ($inline_ad_1) == $slots[$as1] || $p_number > 15 && $p_counter - ($inline_ad_2) == $slots[$as2] || $p_number > 20 && $p_counter - ($inline_ad_3) == $slots[$as3]){ 
 				$ad_count++; ?>
 					<div class="ad-single-inline">
