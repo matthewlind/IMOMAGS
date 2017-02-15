@@ -787,7 +787,7 @@ if(function_exists("register_field_group"))
 									),
 									array (
 										'key' => 'field_915d460ca2k8g',
-										'label' => 'Video Description i',
+										'label' => 'Video Description',
 										'name' => 'udesk',
 										'type' => 'textarea',
 										'default_value' => '',

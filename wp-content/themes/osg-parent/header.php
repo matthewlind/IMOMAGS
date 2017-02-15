@@ -73,20 +73,20 @@
 		} else { 
 ?>	
 		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/allpages.css" />
-		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
+	<?php	if (is_category("tv") || in_category("tv") && is_single() || is_page_template( "show-page.php" )) { ?>
+				<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' );?>/css/category-tv.css" />
+	<?php	}
+			if (is_single() || is_page()) { ?>
+				<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' );?>/css/single.css" />	
+	<?php 	}
 		
-<?php	if (is_category("tv") || in_category("tv") && is_single() || is_page_template( "show-page.php" )) { ?>
-			<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' );?>/css/category-tv.css" />
-<?php	}
-	} // end else
+			if (is_home() || is_category() || is_archive('reader_photos') || is_search() || is_author() || is_404()) { ?>
+				<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' );?>/css/home-and-cat.css" />
+	<?php 	} ?>
+			<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
+<?php	} // end else
 
-	if (is_single() || is_page()) { ?>
-	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' );?>/css/single.css" />	
-<?php }
-	
-	if (is_home() || is_category() || is_archive('reader_photos') || is_search() || is_author() || is_404()) { ?>
-		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' );?>/css/home-and-cat.css" />
-<?php } 
+
 	
 		
 	wp_enqueue_script("jquery");
