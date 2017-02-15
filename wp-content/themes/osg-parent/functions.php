@@ -33,6 +33,7 @@ add_filter('single_template', create_function(
 include_once('acf_fields/options-page-fields.php');
 include_once('acf_fields/single-page-fields.php');
 include_once('acf_fields/show-pages-fields.php');
+include_once('acf_fields/category-fields.php');
 
 //Original "Microsite Category Fields" exported from Petersens's Hunting site
 include_once('acf_fields/microsite-category-fields.php');
