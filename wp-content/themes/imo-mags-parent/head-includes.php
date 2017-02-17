@@ -153,8 +153,8 @@ var screen;
 var w = window.innerWidth;
 var h = window.innerHeight;
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], '300_btf').setTargeting('pos', ['btf']).addService(googletag.pubads());
-	<?php if(is_single()){ ?>
-		//googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [4, 4], 'teads').addService(googletag.pubads());
+	<?php if(is_single() && !in_category('sponsored')){ ?>
+		googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [4, 4], 'teads').addService(googletag.pubads());
     <?php } ?>
 	<?php if(is_page("bracket")){ ?>
 		googletag.defineSlot('/4930/imo.gunsandammo/guns_and_ammo_madness/gam_presenting_sponsor', [240, 60], 'presenting').addService(googletag.pubads());
@@ -170,8 +170,11 @@ var h = window.innerHeight;
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [2, 2], 'standard_native').addService(googletag.pubads());
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [2, 3], 'vide_native').addService(googletag.pubads());
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [2, 4], 'collection_native').addService(googletag.pubads());
-	googletag.defineOutOfPageSlot('/4930/<?php echo $dartDomain; ?>','interstitial').addService(googletag.pubads());
+	
 */
+	<?php if (!in_category('sponsored')) { ?>
+	googletag.defineOutOfPageSlot('/4930/<?php echo $dartDomain; ?>','interstitial').addService(googletag.pubads());
+	<?php } ?>
 	
 	<?php if($microsite){ ?>
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], 'microsite_ATF_300x250').addService(googletag.pubads().setTargeting('sect', ['micro_atf']));
@@ -184,13 +187,15 @@ var h = window.innerHeight;
 	
 if (w>=1100)
 {
-// 	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [3, 3], 'superheader').addService(googletag.pubads());
-	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [[970, 250], [728, 90]], 'billboard').addService(googletag.pubads());
-	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [[300, 600], [300, 250]], '300_atf').addService(googletag.pubads());
-	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [728, 90], '728_btf').addService(googletag.pubads());
-	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [648, 110], 'fordWidget').addService(googletag.pubads());
-	    
-	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/SIP/SIPTV',[300, 600],'microsite_video_page').addService(googletag.pubads());
+	<?php if (!in_category('sponsored')) { ?>
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [3, 3], 'superheader').addService(googletag.pubads());
+	<?php } ?>
+	
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [[970, 250], [728, 90]], 'billboard').addService(googletag.pubads());
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [[300, 600], [300, 250]], '300_atf').addService(googletag.pubads());
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [728, 90], '728_btf').addService(googletag.pubads());
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [648, 110], 'fordWidget').addService(googletag.pubads());
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/SIP/SIPTV',[300, 600],'microsite_video_page').addService(googletag.pubads());
 }
 if (w>=600 && w<=1099)
 {
