@@ -149,9 +149,13 @@ $term = str_replace("'", "", $term);
 		<?php if (is_single()) { ?>
 		googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/<?php echo $page; ?>', [300, 600], 'sticky').addService(googletag.pubads());
 		<?php } ?>
-		<?php if (!in_category('sponsored')) { ?>
+/*
+		<?php if (!in_category('sponsored')) { 
+			// You need to remake the menu on new templates so superheader don't break it
+		?>
 		googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [3, 3], 'superheader').addService(googletag.pubads());
 		<?php } ?>
+*/
 		googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [[300, 600], [300, 250]], '300_atf').addService(googletag.pubads());
 	}
 	if (w>=600 && w<=1099) {

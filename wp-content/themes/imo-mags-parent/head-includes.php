@@ -188,8 +188,7 @@ var h = window.innerHeight;
 if (w>=1100)
 {
 	<?php if (!in_category('sponsored')) { ?>
-	// You need to remake the menu on new templates so superheader don't break it
-	//googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [3, 3], 'superheader').addService(googletag.pubads());
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [3, 3], 'superheader').addService(googletag.pubads());
 	<?php } ?>
 	
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [[970, 250], [728, 90]], 'billboard').addService(googletag.pubads());
