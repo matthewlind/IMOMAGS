@@ -1,3 +1,6 @@
+var playerID = jQuery("#show-destination").attr("playerID"),
+	accountID = jQuery("#show-destination").attr("accountID");
+
 var videoPortal = (function(e){
 	var $ = jQuery;
 	var player,
@@ -331,11 +334,13 @@ var videoPortal = (function(e){
 
 		loadVideo: function(video_id,videoLink){
 			//load videos
-		    var playerID = $("#show-destination").attr("playerID");
-		    var adServerURL = $("#show-destination").attr("adServerURL");
+		    
 		    		    
 		    var htm = '';
+		    
+		    htm = '<video id=\"tv_player\" data-video-id=\"' + video_id + '\" data-account=\"' + accountID + '\" data-player=\"' + playerID + '\" data-embed=\"default\" class=\"video-js\" controls style=\"width: 100%; height: 100%; position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px;\"></video>';
 		   
+/*
 		    htm = '<object id="myExperience" class="BrightcoveExperience">'
 		    +  '<param name="bgcolor" value="#000000" />'
 		    +  '<param name="wmode" value="transparent">'
@@ -349,9 +354,17 @@ var videoPortal = (function(e){
 		    +  '<param name="linkBaseURL" value="' + videoLink + '" />'
 			+  '<param name="@videoPlayer" value="' + video_id + '" /></object>'
 			+  '<param name="adServerURL" value="' + adServerURL + '" />';
+*/
 		
 			$("#player").html(htm);
-			player = brightcove.createExperiences();
+			//myPlayer = videojs('tv_player');
+			//myPlayer.play();
+			setTimeout(function(){
+				myPlayer = videojs('tv_player');
+				myPlayer.play();
+				myPlayer.volume(.03);
+			}, 1000);
+			//player = brightcove.createExperiences();
 			
 		}
 
@@ -437,7 +450,9 @@ var onPageLoadVideo       = new videoPortal;
 var onPageLoadGallery     = new showGallery;
 
 jQuery( document ).ready(function( $ ){
-
+	var s = document.createElement('script');
+	s.src = "//players.brightcove.net/" + accountID + "/" + playerID + "_default/index.min.js";
+	document.body.appendChild(s);
 	//Initialize
 	if( $("#video-gallery").length ){
 		onPageLoadVideo.init();

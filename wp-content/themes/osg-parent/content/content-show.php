@@ -12,8 +12,12 @@ $idObj = get_category_by_slug('tv');
 $id = $idObj->term_id;
 $acfID = 'category_' . $id;
 $format = get_post_format( $postID );
-$adServerURL = "http://ad.doubleclick.net/pfadx/" .  get_option("dart_domain", _imo_dart_guess_domain())  ."/tv";
-$videoLink = !empty($postID) ? get_permalink($postID) :  site_url() . $_SERVER['REQUEST_URI']; 
+
+$player_id = get_field('brightcove_player_id', 'options');
+$account_num = get_field('brightcove_account_num', 'options');
+
+//$adServerURL = "http://ad.doubleclick.net/pfadx/" .  get_option("dart_domain", _imo_dart_guess_domain())  ."/tv";
+//$videoLink = !empty($postID) ? get_permalink($postID) :  site_url() . $_SERVER['REQUEST_URI']; 
 $permalink = str_replace("artem", "com", get_permalink());
 $fb_count = facebook_count($permalink);
 $fb_zero  = ($fb_count < 1) ? 'fb-zero' : '';
@@ -53,7 +57,7 @@ while (have_posts()) : the_post();
 	    });
 	</script>
 <div class="tv-show">
-	<div id="show-destination" playerID="<?php echo get_field("tv_player_id","options"); ?>" adServerURL="<?php echo $adServerURL; ?>" videoLink="<?php echo $videoLink; ?>">
+	<div id="show-destination" playerID="<?php echo $player_id ?>" accountID="<?php echo $account_num ?>">
 		<?php get_template_part( 'content/tv-show/show-header' ); ?>
 			<div class="video-player-area">
 				<div id="video-gallery" class="video-player-wrap clearf">
