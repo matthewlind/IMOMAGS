@@ -505,11 +505,15 @@ function facebook_count($url){
 	    $response = file_get_contents($fqlURL);
 	    //return json_decode($response);
 		$fb = json_decode($response);
-		$count = $fb->share->share_count;
-		if ($count > 999) { $count = floor($count / 1000) . 'k'; }
+		$count = 0;
+		if (isset($fb->share->share_count)) {
+			$count = $fb->share->share_count;
+			if ($count > 999) { $count = floor($count / 1000) . 'k'; }
+		}
 		return $count;
 		//DEBUG	
-		//echo '<pre>';print_r($fb);echo '</pre>';
+		//return '<pre>'. print_r($fb). '</pre>';
+		//return $file_headers[0];
 	}
 }
 
@@ -1940,8 +1944,10 @@ function prefix_load_cat_posts () {
 		$slug = $post->post_name;
 		$thumb_url = wp_get_attachment_url( get_post_thumbnail_id($post_id) );
 		$video_id = get_post_meta($post_id, '_video_id', TRUE);
-		$videoLink = !empty($post_id) ? get_permalink($post_id) :  site_url() . $_SERVER['REQUEST_URI']; 
-		$adServerURL = "http://ad.doubleclick.net/pfadx/" .  get_option("dart_domain", _imo_dart_guess_domain())  ."/tv";
+		//$videoLink = !empty($post_id) ? get_permalink($post_id) :  site_url() . $_SERVER['REQUEST_URI']; 
+		//$adServerURL = "http://ad.doubleclick.net/pfadx/" .  get_option("dart_domain", _imo_dart_guess_domain())  ."/tv";
+		$perma = str_replace("artem", "com", get_permalink($post_id));
+		$fb_count_ = facebook_count($perma);
 		$cats = get_the_category( $post_id );
 		foreach($cats as $cat){
 			$catSlug = $cat->slug;
@@ -1953,7 +1959,7 @@ function prefix_load_cat_posts () {
 
 		<li id="thumb-<?php echo $i; ?>" data-videoid="<?php echo $video_id; ?>">
 			<div class="data-description" style="display:none;"><?php the_content(); ?></div>
-			<a class="video-thumb" data-slug="<?php echo $slug; ?>" data-img_url="<?php echo $thumb_url; ?>" data-post_url="<?php echo get_permalink(); ?>" data-title="<?php echo get_the_title(); ?>" data-date="<?php the_time('F jS, Y'); ?>" data-videoid="<?php echo $video_id; ?>" adServerURL="<?php echo $adServerURL; ?>" videoLink="<?php echo $videoLink; ?>">
+			<a class="video-thumb" data-slug="<?php echo $slug; ?>" data-img_url="<?php echo $thumb_url; ?>" data-post_url="<?php echo get_permalink(); ?>" data-title="<?php echo get_the_title(); ?>" data-date="<?php the_time('F jS, Y'); ?>" data-videoid="<?php echo $video_id; ?>" data-fb-count="<?php echo $fb_count_; ?>">
 				<div class="thumb-wrap">
 					<?php the_post_thumbnail("show-thumb"); ?>
 					<span class="play-btn"></span>
