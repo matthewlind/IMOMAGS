@@ -505,11 +505,15 @@ function facebook_count($url){
 	    $response = file_get_contents($fqlURL);
 	    //return json_decode($response);
 		$fb = json_decode($response);
-		$count = $fb->share->share_count;
-		if ($count > 999) { $count = floor($count / 1000) . 'k'; }
+		$count = 0;
+		if (isset($fb->share->share_count)) {
+			$count = $fb->share->share_count;
+			if ($count > 999) { $count = floor($count / 1000) . 'k'; }
+		}
 		return $count;
 		//DEBUG	
-		//echo '<pre>';print_r($fb);echo '</pre>';
+		//return '<pre>'. print_r($fb). '</pre>';
+		//return $file_headers[0];
 	}
 }
 

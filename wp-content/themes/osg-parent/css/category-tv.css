@@ -54,6 +54,8 @@ body.page-template-show-page-php, .wrapper.is-tv {
 	width: 95%;
 	height: 13px;
 	top: -25px;
+	overflow: hidden;
+    background: url(../images/ico/loadingAnimation.gif) no-repeat 50% !important;
 }
 #show-featured .thumbs-full .loading-gif.bottom-paginate{
 	top: auto;
