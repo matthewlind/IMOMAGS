@@ -1,6 +1,6 @@
 <?php
 
-$db = new mysqli('localhost','root','','imomags');
+$db = new mysqli('74.217.47.93','imomags-wp','poyZCVe4578dEMM','imomags');
 $db->autocommit(TRUE);
 
 $blogs = array(
