@@ -61,7 +61,7 @@ while (have_posts()) : the_post();
 		<?php get_template_part( 'content/tv-show/show-header' ); ?>
 			<div class="video-player-area">
 				<div id="video-gallery" class="video-player-wrap clearf">
-					<script type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script> 
+<!-- 					<script type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>  -->
 					<div id="player"></div>
 				</div><!-- end of .video-player-wrap -->
 				<div id="description-area">
