@@ -1,3 +1,6 @@
+var playerID = jQuery("#show-destination").attr("playerID"),
+	accountID = jQuery("#show-destination").attr("accountID");
+
 var videoPortal = (function(e){
 	var $ = jQuery;
 	var player,
@@ -20,17 +23,17 @@ var videoPortal = (function(e){
 		loadVideoOnPageLoad : function(){
 
 			var self = this;
-			self.brightcoveRequest();
-			$(".wpsocialite.small").remove();	
+			//self.brightcoveRequest();
+			//$(".wpsocialite.small").remove();	
 		
 			if($(".single-format-video").length){
 				video_id = $(".video-title").attr("data-videoid");
-				videoLink = $("#show-destination").attr("videoLink");
-				title = $(".video-title").attr("data-title");
-				description = $(".video-title").parent().find(".data-description").html();
-				slug = $(".video-title").attr("data-slug");
-				img_url = $(".video-title").attr("data-img_url");
-				post_url = $(".video-title").attr("data-post_url");
+				//videoLink = $("#show-destination").attr("videoLink");
+				//title = $(".video-title").attr("data-title");
+				//description = $(".video-title").parent().find(".data-description").html();
+				//slug = $(".video-title").attr("data-slug");
+				//img_url = $(".video-title").attr("data-img_url");
+				//post_url = $(".video-title").attr("data-post_url");
 			}else{
 				var filterSlug = window.location.hash.substr(1);
 				if(filterSlug){
@@ -45,15 +48,14 @@ var videoPortal = (function(e){
 				}
 			
 				video_id = $("#video-thumbs li").first().find("a").attr("data-videoid");
-				videoLink = $("#show-destination").attr("videoLink");
+				//videoLink = $("#show-destination").attr("videoLink");
 				title = $("#video-thumbs li").first().find("a").attr("data-title");
 				description = $("#video-thumbs li").first().parent().find(".data-description").html();
 				slug = $("#video-thumbs li").first().find("a").attr("data-slug");
 				img_url = $("#video-thumbs li").first().find("a").attr("data-img_url");
 				post_url = $("#video-thumbs li").first().find("a").attr("data-post_url");
 			}
-			self.loadVideo(video_id,videoLink);	
-			
+			self.loadVideo(video_id);	
 			
 			
 			$("#player").mousedown(function (e){
@@ -71,35 +73,36 @@ var videoPortal = (function(e){
 			$(window).bind('orientationchange', function() {
 				self.loadVideo(video_id);
 			});
-			Socialite.load();
+			//Socialite.load();
 		},
 		thumbClick : function(){
 			var self = this;
 			//initiate video on click
 			$("a.video-thumb").click(function(){
-				$('html, body').animate({
-			        scrollTop: $("#when-to-watch").offset().top
-			    }, 0);
+				var vid_player_offset = $("#when-to-watch").offset().top;
+			    $("html, body").animate({scrollTop: vid_player_offset}, 1000, "swing");
 				video_id = $(this).attr("data-videoid");
-				videoLink =  $(this).attr("data-post_url");
+				//videoLink =  $(this).attr("data-post_url");
 				title = $(this).attr("data-title");
 				description = $(this).parent().find(".data-description").html();
 				slug = $(this).attr("data-slug");
 				img_url = $(this).attr("data-img_url");
 				post_url = $(this).attr("data-post_url");
+				fb_count = $(this).attr("data-fb-count");
 				
 				// place data into html
 				$("h1.video-title").text(title);
 				$(".video-description").html(description);
 				
-				self.videoInit(video_id,videoLink,slug,title,description,post_url,img_url);
-				self.socialite(video_id,slug,title,description,post_url,img_url);
+				self.videoInit(video_id,videoLink,slug,title,description,post_url,img_url,fb_count);
+				//self.socialite(video_id,slug,title,description,post_url,img_url);
 			    
 				console.log(video_id);
 				//show page default
 				_gaq.push(['_trackPageview', window.location.pathname + slug]);
 			});
 		},
+/*
 		socialite : function(video_id,slug,title,description,post_url,img_url){
 			$(".wpsocialite.small").remove();	
 			//socialite
@@ -107,6 +110,7 @@ var videoPortal = (function(e){
 			$('<li><a href="http://twitter.com/share" class="socialite twitter-share reload-twitter" data-text="' + title + '" data-url="' + post_url + '" data-count="none" rel="nofollow" target="_blank"><span class="vhidden"></span></a></li><li><a href="https://plus.google.com/share?url=<' + post_url + '" data-annotation="none" class="socialite googleplus-one g-plusone reload-google" data-href="' + post_url + '" rel="nofollow" target="_blank"><span class="vhidden"></span></a></li> <li><a href="http://www.facebook.com/sharer.php?u=' + post_url + '&t=' + title + '" class="socialite facebook-like reload-fb" data-href="' + post_url + '" data-send="false" data-layout="button" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden"></span></a></li>').appendTo(".social-buttons");
 			Socialite.load();
 		},
+*/
 		videoFilter : function(){
 			var self = this;
 			//video filter
@@ -206,17 +210,15 @@ var videoPortal = (function(e){
 				},
 		        success: function(response) {
 		        	
-		        	
                     $("#video-thumbs").html(response);
-   		            
 		            $(".loading-gif").hide();
-				
 							
 		            return false;
 		        }
 		    });
 		
 		},
+/*
 		brightcoveRequest: function(){
 			var bcID;
 			var video_ids = [];
@@ -240,7 +242,8 @@ var videoPortal = (function(e){
 			    });
 			})();
 		},
-		videoInit: function(video_id,videoLink,slug,title,description,post_url,img_url){
+*/
+		videoInit: function(video_id,videoLink,slug,title,description,post_url,img_url,fb_count){
 			var self = this;
 			
 			// Detecting IE
@@ -251,8 +254,8 @@ var videoPortal = (function(e){
 			if(!oldIE){
 		    	self.updateURL(video_id,slug,title,description,post_url,img_url);
 		    }
-			self.updateSocial(slug,title,post_url,img_url);
-			self.loadVideo(video_id,videoLink);
+			self.updateSocial(slug,title,post_url,img_url,fb_count);
+			self.updateVideo(video_id);
 			
 		},
 		updateURL: function(video_id,slug,title,description,post_url,img_url ){
@@ -305,7 +308,8 @@ var videoPortal = (function(e){
 			};
 			
 		},
-		updateSocial: function(slug,title,post_url,img_url){
+
+		updateSocial: function(slug,title,post_url,img_url,fb_count){
 			try{
 				$('title').text(title);
 				$('meta[property=og\\:url]').attr('content',post_url);
@@ -316,40 +320,35 @@ var videoPortal = (function(e){
 			}catch(e){
 				//console.log(e);
 			}
-			//video portal
-			$(".sidebar .fb-like").attr("data-href",post_url);
-			$(".sidebar .twitter-share-button").remove();
-			$('<a href="https://twitter.com/share" class="twitter-share-button" data-url="' + post_url + '">Tweet</a>').insertAfter(".sidebar .fb-like");
 			
+			$("#fb_btn").attr("href","http://www.facebook.com/sharer.php?u=" + post_url + "&t=" + title);
+			$("#twitter_btn").attr("href","http://twitter.com/home/?status=" + title + " - " + post_url);
+			$("#email_btn").attr("href","mailto:?body=" + title + " " + post_url);
+			$("#facebook_count").text(fb_count);
+			if (fb_count > 0) {$(".social-single").removeClass("fb-zero");} else {$(".social-single").addClass("fb-zero");}
 			
-			/*$(".reload-fb").attr("href","http://www.facebook.com/sharer.php?u=" + post_url + "&t=" + title);
-			$(".reload-twitter").attr("href","http://twitter.com/home/?status=" + title + " - " + post_url);
-			$(".reload-google").attr("href","https://plus.google.com/share?url=" + post_url);*/
 		},
-		loadVideo: function(video_id,videoLink){
+
+		loadVideo: function(video_id){
 			//load videos
-		    var playerID = $("#show-destination").attr("playerID");
-		    var adServerURL = $("#show-destination").attr("adServerURL");
-		    		    
 		    var htm = '';
-		   
-		    htm = '<object id="myExperience" class="BrightcoveExperience">'
-		    +  '<param name="bgcolor" value="#000000" />'
-		    +  '<param name="wmode" value="transparent">'
-		    +  '<param name="width" value="100%" />'
-		    +  '<param name="height" value="350" />'
-		    +  '<param name="autoStart" value="true" />'
-		    +  '<param name="playerID" value="' + playerID + '" />'
-		    +  '<param name="isVid" value="true" />'
-		    +  '<param name="isUI" value="true" />'
-		    +  '<param name="quality" value="high">'
-		    +  '<param name="linkBaseURL" value="' + videoLink + '" />'
-			+  '<param name="@videoPlayer" value="' + video_id + '" /></object>'
-			+  '<param name="adServerURL" value="' + adServerURL + '" />';
-		
+		    
+		    htm = '<video id=\"tv_player\" data-video-id=\"' + video_id + '\" data-account=\"' + accountID + '\" data-player=\"' + playerID + '\" data-embed=\"default\" class=\"video-js\" controls style=\"width: 100%; height: 100%; position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px;\"></video>';
+		    
 			$("#player").html(htm);
-			player = brightcove.createExperiences();
-			
+			setTimeout(function(){
+				myPlayer = videojs('tv_player');
+				myPlayer.play();
+				myPlayer.volume(.5);
+			}, 1000);
+		},
+		
+		updateVideo: function(video_id) {
+			myPlayer = videojs('tv_player');
+			myPlayer.catalog.getVideo(video_id, function(error, video) { 
+				myPlayer.catalog.load(video);
+				myPlayer.play();
+			});
 		}
 
 	};
@@ -373,7 +372,7 @@ var showGallery = (function(e){
 		},
 		loadGallery : function(){
 	
-	    	$(".wpsocialite.small").remove();	
+	    	//$(".wpsocialite.small").remove();	
 	    
 			if( $(".category-show-galleries").length ){
 				title =  $(".video-title").text();
@@ -434,7 +433,9 @@ var onPageLoadVideo       = new videoPortal;
 var onPageLoadGallery     = new showGallery;
 
 jQuery( document ).ready(function( $ ){
-
+	var s = document.createElement('script');
+	s.src = "//players.brightcove.net/" + accountID + "/" + playerID + "_default/index.min.js";
+	document.body.appendChild(s);
 	//Initialize
 	if( $("#video-gallery").length ){
 		onPageLoadVideo.init();
@@ -444,20 +445,4 @@ jQuery( document ).ready(function( $ ){
 		onPageLoadGallery.init();
 	}
 	
-	
-		//hide long description content
-		/*function moreContent(){
-			if($(".content-height").height() > 340){
-				$(".video-more-content").show();
-				$(".content-height").css("max-height", "285px");
-			}else if($(".content-height").height() < 340){
-				$(".video-more-content").hide();
-				$(".content-height").css("max-height","100%");
-			}
-	
-			$(".video-more-content .more-link").click(function(){
-				$(".video-more-content").hide();
-				$(".content-height").css("max-height","100%");
-			});
-		}*/
 });

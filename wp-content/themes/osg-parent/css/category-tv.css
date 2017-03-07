@@ -14,9 +14,10 @@ body.category-tv .wrapper {
 }
 .h-mdl-widget{background: none !important;}
 
-body.page-template-show-page-php, .wrapper.is-tv {
+body.page-template-show-page-php, .wrapper.is-tv, .page-template-show-page-php .wrapper {
 	background: #2a2a2a no-repeat center top / 100%;
 }
+
 .wrapper.is-tv ul {
 	list-style: none;
 }
@@ -150,7 +151,7 @@ body.page-template-show-page-php, .wrapper.is-tv {
 .tv-show .main {
 	border: none;
 }
-.tv-show .main, .is-tv .content-banner-section  {
+.tv-show .main, .is-tv .content-banner-section, .page-template-show-page-php .content-banner-section  {
 	background: transparent;
 	border: none;
 }
@@ -936,6 +937,11 @@ box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.1);
 	max-width: 300px;
 	max-height: 100px;
 }
+.sidebar-area {
+    float: right;
+    width: 310px;
+    padding: 30px 0 0;
+}
 
 /* tv-show More Shows ==================================== */
 
@@ -1509,6 +1515,8 @@ box-sizing: border-box;
 	.tonight-schedule {margin-left: 0;width: 100%;padding:0clear: both;overflow: hidden;}
 	.tonight-schedule ul.slides li{height: 100px;}
 	#upcoming .tiled-grid .col{padding: 16px 60px 18px 8px;}
+	
+	.sidebar-area {display: none;}
 	
 } /* End of media */  
 

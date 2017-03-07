@@ -33,11 +33,11 @@ $slug_tv = get_post( $post )->post_name;
     var windowWidth 	= jQuery(window).width(); 
     	if (windowWidth <= 610) {
 	         jQuery("#palce4schedule").load("/wp-content/themes/imo-mags-parent/content/tv-show/show-schedule.php");
-	         jQuery("body").css({
+	         jQuery(".wrapper").css({
 	         "background-image" : "url(<?php echo get_field('background_skin_mobile',$acfID); ?>)"
 	         });
          } else {
-	        jQuery("body").css({
+	        jQuery(".wrapper").css({
 	         "background-image" : "url(<?php echo get_field('background_skin',$acfID); ?>)"
 	         });
         }

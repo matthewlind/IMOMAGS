@@ -58,7 +58,6 @@ var videoPortal = (function(e){
 			self.loadVideo(video_id);	
 			
 			
-			
 			$("#player").mousedown(function (e){
 				self.updateSocial(slug,title,post_url,img_url);
 				// Detecting IE
@@ -446,20 +445,4 @@ jQuery( document ).ready(function( $ ){
 		onPageLoadGallery.init();
 	}
 	
-	
-		//hide long description content
-		/*function moreContent(){
-			if($(".content-height").height() > 340){
-				$(".video-more-content").show();
-				$(".content-height").css("max-height", "285px");
-			}else if($(".content-height").height() < 340){
-				$(".video-more-content").hide();
-				$(".content-height").css("max-height","100%");
-			}
-	
-			$(".video-more-content .more-link").click(function(){
-				$(".video-more-content").hide();
-				$(".content-height").css("max-height","100%");
-			});
-		}*/
 });
