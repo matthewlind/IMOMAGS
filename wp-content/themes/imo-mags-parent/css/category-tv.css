@@ -251,6 +251,10 @@ body.page-template-show-page-php, body.category-tv {
 }
 .full-content .layout-frame{width: 100%;}
 .full-content .general{float: none;border: none;width: 1080px;margin: 0 auto;}
+
+.tv-show .wpsocialite {
+	display: none;
+}
 /* header ==================================== */
 
 .tv-show .page-header {
