@@ -1,5 +1,5 @@
 	var madnessround;
-	var bracket = 5;
+	var bracket = 6;
 	var popads = [];
 	
 	
@@ -82,7 +82,7 @@
 						jQuery(".match219").html(writeGAMBracket(finall));
 					}
 					else {
-						jQuery(".madtabs-"+(parseInt(round)-1)+" > .mreg"+region).html(writeGAMBracket(resp.data));
+						jQuery(".madtabs-"+(parseInt(round))+" > .mreg"+region).html(writeGAMBracket(resp.data));
 					}
 				}
 				else {
@@ -265,19 +265,19 @@
 			
 			
 			
-			var regions = {'1':'Compacts', '2':'1911s', '3':'Polymers', '4':'Bracket Busters'}
-			var roundtitles = {'3':'First Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '7':'Championship'}
+			var regions = {'1':'Personal Defense', '2':'Tactical', '3':'Hunting', '4':'Exclusive/Custom'}
+			var roundtitles = {'2':'First Round', '3':'Second Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '7':'Championship'}
 			
 			var campaigns = new Array('handgunsmadness', 'riflesmadness', 'arsmadness', 'shotgunsmadness');
 			if(parseInt(pdata[0].region) == 5) {
 				var fregion = (Math.random() < 0.5)? 1 : 2;
 				pdata[0].campaign = campaigns[fregion-1];
 			}
-			else if(parseInt(pdata[0].region) == 6) {
+			else if(parseInt(pdata[0].region) == 6) { 
 				var fregion = (Math.random() < 0.5)? 3 : 4;
 				pdata[0].campaign = campaigns[fregion-1];
 			}
-			else if(parseInt(pdata[0].region) == 7) {
+			else if(parseInt(pdata[0].region) == 7) { 
 				var fregion = 0;
 				var rand = Math.random();
 				if(rand < 0.25) fregion = 1;
@@ -330,7 +330,7 @@
 						template.find("#popupsponsor a").html('<img src="'+campimg+'" />');
 														
 						var roundtitle = roundtitles[round];
-						var regiontitle = (round<6)? (regions[region]+": "):"";
+						var regiontitle = (round<6)? (regions[region]+": "):""; 
 						template.find("#popuptitle").html(regiontitle+roundtitle);
 					},
 					open: function() {
@@ -348,7 +348,7 @@
 						
 						jQuery(".next-matchup").on("click", function() {
 							if(region==6) {
-								jQuery("div[data-region='5'][data-idx='0'][data-round='6']").trigger("click");
+								jQuery("div[data-region='5'][data-idx='0'][data-round='6']").trigger("click");  
 							}
 							else if(slidecnt<(16/(Math.pow(2,(round-1)))))
 								jQuery.magnificPopup.instance.next();
@@ -360,7 +360,7 @@
 								}
 								
 								var nextRegion = parseInt(region)+1;
-								if(nextRegion == 5) nextRegion = 1;
+								if(nextRegion == 5) nextRegion = 1; 
 								
 								region = nextRegion.toString();
 								jQuery("div[data-region='"+region+"'][data-idx='0'][data-round='"+round+"']").trigger("click");				
@@ -488,7 +488,7 @@
 					var randomInt = Math.floor((Math.random() * 4) + 0);
 					var randomPopad = popads[randomInt];
 
-					var regions = {'1':'Compacts', '2':'1911s', '3':'Polymers', '4':'Bracket Busters'}
+					var regions = {'1':'Personal Defense', '2':'Tactical', '3':'Hunting', '4':'Exclusive/Custom'}
 					var roundtitles = {'2':'First Round', '3':'Second Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '7':'Championship'}
 					
 					var campaigns = new Array('handgunsmadness', 'riflesmadness', 'handgunsmadness', 'riflesmadness');
@@ -516,7 +516,7 @@
 								popads[1] = 'GA-MAdness-popup-358x90-galco.jpg';
 								popads[2] = 'GA-MAdness-popup-358x90-laserlyte.jpg';
 								popads[3] = 'GA-MAdness-popup-358x90-pelican.jpg';
-								//popads[4] = 'GA-MAdness-popup-358x90-winchester.jpg';
+								/* popads[4] = 'GA-MAdness-popup-358x90-winchester.jpg'; */
 								
 								var randomInt = Math.floor(Math.random() * 4);
 								console.log("Random Number= " + randomInt);
@@ -526,7 +526,7 @@
 								template.find("#popupsponsor a").html('<img src="'+campimg+'" />');
 																
 								var roundtitle = roundtitles[round];
-								var regiontitle = (round<6)? (regions[region]+": "):"";
+								var regiontitle = (round<6)? (regions[region]+": "):""; 
 								template.find("#popuptitle").html(regiontitle+roundtitle);
 								template.find(".next-matchup").hide();
 								jQuery('.filler').show();
