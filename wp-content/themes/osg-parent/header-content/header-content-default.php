@@ -107,6 +107,18 @@
 </header>
 <nav id="menu_drop">
 	<div class="menu-container">
+		<header class="header-menu2">
+			<div class="header-inner-m2">
+				<div id="close_m2" class="close-m2">
+					<div class="cross-m2">
+						<div></div>
+						<div></div>
+					</div>
+					<span>CLOSE</span>
+				</div>
+				<span>MENU</span>
+			</div>
+		</header>
 		<div class="menu-inner">
 			<section class="menu-content clearfix">
 			<?php
