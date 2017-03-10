@@ -29,7 +29,7 @@ add_action('init', function() {
 	
 });
 
-wp_enqueue_script( 'madnessjs', plugin_dir_url( __FILE__ ) . 'madness.js', array( 'jquery' ) );
+wp_enqueue_script( 'madnessjs', plugin_dir_url( __FILE__ ) . 'madness6.js', array( 'jquery' ) );
 wp_enqueue_style( 'madnesscss', plugin_dir_url( __FILE__ ) . 'madness.css' );
 wp_enqueue_script( 'magnificjs', plugin_dir_url( __FILE__ ) . 'jquery.magnific-popup.js');
 wp_enqueue_style( 'magnificcss', plugin_dir_url( __FILE__ ) . 'magnific-popup.css');
