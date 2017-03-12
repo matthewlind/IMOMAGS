@@ -3,26 +3,26 @@
 
 	var $document 		= $(document),
 		body 			= $('body'),
-		window_height	= window.innerHeight,
+		wh				= window.innerHeight,
+		ww 				= window.outerWidth;
 		menu 			= $('#menu_drop'),
 		menu_container	= $('.menu-container'),
 		h_search		= $('#h_search'),
 		h_search_form	= $('#h_search_form');
 		
 	jQuery(window).resize(function() {
-		window_height	= window.innerHeight;
-		menu_container.css("height", window_height + "px");
+		wh	= window.innerHeight;
+		menu_container.css("height", wh + "px");
 	});	
 	
 	$document.ready(function() {
 	
 		//detect window width for responsive ads
-		var windowWidth = window.outerWidth;
 		$('.iframe-ad').attr('src', function() {
 			//if(window.outerWidth == 0){
-				//windowWidth = "1100";
+				//ww = "1100";
 			//}
-		    return this.src + "&windowWidth=" + windowWidth;
+		    return this.src + "&windowWidth=" + ww;
 		});
 		
 		
@@ -76,7 +76,7 @@
 		
 		
 		// Main Nav
-		menu_container.css("height", window_height + "px");
+		menu_container.css("height", wh + "px");
 		
 		// Disable Parent links in the main mobile menu (column titles)
 		$("#menu-mobile-menu > li.menu-item-has-children > a").click(function(e){
@@ -164,22 +164,39 @@
 		h_drop		= $("#h_drop"),
 		nav_icon	= $('#nav-icon3');
 		
-	menu_toggle.click(function(){
-		var clicks = menu_toggle.data('clicks');
-		if (clicks) {
-			// even clicks
-			body.removeClass('menu-open');
-			menu.removeClass('menu-down');
-			nav_icon.removeClass('open');
-		} else {
-			// odd clicks
+	if (ww < 1030) {
+		menu_toggle.click(function(){
+			var clicks = menu_toggle.data('clicks');
+			if (clicks) {
+				// even clicks
+				body.removeClass('menu-open');
+				menu.removeClass('menu-down');
+				nav_icon.removeClass('open');
+			} else {
+				// odd clicks
+				body.addClass('menu-open');
+				menu.addClass('menu-down');
+				nav_icon.addClass('open');
+			}
+			menu_toggle.data("clicks", !clicks);			
+		});	
+		// end NAVIGATION
+	} else {
+/*
+		var menu_drop = $("#menu_drop"),
+			close_m2  = $("#close_m2");
+			
+		h_drop.click(function(){
+			menu_drop.addClass("m2-open");
 			body.addClass('menu-open');
-			menu.addClass('menu-down');
-			nav_icon.addClass('open');
-		}
-		menu_toggle.data("clicks", !clicks);			
-	});	
-	// end NAVIGATION
+		});
+		$("#close_m2, #m_drop").click(function(){
+			menu_drop.removeClass("m2-open");
+			body.removeClass('menu-open');
+		});
+*/
+	}
+	
 	
 	
 	// SEARCH
