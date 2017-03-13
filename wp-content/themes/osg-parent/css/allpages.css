@@ -599,6 +599,7 @@ nav {
 	left: 0; bottom: 0;
 	width: 100%;
 	overflow: hidden;
+	height: 100vh;
 }
 .menu-inner {
 	position: absolute;
@@ -1570,15 +1571,15 @@ nav {
     -webkit-transition: -webkit-transform 0.2s, opacity 0.2s, visibility 0s 0.2s;
     transition: transform 0.2s, opacity 0.2s, visibility 0s 0.2s;
 }
-.m2-open {
+.menu-down {
 	visibility: visible;
 	opacity: 1;
 	-webkit-transform: scale(1);
     transform: scale(1);
     -webkit-transition: -webkit-transform 0.4s, opacity 0.4s;
     transition: transform 0.4s, opacity 0.4s;
+    bottom: auto;
 }
-/*
 .header-menu2 {display: block; height: 90px; background-color: #395b5d; width: 100%; color: #fff;}
 .header-inner-m2 {height: 90px; width: 100%; max-width: 800px; margin: 0 auto;position: relative; text-align: center;}
 .close-m2 {position: absolute; height: 45px; top: 23px; padding-right: 30px;left: -1px; cursor: pointer;opacity: 0.8;}
@@ -1596,7 +1597,6 @@ nav {
     -moz-transform: rotate(-45deg);
     -o-transform: rotate(-45deg);
     transform: rotate(-45deg);}
-*/
 .header-inner-m2 > span {font-size: 35px; line-height: 90px;} 
 .menu-inner {position: static; top: 0; height: calc(100% - 320px);}
 .menu-footer {position: absolute; bottom: 45px; width: 100%;}
