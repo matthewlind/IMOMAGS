@@ -54,13 +54,6 @@ dl,h3,menu,ol,p,pre,ul{margin:1em 0}body,figure,form{margin:0}*,::before,:after{
     font-style: italic;
 
 }
-/*
-.temp-ad {
-	height: 205px;
-	width: 100%;
-	background-color: green;
-}
-*/
 /*----------------------------------------------------------
 	1.0 Icons  
 ----------------------------------------------------------*/
@@ -1560,8 +1553,7 @@ nav {top: 90px;}
 
 }/* end media 1020 */
 
-@media only screen and (min-width: 1030px) {
-	
+@media only screen and (min-width: 1030px) {	
 /* Header *******************/
 /* #nav-icon3, .menu-head-span{display: none;} */
 /* .nav-btn {padding: 0;border-right: none;} */
