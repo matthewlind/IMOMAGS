@@ -22,19 +22,18 @@ var videoPortal = (function(e){
 		},
 		loadVideoOnPageLoad : function(){
 
-			var self = this;
-			//self.brightcoveRequest();
-			//$(".wpsocialite.small").remove();	
-		
-			if($(".single-format-video").length){
+			var self = this,
 				video_id = $(".video-title").attr("data-videoid");
-				//videoLink = $("#show-destination").attr("videoLink");
-				//title = $(".video-title").attr("data-title");
-				//description = $(".video-title").parent().find(".data-description").html();
-				//slug = $(".video-title").attr("data-slug");
-				//img_url = $(".video-title").attr("data-img_url");
-				//post_url = $(".video-title").attr("data-post_url");
-			}else{
+				title = $(".video-title").text();
+				description = $(".video-description p").text();
+				slug = $(".video-title").attr("data-slug");
+				img_url = $(".video-title").attr("data-img_url");
+				post_url = $(".video-title").attr("data-post_url");
+			//self.brightcoveRequest();
+			$(".wpsocialite.small").remove();
+			$(".video-description script").remove();	
+		
+			if($(".category-tv").length){
 				var filterSlug = window.location.hash.substr(1);
 				if(filterSlug){
 					postoffset = 0;
@@ -46,15 +45,8 @@ var videoPortal = (function(e){
 					$("#" + filterSlug + " a").addClass("video-thumb-active");
 					$("#" + filterSlug + " a").addClass("active-slug");
 				}
-			
-				video_id = $("#video-thumbs li").first().find("a").attr("data-videoid");
-				//videoLink = $("#show-destination").attr("videoLink");
-				title = $("#video-thumbs li").first().find("a").attr("data-title");
-				description = $("#video-thumbs li").first().parent().find(".data-description").html();
-				slug = $("#video-thumbs li").first().find("a").attr("data-slug");
-				img_url = $("#video-thumbs li").first().find("a").attr("data-img_url");
-				post_url = $("#video-thumbs li").first().find("a").attr("data-post_url");
 			}
+			console.log("slug: " + slug + " title: " + title + " description: " + description + " img_url: " + img_url + " post_url: " + post_url);
 			self.loadVideo(video_id);	
 			
 			
@@ -337,10 +329,12 @@ var videoPortal = (function(e){
 		    
 			$("#player").html(htm);
 			setTimeout(function(){
-				myPlayer = videojs('tv_player');
-				myPlayer.play();
-				myPlayer.volume(.5);
-			}, 1000);
+				if (typeof videojs !== 'undefined') {
+					myPlayer = videojs('tv_player');
+					myPlayer.play();
+					myPlayer.volume(.5);
+				}
+			}, 500);
 		},
 		
 		updateVideo: function(video_id) {
