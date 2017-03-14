@@ -101,27 +101,50 @@
 	
 	
 	// STICKY HEADER
+/*
 	var head_wrap		= $("#header_wrap"),
 		head_main		= $(".main-header"),
 		lastScrollTop 	= 0,
 		delta 			= 30,
 		navbarHeight	= head_main.outerHeight(),
+		headMainTop 	= head_main.offset().top,
 		didScroll;					   
-
+		
 	function stickyHead() {
-		var docTop 			= $document.scrollTop(),
-			headMainTop 	= head_main.offset().top;
-			
+		var docTop 			= $document.scrollTop();
+		
+		
 		//console.log(headMainTop);	
 			
-		if (docTop >= 2)	{
+		if (docTop >= 205)	{
 			head_wrap.addClass('head-fixed');
 		} else {
 			head_wrap.removeClass('head-fixed');
 		}
 	}
+*/
 	
+	var head_wrap		= $("#header_wrap"),
+		head_main		= $(".main-header"),
+		lastScrollTop 	= 0,
+		delta 			= 30,
+		navbarHeight	= head_main.outerHeight(),
+		headMainTop		= head_main.position().top,
+		didScroll;
+		
+	setTimeout(function(){
+		headMainTop 	= head_main.position().top;
+		console.log(navbarHeight);
+	}, 1000)	
 	
+	function stickyHead() {
+		var docTop 	= $document.scrollTop();			
+		if (docTop >= headMainTop + navbarHeight)	{
+			head_wrap.addClass('head-fixed');
+		} else if (docTop < headMainTop){
+			head_wrap.removeClass('head-fixed');
+		}
+	}
 	
 	function hasScrolled() {
 		var st = $(this).scrollTop();

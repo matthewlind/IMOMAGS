@@ -54,7 +54,13 @@ dl,h3,menu,ol,p,pre,ul{margin:1em 0}body,figure,form{margin:0}*,::before,:after{
     font-style: italic;
 
 }
-
+/*
+.temp-ad {
+	height: 205px;
+	width: 100%;
+	background-color: green;
+}
+*/
 /*----------------------------------------------------------
 	1.0 Icons  
 ----------------------------------------------------------*/
@@ -366,8 +372,6 @@ a {color: #f56200;}
  	color: #fff;
 }
 .header-wrap {
-	position: fixed;
-/* 	top: 0; */
 	left: 0;
 	width: 100%;
 	-webkit-transition: top 0.25s ease-in-out;
@@ -378,6 +382,7 @@ a {color: #f56200;}
 }
 .head-fixed {
 	top: 0;
+	position: fixed;
 }
 .nav-up {
     top: -90px;
@@ -637,6 +642,9 @@ nav {
 .menu-content .mob-main-menu > li > a {
 	font-weight: 900;
 	cursor: default;
+	font-family: 'Stag';
+	font-size: 18px;
+	letter-spacing: 0.02em;
 }
 .menu-content .mob-main-menu > li > a:hover {
 	color: #444;
@@ -1379,7 +1387,7 @@ nav {
 .menu-content .mob-main-menu .sub-menu li {margin-bottom: 3px;}
 .menu-content .mob-sec-menu > li,
 .menu-content .mob-sec-menu > li:nth-of-type(even) {width: auto; display: inline-block; margin: 0 30px 10px 0;padding: 0;}
-.menu-content .mob-main-menu > li > a {font-size: 22px; font-family: 'Stag';}
+.menu-content .mob-main-menu > li > a {font-size: 22px;margin-bottom: 0.3em; display: inline-block;}
 .menu-content .sub-menu > li a,
 .menu-content .mob-sec-menu li a {font-size: 14px;}
 

@@ -37,7 +37,7 @@
 
 <div class="wrapper <?php echo $is_tv; ?>">	
 <?php imo_ad_placement("superheader"); ?>
-
+<!-- <div class="temp-ad"></div> -->
 <header class="main-header">
 	<div id="header_wrap" class="header-wrap">
 		<div class="head-inner">
