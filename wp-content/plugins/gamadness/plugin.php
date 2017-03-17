@@ -29,7 +29,7 @@ add_action('init', function() {
 	
 });
 
-wp_enqueue_script( 'madnessjs', plugin_dir_url( __FILE__ ) . 'madness.js', array( 'jquery' ) );
+wp_enqueue_script( 'madnessjs', plugin_dir_url( __FILE__ ) . 'madness6.js', array( 'jquery' ) );
 wp_enqueue_style( 'madnesscss', plugin_dir_url( __FILE__ ) . 'madness.css' );
 wp_enqueue_script( 'magnificjs', plugin_dir_url( __FILE__ ) . 'jquery.magnific-popup.js');
 wp_enqueue_style( 'magnificcss', plugin_dir_url( __FILE__ ) . 'magnific-popup.css');
@@ -108,7 +108,7 @@ function jsGAMRender($mobile) {
 	$outp = "";
 	//$mobile = true;
 	$ismobile = ($mobile)? "true":"false"; 
-	$results = file_get_contents("http://apps.imoutdoors.com/bracket/getActiveRound?bracketid=5");
+	$results = file_get_contents("http://apps.imoutdoors.com/bracket/getActiveRound?bracketid=6");
 	
 	$results = json_decode($results,true);
 	
@@ -128,32 +128,33 @@ function jsGAMRender($mobile) {
 	$outp.= '<div id="madtabs">'
 		 .  '  <ul class="rounds" style="min-width:300px;">'
 		 .  '    <li class="active-round"><a href="#madtabs-2">1st</a></li>'
-		 .  '    <li><a href="#madtabs-3">Sweet 16</a></li>'
-		 .  '    <li><a href="#madtabs-4">Elite 8</a></li>'
-		 .  '    <li><a href="#madtabs-5">Final 4</a></li>'
-		 .  '    <li class="final-round"><a href="#madtabs-6">Final</a></li>'
+		 .  '    <li><a href="#madtabs-3">2nd</a></li>'
+		 .  '    <li><a href="#madtabs-4">Sweet 16</a></li>'
+		 .  '    <li><a href="#madtabs-5">Elite 8</a></li>'
+		 .  '    <li><a href="#madtabs-6">Final 4</a></li>'
+		 .  '    <li class="final-round"><a href="#madtabs-7">Final</a></li>'
 		 .  '  </ul>'
 		/*			
 		 .  '  <div id="madtabs-1">'
 		 //.  '    <div class="gun-types">'
 		 //.  '      <select>'
 		 //.  '        <option value="">SELECT A GUN REGION</option>'
-		 //.  '        <option value="handguns1">Compacts</option>'
-		 //.  '        <option value="rifles1">1911s</option>'
-		 //.  '        <option value="handguns2">Polymers</option>'
-		 //.  '        <option value="rifles2">Bracket Busters</option>'
+		 //.  '        <option value="handguns1">Personal Defense</option>'
+		 //.  '        <option value="rifles1">Tactical</option>'
+		 //.  '        <option value="handguns2">Hunting</option>'
+		 //.  '        <option value="rifles2">Exclusive/Custom</option>'
 		 //.  '      </select>'
 		 //.  '    </div>'
-		 .  '    <h2 id="handguns1">Compacts</h2>'
+		 .  '    <h2 id="handguns1">Personal Defense</h2>'
 		 .  '    <div>'. imo_ad_placement("region1") .'</div>'
 		 .  '    <div class="mreg1"></div>'
-		 .  '    <h2 id="rifles1">1911s</h2>'
+		 .  '    <h2 id="rifles1">Tactical</h2>'
 		 .  '    <div>'. imo_ad_placement("region2") .'</div>'
 		 .  '    <div class="mreg3"></div>'
-		 .  '    <h2 id="handguns2">Polymers</h2>'
+		 .  '    <h2 id="handguns2">Hunting</h2>'
 		 .  '    <div>'. imo_ad_placement("region3") .'</div>'
 		 .  '    <div class="mreg4"></div>'
-		 .  '    <h2 id="rifles2">Bracket Busters</h2>'
+		 .  '    <h2 id="rifles2">Exclusive/Custom</h2>'
 		 .  '    <div>'. imo_ad_placement("region4") .'</div>'
 		 .  '    <div class="mreg2"></div>'
 
@@ -171,7 +172,7 @@ function jsGAMRender($mobile) {
 		 .  '   </div>'
 
 
-		 .  '  <h2 id="handguns2">Compacts</h2>'
+		 .  '  <h2 id="handguns2">Personal Defense</h2>'
 		 .  '  <div id="region1">'
 		 .  '    <script type="text/javascript">'
 		 .	'      googletag.cmd.push(function() { googletag.display("region1"); });'
@@ -190,7 +191,7 @@ function jsGAMRender($mobile) {
 		 .  '    <div class="mreg1"></div>'
 		 .	'  </div>'
 		 
-		 .  '  <h2 id="rifles">1911s</h2>'
+		 .  '  <h2 id="rifles">Tactical</h2>'
 		 .  '  <div id="region2">'
 		 .  '    <script type="text/javascript">'
 		 .	'      googletag.cmd.push(function() { googletag.display("region2"); });'
@@ -209,7 +210,7 @@ function jsGAMRender($mobile) {
 		 .  '    <div class="mreg2"></div>'
 		 .	'  </div>'
 		 
-		 .  '  <h2 id="ar15s">Polymers</h2>'
+		 .  '  <h2 id="ar15s">Hunting</h2>'
 		 .  '  <div id="region3">'
 		 .  '    <script type="text/javascript">'
 		 .	'      googletag.cmd.push(function() { googletag.display("region3"); });'
@@ -228,7 +229,7 @@ function jsGAMRender($mobile) {
 		 .  '    <div class="mreg3"></div>'
 		 .	'  </div>'
 		 
-		 .  '  <h2 id="shotguns">Bracket Busters</h2>'
+		 .  '  <h2 id="shotguns">Exclusive/Custom</h2>'
 		 .  '  <div id="region4">'
 		 .  '    <script type="text/javascript">'
 		 .	'      googletag.cmd.push(function() { googletag.display("region4"); });'
@@ -250,16 +251,16 @@ function jsGAMRender($mobile) {
 		/* 
 		 .  '  <div id="OLDmadtabs-2">'
 		 .  '   <div class="madtabs-2 tabcontent">'
-		 .  '    <h2 id="handguns2">Compacts</h2>'
+		 .  '    <h2 id="handguns2">Personal Defense</h2>'
 		 .  '    <div>'. imo_ad_placement("region1") .'</div>'
 		 .  '    <div class="mreg1"></div>'
-		 .  '    <h2 id="rifles">1911s</h2>'
+		 .  '    <h2 id="rifles">Tactical</h2>'
 		 .  '    <div>'. imo_ad_placement("region2") .'</div>'
 		 .  '    <div class="mreg3"></div>'
-		 .  '    <h2 id="ar15s">Polymers</h2>'
+		 .  '    <h2 id="ar15s">Hunting</h2>'
 		 .  '    <div>'. imo_ad_placement("region3") .'</div>'
 		 .  '    <div class="mreg4"></div>'
-		 .  '    <h2 id="shotguns">Bracket Busters</h2>'
+		 .  '    <h2 id="shotguns">Exclusive/Custom</h2>'
 		 .  '    <div>'. imo_ad_placement("region4") .'</div>'
 		 .  '    <div class="mreg2"></div>'		 
 		 .  '   </div>'
@@ -267,16 +268,16 @@ function jsGAMRender($mobile) {
 		 
 		 .  '  <div id="OLDmadtabs-3">'
 		 .  '   <div class="madtabs-3 tabcontent">'
-		 .  '    <h2 id="handguns">Compacts</h2>'
+		 .  '    <h2 id="handguns">Personal Defense</h2>'
 		 //.  '    <div>'. imo_ad_placement("region1") .'</div>'
 		 .  '    <div class="mreg1"></div>'
-		 .  '    <h2 id="rifles">1911s</h2>'
+		 .  '    <h2 id="rifles">Tactical</h2>'
 		 //.  '    <div>'. imo_ad_placement("region2") .'</div>'
 		 .  '    <div class="mreg3"></div>'
-		 .  '    <h2 id="ar15s">Polymers</h2>'
+		 .  '    <h2 id="ar15s">Hunting</h2>'
 		 //.  '    <div>'. imo_ad_placement("region3") .'</div>'
 		 .  '    <div class="mreg4"></div>'
-		 .  '    <h2 id="shotguns">Bracket Busters</h2>'
+		 .  '    <h2 id="shotguns">Exclusive/Custom</h2>'
 		 //.  '    <div>'. imo_ad_placement("region4") .'</div>'
 		 .  '    <div class="mreg2"></div>' 
 		 .  '   </div>'
@@ -284,16 +285,16 @@ function jsGAMRender($mobile) {
 		 
 		 .  '  <div id="OLDmadtabs-4">'
 		 .  '   <div class="madtabs-4 tabcontent">'
-		 .  '    <h2 id="handguns">Compacts</h2>'
+		 .  '    <h2 id="handguns">Personal Defense</h2>'
 		 //.  '    <div>'. imo_ad_placement("region1") .'</div>'
 		 .  '    <div class="mreg1"></div>'
-		 .  '    <h2 id="rifles">1911s</h2>'
+		 .  '    <h2 id="rifles">Tactical</h2>'
 		 //.  '    <div>'. imo_ad_placement("region2") .'</div>'
 		 .  '    <div class="mreg3"></div>'
-		 .  '    <h2 id="ar15s">Polymers</h2>'
+		 .  '    <h2 id="ar15s">Hunting</h2>'
 		 //.  '    <div>'. imo_ad_placement("region3") .'</div>'
 		 .  '    <div class="mreg4"></div>'
-		 .  '    <h2 id="shotguns">Bracket Busters</h2>'
+		 .  '    <h2 id="shotguns">Exclusive/Custom</h2>'
 		 //.  '    <div>'. imo_ad_placement("region4") .'</div>'
 		 .  '    <div class="mreg2"></div>'
 		 .  '   </div>'
@@ -329,11 +330,12 @@ function jsGAMRender($mobile) {
 	
 
 	$outp.= '<ul class="schedule">'
-		 .  '  <li class="'.(($madnessround==3)? "active-round":"").'">1st Round<div>March 15-22</div></li>'
-		 .  '  <li class="'.(($madnessround==4)? "active-round":"").'">Sweet 16<div>March 22-29</div></li>'
-		 .  '  <li class="'.(($madnessround==5)? "active-round":"").'">Elite 8<div>March 29 - April 4</div></li>'
-		 .  '  <li class="'.(($madnessround==6)? "active-round":"").'">Final Four<div>April 4-7</div></li>'
-		 .  '  <li class="'.(($madnessround==8)? "active-round":"").'">Final Round<div>April 7-11</div></li>'
+		 .  '  <li class="'.(($madnessround==2)? "active-round":"").'">1st Round<div>March 14-19</div></li>'
+		 .  '  <li class="'.(($madnessround==3)? "active-round":"").'">2nd Round<div>March 20-25</div></li>'
+		 .  '  <li class="'.(($madnessround==4)? "active-round":"").'">Sweet 16<div>March 26-31</div></li>'
+		 .  '  <li class="'.(($madnessround==5)? "active-round":"").'">Elite 8<div>April 1-5</div></li>'
+		 .  '  <li class="'.(($madnessround==6)? "active-round":"").'">Final Four<div>April 6-11</div></li>'
+		 .  '  <li class="'.(($madnessround==7)? "active-round":"").'">Final Round<div>April 12-14</div></li>'
 		 .  '</ul>'
 		 //.  wpsocialite_markup()
 		 ;
@@ -363,7 +365,7 @@ function jsGAMRender($mobile) {
 	$outp.= '<div class="ga-madness">'
 		 .  '<div class="region-titles">'
 		 .	'  <div class="region-left">'
-		 .	'    <h2 style="width:300px;">Compacts</h2>'
+		 .	'    <h2 style="width:300px;">Personal Defense</h2>'
 		 .	'		<div id="region1">'
 		 .	'			<script type="text/javascript">'
 		 .	'				googletag.cmd.push(function() { googletag.display("region1"); });'
@@ -371,7 +373,7 @@ function jsGAMRender($mobile) {
 		 .	'		</div>'
 		 .	'  </div>'
 		 .	'  <div class="region-right">'
-		 .	'    <h2>1911s</h2>'
+		 .	'    <h2>Tactical</h2>'
 		 .	'		<div id="region2">'
 	 	 .	'			<script type="text/javascript">'
 	 	 .	'				googletag.cmd.push(function() { googletag.display("region2"); });'
@@ -412,7 +414,7 @@ function jsGAMRender($mobile) {
 		 
 	$outp.= '<div class="region-titles">'
 		 .	'  <div class="region-left">'
-		 .	'    <h2>Polymers</h2>'
+		 .	'    <h2>Hunting</h2>'
 		 .	'		<div id="region3">'		 
 		 .	'	 		<script type="text/javascript">'
 		 .	'	 			googletag.cmd.push(function() { googletag.display("region3"); });'
@@ -420,8 +422,8 @@ function jsGAMRender($mobile) {
 		 .	'	 	</div>'
 		 .	'  </div>'
 		 .	'  <div class="region-right">'
-		 .	'		<div id="region4">'
-		 .	'    <h2>Bracket Busters</h2>'
+		 .	'		<h2>Exclusive/Custom</h2>'
+		 .	'    <div id="region4">'
 		 .	'	 		<script type="text/javascript">'
 		 .	'	 			googletag.cmd.push(function() { googletag.display("region4"); });'
 		 .	'	 		</script>'

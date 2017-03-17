@@ -37,7 +37,6 @@
 
 <div class="wrapper <?php echo $is_tv; ?>">	
 <?php imo_ad_placement("superheader"); ?>
-
 <header class="main-header">
 	<div id="header_wrap" class="header-wrap">
 		<div class="head-inner">
@@ -45,7 +44,7 @@
 				<div class="main-logo">
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" /></a>
 				</div>
-				<div id="h_drop" class="nav-btn">
+				<div id="h_drop" class="nav-btn" resized="false">
 					<div id="nav-icon3"><span></span> <span></span> <span></span> <span></span></div>
 					<span class="menu-head-span">MENU</span>
 				</div>
@@ -107,6 +106,18 @@
 </header>
 <nav id="menu_drop">
 	<div class="menu-container">
+		<header class="header-menu2">
+			<div class="header-inner-m2">
+				<div id="close_m2" class="close-m2">
+					<div class="cross-m2">
+						<div></div>
+						<div></div>
+					</div>
+					<span>CLOSE</span>
+				</div>
+				<span>MENU</span>
+			</div>
+		</header>
 		<div class="menu-inner">
 			<section class="menu-content clearfix">
 			<?php

@@ -17,6 +17,9 @@
 	color: white;
 	cursor: pointer;
 	width: 240px;
+	max-height: 40px;
+    display: block;
+    clear: both;
 }
 
 
@@ -27,4 +30,7 @@
 	}	
 
 
+}
+.hiiiiii {
+	
 }

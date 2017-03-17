@@ -18,7 +18,8 @@ General comments (optional).
 .btn-sm,
 .newsletter fieldset input:last-child,
 .community-nav-below,
-.head-bottom {background-color: #BF1F27;}
+.head-bottom,
+.header-menu2 {background-color: #BF1F27;}
 
 .btn-lg:hover,
 .newsletter fieldset input:last-child:hover {background-color: #d31922;}
