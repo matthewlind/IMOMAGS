@@ -1785,7 +1785,7 @@ nav {
 
 /* Header *******************/
 .head-inner {max-width: 1020px;margin: 0 auto; padding: 17px 0;}
-.main-header, .content, .sponsors-disclaimer {margin: 0 auto;max-width: 1442px;}
+.content, .sponsors-disclaimer {margin: 0 auto;max-width: 1442px;}
 .menu-content {padding-top: 40px;}
 
 }/* end media 1250*/

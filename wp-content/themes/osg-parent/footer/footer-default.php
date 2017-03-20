@@ -13,6 +13,11 @@ if(is_home()){
 		$page = "";
 	$is_custom_img_and_url 	= get_field('is_custom_img_and_url','options');	
 
+$f_url		= '';
+$f_title	= '';
+$f_thumb	= '';
+$foot_post_btn_txt	= '';
+
 if ($is_custom_img_and_url) {
 	$f_img		= get_field('foot_post_img','options');
 	$f_img		= $f_img['sizes']['list-thumb'];	
@@ -22,11 +27,13 @@ if ($is_custom_img_and_url) {
 	$foot_post_btn_txt	= get_field('foot_post_btn_txt','options'); 
 } else {
 	$f_post 	= get_field('footer_post_or_page','options' );
-	$f_p_id		= $f_post[0];
-	$f_url		= get_permalink($f_p_id);
-	$f_title	= get_the_title($f_p_id);
-	$f_thumb	= get_the_post_thumbnail($f_p_id,"list-thumb");
-	$foot_post_btn_txt	= 'Read Now!';
+	if ($f_post) {
+		$f_p_id		= $f_post[0];
+		$f_url		= get_permalink($f_p_id);
+		$f_title	= get_the_title($f_p_id);
+		$f_thumb	= get_the_post_thumbnail($f_p_id,"list-thumb");
+		$foot_post_btn_txt	= 'Read Now!';
+	}
 }
 
 $site_name = str_replace('Magazine', '', get_bloginfo('name'));

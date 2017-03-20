@@ -37,7 +37,9 @@ if( !is_single() ){
 	)); 
 }
 while (have_posts()) : the_post();
-	$video_id = get_post_meta(get_the_ID(), '_video_id', TRUE); ?>
+	$video_id = get_post_meta(get_the_ID(), '_video_id', TRUE); 
+	$thumb_url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+	?>
 	<!-- script loading smaller image for mobile devices -->
 	<script typ="text/javascript">
 	    jQuery(document).ready(function(){
@@ -66,7 +68,7 @@ while (have_posts()) : the_post();
 				</div><!-- end of .video-player-wrap -->
 				<div id="description-area">
 					<div class="unify">
-						<h1 class="video-title" data-videoid="<?php echo $video_id; ?>" data-slug="<?php echo $post->post_name;?>"><?php the_title(); ?></h1>
+						<h1 class="video-title" data-videoid="<?php echo $video_id; ?>" data-slug="<?php echo $post->post_name;?>" data-img_url="<?php echo $thumb_url; ?>" data-post_url="<?php echo get_permalink(); ?>"><?php the_title(); ?></h1>
 						<div class="social-single <?php echo $fb_zero; ?>">
 							<ul>
 								<li><a id="fb_btn" href="http://www.facebook.com/sharer/sharer.php?u=<?php echo $permalink; ?>&title=<?php the_title(); ?>" target="_blank"><i class="icon-facebook"></i><span>Share</span></a><b id="facebook_count" title="Facebook share count"><?php echo $fb_count; ?></b></li>
